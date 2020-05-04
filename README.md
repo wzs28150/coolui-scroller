@@ -5,7 +5,7 @@
  * @Author: wzs
  * @Date: 2020-05-01 16:06:20
  * @LastEditors: wzs
- * @LastEditTime: 2020-05-04 10:34:08
+ * @LastEditTime: 2020-05-04 11:05:03
  -->
 
 # Scroll 上拉刷新下拉加载
@@ -40,7 +40,7 @@
 <div class="clearfix" style="float:left">
 
 #### 天猫动画背景
-<img src="http://coolui.coolwl.cn/assets/scroll3.gif" style="width:375px" />
+<img src="http://coolui.coolwl.cn/assets/scroll31.gif" style="width:375px" />
 </div>
 
 
