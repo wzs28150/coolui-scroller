@@ -184,7 +184,6 @@ Page({
       }, 300);
     } else {
       setTimeout(() => {
-        console.log(that.data.scrollJd.page , that.data.scrollJd.totalPage)
         if (that.data.scrollJd.page < that.data.scrollJd.totalPage) {
           let scrollJd = that.data.scrollJd
           scrollJd.page = page
