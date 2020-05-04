@@ -5,18 +5,18 @@
  * @Author: wzs
  * @Date: 2020-05-01 16:06:20
  * @LastEditors: wzs
- * @LastEditTime: 2020-05-04 11:05:03
+ * @LastEditTime: 2020-05-04 11:07:14
  -->
 
 # Scroll 上拉刷新下拉加载
 
 ### 引入
 
-在`app.json`或`index.json`中引入组件，详细介绍见[快速上手](#/quickstart#yin-ru-zu-jian)
+在`app.json`或`index.json`中引入组件
 
 ```json
 "usingComponents": {
-  "coolui-scroll": "coolui-weapp-components/scroll/index"
+  "coolui-scroll": "./dist/scroll/index"
 }
 ```
 ### 示例
