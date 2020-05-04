@@ -1,14 +1,9 @@
-<!--
- * @Title:
- * @Descripttion:
- * @version:
- * @Author: wzs
- * @Date: 2020-05-01 16:06:20
- * @LastEditors: wzs
- * @LastEditTime: 2020-05-04 11:07:14
- -->
 
 # Scroll 上拉刷新下拉加载
+
+### 前言
+> 基于小程序原生组件scroll-view的扩展与封装,实现简单的上拉加载下拉刷新
+> 扩展下拉刷新动画，有灵感的朋友可以丰富更多下拉动画
 
 ### 引入
 
@@ -20,7 +15,6 @@
 }
 ```
 ### 示例
-
 
 <div style="overflow:hidden;clear:both">
 <div class="clearfix" style="float:left">
@@ -84,6 +78,8 @@ scroll: {
 ```
 ### 数据加载
 ```js
+// 模拟数据
+let listData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 // 加载数据
 onShow: function () {
     // 页面加载时执行一次加载
@@ -93,10 +89,6 @@ getData: function (type, page) {
   let that = this
   let list = that.data.list;
   if (type == 'refresh') {
-    let listData = []
-    for (let i = 0; i < 10; i++) {
-      listData.push(i);
-    }
     let scroll = that.data.scroll
     scroll.page = page
     setTimeout(() => {
@@ -106,10 +98,6 @@ getData: function (type, page) {
       });
     }, 300);
   } else {
-    let listData = []
-    for (let i = 0; i < 10; i++) {
-      listData.push(i);
-    }
     let scroll = that.data.scroll
     scroll.page = page
     setTimeout(() => {
@@ -134,7 +122,7 @@ refresh: function () {
 ```js
 // 上拉加载
 loadMore: function () {
-  this.getData('loadMore', this.data.scroll.page <= this.data.scroll.totalPage ? this.data.scroll.page + 1 : this.data.scroll.page)
+  this.getData('loadMore', this.data.scroll.page + 1)
 },
 ```
 ### 设置下拉刷新样式
