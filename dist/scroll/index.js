@@ -7,7 +7,9 @@
  * @LastEditors: wzs
  * @LastEditTime: 2020-05-04 00:57:11
  */
-import { CooluiComponent } from '../common/component';
+import {
+    CooluiComponent
+} from '../common/component';
 CooluiComponent({
     props: {
         page: {
@@ -109,8 +111,7 @@ CooluiComponent({
                 let upTitle = '';
                 if (p < 0.5) {
                     upTitle = '下拉刷新';
-                }
-                else {
+                } else {
                     upTitle = '释放加载';
                 }
                 this.setData({
@@ -120,18 +121,22 @@ CooluiComponent({
                 });
             }, 300);
         },
-        lower: function () {
+        lower: function (e) {
+            // console.log(e)
             if (this.data.page <= this.data.totalPage) {
                 this.triggerEvent("loadMore");
             }
         },
         scroll: function (e) {
+            this.triggerEvent("scrolling", {
+                scrollTop: e.detail.scrollTop
+            });
             if (this.data.page < this.data.totalPage) {
                 this.setData({
                     isNoneLoading: false,
                 });
-            }
-            else {
+
+            } else {
                 this.setData({
                     isNoneLoading: true,
                 });

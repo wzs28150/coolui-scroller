@@ -10,6 +10,7 @@
 			<view wx:if="{{isNoneLoading}}" class="isLoadMoreLoading">
 				没有更多了
 			</view>
+			<block wx:elif="{{page == totalPage && totalPage == 1}}"></block>
 			<view wx:else class="isLoadMoreLoading">
 				<image class="ico" mode="aspectFill" src="http://upload-images.jianshu.io/upload_images/5726812-95bd7570a25bd4ee.gif"></image>
 				上拉加载中
@@ -40,6 +41,7 @@
 			<view wx:if="{{isNoneLoading}}" class="isLoadMoreLoading">
 				没有更多了
 			</view>
+			<block wx:elif="{{page == totalPage && totalPage == 1}}"></block>
 			<view wx:else class="isLoadMoreLoading">
 				<image class="ico" mode="aspectFill" src="http://upload-images.jianshu.io/upload_images/5726812-95bd7570a25bd4ee.gif"></image>
 				上拉加载中

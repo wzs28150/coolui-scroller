@@ -1,15 +1,17 @@
 /* pages/mescroll/index.wxss */
-.scroll-demo1{
-    height: 40vh;
-    
+.scroll-demo1 {
+    height: calc(100vh - 120rpx);
+
 }
-.item{
+
+.item {
     text-align: center;
-    line-height: calc(8vh - 1rpx);
+    line-height: calc((100vh - 120rpx)/10 - 1rpx);
     background-color: #fff;
     margin-bottom: 1rpx;
 }
-.refresh{
+
+.refresh {
     width: 100%;
     height: 100%;
     display: flex;
@@ -17,13 +19,15 @@
     justify-content: center;
     font-size: 28rpx;
 }
-.wapper{
+
+.wapper {
     width: 26px;
     height: 40px;
     margin-right: 20rpx;
     position: relative;
 }
-.moveimg{
+
+.moveimg {
     width: 26px;
     height: 40px;
     background-size: cover;
@@ -32,7 +36,8 @@
     left: 0;
     top: 0;
 }
-.moveimg2{
+
+.moveimg2 {
     width: 26px;
     height: 40px;
     background-size: cover;
@@ -41,6 +46,7 @@
     left: 0;
     top: 0;
 }
+
 .img {
     width: 26px;
     height: 40px;
@@ -50,6 +56,84 @@
 }
 
 @keyframes play {
-    from { background-position:    0px 0px; }
-    to { background-position: -81px 0px; }
+    from {
+        background-position: 0px 0px;
+    }
+
+    to {
+        background-position: -81px 0px;
+    }
 }
+
+.huojian-refresh {
+    position: relative;
+}
+
+.yuan {
+    width: 150vw;
+    height: 150vw;
+    background-color: #59627c;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    /* transition: all .4s; */
+}
+
+.yuan.on {
+    border-radius: 0 !important;
+    /* transition: all .4s; */
+}
+
+.yun {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .4s;
+    background-image: url("http://coolui.coolwl.cn/assets/yun.png");
+    background-repeat: no-repeat;
+    background-size: auto 20%;
+    background-position: center bottom;
+    opacity: 1;
+    transition: all .4s;
+}
+
+.yun.on {
+    opacity: 0;
+    transition: all .4s;
+}
+
+.huojian {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .4s;
+    background-image: url("http://coolui.coolwl.cn/assets/huojian.png");
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    background-position: center 55%;
+    transition: all .4s;
+}
+
+.huojian.on {
+    transform: translateX(-50%) translateY(-200%);
+    transition: all .4s;
+}
+
+/* .right-to-left {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.4s;
+}
+
+.an.right-to-left {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.4s;
+} */
