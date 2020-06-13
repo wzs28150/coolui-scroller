@@ -49,6 +49,8 @@ Page({
     limitTop: 0,
     limitBottom: 0,
     canvasShow: false,
+    limit: 10,
+    itemHeight: 0,
     scroll: {
       page: 1,
       totalPage: 10,
@@ -123,7 +125,17 @@ Page({
           list: listData,
           scroll: scroll
         });
-        this.scroll()
+        const query = wx.createSelectorQuery()
+        query.selectAll('.right-to-left').boundingClientRect()
+        query.select('.an-demo').boundingClientRect()
+        query.exec(function (res) {
+          that.setData({
+            itemHeight: res[0][0].height,
+            limitTop: res[1].top - 10,
+            limitBottom: res[1].bottom
+          })
+        })
+        // that.scroll()
       }, 300);
     } else {
       let scroll = that.data.scroll
@@ -134,50 +146,47 @@ Page({
             list: list.concat(listData),
             scroll: scroll
           });
-          // this.scroll()
+          // that.scroll()
         }
       }, 1000);
     }
   },
   scroll: function (e) {
     // let ev = e
-    // setTimeout(() => {
-    //   let that = this
-    //   const query = wx.createSelectorQuery()
-    //   query.selectAll('.right-to-left').boundingClientRect()
-    //   query.select('.an-demo').boundingClientRect()
-    //   query.exec(function (res) {
-    //     // console.log(res[0])
-    //     // console.log(res[1])
-    //     // res[0].top // #the-id节点的上边界坐标
-    //     // that.setData({
-    //     //   itemHeight: res[0].height
-    //     // })
-    //     let i = parseInt(e.detail.scrollTop / res[0][0].height)
-    //     that.setData({
-    //       limitTop: res[1].top - 10,
-    //       limitBottom: res[1].bottom
+    let that = this
+    let list = that.data.list
 
-    //     })
-    //     let list = that.data.list
-    //     console.log(i)
-    //     console.log(list)
+    for (let i = 0; i < that.data.limit * that.data.scroll.page; i++) {
+      setTimeout(() => {
+        list[i].status = true
+        that.setData({
+          list: list
+        })
+      }, 100 * i);
 
-    //     // res[0].forEach((item, index) => {
-    //     //   if (item.top < res[1].bottom - 50 && item.top >= (res[1].top - 10)) {
-    //     //     list[index].status = true
-    //     //     list[index].top = item.top
-    //     //     list[index].scrollTop = ev ? ev.detail.scrollTop : 0
-    //     //     list[index].bottom = item.bottom
-    //     //   }
-    //     // })
-    //     console.log(list);
+    }
+    // let list = that.data.list
+    // list.forEach((item, index) => {
+    //   // console.log(index)
+    //   if (index < 10) {
+    //     // console.log(index)
+    //     // list[index].status = true
+    //   } else {
+    //     // list[i].status = false
+    //     if (e.detail.scrollTop) {
+    //       console.log(parseInt(e.detail.scrollTop / that.data.itemHeight))
+    //       let i = parseInt(e.detail.scrollTop / that.data.itemHeight);
+    //       setTimeout(() => {
+    //         list[i].status = true
+    //       }, 1000)
 
-    //     that.setData({
-    //       list: list
-    //     })
-    //   })
-    // }, 300);
+    //     }
+
+    //   }
+
+    // })
+
+
 
 
   },
@@ -324,8 +333,8 @@ Page({
           canvasList: listData,
           scrollCanvas: scrollCanvas
         });
-        if (wxCanvas)
-          wxCanvas.clear();
+        // if (wxCanvas)
+        //   wxCanvas.clear();
 
       }, 300);
     } else {

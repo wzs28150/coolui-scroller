@@ -9,7 +9,7 @@
 
 <block wx:if="{{active == 0}}">
 	<view class="scroll-demo1 an-demo">
-		<coolui-scroll page="{{scroll.page}}" totalPage="{{scroll.totalPage}}" bindrefresh="refresh" bindloadMore="loadMore" refreshStyle="black" refreshBackground="#f2f2f2" isEmpty="{{list.length}}" emptyImg="{{scroll.emptyImg}}" bindscrolling="scroll">
+		<coolui-scroll page="{{scroll.page}}" totalPage="{{scroll.totalPage}}" bindrefresh="refresh" bindloadMore="loadMore" refreshStyle="black" refreshBackground="#f2f2f2" isEmpty="{{list.length}}" emptyImg="{{scroll.emptyImg}}">
 			<view class="list-inner" slot="inner">
 				<view class="item {{item.status?'an':''}} right-to-left" wx:for="{{list}}" wx:key="unique">
 					第{{index + 1}}条内容
