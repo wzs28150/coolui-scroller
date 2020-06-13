@@ -43,6 +43,12 @@
 #### 京东下拉
 <img src="http://coolui.coolwl.cn/assets/scroll4.gif" style="width:375px" />
 </div>
+
+<div class="clearfix" style="float:right">
+
+#### 弹射火箭
+<img src="http://coolui.coolwl.cn/assets/scroll5.gif" style="width:375px" />
+</div>
 </div>
 
 ## 基础用法代码演示
