@@ -20,34 +20,34 @@
 <div class="clearfix" style="float:left">
 
 #### 基础用法
-<img src="http://coolui.coolwl.cn/assets/scroll1.gif" style="width:375px" />
+<img src="http://coolui.coolwl.cn/assets/scroll1.gif?v=1" style="width:375px" />
 </div>
 
 
 <div class="clearfix" style="float:right">
 
 #### 升级用法
-<img src="http://coolui.coolwl.cn/assets/scroll2.gif" style="width:375px" />
+<img src="http://coolui.coolwl.cn/assets/scroll2.gif?v=1" style="width:375px" />
 </div>
 </div>
 <div style="overflow:hidden;clear:both">
 <div class="clearfix" style="float:left">
 
 #### 天猫动画背景
-<img src="http://coolui.coolwl.cn/assets/scroll31.gif" style="width:375px" />
+<img src="http://coolui.coolwl.cn/assets/scroll31.gif?v=1" style="width:375px" />
 </div>
 
 
 <div class="clearfix" style="float:right">
 
 #### 京东下拉
-<img src="http://coolui.coolwl.cn/assets/scroll4.gif" style="width:375px" />
+<img src="http://coolui.coolwl.cn/assets/scroll4.gif?v=1" style="width:375px" />
 </div>
 
 <div class="clearfix" style="float:right">
 
 #### 弹射火箭
-<img src="http://coolui.coolwl.cn/assets/scroll5.gif" style="width:375px" />
+<img src="http://coolui.coolwl.cn/assets/scroll5.gif?v=1" style="width:375px" />
 </div>
 </div>
 
