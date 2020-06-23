@@ -34,7 +34,7 @@
 <div class="clearfix" style="float:left">
 
 #### 天猫动画背景
-<img src="http://coolui.coolwl.cn/assets/scroll31.gif?v=1" style="width:375px" />
+<img src="http://coolui.coolwl.cn/assets/scroll3.gif?v=1" style="width:375px" />
 </div>
 
 
