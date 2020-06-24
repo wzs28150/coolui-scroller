@@ -1,15 +1,26 @@
 <coolui-tabs active="{{ active }}" bind:change="change">
-	<coolui-tab title="基础用法"></coolui-tab>
-	<coolui-tab title="升级用法"></coolui-tab>
-	<coolui-tab title="天猫动画"></coolui-tab>
-	<coolui-tab title="京东下拉"></coolui-tab>
-	<coolui-tab title="弹射火箭"></coolui-tab>
-	<coolui-tab title="canvas"></coolui-tab>
+
+	<coolui-tab title="基础用法" />
+	<coolui-tab title="升级用法" />
+	<coolui-tab title="天猫动画" />
+	<coolui-tab title="京东下拉" />
+	<coolui-tab title="弹射火箭" />
+	<coolui-tab title="canvas" />
+	<coolui-tab title="端午安康" />
 </coolui-tabs>
 
 <block wx:if="{{active == 0}}">
 	<view class="scroll-demo1 an-demo">
-		<coolui-scroll page="{{scroll.page}}" totalPage="{{scroll.totalPage}}" bindrefresh="refresh" bindloadMore="loadMore" refreshStyle="black" refreshBackground="#f2f2f2" isEmpty="{{list.length}}" emptyImg="{{scroll.emptyImg}}">
+		<coolui-scroll
+		 page="{{scroll.page}}"
+		 totalPage="{{scroll.totalPage}}"
+		 bindrefresh="refresh"
+		 bindloadMore="loadMore"
+		 refreshStyle="black"
+		 refreshBackground="#f2f2f2"
+		 isEmpty="{{list.length}}"
+		 emptyImg="{{scroll.emptyImg}}"
+		>
 			<view class="list-inner" slot="inner">
 				<view class="item {{item.status?'an':''}} right-to-left" wx:for="{{list}}" wx:key="unique">
 					第{{index + 1}}条内容
@@ -20,7 +31,20 @@
 </block>
 <block wx:elif="{{active == 1}}">
 	<view class="scroll-demo1" hover-class="none" hover-stop-propagation="false">
-		<coolui-scroll page="{{scrollDiy.page}}" totalPage="{{scrollDiy.totalPage}}" bindrefresh="refreshDiy" bindloadMore="loadMoreDiy" isEmpty="{{diyList.length}}" emptyImg="{{scrollDiy.emptyImg}}" type="diy" refreshStyle="black" refreshBackground="#f2f2f2" refreshthreshold="{{70}}" refreshBackgroundImage="{{scrollDiy.refreshBackgroundImage}}" refreshColor="{{scrollDiy.refreshColor}}">
+		<coolui-scroll
+		 page="{{scrollDiy.page}}"
+		 totalPage="{{scrollDiy.totalPage}}"
+		 bindrefresh="refreshDiy"
+		 bindloadMore="loadMoreDiy"
+		 isEmpty="{{diyList.length}}"
+		 emptyImg="{{scrollDiy.emptyImg}}"
+		 type="diy"
+		 refreshStyle="black"
+		 refreshBackground="#f2f2f2"
+		 refreshthreshold="{{70}}"
+		 refreshBackgroundImage="{{scrollDiy.refreshBackgroundImage}}"
+		 refreshColor="{{scrollDiy.refreshColor}}"
+		>
 			<view class="list-inner" slot="inner">
 				<view class="item" wx:for="{{diyList}}" wx:key="unique">
 					第{{index + 1}}条内容
@@ -31,7 +55,21 @@
 </block>
 <block wx:elif="{{active == 2}}">
 	<view class="scroll-demo1">
-		<coolui-scroll page="{{scrollTm.page}}" totalPage="{{scrollTm.totalPage}}" bindrefresh="refreshTm" bindloadMore="loadMoreTm" isEmpty="{{tmList.length}}" emptyImg="{{scrollTm.emptyImg}}" type="diy" refreshStyle="black" refreshBackground="#f2f2f2" refreshTitleShow="{{false}}" refreshthreshold="{{90}}" refreshBackgroundImage="{{scrollTm.refreshBackgroundImage}}" refreshColor="{{scrollTm.refreshColor}}">
+		<coolui-scroll
+		 page="{{scrollTm.page}}"
+		 totalPage="{{scrollTm.totalPage}}"
+		 bindrefresh="refreshTm"
+		 bindloadMore="loadMoreTm"
+		 isEmpty="{{tmList.length}}"
+		 emptyImg="{{scrollTm.emptyImg}}"
+		 type="diy"
+		 refreshStyle="black"
+		 refreshBackground="#f2f2f2"
+		 refreshTitleShow="{{false}}"
+		 refreshthreshold="{{90}}"
+		 refreshBackgroundImage="{{scrollTm.refreshBackgroundImage}}"
+		 refreshColor="{{scrollTm.refreshColor}}"
+		>
 			<view class="list-inner" slot="inner">
 				<view class="item" wx:for="{{tmList}}" wx:key="unique">
 					第{{index + 1}}条内容
@@ -42,13 +80,26 @@
 </block>
 <block wx:elif="{{active == 3}}">
 	<view class="scroll-demo1">
-		<coolui-scroll page="{{scrollJd.page}}" totalPage="{{scrollJd.totalPage}}" bindrefresh="refreshJd" bindloadMore="loadMoreJd" bindrefreshPulling="refreshPulling" isEmpty="{{jdList.length}}" emptyImg="{{scrollJd.emptyImg}}" type="diy" refreshDiy="{{true}}" refreshStyle="black" refreshBackground="#f2f2f2" refreshthreshold="{{60}}">
+		<coolui-scroll
+		 page="{{scrollJd.page}}"
+		 totalPage="{{scrollJd.totalPage}}"
+		 bindrefresh="refreshJd"
+		 bindloadMore="loadMoreJd"
+		 bindrefreshPulling="refreshPulling"
+		 isEmpty="{{jdList.length}}"
+		 emptyImg="{{scrollJd.emptyImg}}"
+		 type="diy"
+		 refreshDiy="{{true}}"
+		 refreshStyle="black"
+		 refreshBackground="#f2f2f2"
+		 refreshthreshold="{{60}}"
+		>
 			<view class="refresh" slot="refresh">
 				<view class="wapper">
-					<view class="img" wx:if="{{scrollJd.p == 1}}"></view>
+					<view class="img" wx:if="{{scrollJd.p == 1}}" />
 					<block wx:else>
-						<view class="moveimg" style="transform: scale({{scrollJd.p}}) translateX({{-100 + scrollJd.p * 100}}px);"></view>
-						<view class="moveimg2" style="transform: translateY({{-100 + scrollJd.p * 100}}px);"></view>
+						<view class="moveimg" style="transform: scale({{scrollJd.p}}) translateX({{-100 + scrollJd.p * 100}}px);" />
+						<view class="moveimg2" style="transform: translateY({{-100 + scrollJd.p * 100}}px);" />
 					</block>
 				</view>
 				<view class="text">让购物更便捷</view>
@@ -63,11 +114,24 @@
 </block>
 <block wx:elif="{{active == 4}}">
 	<view class="scroll-demo1">
-		<coolui-scroll page="{{scrollHuojian.page}}" totalPage="{{scrollHuojian.totalPage}}" bindrefresh="refreshHuojian" bindloadMore="loadMoreHuojian" bindrefreshPulling="refreshHuojianPulling" isEmpty="{{huojianList.length}}" emptyImg="{{scrollHuojian.emptyImg}}" type="diy" refreshDiy="{{true}}" refreshStyle="black" refreshBackground="#fff" refreshthreshold="{{100}}">
+		<coolui-scroll
+		 page="{{scrollHuojian.page}}"
+		 totalPage="{{scrollHuojian.totalPage}}"
+		 bindrefresh="refreshHuojian"
+		 bindloadMore="loadMoreHuojian"
+		 bindrefreshPulling="refreshHuojianPulling"
+		 isEmpty="{{huojianList.length}}"
+		 emptyImg="{{scrollHuojian.emptyImg}}"
+		 type="diy"
+		 refreshDiy="{{true}}"
+		 refreshStyle="black"
+		 refreshBackground="#fff"
+		 refreshthreshold="{{100}}"
+		>
 			<view class="refresh huojian-refresh" slot="refresh">
-				<view class="yuan {{scrollHuojian.p == 1?'on':''}}" style="border-radius: {{(scrollHuojian.p) * 150}}vw;"></view>
-				<view class="huojian {{scrollHuojian.p == 1?'on':''}}"></view>
-				<view class="yun {{scrollHuojian.p == 1?'on':''}}"></view>
+				<view class="yuan {{scrollHuojian.p == 1?'on':''}}" style="border-radius: {{(scrollHuojian.p) * 150}}vw;" />
+				<view class="huojian {{scrollHuojian.p == 1?'on':''}}" />
+				<view class="yun {{scrollHuojian.p == 1?'on':''}}" />
 			</view>
 			<view class="list-inner" slot="inner">
 				<view class="item" wx:for="{{huojianList}}" wx:key="unique">
@@ -79,7 +143,20 @@
 </block>
 <block wx:elif="{{active == 5}}">
 	<view class="scroll-demo1">
-		<coolui-scroll page="{{scrollCanvas.page}}" totalPage="{{scrollCanvas.totalPage}}" bindrefresh="refreshCanvas" bindloadMore="loadMoreCanvas" bindrefreshPulling="refreshCanvasPulling" isEmpty="{{canvasList.length}}" emptyImg="{{scrollCanvas.emptyImg}}" type="diy" refreshDiy="{{true}}" refreshStyle="black" refreshBackground="#f2f2f2" refreshthreshold="{{60}}">
+		<coolui-scroll
+		 page="{{scrollCanvas.page}}"
+		 totalPage="{{scrollCanvas.totalPage}}"
+		 bindrefresh="refreshCanvas"
+		 bindloadMore="loadMoreCanvas"
+		 bindrefreshPulling="refreshCanvasPulling"
+		 isEmpty="{{canvasList.length}}"
+		 emptyImg="{{scrollCanvas.emptyImg}}"
+		 type="diy"
+		 refreshDiy="{{true}}"
+		 refreshStyle="black"
+		 refreshBackground="#f2f2f2"
+		 refreshthreshold="{{60}}"
+		>
 			<view class="refresh" slot="refresh">
 				尽请期待~
 				<!-- <canvas style="width: 100%; height: 100%;" canvas-id="textA" disable-scroll="{{true}}" bindlongpress="bindlongpress"></canvas> -->
@@ -92,3 +169,29 @@
 		</coolui-scroll>
 	</view>
 </block>
+<block wx:elif="{{active == 6}}">
+	<view class="scroll-demo1 duanwu">
+		<coolui-scroll
+		 page="{{scrollDuanwu.page}}"
+		 totalPage="{{scrollDuanwu.totalPage}}"
+		 bindrefresh="refreshTm"
+		 bindloadMore="loadMoreTm"
+		 isEmpty="{{tmList.length}}"
+		 emptyImg="{{scrollDuanwu.emptyImg}}"
+		 type="diy"
+		 refreshStyle="black"
+		 refreshBackground="#f2f2f2"
+		 refreshTitleShow="{{false}}"
+		 refreshthreshold="{{90}}"
+		 refreshBackgroundImage="{{scrollDuanwu.refreshBackgroundImage}}"
+		 refreshColor="{{scrollDuanwu.refreshColor}}"
+		>
+			<view class="list-inner" slot="inner">
+				<view class="item" wx:for="{{tmList}}" wx:key="unique">
+					第{{index + 1}}条内容
+				</view>
+			</view>
+		</coolui-scroll>
+	</view>
+</block>
+

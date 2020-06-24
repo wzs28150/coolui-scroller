@@ -126,6 +126,11 @@
     transition: all .4s;
 }
 
+.duanwu .refresh-container{
+    background-size: 60%!important;
+    background-position: center;
+}
+
 /* .right-to-left {
     opacity: 0;
     transform: translateX(100%);

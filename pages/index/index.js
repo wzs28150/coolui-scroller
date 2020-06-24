@@ -5,7 +5,7 @@
  * @Author: wzs
  * @Date: 2020-05-01 16:13:05
  * @LastEditors: wzs
- * @LastEditTime: 2020-05-02 14:08:30
+ * @LastEditTime: 2020-06-24 23:25:01
  */
 let listData = [{
   id: 1,
@@ -86,6 +86,12 @@ Page({
       totalPage: 10,
       emptyImg: 'http://coolui.coolwl.cn/assets/mescroll-empty.png',
       p: 0
+    },
+    scrollDuanwu: {
+      page: 1,
+      totalPage: 10,
+      emptyImg: 'http://coolui.coolwl.cn/assets/mescroll-empty.png',
+      refreshBackgroundImage: 'http://coolui.coolwl.cn/assets/duanwu.gif'
     },
     list: [],
     diyList: [],
