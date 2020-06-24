@@ -51,6 +51,12 @@
 #### 弹射火箭
 <img src="http://coolui.coolwl.cn/assets/scroll5.gif?v=1" style="width:375px" />
 </div>
+
+<div class="clearfix" style="float:right">
+
+#### 端午安康(2020.06.24 新增端午下拉动画祝大家端午安康~)
+<img src="http://coolui.coolwl.cn/assets/scroll6.gif?v=1" style="width:375px" />
+</div>
 </div>
 
 ## 基础用法代码演示
