@@ -1,0 +1,12 @@
+<!--
+ * @Title: touch触摸组件
+ * @Descripttion: 触摸组件 左滑 右滑
+ * @version: 1.0.0
+ * @Author: wzs
+ * @Date: 2020-05-25 22:24:29
+ * @LastEditors: wzs
+ * @LastEditTime: 2020-05-25 22:28:44
+--> 
+<view class="touchpannel" bindtouchstart='touchStart' bindtouchmove='touchMove' bindtouchend='touchEnd' >
+	<slot></slot>
+</view>

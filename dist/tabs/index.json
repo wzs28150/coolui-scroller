@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "coolui-info": "../info/index",
+    "coolui-sticky": "../sticky/index"
+  }
+}

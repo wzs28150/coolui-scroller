@@ -1,0 +1,1 @@
+.coolui-clearfix:after{display:table;clear:both;content:""}
