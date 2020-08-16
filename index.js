@@ -5,66 +5,42 @@
  * @Author: wzs
  * @Date: 2020-05-01 16:06:20
  * @LastEditors: wzs
- * @LastEditTime: 2020-05-04 00:57:11
+ * @LastEditTime: 2020-08-16 15:52:59
  */
-import {
-    CooluiComponent
-} from '../common/component';
-CooluiComponent({
-    props: {
-        page: {
-            type: Number,
-            value: 0,
-        },
-        totalPage: {
-            type: Number,
-            value: 0,
-        },
-        isEmpty: {
-            type: Number,
-            value: 0,
-        },
-        scrollHeight: {
-            type: String,
-            value: '100%',
-        },
-        type: {
-            type: String,
-            value: 'default',
-        },
-        refreshStyle: {
-            type: String,
-            value: 'black',
-        },
-        refreshBackground: {
-            type: String,
-            value: '#f2f2f2',
-        },
-        refreshthreshold: {
-            type: Number,
-            value: 45,
-        },
-        refreshBackgroundImage: {
-            type: String,
-            value: '',
-        },
-        refreshColor: {
-            type: String,
-            value: '#999999',
-        },
-        refreshTitleShow: {
-            type: Boolean,
-            value: true,
-        },
-        refreshDiy: {
-            type: Boolean,
-            value: false,
-        },
-        emptyImg: {
-            type: String,
-            value: '',
-        },
+Component({
+    options: {
+        multipleSlots: true,
+        addGlobalClass: true,
     },
+    behaviors: [],
+
+    // 属性定义（详情参见下文）
+    properties: {
+        scrollOption: {
+            type: Object,
+            value: {
+                pagination: {
+                    page: 1,
+                    totalPage: 0,
+                    limit: 0,
+                    length:0
+                },
+                empty: {
+                    img: 'http://coolui.coolwl.cn/assets/mescroll-empty.png'
+                },
+                refresh: {
+                    type: 'default'
+                },
+                loadmore: {
+                    type: 'default'
+                }
+            }
+        },
+        background: {
+            type: String
+        }
+    },
+
     data: {
         isRefreshLoading: false,
         isNoneLoading: false,
@@ -80,6 +56,7 @@ CooluiComponent({
             });
         },
         onRefresh() {
+            console.log(this.data.scrollOption)
             if (this._freshing)
                 return;
             this._freshing = true;
@@ -92,7 +69,7 @@ CooluiComponent({
         },
         onRestore(e) {
             this.triggerEvent("refresh", {
-                page: this.data.page,
+                page: this.data.scrollOption.pagination.page,
             });
             setTimeout(() => {
                 this.setData({
@@ -123,7 +100,7 @@ CooluiComponent({
         },
         lower: function (e) {
             // console.log(e)
-            if (this.data.page <= this.data.totalPage) {
+            if (this.data.scrollOption.pagination.page <= this.data.scrollOption.pagination.totalPage) {
                 this.triggerEvent("loadMore");
             }
         },
@@ -131,7 +108,7 @@ CooluiComponent({
             this.triggerEvent("scrolling", {
                 scrollTop: e.detail.scrollTop
             });
-            if (this.data.page < this.data.totalPage) {
+            if (this.data.scrollOption.pagination.page < this.data.scrollOption.pagination.totalPage) {
                 this.setData({
                     isNoneLoading: false,
                 });
@@ -143,4 +120,5 @@ CooluiComponent({
             }
         },
     }
-});
+
+})

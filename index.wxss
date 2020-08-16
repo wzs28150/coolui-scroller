@@ -1,5 +1,3 @@
-@import '../common/index.wxss';
-
 .scroll {
   /* position: relative; */
   overflow: hidden;
