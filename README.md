@@ -7,13 +7,21 @@
 > 基于小程序原生组件scroll-view的扩展与封装,实现简单的上拉加载下拉刷新
 > 扩展下拉刷新动画，有灵感的朋友可以丰富更多下拉动画
 
+### 演示片段
+> https://developers.weixin.qq.com/s/UIJgxDm37DjV
+
+### npm 安装 安装之后开发者工具点击npm构建
+```
+npm i coolui-scroller --production
+```
+
 ### 引入
 
 在`app.json`或`index.json`中引入组件
 
 ```json
 "usingComponents": {
-  "coolui-scroll": "./dist/scroll/index"
+  "coolui-scroll": "coolui-scroller/scroll/index",
 }
 ```
 ### 示例
