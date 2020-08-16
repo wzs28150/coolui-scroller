@@ -1,9 +1,6 @@
 {
   "pages": [
-
-    "pages/index/index",
-    "pages/list/index"
-
+    "pages/index/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f8f8f8",
@@ -13,7 +10,7 @@
     "backgroundColor": "#f8f8f8"
   },
   "usingComponents": {
-    "coolui-scroll": "./dist/scroll/index",
+    "coolui-scroll": "./coolui_scroll/scroll/index",
     "demo-block": "./dist/demo-block/index",
     "coolui-touch": "./dist/touch/index",
     "coolui-tabs": "./dist/tabs/index",

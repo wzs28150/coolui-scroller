@@ -1,0 +1,1 @@
+.coolui-ellipsis{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.coolui-multi-ellipsis--l2{-webkit-line-clamp:2}.coolui-multi-ellipsis--l2,.coolui-multi-ellipsis--l3{display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-box-orient:vertical}.coolui-multi-ellipsis--l3{-webkit-line-clamp:3}

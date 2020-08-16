@@ -1,0 +1,51 @@
+<block wx:if="{{type == 'default'}}">
+	<scroll-view scroll-y class="scroll" refresher-enabled="{{true}}" refresher-threshold="{{100}}" refresher-default-style="{{refreshStyle}}" refresher-background="{{refreshBackground}}" refresher-triggered="{{triggered}}" bindrefresherpulling="onPulling" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore" bindscrolltolower="lower" bindscroll="scroll" style="height:{{scrollHeight}}">
+		<view class="inner-empty" wx:if="{{isEmpty==0 && !isRefreshLoading}}">
+			<image src="{{emptyImg}}" class="empty-img" mode="aspectFill"></image>
+		</view>
+		<view class="inner" wx:else>
+			<slot name="inner"></slot>
+		</view>
+		<block wx:if="{{isEmpty!==0 }}">
+			<view wx:if="{{isNoneLoading}}" class="isLoadMoreLoading">
+				没有更多了
+			</view>
+			<block wx:elif="{{page == totalPage && totalPage == 1}}"></block>
+			<view wx:else class="isLoadMoreLoading">
+				<image class="ico" mode="aspectFill" src="http://upload-images.jianshu.io/upload_images/5726812-95bd7570a25bd4ee.gif"></image>
+				上拉加载中
+			</view>
+		</block>
+
+	</scroll-view>
+</block>
+<block wx:elif="{{type == 'diy'}}">
+	<scroll-view scroll-y class="scroll" refresher-enabled="{{true}}" refresher-threshold="{{refreshthreshold}}" refresher-default-style="none" refresher-background="{{refreshBackground}}" refresher-triggered="{{triggered}}" bindrefresherpulling="onPullingDiy" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore" bindscrolltolower="lower" bindscroll="scroll" style="height:{{scrollHeight}}">
+		<view slot="refresher" class="refresh-container" style="height: {{refreshthreshold}}px; {{refreshBackgroundImage?'background-image:url('+refreshBackgroundImage+');text-shadow:0 0 5rpx '+refreshColor+';':''}}">
+			<slot wx:if="{{refreshDiy}}" name="refresh"></slot>
+			<block wx:else>
+				<view class="refresh-inner" wx:if="{{refreshTitleShow}}" style="color:{{refreshColor}}">
+					<view class="down" style="transform: rotate({{threshold*180}}deg)"></view>{{upTitle}}
+				</view>
+			</block>
+		</view>
+
+		<view class="inner-empty" wx:if="{{isEmpty==0 && !isRefreshLoading}}">
+			<image src="{{emptyImg}}" class="empty-img" mode="aspectFill"></image>
+		</view>
+		<view class="inner" wx:else>
+			<slot name="inner"></slot>
+		</view>
+
+		<block wx:if="{{isEmpty!==0 }}">
+			<view wx:if="{{isNoneLoading}}" class="isLoadMoreLoading">
+				没有更多了
+			</view>
+			<block wx:elif="{{page == totalPage && totalPage == 1}}"></block>
+			<view wx:else class="isLoadMoreLoading">
+				<image class="ico" mode="aspectFill" src="http://upload-images.jianshu.io/upload_images/5726812-95bd7570a25bd4ee.gif"></image>
+				上拉加载中
+			</view>
+		</block>
+	</scroll-view>
+</block>

@@ -1,0 +1,11 @@
+/assets
+/dist
+/miniprogram_npm
+/node_modules
+/pages
+/util
+app.js
+app.json
+app.wxss
+project.config.json
+sitemap.json
