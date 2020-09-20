@@ -2,6 +2,8 @@
 	<scroll-view
 	 scroll-y
 	 class="scroll"
+	 enhanced="{{true}}"
+	 fast-deceleration="{{true}}"
 	 refresher-enabled="{{true}}"
 	 refresher-threshold="{{100}}"
 	 refresher-default-style="{{scrollOption.refresh.style}}"
@@ -20,7 +22,7 @@
 		<view class="inner" wx:else>
 			<slot name="inner" />
 		</view>
-		<block wx:if="{{scrollOption.pagination.length!==0 }}">
+		<block wx:if="{{isLoading}}">
 			<view wx:if="{{isNoneLoading}}" class="isLoadMoreLoading">
 				没有更多了
 			</view>
@@ -43,6 +45,8 @@
 	 scroll-y
 	 class="scroll"
 	 style="height:100%"
+	 enhanced="{{true}}"
+	 fast-deceleration="{{true}}"
 	 refresher-enabled="{{true}}"
 	 refresher-threshold="{{scrollOption.refresh.refreshthreshold}}"
 	 refresher-background="{{background}}"
@@ -71,7 +75,7 @@
 			<slot name="inner" />
 		</view>
 
-		<block wx:if="{{scrollOption.pagination.length!==0 }}">
+		<block wx:if="{{isLoading}}">
 			<view wx:if="{{isNoneLoading}}" class="isLoadMoreLoading">
 				没有更多了
 			</view>

@@ -16,7 +16,7 @@
 
 
 ### 演示片段
-> https://developers.weixin.qq.com/s/OyYSrDmr71jB
+> https://developers.weixin.qq.com/s/f6foovmv7Gk5
 
 ### npm 安装 安装之后开发者工具点击npm构建
 ```
@@ -128,6 +128,8 @@ refreshPulling: function (e) {
 },
 ```
 
+## 更新日志
+[更新日志](./log.md)
 
 ## API
 
@@ -142,53 +144,57 @@ refreshPulling: function (e) {
 
     | 参数 | 说明 | 类型 | 默认值 | 版本 |
     | --- | --- | --- | --- | --- |
-    | page | 页码 | _Number_ | `1` | - |
-    | totalPage | 总页码数 | _Number_ | `0` | - |
-    | limit | 每页显示个数 | _Number_ | `0` | - |
-    | length | 总个数(个数为0是,页面显示空样式) | _Number_ | `0` | - |
+    | page | 页码 | _Number_ | `1` | 2.0.0 |
+    | totalPage | 总页码数 | _Number_ | `0` | 2.0.0 |
+    | limit | 每页显示个数 | _Number_ | `0` | 2.0.0 |
+    | length | 总个数(个数为0是,页面显示空样式) | _Number_ | `0` | 2.0.0 |
 
 2. 空设置 empty
 
     | 参数 | 说明 | 类型 | 默认值 | 版本 |
     | --- | --- | --- | --- | --- |
-    | img | 数据为空时显示的图片 | _String_ | `http://coolui.coolwl.cn/assets/mescroll-empty.png` | - |
+    | img | 数据为空时显示的图片 | _String_ | `http://coolui.coolwl.cn/assets/mescroll-empty.png` | 2.0.0 |
 
 3. 下拉刷新设置 refresh
 
     | 参数 | 说明 | 类型 | 默认值 | 版本 |
     | --- | --- | --- | --- | --- |
-    | type | 下拉样式类型,小程序默认样式或自定义 支持 `default | diy`  | _String_ | `default` | - |    
-    | style | 默认模式下样式有深色和浅色 支持 `black | white` | _String_ | `black` | - |
-    | diyLevel | 自定义等级,简单设置：1,插槽自定义：2 支持 `1 | 2` | _Number_ |  | - |
-    | p | 自定义等级2时,下拉的百分比方便自定义动画,设置0即可| _Number_ | `0` | - |
-    | refreshthreshold | 自定义下拉高度 | _Number_ |  | - |    
-    | backgroundImage | 自定义下拉背景图片 | _String_ |  | - |     
-    | title | 自定义下拉文字 可设置 `show`: 是否显示, `text`: 文字内容, `color`: 文字颜色, `shadow`: 文字阴影范围(0时不显示)  | _Obj_ |  | - |     
+    | type | 下拉样式类型,小程序默认样式或自定义 支持 `default | diy`  | _String_ | `default` | 2.0.0 |    
+    | style | 默认模式下样式有深色和浅色 支持 `black | white` | _String_ | `black` | 2.0.0 |
+    | diyLevel | 自定义等级,简单设置：1,插槽自定义：2 支持 `1 | 2` | _Number_ |  | 2.0.0 |
+    | p | 自定义等级2时,下拉的百分比方便自定义动画,设置0即可| _Number_ | `0` | 2.0.0 |
+    | refreshthreshold | 自定义下拉高度 | _Number_ |  | 2.0.0 |    
+    | backgroundImage | 自定义下拉背景图片 | _String_ |  | 2.0.0 |     
+    | title | 自定义下拉文字 可设置 `show`: 是否显示, `text`: 文字内容, `color`: 文字颜色, `shadow`: 文字阴影范围(0时不显示)  | _Obj_ |  | 2.0.0 |     
 
 4. 上拉加载设置 loadmore
 
     | 参数 | 说明 | 类型 | 默认值 | 版本 |
     | --- | --- | --- | --- | --- |
-    | type | 上拉样式类型,默认样式或插槽自定义 支持 `default | diy`  | _String_ | `default` | - |    
-    | icon | 默认样式时设置图标  | _String_ |  | - |  
-    | title | 默认样式时设文字  可设置 `show`: 是否显示, `text`: 文字内容, `color`: 文字颜色, `shadow`: 文字阴影范围(0时不显示)  | _Obj_ |  | - |     
+    | type | 上拉样式类型,默认样式或插槽自定义 支持 `default | diy`  | _String_ | `default` | 2.0.0 |    
+    | icon | 默认样式时设置图标  | _String_ |  | 2.0.0 |  
+    | title | 默认样式时设文字  可设置 `show`: 是否显示, `text`: 文字内容, `color`: 文字颜色, `shadow`: 文字阴影范围(0时不显示)  | _Obj_ |  | 2.0.0 |     
 
 ### Slots
 
-| 名称 | 说明     |
-| ---- | -------- |
-| inner | 加载列表内容区域 |
-| refresh | 下拉自定义结构 |
-| loadmore | 上拉自定义结构 |
+| 名称 | 说明     | 版本 |
+| ---- | -------- |--- |
+| inner | 加载列表内容区域 | 2.0.0 |   
+| refresh | 下拉自定义结构 | 2.0.0 |   
+| loadmore | 上拉自定义结构 | 2.0.0 |   
 
 ### Events
 
-| 事件名      | 说明               | 参数                     |
-| ----------- | ------------------ | ------------------------ |
-| bind:refresh | 下拉刷新成功时触发     | - |
-| bind:loadMore | 上拉加载成功时触发 | event.detail: 当前输入值 |
-| bind:refreshPulling | 下拉时触发 | event.detail.p: 下拉进度 从0开始到1, 可根据p实现一些动画效果 |
+| 事件名      | 说明               | 参数                     |版本 |
+| ----------- | ------------------ | ------------------------ |--- |
+| bind:refresh | 下拉刷新成功时触发     | - |2.0.0 |   
+| bind:loadMore | 上拉加载成功时触发 | event.detail: 当前输入值 |2.0.0 |   
+| bind:refreshPulling | 下拉时触发 | event.detail.p: 下拉进度 从0开始到1, 可根据p实现一些动画效果 |2.0.0 |   
 
+### Methods
+| 事件名      | 说明               | 参数                     |版本 |
+| ----------- | ------------------ | ------------------------ |--- |
+| loadEnd | 下拉刷新成功时调用关闭loadmore显示,用法  this.selectComponent(".demo1").loadEnd()   | - |2.0.1 |   
 <!-- ### 外部样式类
 
 | 类名         | 说明         |

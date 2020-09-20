@@ -1,11 +1,11 @@
 /*
  * @Title: 滚动插件
  * @Descripttion: 实现上拉加载下拉刷新
- * @version: 0.0.1
+ * @version: 2.0.1
  * @Author: wzs
  * @Date: 2020-05-01 16:06:20
  * @LastEditors: wzs
- * @LastEditTime: 2020-08-16 15:52:59
+ * @LastEditTime: 2020-09-20 15:36:18
  */
 Component({
     options: {
@@ -23,7 +23,7 @@ Component({
                     page: 1,
                     totalPage: 0,
                     limit: 0,
-                    length:0
+                    length: 0
                 },
                 empty: {
                     img: 'http://coolui.coolwl.cn/assets/mescroll-empty.png'
@@ -44,10 +44,12 @@ Component({
     data: {
         isRefreshLoading: false,
         isNoneLoading: false,
+        isLoading: true,
         triggered: false,
         threshold: 0,
         upTitle: '下拉刷新',
-        scrollType: 'refresh' // refresh 和 loadMore 两种模式
+        scrollType: 'refresh', // refresh 和 loadMore 两种模式
+        lazy: null
     },
     methods: {
         onPulling: function () {
@@ -56,7 +58,6 @@ Component({
             });
         },
         onRefresh() {
-            console.log(this.data.scrollOption)
             if (this._freshing)
                 return;
             this._freshing = true;
@@ -99,26 +100,38 @@ Component({
             }, 300);
         },
         lower: function (e) {
-            // console.log(e)
+            if (this.data.lazy) {
+                clearTimeout(this.data.lazy);
+            }
             if (this.data.scrollOption.pagination.page <= this.data.scrollOption.pagination.totalPage) {
-                this.triggerEvent("loadMore");
+                let lazy = setTimeout(() => {
+                    console.log('加载开始:显示loadmore');
+                    this.triggerEvent("loadMore");
+                }, 800);
+                this.setData({
+                    lazy: lazy,
+                });
             }
         },
         scroll: function (e) {
-            this.triggerEvent("scrolling", {
-                scrollTop: e.detail.scrollTop
-            });
             if (this.data.scrollOption.pagination.page < this.data.scrollOption.pagination.totalPage) {
                 this.setData({
                     isNoneLoading: false,
+                    isLoading: true,
                 });
-
             } else {
                 this.setData({
                     isNoneLoading: true,
+                    isLoading: false,
                 });
             }
         },
+        loadEnd: function () {
+            console.log('加载结束:隐藏loadmore');
+            this.setData({
+                isLoading: false
+            });
+        }
     }
 
 })
