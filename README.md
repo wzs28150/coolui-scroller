@@ -16,7 +16,7 @@
 
 
 ### 演示片段
-> https://developers.weixin.qq.com/s/f6foovmv7Gk5
+> https://developers.weixin.qq.com/s/hXkiivm578kt
 
 ### npm 安装 安装之后开发者工具点击npm构建
 ```
@@ -51,6 +51,23 @@ npm i coolui-scroller --production
 
 #### 端午安康
 ![avatar](http://coolui.coolwl.cn/assets/scroll6.gif)
+
+#### 天气效果
+
+##### 晴
+![avatar](http://coolui.coolwl.cn/assets/scroll7.gif)
+
+##### 多云
+![avatar](http://coolui.coolwl.cn/assets/scroll8.gif)
+
+##### 雨
+![avatar](http://coolui.coolwl.cn/assets/scroll9.gif)
+
+##### 雪
+![avatar](http://coolui.coolwl.cn/assets/scroll10.gif)
+
+##### 雷阵雨
+![avatar](http://coolui.coolwl.cn/assets/scroll11.gif)
 
 ## 基础用法代码演示
 
