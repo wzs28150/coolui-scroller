@@ -1,3 +1,12 @@
+<!--
+ * @Title: 
+ * @Descripttion: 
+ * @version: 
+ * @Author: wzs
+ * @Date: 2020-08-16 18:43:13
+ * @LastEditors: wzs
+ * @LastEditTime: 2020-09-20 17:02:38
+-->
 
 # Coolui Scroll v2.0 上拉加载下拉刷新
 
@@ -32,42 +41,15 @@ npm i coolui-scroller --production
   "coolui-scroll": "coolui-scroller/index",
 }
 ```
-### 示例
+### 示例图片
 
 #### 基础用法
 ![avatar](http://coolui.coolwl.cn/assets/scroll1.gif)
 
-#### 升级用法
-![avatar](http://coolui.coolwl.cn/assets/scroll2.gif)
+[更多示例图片](./demo.md)
 
-#### 天猫动画背景
-![avatar](http://coolui.coolwl.cn/assets/scroll3.gif)
-
-#### 京东下拉
-![avatar](http://coolui.coolwl.cn/assets/scroll4.gif)
-
-#### 弹射火箭
-![avatar](http://coolui.coolwl.cn/assets/scroll5.gif)
-
-#### 端午安康
-![avatar](http://coolui.coolwl.cn/assets/scroll6.gif)
-
-#### 天气效果
-
-##### 晴
-![avatar](http://coolui.coolwl.cn/assets/scroll7.gif)
-
-##### 多云
-![avatar](http://coolui.coolwl.cn/assets/scroll8.gif)
-
-##### 雨
-![avatar](http://coolui.coolwl.cn/assets/scroll9.gif)
-
-##### 雪
-![avatar](http://coolui.coolwl.cn/assets/scroll10.gif)
-
-##### 雷阵雨
-![avatar](http://coolui.coolwl.cn/assets/scroll11.gif)
+## 更新日志
+[更新日志](./log.md)
 
 ## 基础用法代码演示
 
@@ -155,8 +137,7 @@ refreshPulling: function (e) {
 },
 ```
 
-## 更新日志
-[更新日志](./log.md)
+
 
 ## API
 
