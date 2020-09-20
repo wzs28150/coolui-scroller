@@ -57,7 +57,7 @@ npm i coolui-scroller --production
 ### 页面结构
 
 ```html
-<coolui-scroll scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
+<coolui-scroll class="demo1"  scrollOption="{{scroll}}" bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
 			<view class="list-inner" slot="inner">
         <!-- 循环内容 -->
 				<view class="item" wx:for="{{list}}" wx:key="unique">
@@ -106,21 +106,31 @@ scroll: {
 ### 事件 详见api
 ```js
 // 加载数据
-getData:function (type, page) {
+let that = this
+getData:function (type) {
   // 可走后台接口
   if (type == 'refresh') {
     // 刷新时执行
+    // 设置页数1
+    let scroll = that.data.scroll
+    scroll.pagination.page = 1
   }else{
     // 加载时执行
+    // 设置页数+1
+    let scroll = that.data.scroll
+    scroll.pagination.page = scroll.pagination.page + 1
+
+    // 数据加载完隐藏loadmore
+    that.selectComponent(".demo1").loadEnd()
   }
 },
 // 下拉 刷新 页数设置1
 refresh: function () {
-  this.getData('refresh', 1)
+  this.getData('refresh')
 },
 // 上拉 加载 页数设置+1
 loadMore: function () {
-  this.getData('loadMore', this.data.scroll.pagination.page + 1)
+  this.getData('loadMore')
 },
 // 自定义下拉刷新时执行 插槽下拉 返回的下拉进度p
 refreshPulling: function (e) {
