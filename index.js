@@ -5,7 +5,7 @@
  * @Author: wzs
  * @Date: 2020-05-01 16:06:20
  * @LastEditors: wzs
- * @LastEditTime: 2020-09-20 15:36:18
+ * @LastEditTime: 2021-01-30 21:03:19
  */
 Component({
     options: {
@@ -61,6 +61,9 @@ Component({
             if (this._freshing)
                 return;
             this._freshing = true;
+            if (this.data.scrollOption.refresh.shake) {
+                wx.vibrateShort();
+            }
             setTimeout(() => {
                 this.setData({
                     triggered: false
@@ -100,6 +103,9 @@ Component({
             }, 300);
         },
         lower: function (e) {
+            if (this.data.scrollOption.loadmore.shake) {
+                wx.vibrateShort();
+            }
             if (this.data.lazy) {
                 clearTimeout(this.data.lazy);
             }
