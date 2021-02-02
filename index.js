@@ -5,7 +5,7 @@
  * @Author: wzs
  * @Date: 2020-05-01 16:06:20
  * @LastEditors: wzs
- * @LastEditTime: 2021-01-30 21:03:19
+ * @LastEditTime: 2021-02-02 11:32:05
  */
 Component({
     options: {
@@ -26,7 +26,7 @@ Component({
                     length: 0
                 },
                 empty: {
-                    img: 'http://coolui.coolwl.cn/assets/mescroll-empty.png'
+                    img: ''
                 },
                 refresh: {
                     type: 'default'
@@ -64,6 +64,7 @@ Component({
             if (this.data.scrollOption.refresh.shake) {
                 wx.vibrateShort();
             }
+            wx.showNavigationBarLoading()
             setTimeout(() => {
                 this.setData({
                     triggered: false
@@ -103,15 +104,16 @@ Component({
             }, 300);
         },
         lower: function (e) {
-            if (this.data.scrollOption.loadmore.shake) {
-                wx.vibrateShort();
-            }
             if (this.data.lazy) {
                 clearTimeout(this.data.lazy);
             }
             if (this.data.scrollOption.pagination.page <= this.data.scrollOption.pagination.totalPage) {
                 let lazy = setTimeout(() => {
                     console.log('加载开始:显示loadmore');
+                    if (this.data.scrollOption.loadmore.shake) {
+                        wx.vibrateShort();
+                    }
+                    wx.showNavigationBarLoading()
                     this.triggerEvent("loadMore");
                 }, 800);
                 this.setData({
@@ -134,6 +136,7 @@ Component({
         },
         loadEnd: function () {
             console.log('加载结束:隐藏loadmore');
+            wx.hideNavigationBarLoading();
             this.setData({
                 isLoading: false
             });
