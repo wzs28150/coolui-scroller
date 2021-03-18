@@ -45,3 +45,8 @@ npm i coolui-scroller --production
 ## 更新日志
 [更新日志](./log.md)
 
+## 捐赠
+> 如果你觉得这个项目对你有帮助，你可以帮作者买一杯咖啡表示支持!
+
+![avatar](https://coolui.coolwl.cn/img/wechat.jpg)
+
