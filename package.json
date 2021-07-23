@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wzs28150/coolui-scroller.git"
+    "url": "git@github.com:wzs28150/coolui-scroller.git"
   },
   "keywords": [
     "weapp",
