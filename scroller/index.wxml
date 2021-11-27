@@ -1,0 +1,20 @@
+<view id="content" class="wrap">
+  <view class="slot-header" id="header">
+    <slot name="header"></slot>
+  </view>
+  <scroll-view scroll-y class="scroll flex" enhanced="{{false}}" fast-deceleration="{{true}}" enable-back-to-top="{{true}}" refresher-enabled="{{type?true:false}}" refresher-threshold="{{refreshConfig.height?refreshConfig.height:50}}" lower-threshold="{{100}}" refresher-default-style="{{type == 'default' ? refreshConfig.style : 'none'}}" refresher-background="{{background}}" refresher-triggered="{{triggered}}" bindrefresherpulling="onPulling" bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore" bindscrolltolower="onLoadmore" bindscroll="scroll" style="height:{{contentHeight}}px;">
+    <view slot="refresher" wx:if="{{type != 'default'}}"  class="refresh-container">
+      <slot name="refresh"></slot>
+    </view>
+    <view class="inner" style="min-height:{{contentHeight}}px;">
+      <slot></slot>
+      <view class="slot-loadmore">
+        <slot name="loadmore"></slot>
+      </view>
+    </view>
+  </scroll-view>
+  <view style="height:{{contentHeight}}px" hidden="{{!isEmpty}}" class="slot-empty">
+    <slot name="empty"></slot>
+  </view>
+  <view class="backToTop" wx:if="{{isBackToTopShow && isBackBtn}}" bindtap="backToTop"></view>
+</view>

@@ -1,0 +1,45 @@
+.wx-coolui-nav {
+  border-bottom: 1px solid #eee;
+}
+
+.wx-coolui-nav .nav-inner {
+  white-space: nowrap;
+}
+
+.wx-coolui-nav .nav-inner .item {
+  display: inline-block;
+  text-align: center;
+  height: 84rpx;
+  font-size: 0;
+  line-height: 0;
+  color: #333;
+  transition: color 0.4s;
+}
+
+.wx-coolui-nav .nav-inner .item .text {
+  position: relative;
+  display: inline-block;
+  line-height: 84rpx;
+  font-size: 28rpx;
+}
+
+.wx-coolui-nav .nav-inner .item .text .line {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 0;
+  height: 4rpx;
+  background-color: #0cba70;
+  transition: width 0.4s;
+}
+
+.wx-coolui-nav .nav-inner .item.on {
+  color: #0cba70;
+}
+
+.wx-coolui-nav .nav-inner .item.on .text .line {
+  background-color: #0cba70;
+  width: 100%;
+}

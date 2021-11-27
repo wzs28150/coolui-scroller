@@ -1,0 +1,3 @@
+<view class="wx-coolui-scroller-item">
+  <slot></slot>
+</view>

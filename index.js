@@ -1,146 +1,54 @@
-/*
- * @Title: 滚动插件
- * @Descripttion: 实现上拉加载下拉刷新
- * @version: 2.0.1
- * @Author: wzs
- * @Date: 2020-05-01 16:06:20
- * @LastEditors: wzs
- * @LastEditTime: 2021-02-02 11:32:05
+/**
+ * coolui-scroller组件的api使用
+ * 提供wx.createScrollContext进行管理功能
  */
-Component({
-    options: {
-        multipleSlots: true,
-        addGlobalClass: true,
-    },
-    behaviors: [],
-
-    // 属性定义（详情参见下文）
-    properties: {
-        scrollOption: {
-            type: Object,
-            value: {
-                pagination: {
-                    page: 1,
-                    totalPage: 0,
-                    limit: 0,
-                    length: 0
-                },
-                empty: {
-                    img: ''
-                },
-                refresh: {
-                    type: 'default'
-                },
-                loadmore: {
-                    type: 'default'
+function observePage(pageIndex, that) {
+  wx.getSystemInfo({
+    success: (res) => {
+      const {
+        windowHeight
+      } = res
+      // this.windowHeight = windowHeight
+      const observerObj = wx.createIntersectionObserver(that).relativeToViewport({
+        top: 2 * windowHeight,
+        bottom: 2 * windowHeight
+      })
+      observerObj.observe(`#wrp_${pageIndex}`, (res) => {
+        if (res.intersectionRatio <= 0) {
+          try {
+            that.setData({
+              ['list[' + pageIndex + ']']: [
+                {
+                  height: that.pageHeightArr[pageIndex]
                 }
-            }
-        },
-        background: {
-            type: String
+              ],
+            })
+          } catch (error) {
+            console.log(error);
+          }
+        } else {
+          try {
+            that.setData({
+              ['list[' + pageIndex + ']']: that.wholeList[pageIndex],
+            })
+          } catch (error) {
+            console.log(error);
+          }
         }
-    },
-
-    data: {
-        isRefreshLoading: false,
-        isNoneLoading: false,
-        isLoading: true,
-        triggered: false,
-        threshold: 0,
-        upTitle: '下拉刷新',
-        scrollType: 'refresh', // refresh 和 loadMore 两种模式
-        lazy: null
-    },
-    methods: {
-        onPulling: function () {
-            this.setData({
-                isRefreshLoading: true,
-            });
-        },
-        onRefresh() {
-            if (this._freshing)
-                return;
-            this._freshing = true;
-            if (this.data.scrollOption.refresh.shake) {
-                wx.vibrateShort();
-            }
-            wx.showNavigationBarLoading()
-            setTimeout(() => {
-                this.setData({
-                    triggered: false
-                });
-                this._freshing = false;
-            }, 1000);
-        },
-        onRestore(e) {
-            this.triggerEvent("refresh", {
-                page: this.data.scrollOption.pagination.page,
-            });
-            setTimeout(() => {
-                this.setData({
-                    isRefreshLoading: false,
-                    upTitle: '下拉刷新',
-                    threshold: 0
-                });
-            }, 1000);
-        },
-        onPullingDiy: function (evt) {
-            setTimeout(() => {
-                var p = Math.min(evt.detail.dy / 80, 1);
-                this.triggerEvent("refreshPulling", {
-                    p: p
-                });
-                let upTitle = '';
-                if (p < 0.5) {
-                    upTitle = '下拉刷新';
-                } else {
-                    upTitle = '释放加载';
-                }
-                this.setData({
-                    isRefreshLoading: true,
-                    threshold: p,
-                    upTitle: upTitle
-                });
-            }, 300);
-        },
-        lower: function (e) {
-            if (this.data.lazy) {
-                clearTimeout(this.data.lazy);
-            }
-            if (this.data.scrollOption.pagination.page <= this.data.scrollOption.pagination.totalPage) {
-                let lazy = setTimeout(() => {
-                    console.log('加载开始:显示loadmore');
-                    if (this.data.scrollOption.loadmore.shake) {
-                        wx.vibrateShort();
-                    }
-                    wx.showNavigationBarLoading()
-                    this.triggerEvent("loadMore");
-                }, 800);
-                this.setData({
-                    lazy: lazy,
-                });
-            }
-        },
-        scroll: function (e) {
-            if (this.data.scrollOption.pagination.page < this.data.scrollOption.pagination.totalPage) {
-                this.setData({
-                    isNoneLoading: false,
-                    isLoading: true,
-                });
-            } else {
-                this.setData({
-                    isNoneLoading: true,
-                    isLoading: false,
-                });
-            }
-        },
-        loadEnd: function () {
-            console.log('加载结束:隐藏loadmore');
-            wx.hideNavigationBarLoading();
-            this.setData({
-                isLoading: false
-            });
-        }
+      })
     }
+  })
+  
+}
 
-})
+function setHeight(that) {
+  const page = that.param.page
+  this.query = wx.createSelectorQuery()
+  this.query.select(`#wrp_${page}`).boundingClientRect()
+  this.query.exec(function (res) {
+    that.pageHeightArr[page] = res[0] && res[0].height
+  })
+  observePage(page, that)
+}
+
+module.exports.setHeight = setHeight

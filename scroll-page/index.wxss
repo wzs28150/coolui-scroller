@@ -1,0 +1,6 @@
+:host {
+  display: block;
+}
+.wx-coolui-scroller-item {
+  height: 100%;
+}

@@ -1,0 +1,23 @@
+/* components/coolui-scroller-item/coolui-scroller-item.wxss */
+:host {
+  display: block;
+  width: 100%;
+  box-shadow: 0 2px 12px rgb(100 101 102 / 12%);
+  position: relative;
+}
+.coolui-scroller-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+}
+.overlay{
+  position: absolute;
+  top: 100rpx;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  opacity: 0;
+}

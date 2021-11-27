@@ -1,0 +1,16 @@
+<view class="coolui-scroller-loadmore">
+  <block wx:if="{{status === 'more'}}">{{moreText}}</block>
+  <block wx:elif="{{status === 'loading'}}">
+    <view class="cool-indicator cool-indicator--isopened">
+      <view class="cool-indicator__body">
+        <view class="cool-loading">
+          <view class="cool-loading__ring" style="border-color:{{color}} transparent transparent;"></view>
+          <view class="cool-loading__ring"  style="border-color:{{color}} transparent transparent;"></view>
+          <view class="cool-loading__ring"  style="border-color:{{color}} transparent transparent;"></view>
+        </view>
+      </view>
+    </view>
+    <text class="at-indicator__content">{{loadingText}}</text>
+  </block>
+  <block wx:elif="{{status === 'noMore'}}">{{noMoreText}}</block>
+</view>
