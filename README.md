@@ -1,4 +1,9 @@
-# 指南
+# coolui-scroller
+
+<a href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/v/coolui-scroller.svg" alt="Version"></a>&nbsp;
+<a href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/l/coolui-scroller.svg" alt="License"></a>&nbsp;
+<a href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/dt/coolui-scroller" alt="Download"></a>&nbsp;
+<a href="https://github.com/wzs28150/coolui-scroller"><img src="https://img.shields.io/github/stars/wzs28150/coolui-scroller?style=social" alt="Stars"></a>
 
 ## 前言
 
@@ -107,6 +112,30 @@ scroll: {
 11. ~~新增组件 coolui-scroller-search(搜索组件)~~
 12. 新增组件 coolui-scroller-sort(分类筛选及排序组件)
 
+### 支持 coolui-scroller
+
+做一个组件库是一个繁琐且长期的事情，接下来我将花费业余时间进行多版本的完善。
+如果 coolui-scroller 对您的工作或者学习有所帮助，您可以捐赠 coolui-scroller 的研发工作，捐赠无门槛，哪怕是一瓶肥宅快乐水，也可以帮助我多敲半小时代码。
+
+| 微信                                       | 支付宝 |
+| ------------------------------------------ | ------ |
+| ![微信](https://wzs28150.github.io/coolui-scroller/v3/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v3/images/zfb.jpg) |
+
+## 示例 demo
+
+请微信扫码打开小程序查看
+
+![示例](https://wzs28150.github.io/coolui-scroller/v3/images/demo.jpg)
+
+
+示例代码： [https://github.com/wzs28150/coolui-scroller/tree/demo](https://github.com/wzs28150/coolui-scroller/tree/demo)
+
+请 clone 下载到本地使用微信开发者工具查看
+
+```
+git clone -b demo  https://github.com/wzs28150/coolui-scroller.git
+```
+
 ## 安装
 
 ### npm 安装
@@ -118,13 +147,14 @@ npm i coolui-scroller --production
 ### npm 构建
 
 安装之后开发者工具点击 npm 构建:<br/>
-![npm构建1](https://raw.githubusercontent.com/wzs28150/coolui-scroller/web/images/set1.png)<br/>
+![npm构建1](https://wzs28150.github.io/coolui-scroller/v3/images/set1.png)<br/>
 当看到站点里面出现 miniprogram_npm 文件夹就算安装完成了<br/>
-![npm构建2](https://raw.githubusercontent.com/wzs28150/coolui-scroller/web/images/set2.png)
+![npm构建2](https://wzs28150.github.io/coolui-scroller/v3/images/set2.png)
 
 ## 引入
 
 ### 1.调用组件
+
 在`app.json`或`index.json`中引入组件
 
 ```json
@@ -136,11 +166,13 @@ npm i coolui-scroller --production
 ### 2.页面结构
 
 ```html
-<scroller class="my-scroller"></scroller>
+<scroller class="my-scroller" scrollOption="{{scrollConfig}}"> </scroller>
 ```
 
 ### 3.配置
-在 js 的 data 中进行配置参数设置，v3.0版将功能细化到各个组件中具体配置详见([组件](https://wzs28150.github.io/coolui-scroller/v3/components/scroller.html#介绍))
+
+在 js 的 data 中进行配置参数设置，v3.0 版将功能细化到各个组件中具体配置详见([组件](https://wzs28150.github.io/coolui-scroller/v3/components/scroller.html))
 
 ### 4.组件
+
 根据自己的业务场景选用组件，也可以在对应的插槽中自定义
