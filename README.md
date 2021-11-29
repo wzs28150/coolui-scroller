@@ -166,7 +166,7 @@ npm i coolui-scroller --production
 ### 2.页面结构
 
 ```html
-<scroller class="my-scroller" scrollOption="{{scrollConfig}}"> </scroller>
+<scroller class="my-scroller" > </scroller>
 ```
 
 ### 3.配置
