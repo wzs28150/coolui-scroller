@@ -1,7 +1,7 @@
 {
   "name": "coolui-scroller",
   "version": "3.0.1",
-  "description": "微信小程序Scroll 上拉加载下拉刷新组件",
+  "description": "微信小程序Scroll 上拉加载下拉刷新组件 ",
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
