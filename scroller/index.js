@@ -112,7 +112,7 @@ Component({
         this.settriggered(true)
       }
       setTimeout(() => {
-        var p = Math.min(evt.detail.dy / 80, 1);
+        var p = Math.min(evt.detail.dy / this.data.refreshConfig.height, 1);
         this.setThreshold(p)
       }, 300);//增加延时以防前半段动画为拉下来而看不见
     },
