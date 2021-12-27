@@ -56,6 +56,7 @@ Component({
       height: 50,
       style: "black",
     },
+    top: 0
   },
   ready() {
     this.setWapHeight();
@@ -157,8 +158,7 @@ Component({
               triggered: flag,
             });
           }
-          that.setData(
-            {
+          that.setData({
               triggered: flag,
             },
             () => {
@@ -218,8 +218,7 @@ Component({
     dragend() {
       if (this.data.type != "default") {
         if (this.p > 0.6 && this.data.isLoading == false) {
-          this.setData(
-            {
+          this.setData({
               isLoading: true,
             },
             () => {
@@ -238,7 +237,10 @@ Component({
       }
     },
     backToTop() {
-      this.triggerEvent("refresh");
+      // this.triggerEvent("refresh");
+      this.setData({
+        top: 0
+      })
     },
   },
 });
