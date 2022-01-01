@@ -1,6 +1,6 @@
 {
   "name": "coolui-scroller",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "微信小程序Scroll 上拉加载下拉刷新组件 ",
   "main": "./index.js",
   "scripts": {

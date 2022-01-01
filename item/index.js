@@ -6,7 +6,10 @@ Component({
     },
   },
   properties: {
-    ripple: false,
+    ripple: {
+      type: Boolean,
+      value: false
+    },
   },
   data: {
     rippleStyle: "",
