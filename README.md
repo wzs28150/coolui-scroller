@@ -110,7 +110,7 @@ scroll: {
 9. ~~新增组件 coolui-scroller-refresh(下拉刷新组件)~~
 10. ~~新增组件 coolui-scroller-parallax(下拉刷新视差位移组件)~~
 11. ~~新增组件 coolui-scroller-search(搜索组件)~~
-12. 新增组件 coolui-scroller-sort(分类筛选及排序组件)
+12. ~~新增组件 coolui-scroller-sort(分类筛选及排序组件)~~
 
 ### 支持 coolui-scroller
 
