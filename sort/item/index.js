@@ -98,8 +98,13 @@ Component({
         if (!this.data.actionBar) {
           this.setData(
             {
-              select: e.target.dataset.id,
-              value: e.target.dataset.id,
+              select:
+                e.target.dataset.id != this.data.select
+                  ? e.target.dataset.id
+                  : null,
+              value:  e.target.dataset.id != this.data.select
+              ? e.target.dataset.id
+              : null,
             },
             () => {
               setTimeout(() => {
@@ -109,7 +114,9 @@ Component({
           );
         } else {
           this.setData({
-            select: e.target.dataset.id,
+            select:  e.target.dataset.id != this.data.select
+            ? e.target.dataset.id
+            : null,
           });
         }
       }
