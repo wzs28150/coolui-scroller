@@ -43,10 +43,6 @@ Component({
       type: Boolean,
       value: false
     }
-    // triggered: {
-    //   type: Boolean,
-    //   value: false
-    // }
   },
   data: {
     contentHeight: 0,
