@@ -12,5 +12,5 @@
     </view>
     <text class="at-indicator__content" style="color: {{loading.color}}">{{loading.text}}</text>
   </block>
-  <block wx:elif="{{status === 'noMore'}}" style="color: {{more.noMore.color}}">{{noMore.text}}</block>
+  <block wx:elif="{{status === 'noMore'}}" style="color: {{noMore.color}}">{{noMore.text}}</block>
 </view>
