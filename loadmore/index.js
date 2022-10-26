@@ -16,17 +16,26 @@ Component({
       type: String,
       value: "more",
     },
-    loadingText: {
-      type: String,
-      value: "\u52A0\u8F7D\u4E2D",
+    loading: {
+      type: Object,
+      value: {
+        text: "\u52A0\u8F7D\u4E2D",
+        color: "#999999"
+      }
     },
-    moreText: {
-      type: String,
-      value: "\u67E5\u770B\u66F4\u591A",
+    more: {
+      type: Object,
+      value: {
+        text: "\u67E5\u770B\u66F4\u591A",
+        color: "#333333"
+      }
     },
-    noMoreText: {
-      type: String,
-      value: "\u6CA1\u6709\u66F4\u591A",
+    noMore: {
+      type: Object,
+      value: {
+        text: "\u6CA1\u6709\u66F4\u591A",
+        color: "#999999"
+      },
     },
     color: {
       type: String,
