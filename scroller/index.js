@@ -4,20 +4,20 @@ Component({
     addGlobalClass: true,
   },
   relations: {
-    "../scroll-page/index": {
-      type: "child",
+    '../scroll-page/index': {
+      type: 'child',
       linked: function (target) {},
     },
-    "../nav/index": {
-      type: "child",
+    '../nav/index': {
+      type: 'child',
       linked: function (target) {},
     },
-    "../empty/index": {
-      type: "child",
+    '../empty/index': {
+      type: 'child',
       linked: function (target) {},
     },
-    "../refresh/index": {
-      type: "child",
+    '../refresh/index': {
+      type: 'child',
       linked: function (target) {
         this.setData({
           type: target.data.type,
@@ -33,7 +33,7 @@ Component({
     },
     background: {
       type: String,
-      value: "#f2f2f2",
+      value: '#f2f2f2',
     },
     isBackBtn: {
       type: Boolean,
@@ -41,7 +41,7 @@ Component({
     },
     enableFlex: {
       type: Boolean,
-      value: false
+      value: false,
     }
   },
   data: {
@@ -54,13 +54,13 @@ Component({
     refreshConfig: {
       shake: false,
       height: 50,
-      style: "black",
+      style: 'black',
     },
-    top: 0
+    top: 0,
   },
   ready() {
     this.setWapHeight();
-    this.refreshNodes = this.getRelationNodes("../refresh/index");
+    this.refreshNodes = this.getRelationNodes('../refresh/index');
     this.refreshNode = this.refreshNodes[0] ? this.refreshNodes[0] : null;
   },
   methods: {
@@ -68,13 +68,13 @@ Component({
       const that = this;
       const query = that.createSelectorQuery().in(this);
       query
-        .select("#content")
+        .select('#content')
         .boundingClientRect(function (res) {
           that.setData({
             contentHeight: res.height,
           });
         })
-        .select("#header")
+        .select('#header')
         .boundingClientRect(function (headerRes) {
           that.setData({
             contentHeight: that.data.contentHeight - headerRes.height,
@@ -102,7 +102,7 @@ Component({
     onLoadmore() {
       const that = this;
       that.debounce(() => {
-        that.triggerEvent("loadmore");
+        that.triggerEvent('loadmore');
         if (that.data.refreshConfig.shake) {
           wx.vibrateShort();
         }
@@ -110,8 +110,8 @@ Component({
     },
     onDefaultRefresh() {
       const that = this;
-      if (that.data.type == "default") {
-        that.triggerEvent("refresh");
+      if (that.data.type == 'default') {
+        that.triggerEvent('refresh');
         that.debounce(() => {
           that.settriggered(false);
         }, 1000)();
@@ -122,29 +122,43 @@ Component({
       if (that.data.refreshConfig.shake) {
         wx.vibrateShort();
       }
-      wx.showNavigationBarLoading();
-      if ("isAutoTriggered" in that.data.refreshConfig) {
-        if (that.data.refreshConfig.isAutoTriggered) {
-          that.triggerEvent("refresh");
+      if (this.data.isLoading) {
+        console.log('refresh');
+        wx.showNavigationBarLoading();
+        if ('isAutoTriggered' in that.data.refreshConfig) {
+          if (that.data.refreshConfig.isAutoTriggered) {
+            that.triggerEvent('refresh');
+            that.debounce(() => {
+              that.settriggered(false);
+              setTimeout(() => {
+                that.onRestore();
+              }, 300);
+            }, 1000)();
+          } else {
+            if (that.data.triggered) {
+              that.triggerEvent('refresh');
+            }
+          }
+        } else {
+          that.triggerEvent('refresh');
           that.debounce(() => {
             that.settriggered(false);
+            setTimeout(() => {
+              that.onRestore();
+            }, 300);
           }, 1000)();
-        } else {
-          if (that.data.triggered) {
-            that.triggerEvent("refresh");
-          }
         }
-      } else {
-        that.triggerEvent("refresh");
-        that.debounce(() => {
-          that.settriggered(false);
-        }, 1000)();
       }
     },
     onPulling(evt) {
+      console.log('pull');
       const that = this;
       that.settriggered(true).then(() => {
-        let p = Math.min(evt.detail.dy / that.data.refreshConfig.height, 1);
+        // console.log(evt.detail.dy, that.data.refreshConfig.height);
+        let p = Math.min(
+          evt.detail.dy / (that.data.refreshConfig.height + 20),
+          1
+        );
         that.p = p ? p : 0;
         that.setThreshold(that.p);
       });
@@ -158,7 +172,8 @@ Component({
               triggered: flag,
             });
           }
-          that.setData({
+          that.setData(
+            {
               triggered: flag,
             },
             () => {
@@ -186,20 +201,23 @@ Component({
     },
     onRestore() {
       const that = this;
-      wx.hideNavigationBarLoading();
-      that.triggerEvent("restore");
-      that.debounce(() => {
-        that.setThreshold(0).then(() => {
-          that.p = 0;
-          that.refreshNode.setLoading({
-            isloading: false,
+      if (that.data.isLoading) {
+        console.log('restore');
+        wx.hideNavigationBarLoading();
+        that.triggerEvent('restore');
+        that.debounce(() => {
+          that.setThreshold(0).then(() => {
+            that.p = 0;
+            that.refreshNode.setLoading({
+              isloading: false,
+            });
+            that.setData({
+              isLoading: false,
+              triggered: false,
+            });
           });
-          that.setData({
-            isLoading: false,
-            triggered: false,
-          });
-        });
-      }, 100)();
+        }, 100)();
+      }
     },
     scroll(e) {
       if (e.detail.scrollTop > 100 && this.data.isBackToTopShow == false) {
@@ -216,9 +234,10 @@ Component({
       }
     },
     dragend() {
-      if (this.data.type != "default") {
+      if (this.data.type != 'default') {
         if (this.p > 0.6 && this.data.isLoading == false) {
-          this.setData({
+          this.setData(
+            {
               isLoading: true,
             },
             () => {
@@ -239,8 +258,8 @@ Component({
     backToTop() {
       // this.triggerEvent("refresh");
       this.setData({
-        top: 0
-      })
+        top: 0,
+      });
     },
   },
 });
