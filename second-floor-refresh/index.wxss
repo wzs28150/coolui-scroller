@@ -1,0 +1,155 @@
+/* pages/second-floor/circle/index.wxss */
+:host {
+  display  : block;
+  width    : 100%;
+  font-size: 28rpx;
+}
+
+.second-floor-refresh {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  padding        : 30rpx 0;
+}
+
+.second-floor-refresh .circle {
+  display     : flex;
+  width       : 48rpx;
+  height      : 48rpx;
+  margin-right: 20rpx;
+  position    : relative;
+  border      : none;
+}
+
+.second-floor-refresh .circle.loading {
+  border       : 1px dashed;
+  border-radius: 100%;
+  animation    : loading 1s infinite linear;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.left {
+  width   : 12px;
+  height  : 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.leftcircle {
+  width                    : 22px;
+  height                   : 22px;
+  border                   : 1px solid;
+  position                 : absolute;
+  border-radius            : 50%;
+  left                     : 0rpx;
+  top                      : 0rpx;
+  border-bottom            : 1px solid transparent !important;
+  border-left              : 1px solid transparent !important;
+  transform                : rotate(45deg);
+  animation-name           : circle_left;
+  animation-duration       : 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+}
+
+.right {
+  width   : 12px;
+  height  : 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.rightcircle {
+  width                    : 22px;
+  height                   : 22px;
+  border-radius            : 50%;
+  border                   : 1px solid;
+  position                 : absolute;
+  border-top               : 1px solid transparent !important;
+  border-right             : 1px solid transparent !important;
+  right                    : 0rpx;
+  top                      : 0rpx;
+  animation-name           : circle_right;
+  animation-duration       : 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform                : rotate(45deg);
+}
+
+.circle.loading .leftcircle {
+  border: none;
+}
+
+.circle.loading .rightcircle {
+  border: none;
+}
+
+.second-floor-refresh .downicon {
+  width    : 12rpx;
+  height   : 12rpx;
+  position : absolute;
+  top      : 50%;
+  left     : 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+/* .second-floor-refresh .downicon.up {
+  transform: translate(-50%, -50%) rotate(180deg);
+} */
+
+
+.second-floor-refresh .downicon .line:nth-child(1) {
+  display         : block;
+  width           : 1px;
+  height          : 22rpx;
+  background-color: #fff;
+  position        : absolute;
+  top             : 50%;
+  left            : 50%;
+  transform       : translate(-50%, -50%);
+  border-radius   : 2rpx;
+  opacity         : 1;
+}
+
+.second-floor-refresh .downicon .line:nth-child(2) {
+  width           : 15rpx;
+  height          : 1px;
+  background-color: #fff;
+  display         : block;
+  position        : absolute;
+  bottom          : -3px;
+  left            : 50%;
+  transform       : rotate(-45deg);
+  transform-origin: 0 50%;
+  border-radius   : 2rpx;
+  opacity         : 1;
+}
+
+.second-floor-refresh .downicon .line:nth-child(3) {
+  width           : 15rpx;
+  height          : 1px;
+  background-color: #fff;
+  display         : block;
+  position        : absolute;
+  bottom          : -3px;
+  right           : 50%;
+  transform       : rotate(45deg);
+  transform-origin: 100% 50%;
+  border-radius   : 2rpx;
+  opacity         : 1;
+}
+
+.second-floor-refresh .circle.loading .downicon {
+  display: none;
+}

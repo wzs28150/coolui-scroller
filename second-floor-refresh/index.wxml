@@ -1,0 +1,18 @@
+<!-- pages/second-floor/circle/index.wxml -->
+<!-- <text>{{p}}</text> -->
+<view class="second-floor-refresh second-floor-refresh-class" bind:tap="back" style="color: {{refreshConfig.color}}">
+  <view class="circle {{isLoading ? 'loading':''}}" wx:if="{{p < scroll_height / 3}}" style="border-color: {{refreshConfig.color}};">
+    <view class="left">
+      <view class="leftcircle" style="transform: rotate({{p < 50 ? (45 - p * 3.6) : -135}}deg);border-color: {{refreshConfig.color}};"></view>
+    </view>
+    <view class="right">
+      <view class="rightcircle" style="transform: rotate({{(p >= 50 && p <= 100) ? (45 - (p - 50) * 3.6) : (p > 100 ? -135 : 45 )}}deg);border-color: {{refreshConfig.color}};"></view>
+    </view>
+    <view class="downicon {{(p < scroll_height / 3 && p > scroll_height / 6) ? 'up' : ''}}">
+      <view class="line"></view>
+      <view class="line"></view>
+      <view class="line"></view>
+    </view>
+  </view>
+  {{isLoading ? refreshConfig.loadingText : (isFloorShow ? refreshConfig.backText :  text)}}
+</view>
