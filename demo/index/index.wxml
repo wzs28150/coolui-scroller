@@ -1,0 +1,24 @@
+<view class="page" bind:touchstart="TouchStart" bind:touchend="TouchEnd">
+  <view class="index-page-swiper {{PageCur == 1?'on':''}} {{trans?'trans':''}}">
+    <view class="index-page">
+      <component pageCur="{{PageCur}}" />
+    </view>
+    <view class="index-page">
+      <case />
+    </view>
+  </view>
+</view>
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bind:tap="NavChange" data-cur="0">
+    <view class="cuIcon-cu-image">
+      <image src="../img/component{{PageCur == 0 ? '_cur' : ''}}.png"></image>
+    </view>
+    <view class="{{PageCur == 0 ? 'text-red' : 'text-gray'}}">组件</view>
+  </view>
+  <view class="action" bind:tap="NavChange" data-cur="1">
+    <view class="cuIcon-cu-image">
+      <image src="../img/case{{PageCur == 1 ? '_cur' : ''}}.png"></image>
+    </view>
+    <view class="{{PageCur == 1 ? 'text-red' : 'text-gray'}}">案例</view>
+  </view>
+</view>

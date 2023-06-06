@@ -1,0 +1,25 @@
+lockfileVersion: 5.4
+
+specifiers:
+  coolui-scroller: ^3.2.3
+  wave-bg-weapp: ^1.0.1
+
+dependencies:
+  coolui-scroller: 3.2.3
+  wave-bg-weapp: 1.0.2
+
+packages:
+
+  /coolui-scroller/3.2.3:
+    resolution: {integrity: sha512-9MPNHRUWfv5D7jVakn7KhXzJaRd56C0PEifdcHQnJzIPUumfwdYRkShqxHC59FPJtyMMuKCq+gGiYE44+t1BHQ==}
+    dev: false
+
+  /open-simplex-noise/2.5.0:
+    resolution: {integrity: sha512-co7x8uWxGcgFtsJNBFqI9ylq+5Isotz2hZR7dsD5Sl+RDPGBeMEG41KAfF+5gF10ksi9Pg6DNpMHEoyTKLbejQ==}
+    dev: false
+
+  /wave-bg-weapp/1.0.2:
+    resolution: {integrity: sha512-B6CtdxrSQjD/iUiqIt86FylIDrkr1tF/VPr5x24NnORzyvIm5UN7qP+POrd+6ewoSXg+Z2c9rwLgpVkC+YX5HQ==}
+    dependencies:
+      open-simplex-noise: 2.5.0
+    dev: false

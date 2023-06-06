@@ -1,0 +1,156 @@
+page {
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.empty-img {
+  width: 40vw;
+}
+
+.isloading .inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pannel {
+  background-color: #fff;
+  margin-top: 30rpx;
+  padding: 0 20rpx;
+  overflow: hidden;
+}
+
+.pannel .title {
+  font-size: 32rpx;
+  line-height: 32rpx;
+  border-bottom: 1rpx solid #eee;
+  padding: 20rpx 0 20rpx 30rpx;
+  position: relative;
+}
+
+.pannel .title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #d13435;
+  width: 8rpx;
+  height: 32rpx;
+  border-radius: 8rpx;
+}
+
+.pannel .pannel-inner {
+  padding: 20rpx;
+}
+
+.pannel .content {
+  font-size: 28rpx;
+  color: #666;
+  padding: 30rpx 0;
+}
+
+
+.demopage {
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  padding: 0 30rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.demopage .pannel-inner {
+  margin: 30rpx 0;
+  padding: 0;
+  height: calc(100vh - 60rpx);
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.demopage .pannel-inner .scroller-pannel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60rpx);
+  font-size: 28rpx;
+  color: #999;
+}
+
+.demopage .pannel-inner .scroller-pannel .title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+}
+
+.demopage .pannel-inner .scroller-pannel .des {
+  text-align: center;
+  max-width: 70vw;
+}
+
+.demopage .pannel-inner .scroller-pannel .downtip {
+  text-align: center;
+  margin-top: 20rpx;
+}
+
+.demopage .pannel-inner .scroller-pannel .downicon {
+  width: 12px;
+  height: 12px;
+  margin: 20rpx auto;
+  position: relative;
+}
+
+.demopage .pannel-inner .scroller-pannel .downicon .line:nth-child(1) {
+  display: block;
+  width: 2px;
+  height: 18px;
+  background-color: #999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
+  opacity: 1;
+}
+
+.demopage .pannel-inner .scroller-pannel .downicon .line:nth-child(2) {
+  width: 8px;
+  height: 2px;
+  background-color: #999;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  transform: rotate(-45deg);
+  transform-origin: 0 50%;
+  border-radius: 2px;
+  opacity: 1;
+}
+
+.demopage .pannel-inner .scroller-pannel .downicon .line:nth-child(3) {
+  width: 8px;
+  height: 2px;
+  background-color: #999;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  right: 50%;
+  transform: rotate(45deg);
+  transform-origin: 100% 50%;
+  border-radius: 2px;
+  opacity: 1;
+}

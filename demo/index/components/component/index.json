@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "bg": "/miniprogram_npm/wave-bg-weapp/bg/index"
+  }
+}

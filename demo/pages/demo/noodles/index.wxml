@@ -1,0 +1,19 @@
+<view class="demopage">
+  <view class="pannel-inner">
+    <scroller isBackBtn="{{true}}">
+      <refresh slot="refresh" config="{{giffoodSetting}}" type="diy" />
+      <view class="scroller-pannel">
+        <view>
+          <view class="title">美食主题：魔性吃面</view>
+          <view class="des">采用gif动图实现，动画无限循环，十分魔性。下拉不松手可一直查看动画</view>
+          <view class="downtip">下拉查看效果</view>
+          <view class="downicon">
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+          </view>
+        </view>
+      </view>
+    </scroller>
+  </view>
+</view>

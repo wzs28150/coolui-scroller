@@ -1,0 +1,90 @@
+{
+  "pages": [
+    "index/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/second-floor/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/longlist/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/list/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/loadmore/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/hand/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/empty/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/search/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/nav/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/refresh/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/combined/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/sort/",
+      "pages": [
+        "index"
+      ]
+    },
+    {
+      "root": "pages/demo/",
+      "pages": [
+        "fly/index",
+        "noodles/index",
+        "christmas/index",
+        "universe/index",
+        "bingdwendwen/index"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#d13435",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "default"
+  },
+  "sitemapLocation": "sitemap.json"
+}

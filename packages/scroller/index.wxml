@@ -1,0 +1,20 @@
+<view id="content" class="wrap">
+  <view class="slot-header" id="header">
+    <slot name="header"></slot>
+  </view>
+  <scroll-view scroll-y class="scroll flex" enhanced="{{false}}" fast-deceleration="{{true}}" enable-back-to-top="{{true}}" enable-flex="{{enableFlex}}" refresher-enabled="{{type?true:false}}" refresher-threshold="{{refreshConfig.height?refreshConfig.height:50}}" lower-threshold="{{100}}" refresher-default-style="{{type == 'default' ? refreshConfig.style : 'none'}}" refresher-background="{{refreshConfig.background.color}}" refresher-triggered="{{triggered}}" bindrefresherrefresh="onDefaultRefresh" bindrefresherpulling="onPulling" bindrefresherrestore="onRestore" bindscrolltolower="onLoadmore" bindscroll="scroll" bind:touchend="dragend" scroll-top="{{top}}" scroll-with-animation="{{true}}" style="height:{{contentHeight}}px;">
+    <view slot="refresher" wx:if="{{type != 'default'}}"   class="refresh-container">
+      <slot name="refresh"></slot>
+    </view>
+    <view class="inner" style="min-height:{{contentHeight}}px;">
+      <slot></slot>
+      <view style="height:{{contentHeight}}px" hidden="{{!isEmpty}}" class="slot-empty">
+        <slot name="empty"></slot>
+      </view>
+      <view class="slot-loadmore" hidden="{{isEmpty}}">
+        <slot name="loadmore"></slot>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="backToTop" wx:if="{{isBackToTopShow && isBackBtn}}" bindtap="backToTop"></view>
+</view>

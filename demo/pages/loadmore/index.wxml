@@ -1,0 +1,30 @@
+<view class="page">
+  <view class="pannel">
+    <view class="title">加载更多组件</view>
+    <view class="content" style="padding-bottom:0">基础使用</view>
+    <view class="pannel-inner">
+      <loadmore slot="loadmore" status="{{loadMoreSetting.status}}" loading="{{loadMoreSetting.loading}}" noMore="{{loadMoreSetting.noMore}}" more="{{loadMoreSetting.more}}" />
+    </view>
+    <view class="content" style="padding-bottom:0">加载中</view>
+    <view class="pannel-inner">
+      <loadmore slot="loadmore" status="{{loadMoreSetting1.status}}" loading="{{loadMoreSetting1.loading}}" noMore="{{loadMoreSetting1.noMore}}" more="{{loadMoreSetting1.more}}" />
+    </view>
+    <view class="content" style="padding-bottom:0">数据加载完</view>
+    <view class="pannel-inner">
+      <loadmore slot="loadmore" status="{{loadMoreSetting2.status}}" loading="{{loadMoreSetting2.loading}}" noMore="{{loadMoreSetting2.noMore}}" more="{{loadMoreSetting2.more}}" />
+    </view>
+  </view>
+  <view class="pannel demo">
+    <view class="title">与列表结合</view>
+    <view class="list">
+      <scroller class="{{(loadMoreSetting3.status == 'loading' && list.length == 0) ? 'isloading' : ''}}" id="scroller" bind:loadmore="getList" bind:refresh="refresh" refresh scrollOption="{{refreshSetting}}">
+        <item wx:for="{{ list }}" wx:for-index="index" wx:for-item="listItem" wx:key="index">
+          <view class="item">
+            <view class="item-title">{{index}}.{{listItem.title}}</view>
+          </view>
+        </item>
+        <loadmore slot="loadmore" status="{{loadMoreSetting3.status}}" loading="{{loadMoreSetting3.loading}}" noMore="{{loadMoreSetting3.noMore}}" more="{{loadMoreSetting3.more}}"  />
+      </scroller>
+    </view>
+  </view>
+</view>

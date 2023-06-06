@@ -1,0 +1,22 @@
+{
+  "name": "doc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf ..\\coolui-scroller",
+    "docs:dev": "vitepress dev",
+    "docs:build": "npm run clean && vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup-plugin-copy": "^3.4.0",
+    "vitepress": "1.0.0-beta.1"
+  },
+  "dependencies": {
+    "rimraf": "^5.0.1"
+  }
+}

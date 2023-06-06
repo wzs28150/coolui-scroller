@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "refresh": "coolui-scroller/refresh/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "浩瀚宇宙",
+  "navigationBarBackgroundColor": "#352b76"
+}

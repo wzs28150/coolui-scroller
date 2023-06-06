@@ -1,0 +1,44 @@
+<second-floor bind:refresh="onRefresh" bind:secondShow="onSecondShow" bind:secondBack="onSecondBack" model:threshold="{{val}}" class="my-second-floor" center="{{type === 'center'}}" bottom="{{type === 'bottom'}}" top="{{type === 'top'}}" scale="{{scale}}">
+  <view slot="second-floor">
+    <view class="second-floor" style="background: #d13435;">
+      <view>我是二楼顶部</view>
+      <view>我是二楼中部</view>
+      <view>我是二楼底部</view>
+    </view>
+  </view>
+  <second-floor-refresh refreshConfig="{{refreshConfig}}" slot="second-floor-refresh"></second-floor-refresh>
+  <view class="demopage">
+    <view class="pannel-inner">
+      <view class="scroller-pannel">
+        <view>
+          <view class="title">下拉二楼效果</view>
+          <view class="des">轻滑下拉松手刷新，滑动到超过一定距离，下拉二楼展开，可写入活动页面等有趣的内容</view>
+          <view class="des">二楼位置设置:</view>
+          <radio-group bindchange="radioChange">
+            <label class="weui-cell weui-check__label" wx:for="{{types}}" wx:key="value">
+              <view class="weui-cell__hd">
+                <radio value="{{item.value}}" checked="{{item.value === type}}" />
+              </view>
+              <view class="weui-cell__bd">{{item.name}}</view>
+            </label>
+          </radio-group>
+          <view class="des">是否开启缩放:</view>
+          <switch checked="{{scale}}" bindchange="scaleChange" />
+          <view class="des">是否弹出新页面:</view>
+          <switch checked="{{newPage}}" bindchange="switchChange" />
+          <view class="downtip">下拉查看效果</view>
+          <view class="downicon">
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</second-floor>
+<page-container show="{{show}}" round="{{round}}" overlay="{{overlay}}" duration="{{duration}}" position="{{position}}" close-on-slide-down="{{false}}" bindbeforeenter="onBeforeEnter" bindenter="onEnter" bindafterenter="onAfterEnter" bindbeforeleave="onBeforeLeave" bindleave="onLeave" bindafterleave="onAfterLeave" bindclickoverlay="onClickOverlay" custom-style="{{customStyle}}" overlay-style="{{overlayStyle}}">
+  <view class="detail-page">
+    <button type="primary" bindtap="exit">退出</button>
+  </view>
+</page-container>

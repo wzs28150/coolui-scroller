@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "nav": "coolui-scroller/nav/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "分类组件"
+}

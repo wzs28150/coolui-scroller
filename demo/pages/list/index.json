@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "item": "coolui-scroller/item/index"
+  },
+  "navigationBarTitleText": "滚动列表组件"
+}

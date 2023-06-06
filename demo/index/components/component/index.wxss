@@ -1,0 +1,188 @@
+.component {
+  position: relative;
+}
+
+.component .bg {
+  height: 33vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.component .logo {
+  margin: 0 auto;
+  position: absolute;
+  width: 100vw;
+  top: 7vh;
+  left: 0;
+  z-index: 89;
+  transition: opacity 0.3s;
+}
+
+.component .logo .logo-img {
+  width: 80vw;
+  height: calc(0.13 * 80vw);
+  margin: 0 auto;
+  padding: 30rpx 0;
+  display: block;
+}
+
+.component .inner {
+  padding: 33vh 30rpx 30rpx;
+  height: calc(100vh - 100rpx);
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 89;
+  box-sizing: border-box;
+  /* display: none; */
+}
+
+.component .inner .scroll {
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10rpx;
+}
+
+.component .inner .scroll .list {
+  padding: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+  height: calc(100vh - 100rpx - 90rpx - 33vh);
+}
+
+.component .inner .scroll .list .item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  width: 33.3333%;
+  text-align: center;
+}
+
+.component .inner .scroll .list .item .icon {
+  width: 3em;
+  height: 3em;
+  display: block;
+  margin: 0 auto;
+}
+
+.component .inner .scroll .list .item::after {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  transform: scale(0.5);
+  border-bottom: 1px solid #eee;
+}
+
+.component .inner .scroll .list .item::before {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  transform: scale(0.5);
+  border-right: 1px solid #eee;
+}
+
+.component .inner .scroll .list .item:nth-child(3n)::before {
+  display: none;
+}
+
+.component .inner .scroll .list .item:nth-child(7)::after, .component .inner .scroll .list .item:nth-child(8)::after, .component .inner .scroll .list .item:nth-child(9)::after {
+  display: none;
+}
+
+.component .inner .scroll .list .item:nth-child(10) {
+  width: 50%;
+}
+
+.component .inner .scroll .list .item:nth-child(10) > view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.component .inner .scroll .list .item:nth-child(10)::after {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  transform: scale(0.5);
+  border-top: 1px solid #eee;
+  border-bottom: 0;
+}
+
+.component .inner .scroll .list .item:last-child {
+  width: 50%;
+}
+
+.component .inner .scroll .list .item:last-child > view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.component .inner .scroll .list .item:last-child::after {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  transform: scale(0.5);
+  border-top: 1px solid #eee;
+  border-bottom: 0;
+}
+
+.component .inner .scroll .list .item .right-icon {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.component .inner .scroll .list .item .right-icon::before {
+  width: 10px;
+  height: 1px;
+  background-color: #ccc;
+  content: "";
+  display: block;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform-origin: 10px;
+}
+
+.component .inner .scroll .list .item .right-icon::after {
+  width: 10px;
+  height: 1px;
+  background-color: #ccc;
+  content: "";
+  display: block;
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform-origin: 10px;
+}

@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "refresh": "coolui-scroller/refresh/index",
+    "parallax": "coolui-scroller/parallax/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "下拉刷新组件"
+}

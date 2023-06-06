@@ -1,0 +1,28 @@
+.page {
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  padding: 0 30rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  .pannel {
+    margin-bottom: 30rpx;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    .pannel-inner {
+      flex: 1;
+      padding: 20rpx 0;
+      display: flex;
+      flex-direction: column;
+      .nav-pannel{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28rpx;
+      }
+    }
+  }
+
+}

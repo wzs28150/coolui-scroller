@@ -1,0 +1,19 @@
+{
+  "hash": "81bb9ae0",
+  "browserHash": "4b8956bb",
+  "optimized": {
+    "vue": {
+      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vue@3.3.4/node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "a79337b8",
+      "needsInterop": false
+    },
+    "@theme/index": {
+      "src": "../../../../node_modules/.pnpm/registry.npmmirror.com+vitepress@1.0.0-beta.1_@algolia+client-search@4.17.1/node_modules/vitepress/dist/client/theme-default/index.js",
+      "file": "@theme_index.js",
+      "fileHash": "50087096",
+      "needsInterop": false
+    }
+  },
+  "chunks": {}
+}

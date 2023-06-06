@@ -1,0 +1,14 @@
+<view class="wx-coolui-scroller-refresh refresh-class" style="height:{{config.height}}px;{{config.background.img?'background-image:url('+config.background.img+');':''}}padding-top:{{config.background.height? config.background.height - config.height : 0}}px;">
+  <view class="refresh-inner" wx:if="{{type == 'base'}}" style="height:{{config.height}}px;color:{{config.text.color}};{{config.text.shadow?'config.text-shadow:0 0 '+config.text.shadow+'rpx '+config.text.color+';':''}}">
+    <view class="down  {{triggered && isloading?'loading':''}}" style="transform: rotate({{threshold*180}}deg);">
+      <view class="line" style="border-color:{{config.text.color}} transparent transparent;{{triggered && isloading?'background-color:transparent':'background-color:' + config.text.color}}"></view>
+      <view class="line" style="border-color:{{config.text.color}} transparent transparent;{{triggered && isloading?'background-color:transparent':'background-color:' + config.text.color}}"></view>
+      <view class="line" style="border-color:{{config.text.color}} transparent transparent;{{triggered && isloading?'background-color:transparent':'background-color:' + config.text.color}}"></view>
+    </view>
+    <block wx:if="{{refreshstate == 'pulldown'}}">下拉刷新</block>
+    <block wx:elif="{{refreshstate == 'loosen'}}">松手刷新</block>
+    <block wx:elif="{{refreshstate == 'loading'}}">刷新中...</block>
+  </view>
+  <slot name="parallax" />
+  <slot />
+</view>

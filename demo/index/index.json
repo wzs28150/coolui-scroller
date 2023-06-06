@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "component": "./components/component/index",
+    "case": "./components/case/index",
+    "handtip": "coolui-scroller/handtip/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "coolui-scroller"
+}

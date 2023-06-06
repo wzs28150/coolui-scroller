@@ -1,0 +1,6 @@
+<view class="coolui-scroller-nav {{scroll?'scroll':'flex'}}">
+  <slot></slot>
+</view>
+<block wx:if="{{overlay}}">
+<view class="overlay" id="overlay" style="height:{{overlayHeight}}px;" animation="{{opacityAnimation}}" hidden="{{!isOverLayShow}}" bind:tap="close" ></view>
+</block>

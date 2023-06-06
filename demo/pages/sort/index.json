@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "sort": "coolui-scroller/sort/index",
+    "sort-item": "coolui-scroller/sort/item"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "分类组件"
+}

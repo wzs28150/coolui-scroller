@@ -1,26 +1,16 @@
 {
   "name": "coolui-scroller",
-  "version": "3.0.0",
-  "description": "微信小程序Scroll 上拉加载下拉刷新组件",
-  "main": "./index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:wzs28150/coolui-scroller.git"
-  },
-  "keywords": [
-    "weapp",
-    "scroller",
-    "pull-to-refresh",
-    "push-to-loadmore"
+  "version": "3.2.4",
+  "description": "",
+  "main": "packages/index.js",
+  "files": [
+    "/packages/**/*"
   ],
-  "miniprogram": "./",
-  "author": "wzs",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/wzs28150/coolui-scroller/issues"
+  "scripts": {
+    "dev": "pnpm run --filter ./doc docs:dev",
+    "build": "pnpm run --filter ./doc docs:build"
   },
-  "homepage": "https://github.com/wzs28150/coolui-scroller#readme"
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

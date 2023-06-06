@@ -1,0 +1,49 @@
+<view class="demopage">
+  <view class="pannel-inner">
+    <scroller isBackBtn="{{true}}" model:triggered="{{triggered}}" bind:refresh="flyRefresh">
+      <refresh slot="refresh" refresh-class="elm-refresh" type="diy" model:threshold="{{val}}" model:refreshstate="{{refreshstate}}" config="{{flySetting}}">
+        <view class="bingdwendwen-wapper {{refreshstate}}">
+          <view class="bingdwendwen">
+            <view class="body"></view>
+            <view class="ear1"></view>
+            <view class="ear2"></view>
+            <view class="leg1"></view>
+            <view class="leg2"></view>
+            <view class="arm1"></view>
+            <view class="arm2"></view>
+            <view class="face face1"></view>
+            <view class="face face2"></view>
+            <view class="face face3"></view>
+            <view class="face face4"></view>
+            <view class="face face5"></view>
+            <view class="nose"></view>
+            <view class="mouse"></view>
+            <view class="eye1"></view>
+            <view class="eye2"></view>
+            <view class="balloon">
+            Hi
+          </view>
+          </view>
+          
+        </view>
+      </refresh>
+      <view class="scroller-pannel">
+        <view style="text-align: center;">
+          <view class="title">冰墩墩</view>
+          <view class="des">谁能拒绝可爱的冰墩墩</view>
+          <view class="des">使用refreshstate状态控制动画</view>
+          <view class="des">
+            refreshstate:
+            <text style="color: #019ff0">{{refreshstate}}</text>
+          </view>
+          <view class="downtip">下拉查看效果</view>
+          <view class="downicon">
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+          </view>
+        </view>
+      </view>
+    </scroller>
+  </view>
+</view>
