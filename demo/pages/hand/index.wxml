@@ -1,0 +1,11 @@
+<!--pages/hand/index.wxml-->
+<view class="page">
+  <view class="pannel">
+    <view class="title">手势提示组件</view>
+    <view class="content">
+      手势组件默认设定为第一次加载页面时显示。所以显示状态存入了Storage。
+    </view>
+    <button class="btn" plain bindtap="reset">重置组件</button>
+  </view>
+  <handtip top="下拉刷新" bottom="上拉加载" left="侧滑切换" right="侧滑切换" opacity="0.7" key="hand2" />
+</view>

@@ -1,0 +1,271 @@
+.demopage {
+  .fly-wapper {
+    height          : 80px;
+    position        : relative;
+    background-color: #019ff0;
+    overflow        : hidden;
+
+    .plane {
+      height     : 300 * 0.25rpx;
+      width      : 490 * 0.25rpx;
+      position   : absolute;
+      top        : 80px;
+      left       : 50%;
+      z-index    : 3;
+      margin-left: - 490 * 0.25 * 0.5rpx;
+      transform  : rotate(-30deg) translate(0, 20px);
+      transition : all 1s;
+
+
+      &.loosen {
+        top      : 10px;
+        transform: rotate(0);
+
+        &.loading {
+          transform: rotate(0deg) translate(250px, -30px);
+        }
+      }
+
+      .frame {
+        z-index         : 1;
+        height          : 40 * 0.25rpx;
+        width           : 405 * 0.25rpx;
+        position        : absolute;
+        top             : 100 * 0.25rpx;
+        right           : 50 * 0.25rpx;
+        border-radius   : 100% 150% 0 300%;
+        transform       : rotate(-15deg);
+        background-color: #fff;
+
+        &::after {
+          content         : "";
+          height          : 56 * 0.25rpx;
+          width           : 400 * 0.25rpx;
+          background-color: #fff;
+          position        : absolute;
+          top             : -40 * 0.25rpx;
+          left            : 35 * 0.25rpx;
+          border-radius   : 120% 167% 113% 100%;
+          clip            : rect(0rpx 410 * 0.25rpx 60 * 0.25rpx 370 * 0.25rpx);
+          transform       : rotate(10deg);
+        }
+      }
+
+      .wrings-left {
+        width           : 0;
+        height          : 0;
+        border-bottom   : 100 * 0.25rpx solid #fff;
+        border-right    : 40 * 0.25rpx solid transparent;
+        background      : none;
+        transform-origin: left bottom;
+        transform       : rotate(-15deg) skewX(40deg);
+        position        : absolute;
+        top             : 25 * 0.25rpx;
+        left            : 150 * 0.25rpx;
+      }
+
+      .tail-left {
+        width           : 0;
+        height          : 0;
+        border-bottom   : 40 * 0.25rpx solid #fff;
+        border-right    : 20 * 0.25rpx solid transparent;
+        background      : none;
+        transform-origin: left bottom;
+        transform       : rotate(-35deg) skewX(40deg);
+        position        : absolute;
+        top             : 120 * 0.25rpx;
+        left            : 60 * 0.25rpx;
+      }
+
+      .tail-top {
+        width                    : 60 * 0.25rpx;
+        height                   : 15 * 0.25rpx;
+        transform                : rotate(30deg) skewX(-40deg);
+        border-top-left-radius   : 20%;
+        border-bottom-left-radius: 20%;
+        position                 : absolute;
+        top                      : 125 * 0.25rpx;
+        left                     : 30 * 0.25rpx;
+        border-bottom            : none;
+        z-index                  : 3;
+        background-color         : #fff;
+
+        &::before {
+          content   : "";
+          width     : 60 * 0.25rpx;
+          height    : 10 * 0.25rpx;
+          position  : absolute;
+          top       : 9 * 0.25rpx;
+          left      : 1 * 0.25rpx;
+          transform : rotate(13deg) skewX(13deg);
+          background: #fff;
+          display   : block;
+        }
+      }
+    }
+
+    .wind {
+      .wind1 {
+        width           : 40rpx;
+        height          : 2rpx;
+        background-color: #fff;
+        position        : absolute;
+        top             : 30%;
+        opacity         : 0.6;
+        animation       : windflow linear 1s infinite;
+      }
+
+      .wind2 {
+        width           : 40rpx;
+        height          : 2rpx;
+        background-color: #fff;
+        position        : absolute;
+        top             : 50%;
+        opacity         : 0.6;
+        animation       : windflow linear 3s infinite;
+      }
+
+      .wind3 {
+        width           : 40rpx;
+        height          : 2rpx;
+        background-color: #fff;
+        position        : absolute;
+        top             : 60%;
+        opacity         : 0.6;
+        animation       : windflow linear 2s infinite;
+      }
+    }
+
+    .clouds_center {
+      position  : relative;
+      height    : 100%;
+      transition: all 1s;
+      transform : translateY(50px) scale(1.2);
+
+      &.loosen,
+      &.loading {
+        transform: translateY(0) scale(1);
+      }
+
+      .clouds1 {
+        width           : 60rpx;
+        height          : 60rpx;
+        border-radius   : 50%;
+        background-color: #fff;
+        box-shadow      : #fff 50rpx -40rpx 0 20rpx, #fff 44rpx -20rpx 0 10rpx, #fff 50rpx -2rpx 0 16rpx, #fff 108rpx -2rpx 0 16rpx, #fff 160rpx 0rpx 0 4rpx;
+        position        : absolute;
+        left            : 4vw;
+        bottom          : -40rpx;
+        z-index         : 3;
+      }
+
+      .clouds2 {
+        width           : 60rpx;
+        height          : 60rpx;
+        border-radius   : 50%;
+        background-color: #e9f4ff;
+        box-shadow      : #e9f4ff 70rpx -40rpx 0 20rpx, #e9f4ff 44rpx -20rpx 0 10rpx, #e9f4ff 50rpx -2rpx 0 16rpx, #e9f4ff 108rpx -2rpx 0 16rpx, #e9f4ff 160rpx 0rpx 0 4rpx;
+        position        : absolute;
+        left            : 8vw;
+        bottom          : -40rpx;
+        z-index         : 2;
+      }
+
+      .clouds3 {
+        width           : 60rpx;
+        height          : 60rpx;
+        border-radius   : 50%;
+        background-color: #c9def3;
+        box-shadow      : #c9def3 130rpx -30rpx 0 10rpx, #c9def3 44rpx -20rpx 0 10rpx, #c9def3 50rpx -2rpx 0 16rpx, #c9def3 108rpx -2rpx 0 16rpx, #c9def3 180rpx 0rpx 0 10rpx;
+        position        : absolute;
+        left            : 10vw;
+        bottom          : -20rpx;
+        z-index         : 1;
+      }
+
+      .clouds4 {
+        width           : 30rpx;
+        height          : 30rpx;
+        border-radius   : 50%;
+        background-color: #fff;
+        box-shadow      : #fff 25rpx -20rpx 0 10rpx, #fff 0rpx -10rpx 0 5rpx, #fff 25rpx -1rpx 0 8rpx, #fff 54rpx -1rpx 0 8rpx, #fff 80rpx 0rpx 0 2rpx;
+        position        : absolute;
+        left            : 36vw;
+        bottom          : -20rpx;
+        z-index         : 3;
+      }
+
+      .clouds5 {
+        width           : 30rpx;
+        height          : 30rpx;
+        border-radius   : 50%;
+        background-color: #e9f4ff;
+        box-shadow      : #e9f4ff 35rpx -20rpx 0 10rpx, #e9f4ff 22rpx -10rpx 0 5rpx, #e9f4ff 25rpx -1rpx 0 8rpx, #e9f4ff 54rpx -1rpx 0 8rpx, #e9f4ff 80rpx 0rpx 0 2rpx;
+        position        : absolute;
+        left            : 40vw;
+        bottom          : -20rpx;
+        z-index         : 2;
+      }
+
+      .clouds6 {
+        width           : 30rpx;
+        height          : 30rpx;
+        border-radius   : 50%;
+        background-color: #c9def3;
+        box-shadow      : #c9def3 65rpx -20rpx 0 10rpx, #c9def3 22rpx -10rpx 0 5rpx, #c9def3 25rpx -1rpx 0 8rpx, #c9def3 54rpx -1rpx 0 8rpx, #c9def3 100rpx 0rpx 0 5rpx;
+        position        : absolute;
+        left            : 42vw;
+        bottom          : -10rpx;
+        z-index         : 1;
+      }
+
+      .clouds7 {
+        width           : 60rpx;
+        height          : 60rpx;
+        border-radius   : 50%;
+        background-color: #fff;
+        box-shadow      : #fff 50rpx -40rpx 0 20rpx, #fff 0rpx -20rpx 0 10rpx, #fff 50rpx -2rpx 0 16rpx, #fff 108rpx -2rpx 0 16rpx, #fff 160rpx 0rpx 0 4rpx;
+        position        : absolute;
+        left            : 55vw;
+        bottom          : -40rpx;
+        z-index         : 3;
+      }
+
+      .clouds8 {
+        width           : 60rpx;
+        height          : 60rpx;
+        border-radius   : 50%;
+        background-color: #e9f4ff;
+        box-shadow      : #e9f4ff 70rpx -40rpx 0 20rpx, #e9f4ff 44rpx -20rpx 0 10rpx, #e9f4ff 50rpx -2rpx 0 16rpx, #e9f4ff 108rpx -2rpx 0 16rpx, #e9f4ff 160rpx 0rpx 0 4rpx;
+        position        : absolute;
+        left            : 65vw;
+        bottom          : -40rpx;
+        z-index         : 2;
+        opacity         : 0.5;
+      }
+
+      .clouds9 {
+        width           : 60rpx;
+        height          : 60rpx;
+        border-radius   : 50%;
+        background-color: #c9def3;
+        box-shadow      : #c9def3 100rpx -40rpx 0 20rpx, #c9def3 44rpx -20rpx 0 10rpx, #c9def3 50rpx -2rpx 0 16rpx, #c9def3 108rpx -2rpx 0 16rpx, #c9def3 200rpx 0rpx 0 10rpx;
+        position        : absolute;
+        left            : -5vw;
+        bottom          : -20rpx;
+        z-index         : 1;
+        opacity         : 0.6;
+      }
+    }
+  }
+}
+
+@keyframes windflow {
+  from {
+    left: calc(100vw + 40rpx);
+  }
+
+  to {
+    left: -40rpx;
+  }
+}

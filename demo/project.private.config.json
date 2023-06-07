@@ -1,0 +1,113 @@
+{
+  "setting": {
+    "compileHotReLoad": true,
+    "lazyloadPlaceholderEnable": true,
+    "useIsolateContext": false
+  },
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "长列表",
+          "pathName": "pages/longlist/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "滚动列表组件",
+          "pathName": "pages/list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "加载更多",
+          "pathName": "pages/loadmore/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "手势组件",
+          "pathName": "pages/hand/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "空列表",
+          "pathName": "pages/empty/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "搜索组件",
+          "pathName": "pages/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分类组件",
+          "pathName": "pages/nav/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "下拉刷新",
+          "pathName": "pages/refresh/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "组合使用",
+          "pathName": "pages/combined/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "魔性吃面",
+          "pathName": "pages/demo/noodles/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "飞上云霄",
+          "pathName": "pages/demo/fly/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "圣诞节",
+          "pathName": "pages/demo/christmas/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "浩瀚宇宙",
+          "pathName": "pages/demo/universe/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "分类筛选及排序组件",
+          "pathName": "pages/sort/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "冰墩墩",
+          "pathName": "pages/demo/bingdwendwen/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "下拉二楼",
+          "pathName": "pages/second-floor/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "libVersion": "2.26.1",
+  "projectname": "coolui-scroller"
+}

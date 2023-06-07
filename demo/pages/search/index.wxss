@@ -1,0 +1,46 @@
+.page {
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  padding: 0 30rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.page .pannel {
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.page .pannel .pannel-inner {
+  flex: 1;
+  padding: 20rpx 0;
+}
+
+.page .search-btn {
+  color: #d13435;
+}
+
+.page .search-btn::after {
+  border-color: #d13435;
+}
+
+.page .search-full-btn {
+  color: #fff;
+  background-color: #d13435;
+}
+
+.page .search-full-btn::after {
+  border-color: #d13435;
+}
+
+.page .search-textonly-btn {
+  color: #d13435;
+  background: none;
+  padding: 0 0 !important;
+}
+
+.page .search-textonly-btn::after {
+  border: none;
+}

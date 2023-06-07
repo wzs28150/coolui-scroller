@@ -1,0 +1,123 @@
+.wx-coolui-scroller-refresh {
+  width              : 100%;
+  background-size    : cover;
+  background-position: center bottom;
+  background-repeat  : no-repeat;
+  position           : relative;
+  overflow           : hidden;
+
+  .refresh-inner {
+    position       : absolute;
+    text-align     : center;
+    width          : 100%;
+    font-size      : 28rpx;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+
+
+    .down {
+      width              : 12px;
+      height             : 12px;
+      margin-right       : 20rpx;
+      // background-color: #000;
+      position           : relative;
+
+      .line {
+        &:nth-child(1) {
+          display         : block;
+          width           : 2px;
+          height          : 18px;
+          background-color: #000;
+          position        : absolute;
+          top             : 50%;
+          left            : 50%;
+          transform       : translate(-50%, -50%);
+          border-radius   : 2px;
+          opacity         : 1;
+        }
+
+        &:nth-child(2) {
+          width           : 8px;
+          height          : 2px;
+          background-color: #000;
+          display         : block;
+          position        : absolute;
+          bottom          : -3px;
+          left            : 50%;
+          transform       : rotate(-45deg);
+          transform-origin: 0 50%;
+          border-radius   : 2px;
+          opacity         : 1;
+        }
+
+        &:nth-child(3) {
+          width           : 8px;
+          height          : 2px;
+          background-color: #000;
+          display         : block;
+          position        : absolute;
+          bottom          : -3px;
+          right           : 50%;
+          transform       : rotate(45deg);
+          transform-origin: 100% 50%;
+          border-radius   : 2px;
+          opacity         : 1;
+        }
+      }
+
+      &.loading {
+        display : inline-block;
+        position: relative;
+        width   : 36rpx;
+        height  : 36rpx;
+
+        .line {
+          -webkit-box-sizing: border-box;
+          box-sizing        : border-box;
+          display           : block;
+          position          : absolute;
+          margin            : -18rpx 2px 2px -18rpx;
+          border-width      : 2px;
+          border-style      : solid;
+          border-color      : #6190e8 transparent transparent;
+          border-radius     : 50%;
+          -webkit-animation : circle 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation         : circle 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          width             : 36rpx;
+          height            : 36rpx;
+          left: 50%;
+          top: 50%;
+          transform-origin: 50% 50%;
+          background-color: transparent;
+          transform: translate(-50%, -50%);
+          
+          &:nth-child(1) {
+            -webkit-animation-delay: -.45s;
+            animation-delay        : -0.45s;
+          }
+
+          &:nth-child(2) {
+            -webkit-animation-delay: -.3s;
+            animation-delay        : -0.3s;
+          }
+
+          &:nth-child(3) {
+            -webkit-animation-delay: -.15s;
+            animation-delay        : -0.15s;
+          }
+        }
+      }
+    }
+
+    @keyframes circle {
+      0% {
+        transform: rotate(0);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

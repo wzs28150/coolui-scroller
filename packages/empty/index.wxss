@@ -1,0 +1,25 @@
+/* components/coolui-scroller-item/coolui-scroller-item.wxss */
+:host {
+  display: block;
+  height: 100%;
+}
+.coolui-scroller-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-img{
+  width: 30vw;
+  height: 30vw;
+  display: block;
+  margin: 0 auto;
+}
+
+.empty-text{
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin: 50rpx auto;
+}

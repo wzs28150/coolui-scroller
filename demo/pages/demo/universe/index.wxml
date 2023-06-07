@@ -1,0 +1,32 @@
+<view class="demopage">
+  <view class="pannel-inner">
+    <scroller isBackBtn="{{true}}" bind:refresh="onRefresh" class="universe-scroller">
+      <refresh slot="refresh" config="{{universeSetting}}" model:refreshstate="{{refreshstate}}" model:threshold="{{val}}" type="diy">
+        <view class="universe-wapper {{refreshstate}} {{isLoading?'loading2':''}}">
+          <view class="universe-bg" style="transform:translate(-50%, -50%) scale({{1+0.5 * val}})"></view>
+          <view class="earth-group" style="transform:translate(-50%, -50%) scale({{0.2 * val}})">
+            <view class="earth"></view>
+            <view class="moon {{refreshstate}}"></view>
+          </view>
+          <!-- <view class="moon-line"></view> -->
+          <view class="sun" style="transform:translate({{-100+100*val}}%, {{-100+100*val}}%) scale({{1 * val}})"></view>
+          <view class="jupiter {{refreshstate}} " style="transform: scale({{1 + 1 * val}}) translate({{-100*val}}%, 0%)"></view>
+          <view class="ball" style="transform:translate({{100-100*val*4}}%, {{-100+100*val}}%) scale({{1 * val}})"></view>
+        </view>
+      </refresh>
+      <view class="scroller-pannel">
+        <view>
+          <view class="title">浩瀚宇宙</view>
+          <view class="des">开启非自动回弹</view>
+          <view class="des">增加动画状态，自定义回弹时间</view>
+          <view class="downtip">下拉查看效果</view>
+          <view class="downicon">
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+          </view>
+        </view>
+      </view>
+    </scroller>
+  </view>
+</view>

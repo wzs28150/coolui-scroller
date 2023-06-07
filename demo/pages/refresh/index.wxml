@@ -1,0 +1,175 @@
+<view class="page">
+  <view class="pannel">
+    <view class="title" bind:tap="test">下拉刷新组件</view>
+    <!-- 基础使用 -->
+    <view class="content" style="padding-bottom:0">
+      原生效果
+      <view class="tip">不使用组件</view>
+    </view>
+    <view class="pannel-inner">
+      <scroller isBackBtn="{{true}}" background="#f2f2f2">
+        <refresh slot="refresh" type="default" config="{{defaultSetting}}" />
+        <view class="scroller-pannel">下拉查看效果</view>
+      </scroller>
+    </view>
+    <!-- 基础使用 -->
+    <view class="content" style="padding-bottom:0">
+      基础效果
+      <view class="tip">使用组件</view>
+    </view>
+    <view class="pannel-inner">
+      <scroller isBackBtn="{{true}}" background="#f2f2f2">
+        <refresh slot="refresh" type="base" config="{{baseConfig}}" />
+        <view class="scroller-pannel">下拉查看效果</view>
+      </scroller>
+    </view>
+    <!-- gif背景效果 -->
+    <view class="content" style="padding-bottom:0">
+      gif背景效果
+      <view class="tip">隐藏文字将背景设为动图</view>
+    </view>
+    <view class="pannel-inner">
+      <scroller isBackBtn="{{true}}" >
+        <refresh slot="refresh" config="{{gifSetting}}" type="diy" />
+        <view class="scroller-pannel">天猫动图,下拉查看效果</view>
+      </scroller>
+    </view>
+    <!-- 视差效果 -->
+    <view class="content" style="padding-bottom:0;">
+      视差效果
+      <view class="tip">搭配视差子组件实现</view>
+    </view>
+    <view class="pannel-inner">
+      <scroller isBackBtn="{{true}}" >
+        <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
+          <parallax parallax-class="parallax-item parallax-item1" slot="parallax" direction="to top" parallax="{{35}}">
+            从下往上
+          </parallax>
+          <parallax parallax-class="parallax-item parallax-item2" slot="parallax" direction="to bottom" parallax="{{35}}">
+            从上往下
+          </parallax>
+          <parallax parallax-class="parallax-item parallax-item4" slot="parallax" direction="to right" parallax="{{50}}">
+            从左往右
+          </parallax>
+          <parallax parallax-class="parallax-item parallax-item3" slot="parallax" direction="to left" parallax="{{50}}">
+            从右往左
+          </parallax>
+        </refresh>
+        <view class="scroller-pannel">不同方向,下拉查看效果</view>
+      </scroller>
+    </view>
+    <view class="pannel-inner">
+      <scroller isBackBtn="{{true}}">
+        <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
+          <parallax parallax-class="parallax-sitem parallax-item1" slot="parallax" direction="to top" parallax="{{0}}">
+            视差2
+          </parallax>
+          <parallax parallax-class="parallax-sitem parallax-item2" slot="parallax" direction="to top" parallax="{{8}}">
+            视差3
+          </parallax>
+          <parallax parallax-class="parallax-sitem parallax-item3" slot="parallax" direction="to top" parallax="{{-8}}">
+            视差1
+          </parallax>
+          <parallax parallax-class="parallax-sitem parallax-item4" slot="parallax" direction="to top" parallax="{{16}}">
+            视差4
+          </parallax>
+        </refresh>
+        <view class="scroller-pannel">同方向不同位移数值,下拉查看效果</view>
+      </scroller>
+    </view>
+    <view class="pannel-inner">
+      <scroller>
+        <refresh slot="refresh" type="diy" config="{{parallaxDemoSetting}}">
+          <parallax parallax-class="parallax-demoitem parallax-demoitem1" slot="parallax" direction="to bottom" parallax="{{0}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax0.png" />
+          </parallax>
+          <parallax parallax-class="parallax-demoitem parallax-demoitem1" slot="parallax" direction="to bottom" parallax="{{7}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax1.png" />
+          </parallax>
+          <parallax parallax-class="parallax-demoitem parallax-demoitem2" slot="parallax" direction="to bottom" parallax="{{14}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax2.png" />
+          </parallax>
+          <parallax parallax-class="parallax-demoitem parallax-demoitem3" slot="parallax" direction="to bottom" parallax="{{21}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax3.png" />
+          </parallax>
+          <parallax parallax-class="parallax-demoitem parallax-demoitem4" slot="parallax" direction="to bottom" parallax="{{28}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax4.png" />
+          </parallax>
+          <parallax parallax-class="parallax-demoitem parallax-demoitem5" slot="parallax" direction="to bottom" parallax="{{35}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax5.png" />
+          </parallax>
+          <parallax parallax-class="parallax-demoitem parallax-demoitem6" slot="parallax" direction="to bottom" parallax="{{42}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax6.png" />
+          </parallax>
+          <parallax parallax-class="parallax-demoitem parallax-demoitem7" slot="parallax" direction="to bottom" parallax="{{49}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax7.png" />
+          </parallax>
+          <parallax parallax-class="parallax-demoitem parallax-demoitem8" slot="parallax" direction="to bottom" parallax="{{56}}">
+            <image class="img" mode="scaleToFill" src="https://test.wzs.pub/pic/parallax8.png" />
+          </parallax>
+        </refresh>
+        <view class="scroller-pannel">
+          <view style="text-align: center;">
+            <view>多元素位移实现场景</view>
+            <view>下拉查看效果</view>
+          </view>
+        </view>
+      </scroller>
+    </view>
+    <!-- 京东效果 -->
+    <view class="content" style="padding-bottom:0">
+      京东效果
+      <view class="tip">threshold：{{val}}</view>
+    </view>
+    <view class="pannel-inner">
+      <scroller isBackBtn="{{true}}">
+        <refresh slot="refresh" type="diy" refresh-class="jd-refresh" model:threshold="{{val}}" config="{{jdSetting}}">
+          <view class="jd-wapper">
+            <view class="img" wx:if="{{val == 1}}" />
+            <block wx:else>
+              <view class="moveimg" style="transform: scale({{val}}) translateX({{-100 + val * 100}}px);" />
+              <view class="moveimg2" style="transform: translateY({{-100 + val * 100}}px);" />
+            </block>
+          </view>
+          <view class="text">让购物更便捷</view>
+        </refresh>
+        <view class="scroller-pannel">
+          <view style="text-align: center;">
+            <view>自定义描述场景贴合应用内容</view>
+            <view>使用threshold数值变化控制动画</view>
+            <view>下拉查看效果</view>
+          </view>
+        </view>
+      </scroller>
+    </view>
+    <!-- 饿了么效果 -->
+    <view class="content" style="padding-bottom:0">
+      饿了么效果
+      <view class="tip">refreshstate: {{refreshstate}}</view>
+    </view>
+    <view class="pannel-inner">
+      <scroller isBackBtn="{{true}}" class="elm-scroller" bind:refresh="diyRefresh">
+        <refresh slot="refresh" refresh-class="elm-refresh" type="diy" model:threshold="{{val}}" model:isloading="{{isLoading}}" model:refreshstate="{{refreshstate}}" config="{{elmSetting}}" >
+          <view class="elm-wapper">
+            <view>
+              <view class="text">
+                <block wx:if="{{refreshstate == 'pulldown'}}">下拉刷新</block>
+                <block wx:elif="{{refreshstate == 'loosen'}}">松手刷新</block>
+                <block wx:elif="{{refreshstate == 'loading'}}">刷新中</block>
+              </view>
+              <view class="exb"></view>
+            </view>
+          </view>
+        </refresh>
+        <view class="scroller-pannel">
+          <view style="text-align: center;">
+            <view>自定义使用吉祥物增加乐趣</view>
+            <view>使用refreshstate状态控制动画</view>
+            <view>设置非自动回弹，可查看源码是如何操作的</view>
+            <view>下拉查看效果</view>
+          </view>
+        </view>
+      </scroller>
+    </view>
+  </view>
+</view>

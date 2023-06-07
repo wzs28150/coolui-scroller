@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "empty": "coolui-scroller/empty/index"
+  },
+  "navigationBarTitleText": "空列表"
+}

@@ -1,0 +1,39 @@
+<view class="hand" style="background-color: rgba(0, 0, 0, {{opacity}});" hidden="{{isTipShow}}" >
+  <image src="./icons/close.png" mode="aspectFill" class="close" bindtap="close"></image>
+  <view class="top" wx:if="{{top}}">
+    <view>{{top}}</view>
+    <view class="">
+      <image src="./icons/tap3.png" mode="aspectFill" class="tap"></image>
+    </view>
+    <view class="arrow_down">
+      <image src="./icons/arrow_down.png" mode="aspectFill" class="arrow"></image>
+    </view>
+  </view>
+  <view class="bottom" wx:if="{{bottom}}">
+    <view class="arrow_top">
+      <image src="./icons/arrow_top.png" mode="aspectFill" class="arrow"></image>
+    </view>
+    <view class="">
+      <image src="./icons/tap.png" mode="aspectFill" class="tap"></image>
+    </view>
+    <view>{{bottom}}</view>
+  </view>
+  <view class="left" wx:if="{{left}}">
+    <view class="">
+      <image src="./icons/arrow_right.png" mode="aspectFill" class="arrow"></image>
+    </view>
+    <view class="">
+      <image src="./icons/tap.png" mode="aspectFill" class="tap"></image>
+    </view>
+    <view>{{left}}</view>
+  </view>
+  <view class="right" wx:if="{{right}}">
+    <view>
+      <image src="./icons/arrow_left.png" mode="aspectFill" class="arrow"></image>
+    </view>
+    <view>
+      <image src="./icons/tap2.png" mode="aspectFill" class="tap"></image>
+    </view>
+    <view>{{right}}</view>
+  </view>
+</view>

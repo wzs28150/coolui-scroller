@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "scroll-page": "coolui-scroller/scroll-page/index",
+    "item": "coolui-scroller/item/index",
+    "loadmore": "coolui-scroller/loadmore/index",
+    "refresh": "coolui-scroller/refresh/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "长列表"
+}

@@ -1,0 +1,15 @@
+<!-- components/coolui-scroller-item/coolui-scroller-item.wxml -->
+<view class="wx-coolui-scroller-search  {{(button.show||isBtnShow)?'on':''}} {{clearable && key.length > 0?'clearable':''}}">
+  <slot name="leftout"></slot>
+  <view class="search-inner {{round?'round':''}}">
+    <view class="search-placeholder">
+      <view class="search-icon"></view>
+      {{key.length==0?(placeholder?placeholder:"请输入要搜索的内容"):''}}
+    </view>
+    <input class="search-input" type="text" model:value="{{key}}" bind:tap="focus" bindblur="blur" focus="{{isFocus}}" bindconfirm="confirm" bindinput="input" />
+    <view class="search-close" bind:tap="clear"></view>
+  </view>
+  <button class="button search-btn" bind:tap="btnClick" style="margin-right:  calc({{(button.show || isBtnShow)&&!button.hide ? 0 : '-' +  btnWidth +'px'}});">
+    {{button.text ? button.text : '搜索'}}
+  </button>
+</view>

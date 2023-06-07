@@ -1,0 +1,46 @@
+<view class="demopage">
+  <view class="pannel-inner">
+    <scroller isBackBtn="{{true}}" model:triggered="{{triggered}}" bind:refresh="flyRefresh">
+      <refresh slot="refresh" refresh-class="elm-refresh" type="diy" model:threshold="{{val}}" model:refreshstate="{{refreshstate}}" config="{{flySetting}}">
+        <view class="fly-wapper">
+          <view class="plane {{refreshstate == 'loosen' ? 'loosen':''}} {{refreshstate == 'loading' ? 'loosen loading':''}} ">
+            <view class="frame"></view>
+            <view class="wrings-left"></view>
+            <view class="tail-left"></view>
+            <view class="tail-top"></view>
+          </view>
+          <view class="wind">
+            <view class="wind1"></view>
+            <view class="wind2"></view>
+            <view class="wind3"></view>
+          </view>
+          <view class="clouds_center {{refreshstate}}">
+            <view class="clouds1"></view>
+            <view class="clouds2"></view>
+            <view class="clouds3"></view>
+            <view class="clouds4"></view>
+            <view class="clouds5"></view>
+            <view class="clouds6"></view>
+            <view class="clouds7"></view>
+            <view class="clouds8"></view>
+            <view class="clouds9"></view>
+          </view>
+        </view>
+      </refresh>
+      <view class="scroller-pannel">
+        <view style="text-align: center;">
+          <view class="title">飞上云霄</view>
+          <view class="des">场景化素材搭配，纯css实现云层、飞机</view>
+          <view class="des">使用refreshstate状态控制动画</view>
+          <view class="des">refreshstate: <text style="color: #019ff0">{{refreshstate}}</text></view>
+          <view class="downtip">下拉查看效果</view>
+          <view class="downicon">
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+          </view>
+        </view>
+      </view>
+    </scroller>
+  </view>
+</view>

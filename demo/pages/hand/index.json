@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "handtip": "coolui-scroller/handtip/index"
+  },
+  "navigationBarTitleText": "手势组件"
+}

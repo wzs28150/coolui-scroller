@@ -1,0 +1,43 @@
+<wxs module="tools">
+function inArray(search, array) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === search) {
+      return true;
+    }
+  }
+  return false;
+}
+module.exports.inArray = inArray;
+</wxs>
+<view class="coolui-scroller-nav-item" bindtap="toggle">
+  <view class="item-title {{type == 'sort'?'sort':''}}  {{isDropdownShow ? 'on' : ''}} {{value == 1 && type == 'sort' ? 'up':'down'}}" style="color:  {{isDropdownShow ?  activeColor : color}}">
+    <view class="item-title-inner">
+      {{type == 'sort'? (value == 0 ? options[0].title : options[value].title) : title}}
+    </view>
+  </view>
+</view>
+<view class="dropdown-menu {{isDropdownShow ? 'on' : ''}}">
+  <view class="dropdown-menu-inner  {{isDropdownShow ? 'on' : ''}}">
+    <view class="dropdown-menu-inner-scroll">
+      <block wx:if="{{options}}">
+        <block wx:if="{{multiple}}">
+          <view class="option-item {{tools.inArray(index, selectArray)?'on':''}}" bind:tap="select" data-id="{{index}}" wx:for="{{options}}" wx:key="id">
+            {{item.title}}
+          </view>
+        </block>
+        <block wx:else>
+          <view class="option-item {{index === select ? 'on' : ''}}" bind:tap="select" data-id="{{index}}" wx:for="{{options}}" wx:key="id">
+            {{item.title}}
+          </view>
+        </block>
+      </block>
+      <block>
+        <slot></slot>
+      </block>
+    </view>
+    <view class="action-bar" wx:if="{{actionBar}}">
+      <button type="default" bind:tap="clear">清空</button>
+      <button type="primary" bind:tap="confirm" style="background:{{activeColor}}">确定</button>
+    </view>
+  </view>
+</view>

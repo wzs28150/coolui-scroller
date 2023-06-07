@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "refresh": "coolui-scroller/refresh/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "冰墩墩"
+}

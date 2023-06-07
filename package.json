@@ -1,0 +1,17 @@
+{
+  "name": "coolui-scroller",
+  "version": "3.2.4",
+  "description": "",
+  "main": "packages/index.js",
+  "files": [
+    "/packages/**/*"
+  ],
+  "scripts": {
+    "dev": "pnpm run --filter ./doc docs:dev",
+    "build": "pnpm run --filter ./doc docs:build",
+    "push": "pnpm run --filter ./packages push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

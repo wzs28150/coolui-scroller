@@ -1,0 +1,204 @@
+.page {
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  padding: 0 30rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.page .pannel {
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.page .pannel .tip {
+  float: right;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.page .pannel .pannel-inner {
+  margin: 20rpx 0;
+  padding: 0;
+  height: 300rpx;
+  border: 1px solid #eee;
+  overflow: hidden;
+}
+
+.page .pannel .pannel-inner .scroller-pannel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.page .pannel .pannel-inner .parallax-item {
+  color: #000;
+  font-size: 28rpx;
+  height: 1em;
+  line-height: 1em;
+}
+
+.page .pannel .pannel-inner .parallax-item.parallax-item1 {
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: -2em;
+}
+
+.page .pannel .pannel-inner .parallax-item.parallax-item2 {
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: -2em;
+}
+
+.page .pannel .pannel-inner .parallax-item.parallax-item3 {
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: -4em;
+}
+
+.page .pannel .pannel-inner .parallax-item.parallax-item4 {
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+}
+
+.page .pannel .pannel-inner .parallax-sitem {
+  color: #000;
+  font-size: 28rpx;
+  height: 1em;
+  line-height: 1em;
+}
+
+.page .pannel .pannel-inner .parallax-sitem.parallax-item1 {
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: -3em;
+}
+
+.page .pannel .pannel-inner .parallax-sitem.parallax-item2 {
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: 0em;
+}
+
+.page .pannel .pannel-inner .parallax-sitem.parallax-item3 {
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: -6em;
+}
+
+.page .pannel .pannel-inner .parallax-sitem.parallax-item4 {
+  top: 50%;
+  left: 50%;
+  margin-top: -0.5em;
+  margin-left: 3em;
+}
+
+.page .pannel .pannel-inner .parallax-demoitem {
+  width: 100%;
+  height: 70px;
+  top: 0;
+  left: 0;
+}
+
+.page .pannel .pannel-inner .parallax-demoitem .img {
+  width: 100%;
+  height: 70px;
+}
+
+.page .pannel .pannel-inner .jd-refresh {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  position: relative;
+}
+
+.page .pannel .pannel-inner .jd-wapper {
+  width: 26px;
+  height: 40px;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+.page .pannel .pannel-inner .jd-wapper .moveimg {
+  width: 26px;
+  height: 40px;
+  background-size: cover;
+  background-image: url("https://test.wzs.pub/pic/a2a.png");
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.page .pannel .pannel-inner .jd-wapper .moveimg2 {
+  width: 26px;
+  height: 40px;
+  background-size: cover;
+  background-image: url("https://test.wzs.pub/pic/a29.png");
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.page .pannel .pannel-inner .jd-wapper .img {
+  width: 26px;
+  height: 40px;
+  background-size: cover;
+  background-image: url("https://test.wzs.pub/pic/a.png");
+  animation: play 0.5s steps(3) infinite;
+}
+
+.page .pannel .pannel-inner .elm-refresh .elm-wapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.page .pannel .pannel-inner .elm-refresh .elm-wapper .text {
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.page .pannel .pannel-inner .elm-refresh .exb {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-image: url("https://test.wzs.pub/pic/refresh_icon2.png");
+  animation: play2 0.8s steps(4) infinite;
+  margin: 0 auto;
+}
+
+@keyframes play {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -81px 0px;
+  }
+}
+
+@keyframes play2 {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -120px 0px;
+  }
+}

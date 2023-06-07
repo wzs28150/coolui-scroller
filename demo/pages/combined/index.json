@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "scroller-page": "coolui-scroller/scroll-page/index",
+    "item": "coolui-scroller/item/index",
+    "loadmore": "coolui-scroller/loadmore/index",
+    "empty": "coolui-scroller/empty/index",
+    "handtip": "coolui-scroller/handtip/index",
+    "nav": "coolui-scroller/nav/index",
+    "refresh": "coolui-scroller/refresh/index",
+    "search": "coolui-scroller/search/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "组合使用"
+}

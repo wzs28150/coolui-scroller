@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "search": "coolui-scroller/search/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "搜索组件"
+}

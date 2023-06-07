@@ -1,0 +1,13 @@
+<view class="page">
+  <view class="pannel">
+    <view class="title" bind:tap="test">分类组件</view>
+    <!-- 基础使用 -->
+    <view class="content" style="padding-bottom:0">置于滚动组件头部插槽中,用于切换分类。分类小于等于4个时平均分配宽度。大于4个时显示4.5个。active为选中的index值,可添加touch事件左右侧滑切换改变active。来切换分类导航</view>
+    <view class="pannel-inner" bind:touchstart="TouchStart" bind:touchend="TouchEnd">
+      <nav list="{{nav}}" bind:change="onChange"    model:active="{{active}}" active-color="#d13435"></nav>
+      <view class="nav-pannel">
+        当前分类:{{nav[active].id}}
+      </view>
+    </view>
+  </view>
+</view>

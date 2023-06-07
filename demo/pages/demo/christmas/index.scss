@@ -1,0 +1,139 @@
+$height: 150px;
+$opacity: 0.8;
+.christmas-wapper {
+  background-color: #3ac6f4;
+  width           : calc(100vw - 60rpx);
+  height          : $height;
+  position        : relative;
+  overflow        : hidden;
+
+  .snow {
+    width              : calc(100vw - 60rpx);
+    height             : $height;
+    background-image   : url('https://test.wzs.pub/pic/christmas/snow.png');
+    background-size    : calc(100vw - 60rpx) $height;
+    background-position: 0px 0px;
+  }
+
+  .santa-claus {
+    width              : 124rpx;
+    height             : 190rpx;
+    background-size    : 1860rpx 190rpx;
+    background-image   : url('https://test.wzs.pub/pic/christmas/sdlr.png');
+    position           : absolute;
+    left               : 50%;
+    top                : -190rpx;
+    transform          : translateX(-50%);
+    background-position: 0 0px;
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .chimney {
+    position   : absolute;
+    bottom     : 0;
+    left       : 50%;
+    margin-left: -55rpx;
+    transform  : scale(1);
+
+    .chimney-head {
+      background-color: #4a6b84;
+      height          : 26rpx;
+      width           : 110rpx;
+      border-radius   : 6rpx;
+    }
+
+    .chimney-main {
+      height             : 52rpx;
+      width              : 86rpx;
+      background-image   : url('https://test.wzs.pub/pic/christmas/chimney.jpg');
+      background-size    : 86rpx 52rpx;
+      background-position: 0px 0px;
+      margin             : 0 auto;
+      // animation       : play 0.3s linear infinite;
+
+    }
+
+
+  }
+
+  &.loading {
+    .santa-claus {
+      background-position: -992rpx 0px;
+      animation: santa-play 0.8s steps(8);
+      opacity: $opacity;
+    }
+
+    .chimney {
+      .chimney-main {
+        height    : $height;
+        transition: height 2s linear;
+      }
+    }
+
+    &.loading2 {
+      .santa-claus {
+        animation: santa-play2 0.8s steps(7) infinite;
+      }
+
+      .snow {
+        animation: snow-play 0.9s linear infinite;
+      }
+
+      .chimney {
+        .chimney-main {
+          animation: chimney-play 0.3s linear infinite;
+        }
+      }
+    }
+
+  }
+
+  &.pulldown {}
+
+  &.loosen {
+    .chimney {
+      transform: scale(3);
+    }
+  }
+
+  @keyframes santa-play {
+    from {
+      background-position: 0px 0px;
+    }
+
+    to {
+      background-position: -992rpx 0px;
+    }
+  }
+
+  @keyframes santa-play2 {
+    from {
+      background-position: -992rpx 0px;
+    }
+
+    to {
+      background-position: -1860rpx 0px;
+    }
+  }
+
+  @keyframes chimney-play {
+    from {
+      background-position: 0px 0px;
+    }
+
+    to {
+      background-position: 0px -52rpx;
+    }
+  }
+
+  @keyframes snow-play {
+    from {
+      background-position: 0px 0px;
+    }
+
+    to {
+      background-position: 0px -150px;
+    }
+  }
+}

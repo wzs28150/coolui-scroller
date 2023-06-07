@@ -1,0 +1,29 @@
+<view class="demopage">
+  <view class="pannel-inner">
+    <scroller isBackBtn="{{true}}" bind:refresh="onRefresh" class="christmas-scroller">
+      <refresh slot="refresh" config="{{giffoodSetting}}" model:refreshstate="{{refreshstate}}" model:threshold="{{val}}" type="diy">
+        <view class="christmas-wapper {{refreshstate}} {{isLoading?'loading2':''}}">
+          <view class="santa-claus" style="top: {{-190 + 190 * val}}rpx"></view>
+          <view class="snow" style="background-position: 0px {{-150 + 150 * val}}px;"></view>
+          <view class="chimney " style="transform: scale({{3 - 2 * val}});">
+            <view class="chimney-head"></view>
+            <view class="chimney-main"></view>
+          </view>
+        </view>
+      </refresh>
+      <view class="scroller-pannel">
+        <view>
+          <view class="title">圣诞主题：圣诞老人</view>
+          <view class="des">开启非自动回弹</view>
+          <view class="des">增加动画状态，自定义回弹时间</view>
+          <view class="downtip">下拉查看效果</view>
+          <view class="downicon">
+            <view class="line"></view>
+            <view class="line"></view>
+            <view class="line"></view>
+          </view>
+        </view>
+      </view>
+    </scroller>
+  </view>
+</view>

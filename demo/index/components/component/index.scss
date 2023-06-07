@@ -1,0 +1,170 @@
+.component {
+  position: relative;
+
+  .bg {
+    height  : 33vh;
+    z-index : 0;
+    overflow: hidden;
+  }
+
+  .logo {
+    margin    : 0 auto;
+    position  : absolute;
+    width     : 100vw;
+    top       : 7vh;
+    left      : 0;
+    z-index   : 89;
+    transition: opacity 0.3s;
+
+
+    .logo-img {
+      width  : 80vw;
+      height : calc(0.13 * 80vw);
+      margin : 0 auto;
+      padding: 30rpx 0;
+      display: block;
+    }
+  }
+
+  .inner {
+    padding   : 33vh 30rpx 30rpx;
+    height    : calc(100vh - 100rpx);
+    position  : absolute;
+    width     : 100vw;
+    top       : 0;
+    left      : 0;
+    z-index   : 89;
+    box-sizing: border-box;
+
+    /* display: none; */
+    .scroll {
+      height          : 100%;
+      background-color: #fff;
+      border-radius   : 10rpx;
+
+      .list {
+        padding  : 30rpx;
+        display  : flex;
+        flex-wrap: wrap;
+        height   : calc(100vh - 100rpx - 90rpx - 33vh);
+
+        .item {
+          position       : relative;
+          display        : flex;
+          align-items    : center;
+          justify-content: center;
+          font-size      : 28rpx;
+          width          : 33.3333%;
+          text-align     : center;
+
+          .icon {
+            width  : 3em;
+            height : 3em;
+            display: block;
+            margin : 0 auto;
+          }
+
+          &::after {
+            content         : "";
+            position        : absolute;
+            transform-origin: center;
+            box-sizing      : border-box;
+            pointer-events  : none;
+            top             : -50%;
+            left            : -50%;
+            right           : -50%;
+            bottom          : -50%;
+            transform       : scale(0.5);
+            border-bottom   : 1px solid #eee;
+          }
+
+          &::before {
+            content         : "";
+            position        : absolute;
+            transform-origin: center;
+            box-sizing      : border-box;
+            pointer-events  : none;
+            top             : -50%;
+            left            : -50%;
+            right           : -50%;
+            bottom          : -50%;
+            transform       : scale(0.5);
+            border-right    : 1px solid #eee;
+          }
+
+          &:nth-child(3n) {
+            &::before {
+              display: none;
+            }
+          }
+
+          &:nth-child(7),
+          &:nth-child(8),
+          &:nth-child(9) {
+            &::after {
+              display: none;
+            }
+          }
+
+          &:last-child {
+            width: 100%;
+
+            &>view {
+              display         : flex;
+              align-items    : center;
+              justify-content: center;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              transform-origin: center;
+              box-sizing: border-box;
+              pointer-events: none;
+              top: -50%;
+              left: -50%;
+              right: -50%;
+              bottom: -50%;
+              transform: scale(0.5);
+              border-top: 1px solid #eee;
+              border-bottom: 0;
+            }
+          }
+
+          .right-icon {
+            width   : 14px;
+            height  : 14px;
+            position: relative;
+            overflow: hidden;
+
+            &::before {
+              width           : 10px;
+              height          : 1px;
+              background-color: #ccc;
+              content         : "";
+              display         : block;
+              transform       : rotate(45deg);
+              position        : absolute;
+              top             : 50%;
+              right           : 0;
+              transform-origin: 10px;
+            }
+
+            &::after {
+              width           : 10px;
+              height          : 1px;
+              background-color: #ccc;
+              content         : "";
+              display         : block;
+              transform       : rotate(-45deg);
+              position        : absolute;
+              top             : 50%;
+              right           : 0;
+              transform-origin: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

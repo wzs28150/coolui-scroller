@@ -1,0 +1,20 @@
+<block wx:if="{{direction == 'to top'}}">
+  <view class="wx-coolui-scroller-parallax parallax-class" style="transform: translate3d(0, {{-(parallax * threshold  * config.height / 100)}}px, 0); ">
+    <slot></slot>
+  </view>
+</block>
+<block wx:if="{{direction == 'to bottom'}}">
+  <view class="wx-coolui-scroller-parallax parallax-class" style="transform: translate3d(0, {{(parallax * threshold * config.height / 100)}}px, 0);">
+    <slot></slot>
+  </view>
+</block>
+<block wx:if="{{direction == 'to left'}}">
+  <view class="wx-coolui-scroller-parallax parallax-class" style="transform: translate3d({{-(parallax * threshold * config.height / 100)}}px, 0, 0);">
+    <slot></slot>
+  </view>
+</block>
+<block wx:if="{{direction == 'to right'}}">
+  <view class="wx-coolui-scroller-parallax parallax-class" style="transform: translate3d({{(parallax * threshold  * config.height / 100)}}px, 0, 0); ">
+    <slot></slot>
+  </view>
+</block>

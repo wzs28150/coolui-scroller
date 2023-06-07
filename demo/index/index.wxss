@@ -1,0 +1,86 @@
+.page {
+  height: calc(100vh - 100rpx);
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+.page .index-page-swiper {
+  width: 200vw;
+  height: calc(100vh - 100rpx);
+  display: flex;
+}
+
+.page .index-page-swiper.trans {
+  transition: all 1s;
+}
+
+.page .index-page-swiper.on {
+  transform: translateX(-100vw);
+}
+
+.page .index-page-swiper.on.trans {
+  transition: all 1s;
+}
+
+.page .index-page-swiper .index-page {
+  flex: 1;
+  width: 100vw;
+  height: calc(100vh - 100rpx);
+  position: relative;
+  overflow: hidden;
+}
+
+.cu-bar {
+  display: flex;
+  position: relative;
+  align-items: center;
+  min-height: 100rpx;
+  justify-content: space-between;
+}
+
+.cu-bar.tabbar {
+  padding: 0;
+  height: calc(100rpx + 0);
+  padding-bottom: calc(0);
+}
+
+.cu-bar.shadow {
+  box-shadow: 0 -1rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+
+.cu-bar .action {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  max-width: 100%;
+  font-size: 22rpx;
+  position: relative;
+  flex: 1;
+  text-align: center;
+  padding: 0;
+  display: block;
+  height: auto;
+  line-height: 1;
+  margin: 0;
+  background-color: inherit;
+  overflow: initial;
+}
+
+.cu-bar .action.text-red {
+  color: #d13435;
+}
+
+.cu-bar .action.text-gray {
+  color: #aaaa;
+}
+
+.cu-bar .action .cuIcon-cu-image {
+  margin: 0 auto;
+}
+
+.cu-bar .action .cuIcon-cu-image image {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+}

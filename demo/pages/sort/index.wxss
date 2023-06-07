@@ -1,0 +1,39 @@
+.page {
+  min-height      : 100vh;
+  background-color: #f2f2f2;
+  padding         : 0 30rpx;
+  overflow        : hidden;
+  display         : flex;
+  flex-direction  : column;
+}
+
+.page .pannel {
+  margin-bottom : 30rpx;
+  display       : flex;
+  flex-direction: column;
+  flex          : 1;
+}
+
+.page .pannel .pannel-inner {
+  flex          : 1;
+  padding       : 20rpx 0;
+  display       : flex;
+  flex-direction: column;
+}
+
+.page .pannel .pannel-inner .nav-pannel {
+  flex           : 1;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  font-size      : 28rpx;
+}
+
+.page .pannel .pannel-inner .diy {
+  border: 1px dashed #f2f2f2;
+  height: 300rpx;
+  margin: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
