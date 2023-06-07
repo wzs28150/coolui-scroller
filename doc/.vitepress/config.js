@@ -18,8 +18,8 @@ export default defineConfig({
       },
       { text: '有趣的下拉', link: '/case' },
       {
-        text: info.version,
-        children: [
+        text: 'v' + info.version,
+        items: [
           {
             text: 'v3.2.4',
             link: '/version.md#v3-2-4',
