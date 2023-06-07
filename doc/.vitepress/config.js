@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
-
+import info from '../../packages/package.json'
+// console.log(info.version)
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'coolui-scroller',
@@ -17,7 +18,7 @@ export default defineConfig({
       },
       { text: '有趣的下拉', link: '/case' },
       {
-        text: 'v3.2.4',
+        text: info.version,
         children: [
           {
             text: 'v3.2.4',

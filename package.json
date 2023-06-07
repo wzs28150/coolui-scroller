@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "dev": "pnpm run --filter ./doc docs:dev",
-    "build": "pnpm run --filter ./doc docs:build"
+    "build": "pnpm run --filter ./doc docs:build",
+    "push": "pnpm run --filter ./packages push"
   },
   "keywords": [],
   "author": "",

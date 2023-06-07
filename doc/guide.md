@@ -1,9 +1,9 @@
 # coolui-scroller
 
-<a href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/v/coolui-scroller.svg" alt="Version"></a>&nbsp;
-<a href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/l/coolui-scroller.svg" alt="License"></a>&nbsp;
-<a href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/dt/coolui-scroller" alt="Download"></a>&nbsp;
-<a href="https://github.com/wzs28150/coolui-scroller"><img src="https://img.shields.io/github/stars/wzs28150/coolui-scroller?style=social" alt="Stars"></a>
+<a style="display: inline-block;" href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/v/coolui-scroller.svg" alt="Version"></a>&nbsp;
+<a style="display: inline-block;" href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/l/coolui-scroller.svg" alt="License"></a>&nbsp;
+<a style="display: inline-block;" href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/dt/coolui-scroller" alt="Download"></a>&nbsp;
+<a style="display: inline-block;" href="https://github.com/wzs28150/coolui-scroller"><img src="https://img.shields.io/github/stars/wzs28150/coolui-scroller?style=social" alt="Stars"></a>
 
 ## 前言
 
@@ -128,12 +128,12 @@ scroll: {
 
 <img :src="'/images/demo.jpg'" alt="示例" />
 
-示例代码： [https://github.com/wzs28150/coolui-scroller/tree/demo](https://github.com/wzs28150/coolui-scroller/tree/demo)
+示例代码： [https://github.com/wzs28150/coolui-scroller/tree/master/empty](https://github.com/wzs28150/coolui-scroller/tree/master/empty)
 
-请 clone 下载到本地使用微信开发者工具查看
+请 clone 下载到本地使用微信开发者工具加载 demo 文件夹查看
 
 ```
-git clone -b demo  https://github.com/wzs28150/coolui-scroller.git
+git clone https://github.com/wzs28150/coolui-scroller.git
 ```
 
 ## 安装

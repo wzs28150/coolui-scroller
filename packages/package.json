@@ -4,15 +4,17 @@
   "description": "微信小程序Scroll 上拉加载下拉刷新组件 ",
   "main": "./index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "push": "npm publish",
+    "build-doc": "cd ../doc && pnpm docs:build",
+    "prepublish": "pnpm build-doc"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:wzs28150/coolui-scroller.git"
   },
   "publishConfig": {
-   "@wzs28150:registry": "https://npm.pkg.github.com"
- },
+    "@wzs28150:registry": "https://npm.pkg.github.com"
+  },
   "keywords": [
     "weapp",
     "scroller",

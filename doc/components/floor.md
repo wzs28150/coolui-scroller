@@ -46,10 +46,9 @@ second-floor 组件可搭配 second-floor-refresh 来实现下拉二楼的效果
 
 搭配 second-floor-refresh 组件实现文字提示，同时也提供了插槽位置支持您自定义，自定义 refresh 组件请参考 second-floor-refresh 内部的写法
 `setText` 是关键方法
-<CodeGroup>
-<CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <second-floor
   bind:refresh="onRefresh"
   bind:secondShow="onSecondShow"
@@ -65,10 +64,7 @@ second-floor 组件可搭配 second-floor-refresh 来实现下拉二楼的效果
 </second-floor>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     val: 0, // 拖拽的进度值
@@ -85,8 +81,7 @@ Page({
 })
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ### 2. 可搭配 page-container
 
@@ -94,10 +89,9 @@ Page({
 
 <img src="https://test.wzs.pub/pic/new_page.gif" style="flex: 1;width: 33.3%" alt="示例图" />
 
-<CodeGroup>
-<CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <second-floor
   bind:refresh="onRefresh"
   bind:secondShow="onSecondShow"
@@ -135,10 +129,7 @@ Page({
 </page-container>
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     val: 0, // 拖拽的进度值
@@ -173,8 +164,7 @@ Page({
 })
 ```
 
-</CodeGroupItem>
-</CodeGroup>
+:::
 
 ### 3. 可设置下拉二楼的位置
 

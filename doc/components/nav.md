@@ -18,10 +18,9 @@
 
 ## 代码演示
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <view bind:touchstart="TouchStart" bind:touchend="TouchEnd">
   <scroller class="my-scroller">
     <view slot="header">
@@ -36,10 +35,7 @@
 </view>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     // 设置导航数组
@@ -126,8 +122,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ## 配置
 

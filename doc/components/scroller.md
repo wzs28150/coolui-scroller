@@ -5,30 +5,51 @@
 Scroller 为 coolui-scroller 的地基。所以要使用 coolui-scroller 必须引入该组件。该组件将列表页面查分成如下各个区域:
 
 <!-- 该组件默认配置下为官方原版下拉效果(三个圆点动画) -->
-
-<CodeGroup>
-<CodeGroupItem title="图一">
-
-<div class="pic-container">
-<img :src="'/images/scroller2.jpg'" alt="示例图一" />
+<div class="vp-code-group">
+  <div class="tabs">
+    <input
+      type="radio"
+      name="group-PB9XS"
+      id="tab-a0"
+      :checked="active === 0"
+    />
+    <label @click="active = 0" for="tab-a0">示例图一</label
+      >
+    <input
+      type="radio"
+      name="group-PB9XS"
+      id="tab-a1"
+      :checked="active === 1"
+    />
+    <label @click="active = 1" for="tab-a1">示例图二</label
+      >
+    <input
+      type="radio"
+      name="group-PB9XS"
+      id="tab-a2"
+      :checked="active === 2"
+    />
+    <label @click="active = 2" for="tab-a2">示例图三</label
+      >
+  </div>
+  <div class="blocks">
+    <div :class="'pic-container language-html ' + (active === 0 ? 'active' : '')" style="padding: 20px;" >
+      <img :src="'/images/scroller2.jpg'"  alt="示例图一" />
+    </div>
+    <div :class="'pic-container language-html ' + (active === 1 ? 'active' : '')" style="padding: 20px;" >
+      <img :src="'/images/scroller1.jpg'" alt="示例图二" />
+    </div>
+    <div :class="'pic-container language-html ' + (active === 2 ? 'active' : '')" style="padding: 20px;" >
+      <img :src="'/images/scroller3.jpg'" alt="示例图三" />
+    </div>
+  </div>
 </div>
 
-</CodeGroupItem>
-<CodeGroupItem title="图二">
+<script setup>
+import { ref } from 'vue'
 
-<div class="pic-container">
-<img :src="'/images/scroller1.jpg'" alt="示例图二" />
-</div>
-
-</CodeGroupItem>
-<CodeGroupItem title="图三">
-
-<div class="pic-container">
-<img :src="'/images/scroller3.jpg'" alt="示例图三" />
-</div>
-
-</CodeGroupItem>
-</CodeGroup>
+const active = ref(0)
+</script>
 
 每个区域都提供了相应的组件或支持自定义。
 如开启回到顶部按钮。该按钮默认执行 refresh 下拉的方法。
@@ -45,10 +66,9 @@ Scroller 为 coolui-scroller 的地基。所以要使用 coolui-scroller 必须�
 
 ## 代码演示
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller
   background="{{background}}"
   isBackBtn="{{isBackBtn}}"
@@ -75,10 +95,7 @@ Scroller 为 coolui-scroller 的地基。所以要使用 coolui-scroller 必须�
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     background: '#f2f2f2',
@@ -95,8 +112,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ## 配置
 

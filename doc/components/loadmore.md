@@ -22,7 +22,9 @@
 
 ## 代码演示
 
-```html
+::: code-group
+
+```html [index.wxml]
 <scroller class="my-scroller">
   <loadmore
     slot="loadmore"
@@ -34,7 +36,7 @@
 </scroller>
 ```
 
-```js
+```js [index.js]
 Page({
   data: {
     loadMoreSetting: {
@@ -55,6 +57,8 @@ Page({
   },
 })
 ```
+
+:::
 
 ## 配置
 

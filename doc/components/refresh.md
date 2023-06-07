@@ -25,8 +25,7 @@
       <a aria-current="page" href="#基础效果" class="router-link-active router-link-exact-active">基础效果</a> 
     </li>
     <li> 
-      <a aria-current="page" href="#gif背景效果" class="router-link-active router-link-exact-active">gif 背景效果
-</a> 
+      <a aria-current="page" href="#gif背景效果" class="router-link-active router-link-exact-active">gif 背景效果</a> 
     </li>
     <li> 
       <a aria-current="page" href="#视差效果" class="router-link-active router-link-exact-active">视差效果</a> 
@@ -48,19 +47,16 @@
 将 type 设置为 default，可设置背景颜色及圆点的深浅。
 
 <img :src="'/images/refresh1.gif'" />
-<CodeGroup>
-  <CodeGroupItem title="wxml">
 
-```html
+::: code-group
+
+```html [index.wxml]
 <scroller background="#f5f5f5">
   <refresh slot="refresh" type="default" config="{{defaultSetting}}" />
 </scroller>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     val: 0,
@@ -72,8 +68,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ### 基础效果
 
@@ -81,19 +76,15 @@ Page({
 
 <img :src="'/images/refresh2.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller background="#f5f5f5">
   <refresh slot="refresh" type="base" config="{{baseConfig}}" />
 </scroller>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     baseConfig: {
@@ -113,8 +104,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ### gif 背景效果
 
@@ -122,19 +112,15 @@ Page({
 
 <img :src="'/images/refresh3.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller background="#f5f5f5">
   <refresh slot="refresh" type="base" config="{{gifSetting}}" />
 </scroller>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     gifSetting: {
@@ -149,8 +135,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ### 视差效果
 
@@ -160,10 +145,9 @@ Page({
 
 <img :src="'/images/refresh4.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller background="#f5f5f5">
   <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
     <parallax
@@ -202,10 +186,7 @@ Page({
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     parallaxSetting: {
@@ -219,17 +200,15 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 可设置视差组件的移动距离 parallax，距离值为移动距离占下拉高度的百分比。如：parallax=10 则 移动距离 = 下拉高度 height \* 10%。
 
 <img :src="'/images/refresh5.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller background="#f5f5f5">
   <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
     <parallax
@@ -268,10 +247,7 @@ Page({
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     parallaxSetting: {
@@ -285,17 +261,15 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 将视差组件运用到场景中，多元素视差。 注意元素如果用的太多会出现卡顿。
 
 <img :src="'/images/refresh6.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller background="#ffaf1b">
   <refresh slot="refresh" type="diy" config="{{parallaxDemoSetting}}">
     <parallax
@@ -410,10 +384,7 @@ Page({
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     parallaxDemoSetting: {
@@ -427,8 +398,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ### 京东效果
 
@@ -444,10 +414,9 @@ type 设置为 diy 开启自定义后。通过 threshold 实时变化自己实�
 
 <img :src="'/images/refresh7.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller isBackBtn="{{true}}" background="#eeeeee">
   <refresh
     slot="refresh"
@@ -474,10 +443,7 @@ type 设置为 diy 开启自定义后。通过 threshold 实时变化自己实�
 </scroller>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     val: 0,
@@ -492,10 +458,7 @@ Page({
 })
 ```
 
-</CodeGroupItem>
-<CodeGroupItem title="wxss">
-
-```css
+```css [index.wxss]
 .jd-refresh {
   width: 100%;
   height: 100%;
@@ -551,8 +514,7 @@ Page({
 }
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ### 饿了么效果
 
@@ -562,10 +524,9 @@ type 设置为 diy 开启自定义后。通过 refreshstate 实时变化自己�
 
 <img :src="'/images/refresh8.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller isBackBtn="{{true}}" background="#eeeeee">
   <refresh
     slot="refresh"
@@ -588,10 +549,7 @@ type 设置为 diy 开启自定义后。通过 refreshstate 实时变化自己�
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     refreshstate: 'pulldown',
@@ -606,10 +564,7 @@ Page({
 })
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="wxss">
-
-```css
+```css [index.wxss]
 .elm-refresh .elm-wapper {
   display: flex;
   align-items: center;
@@ -643,8 +598,7 @@ Page({
 }
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ### 非自动回弹
 

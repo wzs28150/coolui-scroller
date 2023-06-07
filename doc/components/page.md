@@ -24,10 +24,9 @@
 
 注意：需要引入组件提供的方法来计算每个 page 页面的高度
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller
   class="{{(loadMoreSetting.status == 'loading' && list.length == 0) ? 'isloading' : ''}}"
   id="scroller"
@@ -78,10 +77,7 @@
 </scroller>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```javascript
+```js [index.js]
 // 调用组件提供的方法文件
 const utils = require('coolui-scroller/index.js')
 
@@ -203,8 +199,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ## 配置
 

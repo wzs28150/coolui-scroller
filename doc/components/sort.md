@@ -25,10 +25,9 @@
 
 <img :src="'/images/sort1.gif'" alt="排序" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <sort>
   <sort-item
     title="排序"
@@ -42,10 +41,7 @@
 </sort>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     options: [
@@ -79,17 +75,15 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 2. 单选
 
 设置 type 为 classify 模式, 开启分类筛选模式, 默认为单选模式。默认为点击选项就切换。
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <sort>
   <sort-item
     title="分类"
@@ -103,10 +97,7 @@ Page({
 </sort>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     options2: [
@@ -128,8 +119,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 3. 操作按钮
 
@@ -137,10 +127,9 @@ Page({
 
 <img :src="'/images/sort2.gif'" alt="操作按钮" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <sort>
   <sort-item
     title="分类"
@@ -155,10 +144,7 @@ Page({
 </sort>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     options2: [
@@ -180,8 +166,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 4. 多选
 
@@ -189,10 +174,9 @@ Page({
 
 <img :src="'/images/sort3.gif'" alt="多选" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <sort-item
   title="品牌"
   name="sort3"
@@ -206,10 +190,7 @@ Page({
 </sort-item>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     options3: [
@@ -239,25 +220,20 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 5. 自定义
    不设置 options，type 设置为 diy。 利用中间插槽自定义下拉内容，组件只提供下拉和关闭的功能，其他功能自由发挥喽~
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <sort-item title="设置" name="sort4" type="diy" activeColor="#d13435">
   <view class="diy" bind:tap="close"> 自定义区域 </view>
 </sort-item>
 ```
 
-  </CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   close() {
     this.sort4 = this.selectComponent('#sort4')
@@ -266,8 +242,7 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 ## sort 配置
 

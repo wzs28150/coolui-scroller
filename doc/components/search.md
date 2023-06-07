@@ -20,10 +20,9 @@
 
 <img :src="'/images/search_base.gif'"  />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller>
   <view slot="header">
     <search
@@ -36,10 +35,7 @@
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     key: '',
@@ -61,17 +57,15 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 圆角
 
 <img :src="'/images/search_yj.jpg'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller>
   <view slot="header">
     <search
@@ -85,10 +79,7 @@ Page({
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     key: '',
@@ -110,17 +101,15 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 可清除
 
 <img :src="'/images/search_clearable.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller>
   <view slot="header">
     <search
@@ -134,10 +123,7 @@ Page({
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     key: '',
@@ -159,17 +145,15 @@ Page({
 })
 ```
 
-  </CodeGroupItem>
-</CodeGroup>
+:::
 
 可清除
 
 <img :src="'/images/search_clearable.gif'" />
 
-<CodeGroup>
-  <CodeGroupItem title="wxml">
+::: code-group
 
-```html
+```html [index.wxml]
 <scroller>
   <view slot="header">
     <search
@@ -183,10 +167,7 @@ Page({
 </scroller>
 ```
 
-</CodeGroupItem>
-  <CodeGroupItem title="JavaScript">
-
-```js
+```js [index.js]
 Page({
   data: {
     key: '',
@@ -208,8 +189,7 @@ Page({
 })
 ```
 
- </CodeGroupItem>
-</CodeGroup>
+:::
 
 可设置按钮
 
