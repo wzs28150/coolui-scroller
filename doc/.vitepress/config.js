@@ -5,7 +5,7 @@ import info from '../../packages/package.json'
 export default defineConfig({
   title: 'coolui-scroller',
   description: 'coolui-scroller',
-  base: '/v3/',
+  base: '/coolui-scroller/v3/',
   outDir: '../v3/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
