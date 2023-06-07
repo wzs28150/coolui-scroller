@@ -118,15 +118,15 @@ scroll: {
 做一个组件库是一个繁琐且长期的事情，接下来我将花费业余时间进行多版本的完善。
 如果 coolui-scroller 对您的工作或者学习有所帮助，您可以捐赠 coolui-scroller 的研发工作，捐赠无门槛，哪怕是一瓶肥宅快乐水，也可以帮助我多敲半小时代码。
 
-| 微信                            | 支付宝                           |
-| ------------------------------- | -------------------------------- |
-| <img :src="'/images/wx.jpg'" /> | <img :src="'/images/zfb.jpg'" /> |
+| 微信                         | 支付宝                        |
+| ---------------------------- | ----------------------------- |
+| <img src="/images/wx.jpg" /> | <img src="/images/zfb.jpg" /> |
 
 ## 示例 demo
 
 请微信扫码打开小程序查看
 
-<img :src="'/images/demo.jpg'" alt="示例" />
+<img src="/images/demo.jpg" alt="示例" />
 
 示例代码： [https://github.com/wzs28150/coolui-scroller/tree/master/empty](https://github.com/wzs28150/coolui-scroller/tree/master/empty)
 
@@ -147,9 +147,9 @@ npm i coolui-scroller --production
 ### npm 构建
 
 安装之后开发者工具点击 npm 构建:<br/>
-<img :src="'/images/set1.png'" alt="npm构建1"><br/>
+<img src="/images/set1.png" alt="npm构建1"><br/>
 当看到站点里面出现 miniprogram_npm 文件夹就算安装完成了<br/>
-<img :src="'/images/set2.png'" alt="npm构建1">
+<img src="/images/set2.png" alt="npm构建1">
 
 ## 引入
 

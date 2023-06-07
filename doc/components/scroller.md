@@ -34,13 +34,13 @@ Scroller 为 coolui-scroller 的地基。所以要使用 coolui-scroller 必须�
   </div>
   <div class="blocks">
     <div :class="'pic-container language-html ' + (active === 0 ? 'active' : '')" style="padding: 20px;" >
-      <img :src="'/images/scroller2.jpg'"  alt="示例图一" />
+      <img src="/images/scroller2.jpg"  alt="示例图一" />
     </div>
     <div :class="'pic-container language-html ' + (active === 1 ? 'active' : '')" style="padding: 20px;" >
-      <img :src="'/images/scroller1.jpg'" alt="示例图二" />
+      <img src="/images/scroller1.jpg" alt="示例图二" />
     </div>
     <div :class="'pic-container language-html ' + (active === 2 ? 'active' : '')" style="padding: 20px;" >
-      <img :src="'/images/scroller3.jpg'" alt="示例图三" />
+      <img src="/images/scroller3.jpg" alt="示例图三" />
     </div>
   </div>
 </div>

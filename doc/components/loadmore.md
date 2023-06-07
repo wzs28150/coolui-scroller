@@ -8,7 +8,7 @@
 2. 加载中的 loading 状态
 3. 加载到最后无数据时的 noMore 状态
 
-<img :src="'/images/loadmore.jpg'" alt="示例图" />
+<img src="/images/loadmore.jpg" alt="示例图" />
 
 ## 引入
 

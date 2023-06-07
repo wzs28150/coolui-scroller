@@ -4,7 +4,7 @@
 
 该组件为列表头部插槽中的可选组件。组件提供了简单的下拉排序及下拉分类筛选的功能。组件分为 sort 和 sort-item 两部分。
 
-<img :src="'/images/sort.jpg'" alt="示例图一" />
+<img src="/images/sort.jpg" alt="示例图一" />
 
 ## 引入
 
@@ -23,7 +23,7 @@
 
 设置 type 为 sort 模式,切换时头部文字会随着选中的内容的变化而变化
 
-<img :src="'/images/sort1.gif'" alt="排序" />
+<img src="/images/sort1.gif" alt="排序" />
 
 ::: code-group
 
@@ -125,7 +125,7 @@ Page({
 
 设置 action-bar，开启操作按钮。则只有点击确认按钮之后才切换。未点击确认按钮，关闭弹层，一切选择将作废。选择后 value 返回选中的 index
 
-<img :src="'/images/sort2.gif'" alt="操作按钮" />
+<img src="/images/sort2.gif" alt="操作按钮" />
 
 ::: code-group
 
@@ -172,7 +172,7 @@ Page({
 
 设置 multiple 为 true 模式, 开启多选模式。同时开启操作按钮，否则点击选项就直接关闭弹层了。
 
-<img :src="'/images/sort3.gif'" alt="多选" />
+<img src="/images/sort3.gif" alt="多选" />
 
 ::: code-group
 

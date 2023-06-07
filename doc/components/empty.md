@@ -6,7 +6,7 @@
 
 组件可设置一张图标图片与提示文字：
 
-<img :src="'/images/empty.jpg'" alt="示例图" />
+<img src="/images/empty.jpg" alt="示例图" />
 
 ## 引入
 

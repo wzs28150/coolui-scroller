@@ -6,9 +6,9 @@
 
 为了保证滚动时的连贯性。我们保存了当前可视区及可视区上下两个 page 页面中的列表项。其余 page 中的列表项全部删除，只有滚动到时才显示。这样就保证页面中有且只有三个 page 中有列表项。其余均是空白占位区域。
 
-<img :src="'/images/page1.jpg'" alt="示例图一" >
+<img src="/images/page1.jpg" alt="示例图一" >
 
-<img :src="'/images/page2.png'" alt="示例图二" >
+<img src="/images/page2.png" alt="示例图二" >
 
 ## 引入
 

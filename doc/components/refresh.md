@@ -46,7 +46,7 @@
 
 将 type 设置为 default，可设置背景颜色及圆点的深浅。
 
-<img :src="'/images/refresh1.gif'" />
+<img src="/images/refresh1.gif" />
 
 ::: code-group
 
@@ -74,7 +74,7 @@ Page({
 
 将 type 设置为 base，可设置背景颜色、背景图片、文字等。
 
-<img :src="'/images/refresh2.gif'" />
+<img src="/images/refresh2.gif" />
 
 ::: code-group
 
@@ -110,7 +110,7 @@ Page({
 
 不设置 text 文字的时候就会只显示背景图，如果将背景图设置成动图 gif，也可以实现一些有趣的效果。
 
-<img :src="'/images/refresh3.gif'" />
+<img src="/images/refresh3.gif" />
 
 ::: code-group
 
@@ -143,7 +143,7 @@ Page({
 
 可设置视差组件的移动方向 direction
 
-<img :src="'/images/refresh4.gif'" />
+<img src="/images/refresh4.gif" />
 
 ::: code-group
 
@@ -204,7 +204,7 @@ Page({
 
 可设置视差组件的移动距离 parallax，距离值为移动距离占下拉高度的百分比。如：parallax=10 则 移动距离 = 下拉高度 height \* 10%。
 
-<img :src="'/images/refresh5.gif'" />
+<img src="/images/refresh5.gif" />
 
 ::: code-group
 
@@ -265,7 +265,7 @@ Page({
 
 将视差组件运用到场景中，多元素视差。 注意元素如果用的太多会出现卡顿。
 
-<img :src="'/images/refresh6.gif'" />
+<img src="/images/refresh6.gif" />
 
 ::: code-group
 
@@ -412,7 +412,7 @@ type 设置为 diy 开启自定义后。通过 threshold 实时变化自己实�
 
 该效果主要展示如何根据 threshold 实时变化实现效果。
 
-<img :src="'/images/refresh7.gif'" />
+<img src="/images/refresh7.gif" />
 
 ::: code-group
 
@@ -522,7 +522,7 @@ Page({
 
 type 设置为 diy 开启自定义后。通过 refreshstate 实时变化自己实现动画效果。
 
-<img :src="'/images/refresh8.gif'" />
+<img src="/images/refresh8.gif" />
 
 ::: code-group
 

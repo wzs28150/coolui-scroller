@@ -18,7 +18,7 @@
 
 基础使用
 
-<img :src="'/images/search_base.gif'"  />
+<img src="/images/search_base.gif"  />
 
 ::: code-group
 
@@ -61,7 +61,7 @@ Page({
 
 圆角
 
-<img :src="'/images/search_yj.jpg'" />
+<img src="/images/search_yj.jpg" />
 
 ::: code-group
 
@@ -105,7 +105,7 @@ Page({
 
 可清除
 
-<img :src="'/images/search_clearable.gif'" />
+<img src="/images/search_clearable.gif" />
 
 ::: code-group
 
@@ -149,7 +149,7 @@ Page({
 
 可清除
 
-<img :src="'/images/search_clearable.gif'" />
+<img src="/images/search_clearable.gif" />
 
 ::: code-group
 
@@ -193,7 +193,7 @@ Page({
 
 可设置按钮
 
-<img :src="'/images/search.jpg'" />
+<img src="/images/search.jpg" />
 
 ## 配置
 
