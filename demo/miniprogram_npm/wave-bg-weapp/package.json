@@ -1,0 +1,27 @@
+{
+  "name": "wave-bg-weapp",
+  "version": "1.0.3",
+  "description": "微信小程序canvas 波浪背景组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wzs28150/wave-bg-weapp.git"
+  },
+  "keywords": [
+    "weapp",
+    "bg",
+    "wave",
+    "canvas"
+  ],
+  "miniprogram": "./",
+  "bugs": {
+    "url": "https://github.com/wzs28150/wave-bg-weapp/issues"
+  },
+  "homepage": "https://github.com/wzs28150/wave-bg-weapp#readme",
+  "author": "wzs",
+  "license": "ISC",
+  "dependencies": {}
+}

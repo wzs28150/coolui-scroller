@@ -1,0 +1,154 @@
+.hand {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 90;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 28rpx;
+}
+
+.hand .close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.hand .tap {
+  width: 90rpx;
+  height: 131rpx;
+}
+
+.hand .top {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+}
+
+.hand .top .arrow {
+  width: 22rpx;
+  height: 50rpx;
+  transform: translateX(50rpx);
+}
+
+.hand .top .tap {
+  animation: movetop 3s infinite;
+}
+
+.hand .bottom {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+}
+
+.hand .bottom .arrow {
+  width: 22rpx;
+  height: 50rpx;
+  transform: translateX(-50rpx);
+}
+
+.hand .bottom .tap {
+  animation: movebottom 3s infinite;
+}
+
+.hand .left {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  text-align: left;
+}
+
+.hand .left .arrow {
+  width: 50rpx;
+  height: 22rpx;
+  display: block;
+}
+
+.hand .left .tap {
+  animation: moveleft 3s infinite;
+}
+
+.hand .right {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  text-align: right;
+}
+
+.hand .right .arrow {
+  width: 50rpx;
+  height: 22rpx;
+}
+
+.hand .right .tap {
+  animation: moveright 3s infinite;
+}
+
+@keyframes moveleft {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(80rpx);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveright {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-80rpx);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes movetop {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(80rpx);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes movebottom {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-80rpx);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

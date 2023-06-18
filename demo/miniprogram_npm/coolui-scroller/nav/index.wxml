@@ -1,0 +1,10 @@
+<view class="wx-coolui-nav">
+  <scroll-view scroll-x scroll-with-animation  enhanced  show-scrollbar="{{false}}"   scroll-animation-duration="{{500}}" scroll-into-view="{{toView}}" class="nav-inner">
+    <view class="item  {{active == index?'on':'' }}" style="width: calc({{navWidth}}px / {{list.length>4?'4.5':list.length}});{{active == index?'color:'+activeColor:''}}" id="item{{index}}" wx:for="{{list}}" data-index="{{index}}" bind:tap="_changeNav" wx:key="id"  catchtouchmove='_catchTouchMove'>
+      <view class="text">
+        {{item.title}}
+        <view class="line" style="{{active == index?'background-color:'+activeColor:''}};"></view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

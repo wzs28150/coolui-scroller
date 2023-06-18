@@ -1,0 +1,4 @@
+<view class="wx-coolui-scroller-item"  bind:touchstart="itemTap">
+  <slot></slot>
+  <view class="ripple" style="{{rippleStyle}}"></view>
+</view>

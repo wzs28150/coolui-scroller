@@ -1,0 +1,22 @@
+:host{
+  position: relative;
+  display: block;
+}
+.canvas {
+  top                : 0;
+  left               : 0;
+  width              : 100vw;
+  height             : 100%;
+  display            : block;
+  z-index            : 0;
+  /* background-color: #4BEF8B; */
+}
+
+.slot {
+  position: absolute;
+  top     : 0;
+  left    : 0;
+  width   : 100vw;
+  height  : 100%;
+  z-index : 1;
+}
