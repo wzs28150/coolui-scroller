@@ -1,0 +1,18 @@
+<scroll-view class="header" enhanced="{{true}}" show-scrollbar="{{false}}" scroll-x enable-flex>
+  <view class="item add" bind:tap="chooseimage">
+    <view class="photo">
+      <image class="photo-img" mode="aspectFill" src="https://test.wzs.pub/pic/pics/4.jpg" />
+      <view class="icon">
+        <view class="line"></view>
+        <view class="line"></view>
+      </view>
+    </view>
+    <view class="name">分享瞬间</view>
+  </view>
+  <view class="item" wx:for="{{list}}" wx:key="id">
+    <view class="photo">
+      <image class="photo-img" mode="aspectFill" src="{{item.photo}}" />
+    </view>
+    <view class="name">{{item.name}}</view>
+  </view>
+</scroll-view>

@@ -1,0 +1,62 @@
+.header {
+  height       : 168rpx;
+  display      : flex;
+  width        : 100vw;
+  border-bottom: 1px solid #efefef;
+
+  .item {
+    padding: 20rpx;
+
+    .photo {
+      border       : 6rpx solid #ffb0a6;
+      padding      : 6rpx;
+      border-radius: 100%;
+      position     : relative;
+
+      .photo-img {
+        width        : 80rpx;
+        height       : 80rpx;
+        border       : 1rpx solid #999;
+        border-radius: 100%;
+        display      : block;
+      }
+    }
+
+    .name {
+      font-size : 24rpx;
+      text-align: center;
+    }
+
+    &.add {
+      .icon {
+        width           : 30rpx;
+        height          : 30rpx;
+        border-radius   : 100%;
+        background-color: #d81e06;
+        position        : absolute;
+        bottom          : 0;
+        right           : 0;
+        border          : 6rpx solid #fff;
+
+        .line {
+          background-color: #fff;
+          width           : 20rpx;
+          height          : 5rpx;
+          border-radius   : 5rpx;
+          position        : absolute;
+          left            : 50%;
+          top             : 50%;
+          transform       : translate(-50%, -50%);
+
+          &:first-child {
+            transform: translate(-50%, -50%) rotate(90deg);
+          }
+        }
+      }
+
+      .photo {
+        border-color: #fff;
+      }
+    }
+  }
+}

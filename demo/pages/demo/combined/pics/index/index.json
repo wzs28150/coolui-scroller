@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "item": "coolui-scroller/item/index",
+    "refresh": "coolui-scroller/refresh/index",
+    "loadmore": "coolui-scroller/loadmore/index",
+    "header": "../component/header/index",
+    "picsItem": "../component/pics_item/index"
+  },
+  "navigationBarTitleText": "图文社交"
+}

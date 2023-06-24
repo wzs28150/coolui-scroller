@@ -70,13 +70,19 @@
       ]
     },
     {
-      "root": "pages/demo/",
+      "root": "pages/demo/animation",
       "pages": [
         "fly/index",
         "noodles/index",
         "christmas/index",
         "universe/index",
         "bingdwendwen/index"
+      ]
+    },
+    {
+      "root": "pages/demo/combined",
+      "pages": [
+        "pics/index/index"
       ]
     }
   ],

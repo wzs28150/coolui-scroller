@@ -1,0 +1,45 @@
+<view class="pic-item">
+  <view class="pic-item-header">
+    <view class="photo">
+      <image class="photo-img" mode="aspectFill" src="{{item.user.photo}}" />
+    </view>
+    <view class="name">{{item.user.name}}</view>
+    <view class="point"></view>
+    <view class="time">{{item.addTime}}</view>
+    <view class="share-btn">
+      <view class="point"></view>
+      <view class="point"></view>
+      <view class="point"></view>
+    </view>
+  </view>
+  <view class="pic-item-main">
+    <swiper wx:if="{{item.type === 'imgs'}}" indicator-dots="{{true}}" autoplay="{{false}}" interval="{{2000}}" duration="{{500}}" circular="{{true}}" class="swiper">
+      <block wx:for="{{item.img}}" wx:key="*this" wx:for-item="picItem">
+        <swiper-item class="swiper-item">
+          <image class="photo-img" mode="aspectFill" src="{{picItem}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <video wx:if="{{item.type === 'video'}}" class="video" src="{{item.video.url}}" style="height: {{(100 * item.video.height / item.video.width) > 120 ? 120 : (100 * item.video.height / item.video.width)}}vw" />
+  </view>
+  <view class="pic-item-bottom">
+    <view class="btn-list">
+      <view class="share-btn btn-item">
+        <view class="icon"></view>
+      </view>
+      <view class="like-btn btn-item">
+        <view class="icon"></view>
+        <view class="num">{{item.likeNum}}</view>
+      </view>
+      <view class="collect-btn btn-item">
+        <view class="icon"></view>
+        <view class="num">{{item.collectNum}}</view>
+      </view>
+      <view class="chat-btn btn-item">
+        <view class="icon"></view>
+        <view class="num">{{item.chatNum}}</view>
+      </view>
+    </view>
+    <view class="content">{{item.content}}</view>
+  </view>
+</view>

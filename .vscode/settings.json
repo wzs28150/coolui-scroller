@@ -1,0 +1,8 @@
+{
+  "easysass.formats": [
+    {
+      "format": "expanded", //没有缩进的扩展的css代码
+      "extension": ".wxss" //转化的后缀名
+    }
+  ]
+}

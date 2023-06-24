@@ -1,0 +1,16 @@
+<view class="case">
+  <scroller class="{{(loadMoreSetting.status == 'loading' && list.length == 0) ? 'isloading' : ''}}" id="scroller" bind:loadmore="getList" bind:refresh="refresh" isEmpty="{{isEmpty}}" isBackBtn="{{true}}" background="#f2f2f2">
+    <view slot="header" style="background-color: #fff;">
+      <header />
+    </view>
+    <refresh slot="refresh" type="diy" config="{{baseConfig}}">
+      <view class="refresh-icon"></view>
+    </refresh>
+    <item wx:for="{{ list }}" wx:for-index="index" wx:for-item="listItem" wx:key="index">
+      <picsItem item="{{listItem}}" />
+    </item>
+    <!-- 加载更多组件 -->
+    <loadmore slot="loadmore" status="{{loadMoreSetting.status}}" loading="{{loadMoreSetting.loading}}" noMore="{{loadMoreSetting.noMore}}" more="{{loadMoreSetting.more}}" />
+    <!-- 加载更多组件 -->
+  </scroller>
+</view>
