@@ -111,8 +111,8 @@
             }
           }
 
-          &:last-child {
-            width: 100%;
+          &:nth-child(10) {
+            width: 50%;
 
             &>view {
               display        : flex;
@@ -133,6 +133,20 @@
               transform       : scale(0.5);
               border-top      : 1px solid #eee;
               border-bottom   : 0;
+            }
+          }
+
+          &:last-child {
+            width: 50%;
+
+            &>view {
+              display        : flex;
+              align-items    : center;
+              justify-content: center;
+            }
+
+            &::after {
+             display: none;
             }
           }
 

@@ -110,8 +110,33 @@
   display: none;
 }
 
+.component .inner .scroll .list .item:nth-child(10) {
+  width: 50%;
+}
+
+.component .inner .scroll .list .item:nth-child(10) > view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.component .inner .scroll .list .item:nth-child(10)::after {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  box-sizing: border-box;
+  pointer-events: none;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  transform: scale(0.5);
+  border-top: 1px solid #eee;
+  border-bottom: 0;
+}
+
 .component .inner .scroll .list .item:last-child {
-  width: 100%;
+  width: 50%;
 }
 
 .component .inner .scroll .list .item:last-child > view {
