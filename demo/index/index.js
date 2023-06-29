@@ -10,7 +10,7 @@ Page({
   onShareAppMessage: function () {
     // 页面被用户分享时执行
   },
-  onload() {
+  onLoad() {
     if (wx.createInterstitialAd) {
       interstitialAd = wx.createInterstitialAd({
         adUnitId: 'adunit-a30683890d51c7b7',
