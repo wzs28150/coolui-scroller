@@ -31,6 +31,20 @@
         height         : 300rpx;
         font-size      : 28rpx;
         color          : #999;
+
+        .logoText {
+          font-size                                : 50rpx;
+          font-weight                              : bold;
+          background-clip                          : text;
+          -webkit-background-clip                  : text;
+          color                                    : transparent;
+          background-size                          : cover;
+          background-image                         : url(https://test.wzs.pub/pic/bg2.jpg);
+          // background-position                : 100px 0;
+          // background-repeat                     : no-repeat;
+          animation                                : play2 3s infinite linear;
+          text-shadow                              : 0 0 1rpx #000 outset;
+        }
       }
 
       .parallax-item {

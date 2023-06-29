@@ -36,6 +36,18 @@
   color: #999;
 }
 
+.page .pannel .pannel-inner .scroller-pannel .logoText {
+  font-size: 50rpx;
+  font-weight: bold;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: cover;
+  background-image: url(https://test.wzs.pub/pic/bg2.jpg);
+  animation: play2 3s infinite linear;
+  text-shadow: 0 0 1rpx #000 outset;
+}
+
 .page .pannel .pannel-inner .parallax-item {
   color: #000;
   font-size: 28rpx;

@@ -23,13 +23,24 @@
         <view class="scroller-pannel">下拉查看效果</view>
       </scroller>
     </view>
+    <!-- logo文字效果 -->
+    <view class="content" style="padding-bottom:0">
+      logo文字效果
+      <view class="tip">使用组件</view>
+    </view>
+    <view class="pannel-inner">
+      <scroller isBackBtn="{{true}}" background="#f2f2f2">
+        <refresh slot="refresh" type="logoText" config="{{logoConfig}}" />
+        <view class="scroller-pannel ">下拉查看效果</view>
+      </scroller>
+    </view>
     <!-- gif背景效果 -->
     <view class="content" style="padding-bottom:0">
       gif背景效果
       <view class="tip">隐藏文字将背景设为动图</view>
     </view>
     <view class="pannel-inner">
-      <scroller isBackBtn="{{true}}" >
+      <scroller isBackBtn="{{true}}">
         <refresh slot="refresh" config="{{gifSetting}}" type="diy" />
         <view class="scroller-pannel">天猫动图,下拉查看效果</view>
       </scroller>
@@ -40,7 +51,7 @@
       <view class="tip">搭配视差子组件实现</view>
     </view>
     <view class="pannel-inner">
-      <scroller isBackBtn="{{true}}" >
+      <scroller isBackBtn="{{true}}">
         <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
           <parallax parallax-class="parallax-item parallax-item1" slot="parallax" direction="to top" parallax="{{35}}">
             从下往上
@@ -149,7 +160,7 @@
     </view>
     <view class="pannel-inner">
       <scroller isBackBtn="{{true}}" class="elm-scroller" bind:refresh="diyRefresh">
-        <refresh slot="refresh" refresh-class="elm-refresh" type="diy" model:threshold="{{val}}" model:isloading="{{isLoading}}" model:refreshstate="{{refreshstate}}" config="{{elmSetting}}" >
+        <refresh slot="refresh" refresh-class="elm-refresh" type="diy" model:threshold="{{val}}" model:isloading="{{isLoading}}" model:refreshstate="{{refreshstate}}" config="{{elmSetting}}">
           <view class="elm-wapper">
             <view>
               <view class="text">

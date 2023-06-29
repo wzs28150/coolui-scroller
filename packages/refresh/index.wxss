@@ -108,6 +108,16 @@
   animation-delay: -0.15s;
 }
 
+.wx-coolui-scroller-refresh .refresh-inner .has-bg {
+  font-weight: bold;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent !important;
+  background-size: 100% auto;
+  background-position: -100% -100%;
+  background-repeat: no-repeat;
+}
+
 @keyframes circle {
   0% {
     transform: rotate(0);

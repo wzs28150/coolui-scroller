@@ -1,7 +1,8 @@
 <view class="component">
   <bg class="bg" color="#d13435" percent="90" position="top" amp="20"></bg>
   <view class="logo">
-    <image src="../../../img/logo.png" class="logo-img"></image>
+    <!-- <image src="../../../img/logo.png" class="logo-img"></image> -->
+    coolui-scroller
   </view>
   <view class="inner">
     <scroll-view scroll-y="{{true}}" class="scroll">

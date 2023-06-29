@@ -1,9 +1,9 @@
 <view class="case">
   <scroller class="{{(loadMoreSetting.status == 'loading' && list.length == 0) ? 'isloading' : ''}}" id="scroller" bind:loadmore="getList" bind:refresh="refresh" isEmpty="{{isEmpty}}" isBackBtn="{{true}}" background="#f2f2f2">
     <view slot="header" style="background-color: #fff;">
-      <nav  list="{{nav}}" bind:change="onChange" model:active="{{active}}" active-color="#d13435"></nav>
+      <nav list="{{nav}}" bind:change="onChange" model:active="{{active}}" active-color="#d13435"></nav>
     </view>
-    <refresh slot="refresh" type="base" config="{{baseConfig}}" />
+    <refresh slot="refresh" type="logoText" config="{{baseConfig}}" />
     <item wx:for="{{ list[active] }}" wx:for-index="index" wx:for-item="listItem" wx:key="index">
       <navigator url="{{listItem.page}}" class="item">
         <image class='item-image' lazy-load="{{true}}" src="{{listItem.img}}"></image>

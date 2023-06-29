@@ -63,13 +63,16 @@ Component({
       shake: false, // 是否开启下拉震动
       height: 70,
       text: {
-        color: '#fff', // 文字颜色
-        shadow: 5, // 是否开启shadow阴影,0为不开启,数值越大阴影范围越大
+        content: 'coolui-scroller',
+        font: 'Lobster variant0',
+        size: '50',
+        color: '#ccc', // 文字颜色
+        shadow: 0, // 是否开启shadow阴影,0为不开启,数值越大阴影范围越大
+        img: 'https://test.wzs.pub/pic/bg2.jpg',
       },
       background: {
-        color: '#000000',
+        color: '#fff',
         height: 120,
-        img: 'https://test.wzs.pub/pic/bg.jpg',
       },
     },
     active: 0,

@@ -8,14 +8,19 @@
   }
 
   .logo {
-    margin    : 0 auto;
-    position  : absolute;
-    width     : 100vw;
-    top       : 7vh;
-    left      : 0;
-    z-index   : 89;
-    transition: opacity 0.3s;
-
+    margin     : 0 auto;
+    position   : absolute;
+    width      : 100vw;
+    top        : 7vh;
+    left       : 0;
+    z-index    : 89;
+    transition : opacity 0.3s;
+    padding    : 30rpx 0;
+    text-align : center;
+    font-weight: bold;
+    font-size  : 100rpx;
+    color      : #fff;
+    font-family: 'Lobster variant0';
 
     .logo-img {
       width  : 80vw;
@@ -110,24 +115,24 @@
             width: 100%;
 
             &>view {
-              display         : flex;
+              display        : flex;
               align-items    : center;
               justify-content: center;
             }
 
             &::after {
-              content: "";
-              position: absolute;
+              content         : "";
+              position        : absolute;
               transform-origin: center;
-              box-sizing: border-box;
-              pointer-events: none;
-              top: -50%;
-              left: -50%;
-              right: -50%;
-              bottom: -50%;
-              transform: scale(0.5);
-              border-top: 1px solid #eee;
-              border-bottom: 0;
+              box-sizing      : border-box;
+              pointer-events  : none;
+              top             : -50%;
+              left            : -50%;
+              right           : -50%;
+              bottom          : -50%;
+              transform       : scale(0.5);
+              border-top      : 1px solid #eee;
+              border-bottom   : 0;
             }
           }
 

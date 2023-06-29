@@ -3,14 +3,14 @@ Component({
     multipleSlots: true,
     addGlobalClass: true,
   },
-  externalClasses: ["refresh-class"],
+  externalClasses: ['refresh-class'],
   relations: {
-    "../scroller/index": {
-      type: "parent",
+    '../scroller/index': {
+      type: 'parent',
       linked(target) {},
     },
-    "../parallax/index": {
-      type: "child",
+    '../parallax/index': {
+      type: 'child',
       linked(target) {
         // console.log(target);
       },
@@ -19,7 +19,7 @@ Component({
   properties: {
     type: {
       type: String,
-      value: "default",
+      value: 'default',
     },
     threshold: {
       type: Number,
@@ -31,7 +31,7 @@ Component({
     },
     refreshstate: {
       type: String,
-      value: "pulldown", // pulldown loosen loading
+      value: 'pulldown', // pulldown loosen loading
     },
     config: {
       type: Object,
@@ -40,7 +40,7 @@ Component({
         height: 50,
         isAutoTriggered: true,
         text: {
-          color: "#000000", // 文字颜色
+          color: '#000000', // 文字颜色
           shadow: 0, // 是否开启shadow阴影,0为不开启,数值越大阴影范围越大
         },
       },
@@ -48,18 +48,32 @@ Component({
   },
   data: {
     triggered: false,
+    textWidth: null,
     scrollOption: {},
   },
   ready() {
-    this.parallaxNodes = this.getRelationNodes("../parallax/index");
+    this.parallaxNodes = this.getRelationNodes('../parallax/index')
+    let that = this
+    wx.createSelectorQuery()
+      .in(this)
+      .select('.has-bg')
+      .boundingClientRect()
+      .exec(function (res) {
+        console.log(res)
+        if (res.length > 0 && res[0]) {
+          that.setData({
+            textWidth: res[0].width,
+          })
+        }
+      })
   },
   methods: {
     changeThreshold({ threshold }) {
-      const that = this;
+      const that = this
       return new Promise((resolve) => {
-        let refreshstate = "pulldown";
+        let refreshstate = 'pulldown'
         if (that.data.triggered && !that.data.isloading) {
-          refreshstate = "loosen";
+          refreshstate = 'loosen'
         }
         that.setData(
           {
@@ -67,31 +81,31 @@ Component({
             refreshstate: refreshstate,
           },
           () => {
-            resolve();
+            resolve()
             if (that.parallaxNodes.length > 0) {
               that.parallaxNodes.forEach((elem, index) => {
                 elem.setData({
                   threshold: threshold,
-                });
-              });
+                })
+              })
             }
           }
-        );
-      });
+        )
+      })
     },
     setLoading({ isloading }) {
-      const that = this;
+      const that = this
       return new Promise((resolve) => {
         that.setData(
           {
             isloading: isloading,
-            refreshstate: isloading ? "loading" : "pulldown",
+            refreshstate: isloading ? 'loading' : 'pulldown',
           },
           () => {
-            resolve();
+            resolve()
           }
-        );
-      });
+        )
+      })
     },
   },
-});
+})

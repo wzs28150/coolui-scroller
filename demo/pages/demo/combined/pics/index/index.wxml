@@ -6,8 +6,15 @@
     <refresh slot="refresh" type="diy" config="{{baseConfig}}">
       <view class="refresh-icon photo-icon"></view>
     </refresh>
+    
     <item wx:for="{{ list }}" wx:for-index="index" wx:for-item="listItem" wx:key="index">
-      <picsItem item="{{listItem}}" />
+      <picsItem item="{{listItem}}" wx:if="{{index !== 1}}"/>
+      <block wx:else>
+        <picsItem item="{{listItem}}" />
+
+        <ad unit-id="adunit-198f4227c7c8674c" ad-type="video" ad-theme="white"></ad>
+      </block>
+
     </item>
     <!-- 加载更多组件 -->
     <!-- <loadmore slot="loadmore" status="{{loadMoreSetting.status}}" loading="{{loadMoreSetting.loading}}" noMore="{{loadMoreSetting.noMore}}" more="{{loadMoreSetting.more}}" /> -->
