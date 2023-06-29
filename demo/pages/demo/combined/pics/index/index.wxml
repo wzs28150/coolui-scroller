@@ -4,13 +4,16 @@
       <header />
     </view>
     <refresh slot="refresh" type="diy" config="{{baseConfig}}">
-      <view class="refresh-icon"></view>
+      <view class="refresh-icon photo-icon"></view>
     </refresh>
     <item wx:for="{{ list }}" wx:for-index="index" wx:for-item="listItem" wx:key="index">
       <picsItem item="{{listItem}}" />
     </item>
     <!-- 加载更多组件 -->
-    <loadmore slot="loadmore" status="{{loadMoreSetting.status}}" loading="{{loadMoreSetting.loading}}" noMore="{{loadMoreSetting.noMore}}" more="{{loadMoreSetting.more}}" />
+    <!-- <loadmore slot="loadmore" status="{{loadMoreSetting.status}}" loading="{{loadMoreSetting.loading}}" noMore="{{loadMoreSetting.noMore}}" more="{{loadMoreSetting.more}}" /> -->
+    <view slot="loadmore" class="coolui-scroller-loadmore">
+      <view class="loadmore-icon photo-icon"></view>
+    </view>
     <!-- 加载更多组件 -->
   </scroller>
 </view>

@@ -15,6 +15,7 @@ Page({
       },
     },
     loadMoreSetting: {
+      status: 'more',
       more: {
         text: '上拉加载更多',
         color: '#999',

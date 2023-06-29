@@ -19,6 +19,8 @@ Page({
       interstitialAd.onError((err) => {})
       interstitialAd.onClose(() => {})
     }
+  },
+  onShow() {
     if (interstitialAd) {
       interstitialAd.show().catch((err) => {
         console.error(err)
