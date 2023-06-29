@@ -59,7 +59,6 @@ Component({
       .select('.has-bg')
       .boundingClientRect()
       .exec(function (res) {
-        console.log(res)
         if (res.length > 0 && res[0]) {
           that.setData({
             textWidth: res[0].width,
