@@ -3,8 +3,9 @@
 <view class="nav-bar" style="height:{{statusBarHeight}}px;background-color:{{config.background.color}}">
   <view class="nav-bar-inner" style="height:{{statusBarHeight}}px;padding-top:{{StatusBar}}px;{{config.background.img?'background-image:url(' + config.background.img+')':''}}">
     <block wx:if="{{type === 'default'}}">
-      <view class="action" bindtap="BackPage" wx:if="{{isBack}}">
-        <text class="cuIcon-back"></text>
+      <view class="action" bindtap="BackPage" wx:if="{{config.back}}">
+        <view class="line" style="background-color:{{config.text.color}}"></view>
+        <view class="line"></view>
       </view>
       <view class="content" style="top:{{StatusBar}}px; color: {{config.text.color}}">
         <slot />

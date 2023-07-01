@@ -19,6 +19,9 @@ Component({
     config: {
       type: Object,
       value: {
+        back: {
+          show: true,
+        },
         background: {
           color: '#ffffff',
         },
@@ -42,10 +45,20 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    BackPage() {
+      if (this.data.config.back.click) {
+        this.data.config.back.click()
+      } else {
+        wx.navigateBack({
+          delta: 1,
+        })
+      }
+    },
+  },
   ready() {
     const that = this
-    wx.getSystemInfo({
+    wx.getSystemInfoAsync({
       success: (e) => {
         that.setData({
           StatusBar: e.statusBarHeight,

@@ -118,11 +118,24 @@
   background-repeat: no-repeat;
 }
 
+.wx-coolui-scroller-refresh .refresh-inner .has-bg.loading {
+  animation: play 0.5s line infinite;
+}
+
 @keyframes circle {
   0% {
     transform: rotate(0);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes play {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.5;
   }
 }

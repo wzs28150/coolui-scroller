@@ -3,28 +3,28 @@
  * 提供wx.createScrollContext进行管理功能
  */
 function observePage(pageIndex, that) {
-  wx.getSystemInfo({
+  wx.getSystemInfoAsync({
     success: (res) => {
-      const {
-        windowHeight
-      } = res
+      const { windowHeight } = res
       // this.windowHeight = windowHeight
-      const observerObj = wx.createIntersectionObserver(that).relativeToViewport({
-        top: 2 * windowHeight,
-        bottom: 2 * windowHeight
-      })
+      const observerObj = wx
+        .createIntersectionObserver(that)
+        .relativeToViewport({
+          top: 2 * windowHeight,
+          bottom: 2 * windowHeight,
+        })
       observerObj.observe(`#wrp_${pageIndex}`, (res) => {
         if (res.intersectionRatio <= 0) {
           try {
             that.setData({
               ['list[' + pageIndex + ']']: [
                 {
-                  height: that.pageHeightArr[pageIndex]
-                }
+                  height: that.pageHeightArr[pageIndex],
+                },
               ],
             })
           } catch (error) {
-            console.log(error);
+            console.log(error)
           }
         } else {
           try {
@@ -32,13 +32,12 @@ function observePage(pageIndex, that) {
               ['list[' + pageIndex + ']']: that.wholeList[pageIndex],
             })
           } catch (error) {
-            console.log(error);
+            console.log(error)
           }
         }
       })
-    }
+    },
   })
-  
 }
 
 function setHeight(that) {

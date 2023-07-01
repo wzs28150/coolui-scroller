@@ -1,12 +1,12 @@
 // components/coolui-scroller-item/coolui-scroller-item.js
 Component({
   relations: {
-    "../../coolui-scroller/index": {
-      type: "parent", // 关联的目标节点应为子节点
+    '../../coolui-scroller/index': {
+      type: 'parent', // 关联的目标节点应为子节点
       linked() {},
     },
-    "../item/index": {
-      type: "child",
+    '../item/index': {
+      type: 'child',
       linked: function (target) {},
       linkChanged: function (target) {},
       unlinked: function (target) {},
@@ -38,50 +38,50 @@ Component({
    */
   methods: {
     setOverlayHeight() {
-      const that = this;
-      wx.getSystemInfo({
+      const that = this
+      wx.getSystemInfoAsync({
         success: (sysRes) => {
-          const { windowHeight } = sysRes;
-          const query = that.createSelectorQuery().in(this);
+          const { windowHeight } = sysRes
+          const query = that.createSelectorQuery().in(this)
           query
-            .select("#overlay")
+            .select('#overlay')
             .boundingClientRect(function (res) {
               if (res) {
                 that.setData({
                   overlayHeight: windowHeight - res.top,
-                });
+                })
               }
             })
-            .exec();
+            .exec()
         },
-      });
+      })
     },
     toggle(active) {
-      const that = this;
-      let flag = false;
+      const that = this
+      let flag = false
       flag =
         active === that.data.active && that.data.active !== null
           ? true
           : active == null
           ? true
-          : false;
+          : false
       that.setData({
         active: active,
-      });
-      this.toggleOverlay(flag);
-      this.toggleDropdown();
+      })
+      this.toggleOverlay(flag)
+      this.toggleDropdown()
     },
     toggleOverlay(flag) {
-      const that = this;
+      const that = this
       var animation = wx.createAnimation({
         duration: that.data.overlayDuration,
-        timingFunction: "ease-in",
-      });
+        timingFunction: 'ease-in',
+      })
 
       if (flag) {
         if (that.data.isOverLayShow === true) {
           // 不显示
-          animation.opacity(0).step();
+          animation.opacity(0).step()
           that.setData(
             {
               opacityAnimation: animation.export(),
@@ -90,13 +90,13 @@ Component({
               setTimeout(() => {
                 that.setData({
                   isOverLayShow: false,
-                });
-              }, that.data.overlayDuration);
+                })
+              }, that.data.overlayDuration)
             }
-          );
+          )
         } else {
           // 显示
-          animation.opacity(1).step();
+          animation.opacity(1).step()
           this.setData(
             {
               isOverLayShow: true,
@@ -104,13 +104,13 @@ Component({
             () => {
               that.setData({
                 opacityAnimation: animation.export(),
-              });
+              })
             }
-          );
+          )
         }
       } else {
         if (that.data.isOverLayShow !== true) {
-          animation.opacity(1).step();
+          animation.opacity(1).step()
           this.setData(
             {
               isOverLayShow: true,
@@ -118,22 +118,22 @@ Component({
             () => {
               that.setData({
                 opacityAnimation: animation.export(),
-              });
+              })
             }
-          );
+          )
         }
       }
-      this.setOverlayHeight();
+      this.setOverlayHeight()
     },
     toggleDropdown() {
-      var nodes = this.getRelationNodes("../item/index");
+      var nodes = this.getRelationNodes('../item/index')
       nodes.forEach((item, index) => {
-        item.toggleDropdown(this.data.active);
-      });
+        item.toggleDropdown(this.data.active)
+      })
     },
     close() {
-      this.toggle(null);
+      this.toggle(null)
     },
   },
   ready() {},
-});
+})

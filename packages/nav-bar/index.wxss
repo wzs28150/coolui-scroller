@@ -6,6 +6,31 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  position: relative;
+}
+
+.nav-bar .action {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 24rpx;
+}
+
+.nav-bar .action .line {
+  width: 24rpx;
+  height: 4rpx;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: 0 center;
+  margin-top: 0rpx;
+  transform: translate(-40%, -50%) rotate(45deg);
+}
+
+.nav-bar .action .line + .line {
+  margin-top: 0.5rpx;
+  transform: translate(-40%, -50%) rotate(-45deg);
 }
 
 .nav-bar .content {

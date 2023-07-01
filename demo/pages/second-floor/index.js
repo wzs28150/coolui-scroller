@@ -9,6 +9,14 @@ Page({
       moreText: '继续下拉有惊喜~',
     },
     navBarConfig: {
+      back: {
+        show: true,
+        click: () => {
+          wx.navigateBack({
+            delta: 1,
+          })
+        },
+      },
       background: {
         color: '#d13435',
       },

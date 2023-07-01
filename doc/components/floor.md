@@ -103,6 +103,9 @@ Page({
   <!-- 刷新组件 -->
   <second-floor-refresh slot="second-floor-refresh"></second-floor-refresh>
   <!-- 刷新组件 -->
+  <!-- 顶部标签组件 -->
+  <nav-bar slot="nav-bar" config="{{navBarConfig}}">下拉二楼</nav-bar>
+  <!-- 顶部标签组件 -->
   <view>页面主内容</view>
 </second-floor>
 
@@ -204,6 +207,48 @@ Page({
 <second-floor bottom scale></second-floor>
 ```
 
+### 5. 可搭配 nav-bar 设置顶部标题栏
+
+<div style="display:flex;">
+<img src="/images/a.gif" style="width: 33.3%" alt="示例图" />
+</div>
+
+::: code-group
+
+```html [index.wxml]
+<second-floor>
+  <!-- 顶部标签组件 -->
+  <nav-bar slot="nav-bar" config="{{navBarConfig}}">下拉二楼</nav-bar>
+  <!-- 顶部标签组件 -->
+</second-floor>
+```
+
+```js [index.js]
+Page({
+  data: {
+    navBarConfig: {
+      back: {
+        show: true, // 是否显示返回按钮
+        click: () => {
+          // 返回按钮点击方法
+          wx.navigateBack({
+            delta: 1,
+          })
+        },
+      },
+      background: {
+        color: '#d13435', //设置背景颜色
+      },
+      text: {
+        color: '#fff', // 设置文字颜色
+      },
+    },
+  },
+})
+```
+
+:::
+
 ## second-floor 配置
 
 | 参数   | 说明                 | 类型      | 默认值 | 版本  |
@@ -219,6 +264,7 @@ Page({
 | -------------------- | ---------------- | ---------------------- |
 | second-floor         | 二楼插槽区域     | -                      |
 | second-floor-refresh | 下拉刷新插槽位置 | `second-floor-refresh` |
+| nav-bar              | 顶部标题栏       | `nav-bar`              |
 
 ## methods 方法
 

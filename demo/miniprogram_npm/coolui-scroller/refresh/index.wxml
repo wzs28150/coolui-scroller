@@ -10,7 +10,7 @@
     <block wx:elif="{{refreshstate == 'loading'}}">刷新中...</block>
   </view>
   <view class="refresh-inner" wx:if="{{type == 'logoText'}}">
-    <text class="{{config.text.img ? 'has-bg' : ''}} " style="font-size: {{config.text.size}}rpx; line-height:  {{config.text.size}}rpx; color: {{config.text.color}}; background-image: url('{{config.text.img}}');background-position:  {{( -textWidth + threshold*textWidth)}}px center;{{config.text.shadow?'text-shadow:0 0 '+config.text.shadow+'rpx '+config.text.color+' outset;':''}} {{config.text.font?('font-family:' + config.text.font): ''}}">
+    <text class="{{config.text.img ? 'has-bg' : ''}}  {{triggered && isloading?'loading':''}}" style="font-size: {{config.text.size}}rpx; line-height:  {{config.text.size}}rpx; color: {{config.text.color}}; background-image: url('{{config.text.img}}');background-position:  {{( -textWidth + threshold*textWidth)}}px center;{{config.text.shadow?'text-shadow:0 0 '+config.text.shadow+'rpx '+config.text.color+' outset;':''}} {{config.text.font?('font-family:' + config.text.font): ''}}">
       {{config.text.content}}
     </text>
   </view>

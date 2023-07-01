@@ -119,6 +119,10 @@
       // transition             : all .4s;
       background-position       : -100% -100%;
       background-repeat         : no-repeat;
+
+      &.loading {
+        animation: play 0.5s line infinite;
+      }
     }
 
     @keyframes circle {
@@ -128,6 +132,16 @@
 
       100% {
         transform: rotate(360deg);
+      }
+    }
+
+    @keyframes play {
+      from {
+        opacity: 1;
+      }
+
+      to {
+        opacity: 0.5;
       }
     }
   }
