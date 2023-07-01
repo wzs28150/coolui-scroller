@@ -1,0 +1,15 @@
+.nav-bar {
+  position: relative;
+
+  .nav-bar-inner {
+    display    : flex;
+    align-items: center;
+    box-sizing : border-box;
+  }
+
+  .content {
+    text-align: center;
+    width     : 100%;
+    font-size : 34rpx;
+  }
+}

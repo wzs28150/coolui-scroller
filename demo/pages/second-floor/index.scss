@@ -1,0 +1,55 @@
+page {
+  background-color: #2c2c2c;
+}
+
+.second-floor {
+  color              : #fff;
+  display            : flex;
+  flex-direction     : column;
+  justify-content    : space-between;
+  align-items        : center;
+  scroll-snap-align  : start;
+  scroll-snap-stop   : always;
+  position           : relative;
+  background-size    : cover;
+  background-position: center;
+  height             : 100%;
+  position           : absolute;
+  width              : 100%;
+
+  view {
+    padding: 80rpx;
+  }
+}
+
+.weui-cell.weui-check__label {
+  display    : flex;
+  align-items: center;
+}
+
+.demopage {
+  .pannel-inner {
+    .scroller-pannel {
+      .des {
+        text-align   : left;
+        margin-bottom: 20rpx;
+      }
+    }
+  }
+
+}
+
+radio-group {
+  display        : flex;
+  justify-content: space-between;
+  margin-bottom  : 20rpx;
+}
+
+.detail-page {
+  width          : 100%;
+  height         : 100%;
+  min-height     : 300px;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+}

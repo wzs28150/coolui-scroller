@@ -7,6 +7,7 @@
     </view>
   </view>
   <second-floor-refresh refreshConfig="{{refreshConfig}}" slot="second-floor-refresh"></second-floor-refresh>
+  <nav-bar slot="nav-bar" config="{{navBarConfig}}">下拉二楼</nav-bar>
   <view class="demopage">
     <view class="pannel-inner">
       <view class="scroller-pannel">

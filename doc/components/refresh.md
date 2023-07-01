@@ -25,6 +25,9 @@
       <a aria-current="page" href="#基础效果" class="router-link-active router-link-exact-active">基础效果</a> 
     </li>
     <li> 
+      <a aria-current="page" href="#logo-文字效果" class="router-link-active router-link-exact-active">LOGO 文字效果</a> 
+    </li>
+    <li> 
       <a aria-current="page" href="#gif背景效果" class="router-link-active router-link-exact-active">gif 背景效果</a> 
     </li>
     <li> 
@@ -98,6 +101,47 @@ Page({
         color: '#000000',
         height: 120, // 设置背景大于下拉高度
         img: 'https://test.wzs.pub/pic/bg.jpg',
+      },
+    },
+  },
+})
+```
+
+:::
+
+### LOGO 文字效果
+
+将 type 设置为 logoText，可设置 LOGO 文字，文字背景图片、文字字体等。
+
+<img src="/images/refresh9.gif" />
+
+::: code-group
+
+```html [index.wxml]
+<scroller isBackBtn="{{true}}">
+  <refresh slot="refresh" type="logoText" config="{{logoConfig}}" />
+  <view class="scroller-pannel ">下拉查看效果</view>
+</scroller>
+```
+
+```js [index.js]
+Page({
+  data: {
+    logoConfig: {
+      shake: true, // 是否开启下拉震动
+      height: 70,
+      text: {
+        content: 'coolui-scroller',
+        font: 'Lobster variant0',
+        size: '50',
+        color: '#ccc', // 文字颜色
+        shadow: 0, // 如果设置了文字背景图片，请设置0或者不设置，否则文字背景图片不明显
+        img: 'https://test.wzs.pub/pic/bg2.jpg',
+      },
+      background: {
+        color: '#f2f2f2',
+        height: 120,
+        // img: 'https://test.wzs.pub/pic/bg.jpg',
       },
     },
   },

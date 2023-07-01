@@ -71,7 +71,7 @@ Component({
         img: 'https://test.wzs.pub/pic/bg2.jpg',
       },
       background: {
-        color: '#fff',
+        color: '#f2f2f2',
         height: 120,
       },
     },

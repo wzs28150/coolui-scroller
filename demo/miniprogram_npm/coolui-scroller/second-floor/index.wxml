@@ -9,7 +9,12 @@
       </div>
     </view>
     <view class="first-floor" style="height:{{scroll_height}}px;">
-      <slot></slot>
+      <view style="height: {{statusBarHeight}}px">
+        <slot name="nav-bar"></slot>
+      </view>
+      <view style="height: {{scroll_height - statusBarHeight}}px">
+        <slot></slot>
+      </view>
     </view>
   </view>
 </view>

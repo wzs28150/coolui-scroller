@@ -29,7 +29,7 @@ Page({
         font: 'Lobster variant0',
         size: '50',
         color: '#ccc', // 文字颜色
-        shadow: 0, // 是否开启shadow阴影,0为不开启,数值越大阴影范围越大
+        shadow: 0, // 设置0
         img: 'https://test.wzs.pub/pic/bg2.jpg',
       },
       background: {
