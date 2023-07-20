@@ -121,6 +121,9 @@ scroll: {
 | 微信                                                                 | 支付宝                                                                  |
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | ![微信](https://wzs28150.github.io/coolui-scroller/v3/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v3/images/zfb.jpg) |
+### 微信群
+
+![微信群]([https://wzs28150.github.io/coolui-scroller/v3/images/set2.png](https://test.wzs.pub/pic/qun.jpg)https://test.wzs.pub/pic/qun.jpg)
 
 ## 示例 demo
 
@@ -176,3 +179,5 @@ npm i coolui-scroller --production
 ### 4.组件
 
 根据自己的业务场景选用组件，也可以在对应的插槽中自定义
+
+
