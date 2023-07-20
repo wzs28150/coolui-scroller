@@ -121,9 +121,10 @@ scroll: {
 | 微信                                                                 | 支付宝                                                                  |
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
 | ![微信](https://wzs28150.github.io/coolui-scroller/v3/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v3/images/zfb.jpg) |
+
 ### 微信群
 
-![微信群]([https://wzs28150.github.io/coolui-scroller/v3/images/set2.png](https://test.wzs.pub/pic/qun.jpg)https://test.wzs.pub/pic/qun.jpg)
+<img src="https://test.wzs.pub/pic/qun.jpg?v=1" style="width:50%"/>
 
 ## 示例 demo
 
