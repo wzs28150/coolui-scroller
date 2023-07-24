@@ -25,6 +25,12 @@ Component({
         })
       },
     },
+    '../nav-pannel/index': {
+      type: 'parent',
+      linked: function (target) {
+        // console.log(target)
+      },
+    },
   },
   properties: {
     isEmpty: {
@@ -45,6 +51,7 @@ Component({
     },
   },
   data: {
+    active: false,
     contentHeight: 0,
     triggered: false,
     isLoading: false,
@@ -70,9 +77,13 @@ Component({
       query
         .select('#content')
         .boundingClientRect(function (res) {
-          that.setData({
-            contentHeight: res.height,
-          })
+          if (res) {
+            that.setData({
+              contentHeight: res.height,
+            })
+
+            that.triggerEvent('contentHeight', res.height)
+          }
         })
         .select('#header')
         .boundingClientRect(function (headerRes) {
@@ -80,6 +91,10 @@ Component({
             that.setData({
               contentHeight: that.data.contentHeight - headerRes.height,
             })
+            that.triggerEvent(
+              'contentHeight',
+              that.data.contentHeight - headerRes.height
+            )
           }
         })
         .exec()

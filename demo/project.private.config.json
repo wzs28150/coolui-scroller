@@ -110,6 +110,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "切换组件",
+          "pathName": "pages/nav-pannel/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

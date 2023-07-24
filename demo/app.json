@@ -1,6 +1,7 @@
 {
   "pages": [
-    "index/index"
+    "index/index",
+    "pages/nav-pannel/index"
   ],
   "subPackages": [
     {
@@ -92,5 +93,6 @@
     "navigationBarTextStyle": "white",
     "navigationStyle": "default"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
 }

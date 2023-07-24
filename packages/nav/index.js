@@ -32,9 +32,9 @@ Component({
     scroll: false,
     index: 0,
   },
-  pageLifetimes: {
-    // 组件所在页面的生命周期函数
-    show: function () {
+  lifetimes: {
+    attached: function () {
+      // 在组件实例进入页面节点树时执行
       let that = this
       wx.createSelectorQuery()
         .in(this)
@@ -48,6 +48,27 @@ Component({
             })
           }
         })
+    },
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
+    },
+  },
+  pageLifetimes: {
+    // 组件所在页面的生命周期函数
+    show: function () {
+      // let that = this
+      // wx.createSelectorQuery()
+      //   .in(this)
+      //   .select('.wx-coolui-nav')
+      //   .boundingClientRect()
+      //   .exec(function (res) {
+      //     // console.log(res)
+      //     if (res.length > 0 && res[0]) {
+      //       that.setData({
+      //         navWidth: res[0].width,
+      //       })
+      //     }
+      //   })
     },
     hide: function () {},
     resize: function () {},

@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  width  : 100%;
+  height : 100%;
+}
+
+$active: var(--active);
+
+.wx-coolui-nav-pannel {
+  height  : 100%;
+  overflow: hidden;
+
+  // flex  : 1;
+  &-inner {
+    height: 100%;
+
+    &.side {
+      display  : flex;
+      transform: translateX(var(--left));
+
+
+      scroller {
+        flex: 1;
+      }
+    }
+
+    &.fade {
+      position: relative;
+
+      scroller {
+        position: absolute;
+        width   : 100%;
+        height  : 100%;
+        left    : 0;
+        top     : 0;
+        z-index : 0;
+
+        &:first-child {
+          position: relative;
+          z-index : 1;
+        }
+
+
+
+      }
+    }
+  }
+}

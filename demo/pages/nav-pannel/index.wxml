@@ -1,0 +1,30 @@
+<view class="page">
+  <view class="pannel">
+    <view class="title">切换组件nav-pannel</view>
+    <view class="content">
+      往往页面中会有多个scroll进行切换,或配合nav组件或干脆就点击某个按钮就切换了列表,在切换的时候往往会使用wx:if或者hidden来判断显示。但是if不会保存列表滚动状态，切换回来列表就重新加载回到顶部了。hidden有没办法判断具体那个列表显示了,从而去计算一些高度数据。所以切换组件就诞生了。。。
+    </view>
+    <view class="pannel-inner">
+      <nav-pannel active="{{active}}">
+        <scroller class="scroller0" background="#f2f2f2" bind:contentHeight="getHeight">
+          <refresh slot="refresh" type="logoText" config="{{logoConfig}}" />
+          <view class="nav-pannel" style="height: {{height}}px">
+            <view>
+              第一个scroller,可下拉
+              <button bind:tap="next">切换下一个</button>
+            </view>
+          </view>
+        </scroller>
+        <scroller class="scroller1" background="#f2f2f2" bind:contentHeight="getHeight">
+          <refresh slot="refresh" type="logoText" config="{{logoConfig}}" />
+          <view class="nav-pannel" style="height: {{height}}px">
+            <view>
+              第二个scroller,可下拉
+              <button bind:tap="back">返回上一个</button>
+            </view>
+          </view>
+        </scroller>
+      </nav-pannel>
+    </view>
+  </view>
+</view>

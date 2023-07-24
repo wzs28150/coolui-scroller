@@ -111,44 +111,44 @@
             }
           }
 
-          &:nth-child(10) {
-            width: 50%;
+          // &:nth-child(10) {
+          //   width: 50%;
 
-            &>view {
-              display        : flex;
-              align-items    : center;
-              justify-content: center;
-            }
+          //   &>view {
+          //     display        : flex;
+          //     align-items    : center;
+          //     justify-content: center;
+          //   }
 
-            &::after {
-              content         : "";
-              position        : absolute;
-              transform-origin: center;
-              box-sizing      : border-box;
-              pointer-events  : none;
-              top             : -50%;
-              left            : -50%;
-              right           : -50%;
-              bottom          : -50%;
-              transform       : scale(0.5);
-              border-top      : 1px solid #eee;
-              border-bottom   : 0;
-            }
-          }
+          //   &::after {
+          //     content         : "";
+          //     position        : absolute;
+          //     transform-origin: center;
+          //     box-sizing      : border-box;
+          //     pointer-events  : none;
+          //     top             : -50%;
+          //     left            : -50%;
+          //     right           : -50%;
+          //     bottom          : -50%;
+          //     transform       : scale(0.5);
+          //     border-top      : 1px solid #eee;
+          //     border-bottom   : 0;
+          //   }
+          // }
 
-          &:last-child {
-            width: 50%;
+          // &:last-child {
 
-            &>view {
-              display        : flex;
-              align-items    : center;
-              justify-content: center;
-            }
 
-            &::after {
-             display: none;
-            }
-          }
+          //   &>view {
+          //     display        : flex;
+          //     align-items    : center;
+          //     justify-content: center;
+          //   }
+
+          //   &::after {
+          //     display: none;
+          //   }
+          // }
 
           .right-icon {
             width   : 14px;

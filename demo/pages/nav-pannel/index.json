@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "refresh": "coolui-scroller/refresh/index",
+    "nav-pannel": "coolui-scroller/nav-pannel/index",
+    "item": "coolui-scroller/item/index"
+  },
+  "pageOrientation": "auto",
+  "navigationBarTitleText": "分类组件"
+}

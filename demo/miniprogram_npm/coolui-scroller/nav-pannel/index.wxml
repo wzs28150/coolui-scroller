@@ -1,0 +1,5 @@
+<view class="wx-coolui-nav-pannel">
+  <view class="wx-coolui-nav-pannel-inner {{type}}" style="width:{{type === 'side' ? width * scrollerLength : width}}px;--left:{{-width * active}}px; {{animation?'transition: transform 0.4s;':''}}--active:{{active}}">
+    <slot />
+  </view>
+</view>
