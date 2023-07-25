@@ -122,6 +122,10 @@ scroll: {
 | ---------------------------- | ----------------------------- |
 | <img src="/images/wx.jpg" /> | <img src="/images/zfb.jpg" /> |
 
+### 微信群
+
+<img src="/images/qun.jpg" style="max-width: 310.8px;"/>
+
 ## 示例 demo
 
 请微信扫码打开小程序查看
