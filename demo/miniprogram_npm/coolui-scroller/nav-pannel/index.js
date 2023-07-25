@@ -36,9 +36,6 @@ Component({
       // }
     },
   },
-  /**
-   * 组件的初始数据
-   */
   data: {
     width: 0,
     height: 0,
@@ -46,14 +43,13 @@ Component({
   },
   lifetimes: {
     attached: function () {
-      // 在组件实例进入页面节点树时执行
+      // 计算宽高
       let that = this
       wx.createSelectorQuery()
         .in(this)
         .select('.wx-coolui-nav-pannel')
         .boundingClientRect()
         .exec(function (res) {
-          console.log(res)
           if (res.length > 0 && res[0]) {
             that.setData({
               width: res[0].width,
@@ -71,9 +67,9 @@ Component({
   },
   methods: {
     init() {
+      // 计算子元素个数
       let that = this
       this.scrollNodes = this.getRelationNodes('../scroller/index')
-      console.log(this.scrollNodes)
       that.setData({
         scrollerLength: that.scrollNodes.length,
       })

@@ -21,6 +21,14 @@ export default defineConfig({
         text: 'v' + info.version,
         items: [
           {
+            text: 'v3.2.7',
+            link: '/version.md#v3-2-7',
+          },
+          {
+            text: 'v3.2.6',
+            link: '/version.md#v3-2-6',
+          },
+          {
             text: 'v3.2.5',
             link: '/version.md#v3-2-5',
           },
@@ -71,7 +79,8 @@ export default defineConfig({
         { text: 'Loadmore 加载更多组件', link: '/components/loadmore.md' },
         { text: 'Refresh 下拉刷新组件', link: '/components/refresh.md' },
         { text: 'Parallax 下拉视差组件', link: '/components/parallax.md' },
-        { text: 'Nav 分类导航软件', link: '/components/nav.md' },
+        { text: 'Nav 分类导航组件', link: '/components/nav.md' },
+        { text: 'Nav Pannel 切换组件', link: '/components/navPannel.md' },
         { text: 'Search 搜索组件', link: '/components/search.md' },
         { text: 'Sort 排序及分类筛选组件', link: '/components/sort.md' },
         { text: 'Floor 下拉二楼组件', link: '/components/floor.md' },

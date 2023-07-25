@@ -32,6 +32,11 @@
 .page .pannel .pannel-inner .nav-pannel button {
   background-color: #d13435;
   color: #fff;
-  font-size: 24rpx;
-  margin-top: 24rpx;
+  font-size: 28rpx;
+  margin-top: 28rpx;
+}
+
+.page .pannel .pannel-inner .nav-pannel button:last-child {
+  background-color: #fff;
+  color: #d13435;
 }

@@ -19,6 +19,7 @@ Page({
     },
     height: 0,
     active: 0,
+    animation: false,
   },
   getHeight: function (res) {
     this.setData({
@@ -34,6 +35,10 @@ Page({
     this.setData({
       active: 0,
     })
+  },
+  setAnimation: function () {
+    const animation = this.data.animation
+    this.setData({ animation: !animation })
   },
   onShareAppMessage: function () {},
 })

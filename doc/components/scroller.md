@@ -114,6 +114,45 @@ Page({
 
 :::
 
+> 如果不想使用里面子组件，像自定义里面内容可使用`contentHeight`来获取高度
+
+::: code-group
+
+```html [index.wxml]
+<scroller
+  background="{{background}}"
+  isBackBtn="{{isBackBtn}}"
+  isEmpty="{{isEmpty}}"
+  bind:contentHeight="getHeight"
+>
+  <view slot="header">
+    <!-- 头部区域，可增加搜索，分类切换等功能 -->
+  </view>
+  <!-- 下拉刷新组件，如果调用则开启下拉，不调用则不开启下拉，下拉配置详见下拉组件 -->
+  <refresh slot="refresh" type="base" config="" />
+  <view style="height: {{height}}px">
+    <!-- 自定义的内容, 设置高度是方便里面flex布局等高度撑开计算等 -->
+  </view
+</scroller>
+```
+
+```js [index.js]
+Page({
+  data: {
+    height: 0,
+    background: '#f2f2f2',
+    isBackBtn: true, // 设置是否显示回到顶部按钮
+  },
+  getHeight: function (res) {
+    this.setData({
+      height: res.detail,
+    })
+  },
+})
+```
+
+:::
+
 ## 配置
 
 | 参数           | 说明                                                                                                                                                                                  | 类型      | 默认值    | 版本        |
@@ -135,10 +174,11 @@ Page({
 
 ## 事件
 
-| 名称     | 用法                            | 说明                               | 返回参数 |
-| -------- | ------------------------------- | ---------------------------------- | -------- |
-| loadmore | `bindloadmore`或`bind:loadmore` | 执行加载更多后触发，可执行更新列表 | 无       |
-| refresh  | `bindrefresh`或`bind:refresh`   | 执行下拉刷新后触发，可执行更新列表 | 无       |
+| 名称          | 用法                                      | 说明                                                                                                  | 返回参数                                   | 版本  |
+| ------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------ | ----- |
+| loadmore      | `bindloadmore`或`bind:loadmore`           | 执行加载更多后触发，可执行更新列表                                                                    | 无                                         | 3.x   |
+| refresh       | `bindrefresh`或`bind:refresh`             | 执行下拉刷新后触发，可执行更新列表                                                                    | 无                                         | 3.x   |
+| contentHeight | `bindcontentHeight`或`bind:contentHeight` | 获取 scroller 中间内容区高度，不包括 header 部分,方便不使用 page、item 等组件需要自定义内容的时候使用 | 返回 res,可用 res.detail 获取高度，单位 px | 3.2.7 |
 
 ## 方法
 
