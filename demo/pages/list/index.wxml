@@ -1,7 +1,7 @@
 <view class="page">
   <view class="pannel">
     <view class="title">滚动列表组件scroller</view>
-    <view class="content" bind:tap="setView">
+    <view class="content">
       scroller组件是基于原生组件scroll-view的再封装.组件有丰富的设置及插槽来满足满足你的列表需求.插槽包括头部扩展、下拉扩展、加载扩展、空列表扩展.各部分的扩展你可以自定义内容.同时我们也提供了丰富的组件与之搭配
     </view>
     <view class="pannel-inner">
