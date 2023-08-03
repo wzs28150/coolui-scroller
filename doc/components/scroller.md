@@ -162,6 +162,7 @@ Page({
 | isBackBtn      | 设置是否显示返回到顶部按钮，可设置`true`或`false`， `true`为开启                                                                                                                      | _Boolean_ | `false`   | 3.0.0       |
 | isEmpty        | 设置是否显示空数据内容，可设置`true`或`false`， `true`为开启。如在空列表插槽中设置了内容则会显示出来                                                                                  | _Boolean_ | `false`   | 3.0.0       |
 | enableFlex     | 设置是否开启 scroll-view 的 flex 模式，可设置`true`或`false`， `true`为开启。                                                                                                         | _Boolean_ | `false`   | 3.0.9       |
+| top            | 设置滚动到指定位置                                                                                                                                                                    | _Number_  | `0`       | 3.2.8       |
 
 ## 插槽
 

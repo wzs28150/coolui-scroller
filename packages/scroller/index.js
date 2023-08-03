@@ -49,6 +49,14 @@ Component({
       type: Boolean,
       value: false,
     },
+    toView: {
+      type: String,
+      value: '',
+    },
+    top: {
+      type: Number,
+      value: 0,
+    },
   },
   data: {
     active: false,
@@ -63,7 +71,6 @@ Component({
       height: 50,
       style: 'black',
     },
-    top: 0,
   },
   ready() {
     this.setWapHeight()
