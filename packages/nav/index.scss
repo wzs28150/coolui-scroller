@@ -1,42 +1,112 @@
 .wx-coolui-nav {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid transparent;
+  height       : 83rpx;
+
+  &.border {
+    border-bottom: 1px solid #eee;
+  }
+
   .nav-inner {
     white-space: nowrap;
+
     .item {
-      display: inline-block;
-      text-align: center;
-      height: 84rpx;
-      font-size: 0;
+      display    : inline-block;
+      text-align : center;
+      height     : 84rpx;
+      font-size  : 0;
       line-height: 0;
-      color: #333;
-      transition: color 0.4s;
+      color      : #333;
+      transition : color 0.4s;
+
       .text {
-        position: relative;
-        display: inline-block;
+        position   : relative;
+        display    : inline-block;
         line-height: 84rpx;
-        font-size: 28rpx;
-        .line {
-          display: block;
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-          bottom: 0;
-          width: 0;
-          height: 4rpx;
-          background-color: #0cba70;
-          transition: width 0.4s;
+        font-size  : 28rpx;
+        width      : 100%;
+
+        &>view:first-child {
+          position     : relative;
+          z-index      : 1;
+          overflow     : hidden;
+          text-overflow: ellipsis;
+          white-space  : nowrap;
         }
       }
-      &.on {
-        color: #0cba70;
+
+      &.round {
+        .text {
+          padding: 0 20px;
+          width  : calc(100% - 40px);
+        }
+
+        .line {
+          display         : block;
+          position        : absolute;
+          left            : 50%;
+          transform       : translateX(-50%) translateY(50%);
+          bottom          : 50%;
+          width           : 100%;
+          height          : 60%;
+          background-color: #ccc;
+          transition      : width 0.4s;
+          border-radius   : 50px;
+          z-index         : 0;
+        }
+      }
+
+
+      &.plain {
+        .text {
+          padding: 0 20px;
+          width  : calc(100% - 40px);
+        }
+
+        .line {
+          display         : block;
+          position        : absolute;
+          left            : 50%;
+          transform       : translateX(-50%) translateY(50%);
+          bottom          : 50%;
+          width           : calc(100% - 2px);
+          height          : 60%;
+          background-color: transparent !important;
+          border          : 1px solid #ccc;
+          transition      : width 0.4s;
+          border-radius   : 50px;
+          z-index         : 0;
+        }
+      }
+
+      &.line {
         .text {
           .line {
-            background-color: #0cba70;
-            width: 100%;
-            // transition: width 0.4s;
+            display         : block;
+            position        : absolute;
+            left            : 50%;
+            transform       : translateX(-50%);
+            bottom          : 0;
+            width           : 0;
+            height          : 4rpx;
+            background-color: transparent;
+            transition      : width 0.4s;
+          }
+        }
+
+        &.on {
+          color: #0cba70;
+
+          .text {
+            .line {
+
+              width        : 100%;
+              // transition: width 0.4s;
+            }
           }
         }
       }
+
+
     }
   }
 }

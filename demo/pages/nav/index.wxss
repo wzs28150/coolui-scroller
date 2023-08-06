@@ -28,3 +28,33 @@
   justify-content: center;
   font-size: 28rpx;
 }
+
+.page .pannel .pannel-inner .nav-pannel .btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.page .pannel .pannel-inner .nav-pannel .btn button {
+  background-color: #fff;
+  color: #d13435;
+  border-color: #d13435;
+  font-size: 28rpx;
+  display: inline-block;
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+.page .pannel .pannel-inner .nav-pannel .btn button:first-child {
+  margin-left: 5px;
+}
+
+.page .pannel .pannel-inner .nav-pannel .btn button.on {
+  background-color: #d13435;
+  color: #fff;
+}
+
+.page .pannel .pannel-inner .nav-pannel .btn .switch {
+  margin-left: 5px;
+}

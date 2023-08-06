@@ -21,6 +21,10 @@ export default defineConfig({
         text: 'v' + info.version,
         items: [
           {
+            text: 'v3.2.9',
+            link: '/version.md#v3-2-9',
+          },
+          {
             text: 'v3.2.8',
             link: '/version.md#v3-2-8',
           },

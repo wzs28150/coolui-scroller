@@ -1,5 +1,9 @@
 # 版本更新
 
+### v3.2.9
+
+1. 修改 分类导航组件 nav 增加 type、spaceBetween、navPerView、border、text、background 设置,废弃 active-color 设置。
+
 ### v3.2.8
 
 1. 修改 滚动组件 scroller 增加 top 设置,可设置滚动到指定位置

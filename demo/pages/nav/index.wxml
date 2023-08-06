@@ -2,11 +2,49 @@
   <view class="pannel">
     <view class="title" bind:tap="test">分类组件</view>
     <!-- 基础使用 -->
-    <view class="content" style="padding-bottom:0">置于滚动组件头部插槽中,用于切换分类。分类小于等于4个时平均分配宽度。大于4个时显示4.5个。active为选中的index值,可添加touch事件左右侧滑切换改变active。来切换分类导航</view>
+    <view class="content" style="padding-bottom:0">
+      置于滚动组件头部插槽中,用于切换分类。active为选中的index值,可设置间距、显示类型、显示个数等，可添加touch事件左右侧滑切换改变active。来切换分类导航
+    </view>
     <view class="pannel-inner" bind:touchstart="TouchStart" bind:touchend="TouchEnd">
-      <nav list="{{nav}}" bind:change="onChange"    model:active="{{active}}" active-color="#d13435"></nav>
+      <nav navPerView="{{navPerView}}" spaceBetween="{{spaceBetween}}" type="{{type}}" border="{{border}}" list="{{nav}}" bind:change="onChange" model:active="{{active}}" text="{{type === 'line'? textLine : (type === 'plain'? textPlain: text)}}" background="{{type === 'line'?  backgroundLine: (type === 'plain'? backgroundPlain: background)}}"></nav>
       <view class="nav-pannel">
-        当前分类:{{nav[active].id}}
+        <view>
+          <view>当前分类: {{nav[active].id}}</view>
+          <view class="btn">
+            切换类型:
+            <button class="{{type === 'line' ? 'on' : ''}}" bind:tap="changeType" data-type="line">
+              line
+            </button>
+            <button class="{{type === 'round' ? 'on' : ''}}" bind:tap="changeType" data-type="round">
+              round
+            </button>
+            <button class="{{type === 'plain' ? 'on' : ''}}" bind:tap="changeType" data-type="plain">
+              plain
+            </button>
+          </view>
+          <view class="btn">
+            显示底边:
+            <switch class="switch" checked="{{border}}" bindchange="borderChange" />
+          </view>
+          <view class="btn">
+            显示个数:
+            <button class="{{navPerView === 'auto' ? 'on' : ''}}" bind:tap="changeNavPerView" data-type="auto">
+              auto
+            </button>
+            <button class="{{navPerView === 3.5 ? 'on' : ''}}" bind:tap="changeNavPerView" data-type="{{3.5}}">
+              3.5
+            </button>
+          </view>
+          <view class="btn">
+            设置间距:
+            <button class="{{spaceBetween === 0 ? 'on' : ''}}" bind:tap="changeSpaceBetween" data-type="{{0}}">
+              0
+            </button>
+            <button class="{{spaceBetween === 20 ? 'on' : ''}}" bind:tap="changeSpaceBetween" data-type="{{20}}">
+              20
+            </button>
+          </view>
+        </view>
       </view>
     </view>
   </view>

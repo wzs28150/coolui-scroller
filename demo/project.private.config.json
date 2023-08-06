@@ -63,26 +63,30 @@
         },
         {
           "name": "魔性吃面",
-          "pathName": "pages/demo/noodles/index",
+          "pathName": "pages/demo/animation/noodles/index",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
           "name": "飞上云霄",
-          "pathName": "pages/demo/fly/index",
+          "pathName": "pages/demo/animation/fly/index",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
           "name": "圣诞节",
-          "pathName": "pages/demo/christmas/index",
+          "pathName": "pages/demo/animation/christmas/index",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
           "name": "浩瀚宇宙",
-          "pathName": "pages/demo/universe/index",
+          "pathName": "pages/demo/animation/universe/index",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
