@@ -57,6 +57,10 @@ Component({
       type: Number,
       value: 0,
     },
+    animation: {
+      type: Boolean,
+      value: true,
+    },
   },
   data: {
     active: false,

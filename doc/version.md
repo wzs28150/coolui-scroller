@@ -1,5 +1,9 @@
 # 版本更新
 
+### v3.3.0
+
+1. 修改 scroller 组件 nav 增加 animation 设置, 暴露 scroll-view 的 scroll-with-animation 设置。
+
 ### v3.2.9
 
 1. 修改 分类导航组件 nav 增加 type、spaceBetween、navPerView、border、text、background 设置,废弃 active-color 设置。
