@@ -124,7 +124,7 @@ scroll: {
 
 ### 微信群
 
-<img src="https://test.wzs.pub/pic/qun.jpg?v=1" style="width:50%"/>
+<img src="https://wzs28150.github.io/coolui-scroller/v3/images/qun.jpg" style="width:50%"/>
 
 ## 示例 demo
 
@@ -180,5 +180,3 @@ npm i coolui-scroller --production
 ### 4.组件
 
 根据自己的业务场景选用组件，也可以在对应的插槽中自定义
-
-
