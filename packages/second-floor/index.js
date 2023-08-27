@@ -59,9 +59,10 @@ Component({
     tip: {
       type: Object,
       value: {
-        show: true,
+        show: false,
         height: 100,
-        times: 2,
+        times: 1,
+        duration: 2000,
       },
     },
   },
@@ -155,7 +156,11 @@ Component({
         }
       )
     },
-    tipShow(duration = 2000, wait = 2000, times = this.data.tip.times) {
+    tipShow(
+      duration = this.data.tip.duration,
+      wait = this.data.tip.duration,
+      times = this.data.tip.times
+    ) {
       const animation = wx.createAnimation()
       let offset = -this.data.scroll_height
       animation.translateY(offset).step({

@@ -249,14 +249,47 @@ Page({
 
 :::
 
+### 6. 可设置 tip 参数 控制进入页面初始化时,自动下拉回弹，提示用户有下拉二楼
+
+::: code-group
+
+```html [index.wxml]
+<second-floor tip="{{tip}}"> </second-floor>
+```
+
+```js [index.js]
+Page({
+  data: {
+    tip: {
+      show: true, // 开启tip 自动下拉提示
+      height: 100, // 自动下拉的高度
+      times: 1, // 自动下拉的次数
+      duration: 2000, // 自动下拉的速度
+    },
+  },
+})
+```
+
+:::
+
 ## second-floor 配置
 
-| 参数   | 说明                 | 类型      | 默认值 | 版本  |
-| ------ | -------------------- | --------- | ------ | ----- |
-| top    | 二楼初始位置         | _Boolean_ | false  | 3.2.3 |
-| center | 二楼初始位置         | _Boolean_ | false  | 3.2.3 |
-| bottom | 二楼初始位置         | _Boolean_ | true   | 3.2.3 |
-| scale  | 二楼是否开启缩放动画 | _Boolean_ | false  | 3.2.3 |
+| 参数   | 说明                 | 类型      | 默认值                              | 版本  |
+| ------ | -------------------- | --------- | ----------------------------------- | ----- |
+| top    | 二楼初始位置         | _Boolean_ | false                               | 3.2.3 |
+| center | 二楼初始位置         | _Boolean_ | false                               | 3.2.3 |
+| bottom | 二楼初始位置         | _Boolean_ | true                                | 3.2.3 |
+| scale  | 二楼是否开启缩放动画 | _Boolean_ | false                               | 3.2.3 |
+| tip    | 二楼提示动画         | _Object_  | 详见[tip 设置](./floor.md#tip-设置) | 3.3.1 |
+
+## tip 设置
+
+| 参数     | 说明                          | 类型      | 默认值 | 版本  |
+| -------- | ----------------------------- | --------- | ------ | ----- |
+| show     | 二楼 tip 动画是否开启         | _Boolean_ | false  | 3.3.1 |
+| height   | 二楼 tip 动画自动下拉高度     | _Number_  | 100    | 3.3.1 |
+| times    | 二楼 tip 动画自动下拉次数     | _Number_  | 1      | 3.3.1 |
+| duration | 二楼 tip 动画自动下拉速度控制 | _Number_  | 2000   | 3.3.1 |
 
 ## 插槽
 

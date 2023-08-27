@@ -1,4 +1,4 @@
-<second-floor bind:refresh="onRefresh" bind:secondShow="onSecondShow" bind:secondBack="onSecondBack" model:threshold="{{val}}" class="my-second-floor" center="{{type === 'center'}}" bottom="{{type === 'bottom'}}" top="{{type === 'top'}}" scale="{{scale}}">
+<second-floor bind:refresh="onRefresh" bind:secondShow="onSecondShow" bind:secondBack="onSecondBack" model:threshold="{{val}}" class="my-second-floor" center="{{type === 'center'}}" bottom="{{type === 'bottom'}}" top="{{type === 'top'}}" scale="{{scale}}" tip="{{tip}}">
   <view slot="second-floor">
     <view class="second-floor" style="background: #d13435;">
       <view>我是二楼顶部</view>

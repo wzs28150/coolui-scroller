@@ -46,6 +46,12 @@ Page({
     customStyle: '',
     overlayStyle: '',
     statusBarHeight: 0,
+    tip: {
+      show: true,
+      height: 100,
+      times: 1,
+      duration: 2000
+    },
   },
   onLoad: function () {
     const type = wx.getStorageSync('type')
