@@ -1,6 +1,6 @@
 <view class="wx-coolui-nav {{border ? 'border' : ''}}">
   <scroll-view scroll-x scroll-with-animation enhanced show-scrollbar="{{false}}" scroll-animation-duration="{{500}}" scroll-into-view="{{toView}}" class="nav-inner">
-    <view class="item {{type}} {{active == index?'on':'' }}" style="width: {{navWidth}}; margin-right: {{spaceBetween}}px; {{active == index?'color:'+text.activeColor:'color:' + text.color}}" id="item{{index}}" wx:for="{{list}}" data-index="{{index}}" bind:tap="_changeNav" wx:key="id" catchtouchmove='_catchTouchMove'>
+    <view class="item {{type}} {{active == index?'on':'' }}" style="width: {{navWidth}}; margin-right: {{index == list.length - 1 ? 0 : spaceBetween}}px; {{active == index?'color:'+text.activeColor:'color:' + text.color}}" id="item{{index}}" wx:for="{{list}}" data-index="{{index}}" bind:tap="_changeNav" wx:key="id" catchtouchmove='_catchTouchMove'>
       <view class="text">
         <view>{{item.title}}</view>
         <view class="line" style="{{active == index?'background-color:'+background.activeColor:'background-color:' + (type === 'line' ?'transparent' : background.color)}};{{type === 'plain' ? (active == index ? ('border-color:' + background.activeColor): ('border-color:' + background.color)): ''}}"></view>

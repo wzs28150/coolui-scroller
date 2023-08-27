@@ -105,7 +105,9 @@ Component({
               navWidth:
                 navPerView === 'auto'
                   ? 'auto'
-                  : res[0].width / navPerView - that.data.spaceBetween + 'px',
+                  : (res[0].width - that.data.spaceBetween * (navPerView - 1)) /
+                      navPerView +
+                    'px',
             })
           }
         })

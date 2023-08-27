@@ -56,6 +56,14 @@ Component({
         this.init()
       },
     },
+    tip: {
+      type: Object,
+      value: {
+        show: true,
+        height: 100,
+        times: 2,
+      },
+    },
   },
   data: {
     scroll_height: 0,
@@ -109,7 +117,8 @@ Component({
       this.refreshNode.setData({
         scroll_height: info.windowHeight,
       })
-      const animation = this.setAnimation(-info.windowHeight, 0)
+      let animation = this.setAnimation(-info.windowHeight, 0)
+
       let animationInner = null
       let scaleXy = this.data.scale ? 0.1 : 1
       if (this.data.top) {
@@ -131,13 +140,76 @@ Component({
       if (this.data.bottom) {
         animationInner = this.setAnimation(0, 0, scaleXy, scaleXy)
       }
-      this.setData({
-        scroll_height: info.windowHeight,
-        wapperAnimationData: animation.export(),
-        innerAnimationData: animationInner ? animationInner.export() : {},
-        threshold: 0,
+      this.setData(
+        {
+          scroll_height: info.windowHeight,
+          wapperAnimationData: animation.export(),
+          innerAnimationData: animationInner ? animationInner.export() : {},
+          threshold: this.data.threshold,
+        },
+        () => {
+          this.wapper = this.selectComponent('.second-floor-wapper')
+          if (this.data.tip.show) {
+            this.tipShow()
+          }
+        }
+      )
+    },
+    tipShow(duration = 2000, wait = 2000, times = this.data.tip.times) {
+      const animation = wx.createAnimation()
+      let offset = -this.data.scroll_height
+      animation.translateY(offset).step({
+        duration,
+        timingFunction: 'ease-in',
       })
-      this.wapper = this.selectComponent('.second-floor-wapper')
+      this.setData(
+        {
+          wapperAnimationData: animation.export(),
+          threshold: 0,
+        },
+        () => {
+          this.refreshNode.setText(this.data.scroll_height / 2)
+          if (this.data.tip.show) {
+            setTimeout(() => {
+              animation
+                .translateY(-this.data.scroll_height + this.data.tip.height)
+                .step({
+                  duration,
+                  timingFunction: 'ease-out',
+                })
+              this.setData(
+                {
+                  wapperAnimationData: animation.export(),
+                  threshold: this.data.tip.height,
+                },
+                () => {
+                  this.refreshNode.setText(this.data.scroll_height / 2)
+                  if (times > 1) {
+                    setTimeout(() => {
+                      this.tipShow(duration, wait, times - 1)
+                    }, wait)
+                  } else {
+                    this.setData(
+                      {
+                        tip: {
+                          show: false,
+                          height: this.data.tip.height,
+                          times: this.data.tip.times,
+                        },
+                      },
+                      () => {
+                        setTimeout(() => {
+                          this.tipShow(duration, wait, times - 1)
+                        }, wait)
+                      }
+                    )
+                  }
+                }
+              )
+            }, duration)
+          }
+        }
+      )
     },
     /**
      * @name: 触摸拖拽开始
@@ -402,7 +474,13 @@ Component({
         )
       })
     },
-    setAnimation(y, duration = 400, scale = 1, opacity = 1) {
+    setAnimation(
+      y,
+      duration = 400,
+      scale = 1,
+      opacity = 1,
+      timingFunction = 'ease-out'
+    ) {
       let transformOrigin = '50% 50% 0'
       if (this.data.top) {
         transformOrigin = '50% 0 0'
@@ -416,7 +494,7 @@ Component({
       const animation = wx.createAnimation({
         delay: 0,
         duration: duration,
-        timingFunction: 'ease-out',
+        timingFunction: timingFunction,
         transformOrigin: transformOrigin,
       })
       animation.translateY(y).scale(scale, scale).opacity(opacity)
