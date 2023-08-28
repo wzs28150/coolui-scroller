@@ -8,6 +8,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "淘宝二楼",
+          "pathName": "pages/demo/second-floor/taobao/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "长列表",
           "pathName": "pages/longlist/index",
           "query": "",

@@ -1,6 +1,6 @@
 <!-- pages/second-floor/circle/index.wxml -->
 <!-- <text>{{p}}</text> -->
-<view class="second-floor-refresh second-floor-refresh-class" bind:tap="back" style="color: {{refreshConfig.color}}">
+<view class="second-floor-refresh second-floor-refresh-class second-floor-refresh-{{status}}" bind:tap="back" style="color: {{refreshConfig.color}}">
   <view class="circle {{isLoading ? 'loading':''}}" wx:if="{{p < scroll_height / 3}}" style="border-color: {{refreshConfig.color}};">
     <view class="left">
       <view class="leftcircle" style="transform: rotate({{p < 50 ? (45 - p * 3.6) : -135}}deg);border-color: {{refreshConfig.color}};"></view>

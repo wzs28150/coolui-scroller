@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "second-floor-refresh": "coolui-scroller/second-floor-refresh/index",
+    "second-floor": "coolui-scroller/second-floor/index",
+    "scroller": "coolui-scroller/scroller/index",
+    "item": "coolui-scroller/item/index",
+    "nav-bar": "coolui-scroller/nav-bar/index"
+  },
+  "navigationStyle": "custom",
+  "disableScroll": true
+}

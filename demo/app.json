@@ -1,74 +1,49 @@
 {
-  "pages": [
-    "index/index",
-    "pages/nav-pannel/index"
-  ],
+  "pages": ["index/index", "pages/nav-pannel/index"],
   "subPackages": [
     {
       "root": "pages/second-floor/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/longlist/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/list/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/loadmore/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/hand/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/empty/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/search/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/nav/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/refresh/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/combined/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/sort/",
-      "pages": [
-        "index"
-      ]
+      "pages": ["index"]
     },
     {
       "root": "pages/demo/animation",
@@ -82,9 +57,11 @@
     },
     {
       "root": "pages/demo/combined",
-      "pages": [
-        "pics/index/index"
-      ]
+      "pages": ["pics/index/index"]
+    },
+    {
+      "root": "pages/demo/second-floor",
+      "pages": ["taobao/index"]
     }
   ],
   "window": {

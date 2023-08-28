@@ -57,7 +57,14 @@ Component({
           page: '/pages/demo/combined/pics/index/index',
         },
       ],
-      [],
+      [
+        {
+          id: 1,
+          title: '淘宝二楼',
+          img: 'https://test.wzs.pub/pic/pics/pics.jpg',
+          page: '/pages/demo/second-floor/taobao/index',
+        },
+      ],
     ],
     baseConfig: {
       shake: false, // 是否开启下拉震动

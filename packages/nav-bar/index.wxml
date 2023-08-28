@@ -5,7 +5,7 @@
     <block wx:if="{{type === 'default'}}">
       <view class="action" bindtap="BackPage" wx:if="{{config.back}}">
         <view class="line" style="background-color:{{config.text.color}}"></view>
-        <view class="line"></view>
+        <view class="line" style="background-color:{{config.text.color}}"></view>
       </view>
       <view class="content" style="top:{{StatusBar}}px; color: {{config.text.color}}">
         <slot />
