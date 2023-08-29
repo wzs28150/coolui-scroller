@@ -6,7 +6,7 @@ Page({
       loadingText: '正在加载',
       backText: '返回首页',
       tipText: '松开刷新',
-      moreText: '继续下拉有惊喜~',
+      moreText: '二楼可以访问您添加的频道哦~\n请下拉访问',
     },
     navBarConfig: {
       back: {
@@ -52,6 +52,10 @@ Page({
       height: 100,
       times: 1,
       duration: 2000,
+    },
+    key: '',
+    button: {
+      hide: true,
     },
     list: [
       {

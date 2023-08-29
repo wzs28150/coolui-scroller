@@ -21,8 +21,7 @@ page {
 }
 
 .second-floor .second-search {
-  width: 100vw;
-  height: 15vh;
+  padding: 10vh 50rpx 30rpx;
 }
 
 .second-floor .recently-used {

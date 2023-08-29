@@ -76,10 +76,11 @@ Component({
       this.setData({
         isLoading: flag,
         status: 'loading',
+        text: this.data.refreshConfig.loadingText,
       })
     },
     setShow(flag) {
-      const text = flag ? '' : this.data.text
+      const text = flag ? this.data.refreshConfig.backText : ''
       this.setData({
         isFloorShow: flag,
         text,

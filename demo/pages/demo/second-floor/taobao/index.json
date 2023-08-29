@@ -4,7 +4,8 @@
     "second-floor": "coolui-scroller/second-floor/index",
     "scroller": "coolui-scroller/scroller/index",
     "item": "coolui-scroller/item/index",
-    "nav-bar": "coolui-scroller/nav-bar/index"
+    "nav-bar": "coolui-scroller/nav-bar/index",
+    "search": "coolui-scroller/search/index"
   },
   "navigationStyle": "custom",
   "navigationBarTextStyle": "black",

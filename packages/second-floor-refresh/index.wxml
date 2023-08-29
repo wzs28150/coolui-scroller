@@ -14,5 +14,5 @@
       <view class="line"></view>
     </view>
   </view>
-  {{isLoading ? refreshConfig.loadingText : (isFloorShow ? refreshConfig.backText :  text)}}
+  <text decode="true">{{text}}</text>
 </view>

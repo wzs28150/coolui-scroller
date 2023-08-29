@@ -2,7 +2,9 @@
   <view slot="second-floor">
     <view class="second-floor {{isSecond ? 'show':''}}">
       <block wx:if="{{isSecond}}">
-        <view class="second-search"></view>
+        <view class="second-search">
+          <search search-btn="search-btn" round model:key="{{key}}" button="{{button}}"></search>
+        </view>
         <view class="recently-used">
           <view class="title">最近使用</view>
           <view class="list">
