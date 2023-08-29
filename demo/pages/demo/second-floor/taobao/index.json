@@ -7,5 +7,6 @@
     "nav-bar": "coolui-scroller/nav-bar/index"
   },
   "navigationStyle": "custom",
+  "navigationBarTextStyle": "black",
   "disableScroll": true
 }

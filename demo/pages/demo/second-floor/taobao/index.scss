@@ -8,7 +8,7 @@ page {
   scroll-snap-align  : start;
   scroll-snap-stop   : always;
   position           : relative;
-  background-size    : 100vw auto;
+  background-size    : cover;
   background-position: bottom center;
   height             : 100%;
   position           : absolute;
@@ -31,9 +31,17 @@ page {
     margin-bottom: 50rpx;
 
     .title {
-      font-weight  : bold;
-      font-size    : 32rpx;
-      margin-bottom: 30rpx;
+      font-weight    : bold;
+      font-size      : 32rpx;
+      margin-bottom  : 30rpx;
+      display        : flex;
+      justify-content: space-between;
+
+      &>view {
+        font-weight: normal;
+        font-size  : 24rpx;
+        align-items: center;
+      }
     }
 
     .list {
@@ -46,17 +54,29 @@ page {
         width     : 20%;
 
         .icon {
-          width           : 3em;
-          height          : 3em;
-          background-color: #ccc;
-          border-radius   : 100%;
-          margin          : 0 auto;
+          width                 : 3em;
+          height                : 3em;
+          background-color      : #ccc;
+          border-radius         : 100%;
+          margin                : 0 auto;
+          // background-image   : url(https://test.wzs.pub/pic/xian.jpg);
+          background-position   : center;
+          background-size       : cover;
         }
 
         .name {
           margin: 20rpx 0
         }
       }
+    }
+  }
+
+  .my-used {
+    .list {
+      border          : 1px dashed #7d6f93;
+      border-radius   : 20rpx;
+      padding-top     : 20rpx;
+      background-color: rgba(#3a1938, 0.3);
     }
   }
 }

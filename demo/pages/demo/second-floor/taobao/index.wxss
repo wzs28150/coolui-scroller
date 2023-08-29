@@ -7,7 +7,7 @@ page {
   scroll-snap-align: start;
   scroll-snap-stop: always;
   position: relative;
-  background-size: 100vw auto;
+  background-size: cover;
   background-position: bottom center;
   height: 100%;
   position: absolute;
@@ -35,6 +35,14 @@ page {
   font-weight: bold;
   font-size: 32rpx;
   margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.second-floor .recently-used .title > view {
+  font-weight: normal;
+  font-size: 24rpx;
+  align-items: center;
 }
 
 .second-floor .recently-used .list {
@@ -54,10 +62,19 @@ page {
   background-color: #ccc;
   border-radius: 100%;
   margin: 0 auto;
+  background-position: center;
+  background-size: cover;
 }
 
 .second-floor .recently-used .list .item .name {
   margin: 20rpx 0;
+}
+
+.second-floor .my-used .list {
+  border: 1px dashed #7d6f93;
+  border-radius: 20rpx;
+  padding-top: 20rpx;
+  background-color: rgba(58, 25, 56, 0.3);
 }
 
 .weui-cell.weui-check__label {

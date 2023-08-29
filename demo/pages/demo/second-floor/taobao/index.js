@@ -53,6 +53,48 @@ Page({
       times: 1,
       duration: 2000,
     },
+    list: [
+      {
+        icon: 'https://test.wzs.pub/pic/xian.jpg',
+        name: '闲鱼',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/cai.jpg',
+        name: '菜鸟',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/xian.jpg',
+        name: '闲鱼',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/cai.jpg',
+        name: '菜鸟',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/xian.jpg',
+        name: '闲鱼',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/cai.jpg',
+        name: '菜鸟',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/xian.jpg',
+        name: '闲鱼',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/cai.jpg',
+        name: '菜鸟',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/xian.jpg',
+        name: '闲鱼',
+      },
+      {
+        icon: 'https://test.wzs.pub/pic/cai.jpg',
+        name: '菜鸟',
+      },
+    ],
   },
   onLoad: function () {
     const type = wx.getStorageSync('type')

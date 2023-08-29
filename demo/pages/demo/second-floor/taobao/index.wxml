@@ -6,18 +6,21 @@
         <view class="recently-used">
           <view class="title">最近使用</view>
           <view class="list">
-            <view class="item" wx:for="{{10}}">
-              <view class="icon"></view>
-              <view class="name">闲鱼</view>
+            <view class="item" wx:for="{{list}}" wx:key="unique">
+              <view class="icon" style="background-image:url({{item.icon}})"></view>
+              <view class="name">{{item.name}}</view>
             </view>
           </view>
         </view>
-        <view class="recently-used">
-          <view class="title">最近使用</view>
+        <view class="recently-used my-used">
+          <view class="title">
+            我的频道
+            <view>更多></view>
+          </view>
           <view class="list">
-            <view class="item" wx:for="{{10}}">
-              <view class="icon"></view>
-              <view class="name">闲鱼</view>
+            <view class="item" wx:for="{{list}}" wx:key="unique">
+              <view class="icon" style="background-image:url({{item.icon}})"></view>
+              <view class="name">{{item.name}}</view>
             </view>
           </view>
         </view>

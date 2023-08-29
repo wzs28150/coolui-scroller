@@ -1,5 +1,5 @@
 {
-  "pages": ["index/index", "pages/nav-pannel/index"],
+  "pages": ["index/index"],
   "subPackages": [
     {
       "root": "pages/second-floor/",
@@ -31,6 +31,10 @@
     },
     {
       "root": "pages/nav/",
+      "pages": ["index"]
+    },
+    {
+      "root": "pages/nav-pannel/",
       "pages": ["index"]
     },
     {
