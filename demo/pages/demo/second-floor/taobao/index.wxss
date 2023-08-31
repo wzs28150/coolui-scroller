@@ -24,6 +24,10 @@ page {
   padding: 10vh 50rpx 30rpx;
 }
 
+.second-floor .search-inner {
+  background-color: #7d6f93 !important;
+}
+
 .second-floor .recently-used {
   color: #fff;
   padding: 0 50rpx;

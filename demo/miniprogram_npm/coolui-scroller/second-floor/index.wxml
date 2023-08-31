@@ -1,18 +1,18 @@
-<view class="wx-coolui-scroller-second-floor second-floor-class" style="height:{{scroll_height}}px;" bind:touchstart="touchStart" bind:touchend="touchEnd" bind:touchmove="touchMove">
+<view class="wx-coolui-scroller-second-floor second-floor-class" style="" bind:touchstart="touchStart" bind:touchend="touchEnd" bind:touchmove="touchMove">
   <view class="second-floor-wapper" animation="{{wapperAnimationData}}">
-    <view class="second-floor-inner" style="height:{{scroll_height}}px;">
-      <view style="height:{{scroll_height}}px;" animation="{{innerAnimationData}}">
+    <view class="second-floor-inner" style="">
+      <view style="height: 100vh;" animation="{{innerAnimationData}}">
         <slot name="second-floor"></slot>
       </view>
       <div class="second-floor-text">
         <slot name="second-floor-refresh"></slot>
       </div>
     </view>
-    <view class="first-floor" style="height:{{scroll_height}}px;">
+    <view class="first-floor" style="">
       <view style="height: {{statusBarHeight}}px">
         <slot name="nav-bar"></slot>
       </view>
-      <view style="height: {{scroll_height - statusBarHeight}}px">
+      <view style="height: calc(100vh - {{statusBarHeight}}px)">
         <slot></slot>
       </view>
     </view>

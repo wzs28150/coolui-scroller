@@ -27,6 +27,10 @@ page {
   align-items: center;
 }
 
+.demopage {
+  min-height: 100% !important;
+}
+
 .demopage .pannel-inner .scroller-pannel .des {
   text-align: left;
   margin-bottom: 20rpx;
@@ -35,6 +39,10 @@ page {
 radio-group {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+switch {
   margin-bottom: 20rpx;
 }
 

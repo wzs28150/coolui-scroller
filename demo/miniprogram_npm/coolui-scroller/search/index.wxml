@@ -9,7 +9,9 @@
     <input class="search-input" type="text" model:value="{{key}}" bind:tap="focus" bindblur="blur" focus="{{isFocus}}" bindconfirm="confirm" bindinput="input" />
     <view class="search-close" bind:tap="clear"></view>
   </view>
-  <button class="button search-btn" bind:tap="btnClick" style="margin-right:  calc({{(button.show || isBtnShow)&&!button.hide ? 0 : '-' +  btnWidth +'px'}});">
-    {{button.text ? button.text : '搜索'}}
-  </button>
+  <block wx:if="{{!button.hide}}">
+    <button wx:if="{{button.show||isBtnShow}}" class="button search-btn" bind:tap="btnClick">
+      {{button.text ? button.text : '搜索'}}
+    </button>
+  </block>
 </view>

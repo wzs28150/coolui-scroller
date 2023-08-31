@@ -79,7 +79,15 @@ Component({
         text: this.data.refreshConfig.loadingText,
       })
     },
-    setShow(flag) {
+    setDown() {
+      this.setData({
+        isLoading: false,
+        text: this.data.refreshConfig.downText,
+        p: 0,
+        status: 'down',
+      })
+    },
+    setSecondShow(flag) {
       const text = flag ? this.data.refreshConfig.backText : ''
       this.setData({
         isFloorShow: flag,

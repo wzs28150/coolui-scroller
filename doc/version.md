@@ -1,5 +1,13 @@
 # 版本更新
 
+### v3.3.2
+
+1. 修改 search 组件 增加 css 变量, 可修改搜索文字颜色及背景颜色。
+
+### v3.3.1
+
+1. 修改 floor 组件 增加 tip 设置, 可进入页面时自动下拉一次提示用户有二楼内容。
+
 ### v3.3.0
 
 1. 修改 scroller 组件 nav 增加 animation 设置, 暴露 scroll-view 的 scroll-with-animation 设置。

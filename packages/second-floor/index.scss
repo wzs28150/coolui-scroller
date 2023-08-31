@@ -1,0 +1,34 @@
+.wx-coolui-scroller-second-floor {
+  overflow: hidden;
+  height  : 100vh !important;
+
+  .second-floor-wapper {
+    // -webkit-transition: transformY(-50%) scale(1, 1);
+    transform: translateY(-50%) scale(1, 1);
+    height   : 200vh;
+
+    .second-floor-inner {
+      height: 100vh;
+    }
+
+    .first-floor {
+      height  : 100vh;
+      overflow: hidden;
+    }
+
+    .second-floor-inner .second-floor-text {
+      width          : 100%;
+      position       : absolute;
+      bottom         : 0;
+      display        : flex;
+      justify-content: center;
+      align-items    : center;
+      z-index        : 99;
+    }
+  }
+
+  .second-floor-inner {
+    position: relative;
+    overflow: hidden;
+  }
+}

@@ -1,4 +1,4 @@
-<second-floor bind:refresh="onRefresh" bind:secondShow="onSecondShow" bind:secondBack="onSecondBack" model:threshold="{{val}}" class="my-second-floor" center="{{type === 'center'}}" bottom="{{type === 'bottom'}}" top="{{type === 'top'}}" scale="{{scale}}" tip="{{tip}}">
+<second-floor bind:refresh="onRefresh" bind:secondShow="onSecondShow" bind:secondBack="onSecondBack" model:threshold="{{val}}" offset="{{offset ? 100: 0}}" class="my-second-floor" center="{{type === 'center'}}" bottom="{{type === 'bottom'}}" top="{{type === 'top'}}" scale="{{scale}}" tip="{{tip}}">
   <view slot="second-floor">
     <view class="second-floor" style="background: #d13435;">
       <view>我是二楼顶部</view>
@@ -27,6 +27,10 @@
           <switch checked="{{scale}}" bindchange="scaleChange" />
           <view class="des">是否弹出新页面:</view>
           <switch checked="{{newPage}}" bindchange="switchChange" />
+          <view class="des">是否开启自动下拉提示:</view>
+          <switch checked="{{tip.show}}" bindchange="tipChange" />
+          <view class="des">设置offset 100:</view>
+          <switch checked="{{offset}}" bindchange="offsetChange" />
           <view class="downtip">下拉查看效果</view>
           <view class="downicon">
             <view class="line"></view>

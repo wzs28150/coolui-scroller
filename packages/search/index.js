@@ -9,7 +9,11 @@ Component({
       linked() {},
     },
   },
-  externalClasses: ['search-btn'],
+  externalClasses: [
+    'search-btn-class',
+    'search-inner-class',
+    'search-placeholder-class',
+  ],
   properties: {
     placeholder: {
       type: String,
@@ -35,23 +39,7 @@ Component({
   data: {
     // height: 100
     isBtnShow: false,
-    btnWidth: 0,
     isFocus: false,
-  },
-  lifetimes: {
-    attached: function () {
-      let that = this
-      wx.createSelectorQuery()
-        .in(this)
-        .select('.button')
-        .boundingClientRect()
-        .exec(function (res) {
-          console.log(1)
-          that.setData({
-            btnWidth: res[0].width,
-          })
-        })
-    },
   },
   methods: {
     heightChange() {},

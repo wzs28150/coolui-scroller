@@ -47,11 +47,12 @@ Page({
     overlayStyle: '',
     statusBarHeight: 0,
     tip: {
-      show: true,
-      height: 100,
+      show: false,
+      height: 200,
       times: 1,
-      duration: 2000
+      duration: 2000,
     },
+    offset: false,
   },
   onLoad: function () {
     const type = wx.getStorageSync('type')
@@ -73,6 +74,25 @@ Page({
     if (scale) {
       this.setData({
         scale,
+      })
+    }
+
+    const offset = wx.getStorageSync('offset')
+    if (offset) {
+      this.setData({
+        offset,
+      })
+    }
+
+    const tip = wx.getStorageSync('offset')
+    if (tip) {
+      this.setData({
+        tip: {
+          show: tip,
+          height: 200,
+          times: 1,
+          duration: 2000,
+        },
       })
     }
 
@@ -135,5 +155,34 @@ Page({
       scale: e.detail.value,
     })
     wx.setStorageSync('scale', e.detail.value)
+  },
+  offsetChange(e) {
+    this.setData(
+      {
+        offset: e.detail.value,
+      },
+      () => {
+        const secondFloor = this.selectComponent('.my-second-floor')
+        secondFloor.init()
+      }
+    )
+    wx.setStorageSync('offset', e.detail.value)
+  },
+  tipChange(e) {
+    this.setData(
+      {
+        tip: {
+          show: e.detail.value,
+          height: 200,
+          times: 1,
+          duration: 2000,
+        },
+      },
+      () => {
+        const secondFloor = this.selectComponent('.my-second-floor')
+        secondFloor.init()
+      }
+    )
+    wx.setStorageSync('offset', e.detail.value)
   },
 })

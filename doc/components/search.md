@@ -195,6 +195,49 @@ Page({
 
 <img src="/images/search.jpg" />
 
+可利用暴露出来的 css 变量修改样式
+
+<img src="/images/search2.jpg" />
+
+::: code-group
+
+```html [index.wxml]
+<scroller>
+  <view slot="header">
+    <search
+      style="--color: #fff;--placeholder-color: rgba(255,255,255, 0.7);--input-bg-color:#7d6f93;"
+      model:key="{{key}}"
+      bind:confirm="confirm"
+      bind:btnClick="onBtnClick"
+    />
+  </view>
+</scroller>
+```
+
+```js [index.js]
+Page({
+  data: {
+    key: '',
+  },
+  onBtnClick({ detail }) {
+    wx.showToast({
+      title: '来自右侧按钮点击:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+  confirm({ detail }) {
+    wx.showToast({
+      title: '来自完成按钮触发:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+})
+```
+
+:::
+
 ## 配置
 
 | 参数      | 说明                                                                              | 类型      | 默认值  | 版本  |
@@ -219,3 +262,13 @@ Page({
 | 名称       | 说明                     | 类型     | 版本  |
 | ---------- | ------------------------ | -------- | ----- |
 | search-btn | 设置右侧搜索按钮的 class | _String_ | 3.0.0 |
+
+## css 变量
+
+在组件外部修改组件里的元素样式，可做局部调整。
+
+| 名称                | 说明                        | 类型     | 版本  |
+| ------------------- | --------------------------- | -------- | ----- |
+| --color             | 设置 input 输入文字的颜色   | _String_ | 3.3.2 |
+| --placeholder-color | 设置 placeholder 文字的颜色 | _String_ | 3.3.2 |
+| --input-bg-color    | 设置 input 背景颜色         | _String_ | 3.3.2 |

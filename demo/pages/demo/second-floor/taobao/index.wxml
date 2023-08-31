@@ -3,7 +3,7 @@
     <view class="second-floor {{isSecond ? 'show':''}}">
       <block wx:if="{{isSecond}}">
         <view class="second-search">
-          <search search-btn="search-btn" round model:key="{{key}}" button="{{button}}"></search>
+          <search style="--color: #fff;--placeholder-color: rgba(255,255,255, 0.7);--input-bg-color:#7d6f93;" round model:key="{{key}}" button="{{button}}" placeholder="{{placeholder}}" clearable></search>
         </view>
         <view class="recently-used">
           <view class="title">最近使用</view>
@@ -30,26 +30,12 @@
     </view>
   </view>
   <second-floor-refresh refreshConfig="{{refreshConfig}}" slot="second-floor-refresh" second-floor-refresh-class="second-floor-refresh" second-floor-refresh-back="second-floor-refresh-back"></second-floor-refresh>
-  <nav-bar slot="nav-bar" config="{{navBarConfig}}">下拉二楼</nav-bar>
+  <nav-bar slot="nav-bar" config="{{navBarConfig}}">仿淘宝下拉二楼</nav-bar>
   <view class="demopage">
     <view class="pannel-inner">
       <view class="scroller-pannel">
         <view>
           <view class="title">下拉二楼效果</view>
-          <view class="des">轻滑下拉松手刷新，滑动到超过一定距离，下拉二楼展开，可写入活动页面等有趣的内容</view>
-          <view class="des">二楼位置设置:</view>
-          <radio-group bindchange="radioChange">
-            <label class="weui-cell weui-check__label" wx:for="{{types}}" wx:key="value">
-              <view class="weui-cell__hd">
-                <radio value="{{item.value}}" checked="{{item.value === type}}" />
-              </view>
-              <view class="weui-cell__bd">{{item.name}}</view>
-            </label>
-          </radio-group>
-          <view class="des">是否开启缩放:</view>
-          <switch checked="{{scale}}" bindchange="scaleChange" />
-          <view class="des">是否弹出新页面:</view>
-          <switch checked="{{newPage}}" bindchange="switchChange" />
           <view class="downtip">下拉查看效果</view>
           <view class="downicon">
             <view class="line"></view>

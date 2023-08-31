@@ -4,40 +4,45 @@
     <!-- 基础使用 -->
     <view class="content" style="padding-bottom:0">基础使用</view>
     <view class="pannel-inner">
-      <search search-btn="search-btn" model:key="{{key1}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+      <search search-btn-class="search-btn" search-placeholder-class="search-placeholder" model:key="{{key1}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
     </view>
     <!-- 圆角 -->
     <view class="content" style="padding-bottom:0">圆角</view>
     <view class="pannel-inner">
-      <search search-btn="search-btn" round model:key="{{key2}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+      <search search-btn-class="search-btn" round model:key="{{key2}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
     </view>
     <!-- 可清除 -->
     <view class="content" style="padding-bottom:0">可清除</view>
     <view class="pannel-inner">
-      <search search-btn="search-btn" clearable model:key="{{key3}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+      <search search-btn-class="search-btn" clearable model:key="{{key3}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
     </view>
     <!-- 自定义右侧按钮文字 -->
     <view class="content" style="padding-bottom:0">自定义右侧按钮文字</view>
     <view class="pannel-inner">
-      <search search-btn="search-btn" button="{{searchBtnText.button}}" model:key="{{key4}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+      <search search-btn-class="search-btn" button="{{searchBtnText.button}}" model:key="{{key4}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
     </view>
     <!-- 设置按钮一直显示 -->
     <view class="content" style="padding-bottom:0">设置按钮一直显示</view>
     <view class="pannel-inner">
-      <search search-btn="search-btn" button="{{searchBtnShow.button}}" model:key="{{key5}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+      <search search-btn-class="search-btn" button="{{searchBtnShow.button}}" model:key="{{key5}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
     </view>
     <!-- 设置按钮一直隐藏 -->
     <view class="content" style="padding-bottom:0">设置按钮一直隐藏,需要点击键盘确定提交</view>
     <view class="pannel-inner">
-      <search search-btn="search-btn" button="{{searchBtnHide.button}}" model:key="{{key6}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+      <search search-btn-class="search-btn" button="{{searchBtnHide.button}}" model:key="{{key6}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
     </view>
     <!-- 自定义按钮样式 -->
     <view class="content" style="padding-bottom:0">自定义按钮样式</view>
     <view class="pannel-inner">
-      <search search-btn="search-full-btn" button="{{searchBtnShow.button}}" model:key="{{key7}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+      <search search-btn-class="search-full-btn" button="{{searchBtnShow.button}}" model:key="{{key7}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
     </view>
     <view class="pannel-inner">
-      <search search-btn="search-textonly-btn" button="{{searchBtnShow.button}}" model:key="{{key8}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+      <search search-btn-class="search-textonly-btn" button="{{searchBtnShow.button}}" model:key="{{key8}}" bind:confirm="confirm" bind:btnClick="onBtnClick"></search>
+    </view>
+    <!-- 自定义按钮样式 -->
+    <view class="content" style="padding-bottom:0">利用css变量修改颜色</view>
+    <view class="pannel-inner">
+      <search style="--color: #fff;--placeholder-color: rgba(255,255,255, 0.7);--input-bg-color:#7d6f93;" round model:key="{{key}}" button="{{searchBtnHide.button}}" placeholder="{{placeholder}}" clearable></search>
     </view>
   </view>
 </view>

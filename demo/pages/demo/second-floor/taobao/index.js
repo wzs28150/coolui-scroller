@@ -57,6 +57,7 @@ Page({
     button: {
       hide: true,
     },
+    placeholder: '搜索',
     list: [
       {
         icon: 'https://test.wzs.pub/pic/xian.jpg',
@@ -147,6 +148,10 @@ Page({
   },
   onSecondShow() {
     console.log('二楼已加载')
+    wx.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#000000',
+    })
     this.setData({
       isSecond: true,
     })
@@ -161,6 +166,10 @@ Page({
   },
   onSecondBack() {
     console.log('二楼已关闭')
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: '#ffffff',
+    })
     this.setData({
       isSecond: false,
     })

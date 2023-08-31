@@ -28,6 +28,8 @@ page {
 }
 
 .demopage {
+  min-height: 100% !important;
+
   .pannel-inner {
     .scroller-pannel {
       .des {
@@ -43,6 +45,10 @@ radio-group {
   display        : flex;
   justify-content: space-between;
   margin-bottom  : 20rpx;
+}
+
+switch {
+  margin-bottom: 20rpx;
 }
 
 .detail-page {
