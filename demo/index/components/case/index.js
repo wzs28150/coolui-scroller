@@ -61,7 +61,7 @@ Component({
         {
           id: 1,
           title: '淘宝二楼',
-          img: 'https://test.wzs.pub/pic/pics/pics.jpg',
+          img: 'https://test.wzs.pub/pic/taobao.jpg',
           page: '/pages/demo/second-floor/taobao/index',
         },
       ],
