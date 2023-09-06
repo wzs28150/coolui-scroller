@@ -1,4 +1,4 @@
-<second-floor bind:refresh="onRefresh" bind:secondShow="onSecondShow" bind:secondBack="onSecondBack" model:threshold="{{val}}" class="my-second-floor" center="{{type === 'center'}}" bottom="{{type === 'bottom'}}" top="{{type === 'top'}}" scale="{{scale}}">
+<second-floor bind:refresh="onRefresh" bind:secondShow="onSecondShow" bind:secondBack="onSecondBack" model:threshold="{{val}}" class="my-second-floor" bottom>
   <view slot="second-floor">
     <view class="second-floor {{isSecond ? 'show':''}}">
       <block wx:if="{{isSecond}}">
@@ -47,8 +47,3 @@
     </view>
   </view>
 </second-floor>
-<page-container show="{{show}}" round="{{round}}" overlay="{{overlay}}" duration="{{duration}}" position="{{position}}" close-on-slide-down="{{false}}" bindbeforeenter="onBeforeEnter" bindenter="onEnter" bindafterenter="onAfterEnter" bindbeforeleave="onBeforeLeave" bindleave="onLeave" bindafterleave="onAfterLeave" bindclickoverlay="onClickOverlay" custom-style="{{customStyle}}" overlay-style="{{overlayStyle}}">
-  <view class="detail-page">
-    <button type="primary" bindtap="exit">退出</button>
-  </view>
-</page-container>

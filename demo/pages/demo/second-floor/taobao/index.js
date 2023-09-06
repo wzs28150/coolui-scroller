@@ -29,30 +29,9 @@ Page({
       elm: 'https://test.wzs.pub/pic/2lou/elm.jpg',
     },
     val: 0,
-    type: 'bottom',
-    types: [
-      { value: 'top', name: 'top' },
-      { value: 'center', name: 'center' },
-      { value: 'bottom', name: 'bottom' },
-      // { value: "scale", name: "scale" },
-    ],
-    newPage: false,
-    scale: false,
     show: false,
     isSecond: false,
-    duration: 300,
-    position: 'right',
-    round: false,
-    overlay: true,
-    customStyle: '',
-    overlayStyle: '',
     statusBarHeight: 0,
-    tip: {
-      show: true,
-      height: 100,
-      times: 1,
-      duration: 2000,
-    },
     key: '',
     button: {
       hide: true,
@@ -102,28 +81,6 @@ Page({
     ],
   },
   onLoad: function () {
-    const type = wx.getStorageSync('type')
-    const that = this
-    if (type) {
-      this.setData({
-        type,
-      })
-    }
-
-    const newPage = wx.getStorageSync('newPage')
-    if (newPage) {
-      this.setData({
-        newPage,
-      })
-    }
-
-    const scale = wx.getStorageSync('scale')
-    if (scale) {
-      this.setData({
-        scale,
-      })
-    }
-
     wx.getSystemInfoAsync({
       success: function (res) {
         that.setData({
