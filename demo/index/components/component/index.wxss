@@ -1,11 +1,13 @@
 .component {
   position: relative;
+  height: calc(100vh - 100rpx);
 }
 
 .component .bg {
-  height: 33vh;
+  height: 30vh;
   z-index: 0;
   overflow: hidden;
+  color: #d13435;
 }
 
 .component .logo {
@@ -33,28 +35,29 @@
 }
 
 .component .inner {
-  padding: 33vh 30rpx 30rpx;
-  height: calc(100vh - 100rpx);
+  margin: 30vh 30rpx 30rpx;
+  height: calc(100% - 100rpx - 40px - 30vh - 60rpx);
   position: absolute;
-  width: 100vw;
+  width: calc(100vw - 60rpx);
   top: 0;
   left: 0;
   z-index: 89;
   box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10rpx;
+  overflow: hidden;
   /* display: none; */
 }
 
 .component .inner .scroll {
   height: 100%;
-  background-color: #fff;
-  border-radius: 10rpx;
 }
 
 .component .inner .scroll .list {
   padding: 30rpx;
   display: flex;
   flex-wrap: wrap;
-  height: calc(100vh - 100rpx - 90rpx - 33vh);
+  height: calc(100vh - 100rpx - 90rpx - 30vh);
 }
 
 .component .inner .scroll .list .item {
@@ -68,8 +71,8 @@
 }
 
 .component .inner .scroll .list .item .icon {
-  width: 3em;
-  height: 3em;
+  width: 84rpx;
+  height: 84rpx;
   display: block;
   margin: 0 auto;
 }
@@ -102,11 +105,11 @@
   border-right: 1px solid #eee;
 }
 
-.component .inner .scroll .list .item:nth-child(3n)::before {
+.component .inner .scroll .list .item.brn::before {
   display: none;
 }
 
-.component .inner .scroll .list .item:nth-child(7)::after, .component .inner .scroll .list .item:nth-child(8)::after, .component .inner .scroll .list .item:nth-child(9)::after {
+.component .inner .scroll .list .item.bbn::after {
   display: none;
 }
 

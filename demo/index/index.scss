@@ -2,29 +2,35 @@
   height          : calc(100vh - 100rpx);
   background-color: #f2f2f2;
   overflow        : hidden;
+
   .index-page-swiper {
-    width: 200vw;
-    height: calc(100vh - 100rpx);
+    width  : 200vw;
+    height : calc(100vh - 100rpx);
     display: flex;
+
     &.trans {
       transition: all 1s;
     }
+
     &.on {
       transform: translateX(-100vw);
+
       &.trans {
         transition: all 1s;
       }
     }
+
     .index-page {
-      flex: 1;
-      width: 100vw;
-      height: calc(100vh - 100rpx);
+      flex    : 1;
+      width   : 100vw;
+      height  : calc(100vh - 100rpx);
       position: relative;
-      overflow        : hidden;
+      overflow: hidden;
     }
   }
-  
+
 }
+
 .cu-bar {
   display        : flex;
   position       : relative;
@@ -74,7 +80,8 @@
       image {
         width  : 50rpx;
         height : 50rpx;
-        display: inline-block;
+        display: block;
+        margin : 0 auto;
       }
     }
 

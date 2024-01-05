@@ -1,6 +1,6 @@
 {
   "name": "wave-bg-weapp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "微信小程序canvas 波浪背景组件",
   "main": "index.js",
   "scripts": {

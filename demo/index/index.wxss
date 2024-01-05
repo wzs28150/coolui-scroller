@@ -82,5 +82,6 @@
 .cu-bar .action .cuIcon-cu-image image {
   width: 50rpx;
   height: 50rpx;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
 }

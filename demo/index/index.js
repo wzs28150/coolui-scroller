@@ -6,6 +6,19 @@ Page({
     touchx: 0,
     touchy: 0,
     titleArr: ['coolui-scroller', '有趣的下拉效果案例'],
+    StatusBar: null,
+    statusBarHeight: 0,
+    navBarConfig: {
+      back: {
+        show: false,
+      },
+      background: {
+        color: '#000000',
+      },
+      text: {
+        color: '#fff',
+      },
+    },
   },
   onShareAppMessage: function () {
     // 页面被用户分享时执行
@@ -19,6 +32,25 @@ Page({
       interstitialAd.onError((err) => {})
       interstitialAd.onClose(() => {})
     }
+    const that = this
+    wx.getSystemInfoAsync({
+      success: (e) => {
+        that.setData({
+          StatusBar: e.statusBarHeight,
+        })
+        let capsule = wx.getMenuButtonBoundingClientRect()
+        if (capsule) {
+          that.setData({
+            Custom: capsule,
+            statusBarHeight: capsule.bottom + capsule.top - e.statusBarHeight,
+          })
+        } else {
+          that.setData({
+            statusBarHeight: e.statusBarHeight + 50,
+          })
+        }
+      },
+    })
   },
   onShow() {
     if (interstitialAd) {

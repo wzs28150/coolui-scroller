@@ -1,112 +1,23 @@
 {
-	"pages": [
-		"index/index"
-	],
-	"subPackages": [
-		{
-			"root": "pages/second-floor/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/longlist/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/list/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/loadmore/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/hand/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/empty/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/search/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/nav/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/nav-pannel/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/refresh/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/combined/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/sort/",
-			"pages": [
-				"index"
-			]
-		},
-		{
-			"root": "pages/demo/animation",
-			"pages": [
-				"fly/index",
-				"noodles/index",
-				"christmas/index",
-				"universe/index",
-				"bingdwendwen/index"
-			]
-		},
-		{
-			"root": "pages/demo/combined",
-			"pages": [
-				"pics/index/index"
-			]
-		},
-		{
-			"root": "pages/demo/second-floor",
-			"pages": [
-				"taobao/index"
-			]
-		}
-	],
-	"window": {
-		"navigationBarBackgroundColor": "#d13435",
-		"navigationBarTitleText": "WeChat",
-		"navigationBarTextStyle": "white",
-		"navigationStyle": "default"
-	},
-	"sitemapLocation": "sitemap.json",
-	"lazyCodeLoading": "requiredComponents",
-	"miniApp": {
-		"useAuthorizePage": true
-	}
+  "pages": ["index/index"],
+  "window": {
+    "navigationBarBackgroundColor": "#d13435",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "renderer": "skyline",
+  "componentFramework": "glass-easel",
+  "rendererOptions": {
+    "skyline": {
+      "disableABTest": true,
+      "defaultDisplayBlock": true
+    }
+  },
+  "miniApp": {
+    "useAuthorizePage": true
+  }
 }

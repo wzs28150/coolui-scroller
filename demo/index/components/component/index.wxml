@@ -1,13 +1,12 @@
 <view class="component">
   <bg class="bg" color="#d13435" percent="90" position="top" amp="20"></bg>
   <view class="logo">
-    <!-- <image src="../../../img/logo.png" class="logo-img"></image> -->
     coolui-scroller
   </view>
   <view class="inner">
-    <scroll-view scroll-y="{{true}}" class="scroll">
+    <scroll-view type="list" scroll-y="{{true}}" class="scroll">
       <view class="list">
-        <navigator class="item" hover-class="none" wx:for="{{list}}" wx:key="title" url="{{item.path}}">
+        <navigator class="item {{(index + 1)%3 === 0 ? 'brn':''}} {{index + 1 >= 10 ? 'bbn': ''}}" hover-class="none" wx:for="{{list}}" wx:key="title" url="{{item.path}}">
           <view>
             <image class="icon" src="../../../img/index-nav-icon{{index}}.png"></image>
             {{item.title}}

@@ -14,6 +14,7 @@
   width: 40rpx;
   height: 40rpx;
   margin-left: 24rpx;
+  top: 50%;
 }
 
 .nav-bar .action .line {
@@ -28,7 +29,7 @@
   transform: translate(-40%, -50%) rotate(45deg);
 }
 
-.nav-bar .action .line + .line {
+.nav-bar .action .line.line2 {
   margin-top: 0.5rpx;
   transform: translate(-40%, -50%) rotate(-45deg);
 }

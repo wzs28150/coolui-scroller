@@ -9,11 +9,12 @@
   }
 
   .action {
-    position   : absolute;
-    width      : 40rpx;
-    height     : 40rpx;
-    margin-left: 24rpx;
-
+    position      : absolute;
+    width         : 40rpx;
+    height        : 40rpx;
+    margin-left   : 24rpx;
+    top           : 50%;
+    // transform  : translateY(-50%);
 
     .line {
       width              : 24rpx;
@@ -27,7 +28,7 @@
       margin-top         : 0rpx;
       transform          : translate(-40%, -50%) rotate(45deg);
 
-      &+.line {
+      &.line2 {
         margin-top: 0.5rpx;
         transform : translate(-40%, -50%) rotate(-45deg);
       }

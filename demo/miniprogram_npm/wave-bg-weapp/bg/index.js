@@ -73,8 +73,7 @@ Component({
     },
   },
   ready() {
-    wx.createSelectorQuery()
-      .in(this)
+    this.createSelectorQuery()
       .select('#canvas')
       .fields({
         node: true,

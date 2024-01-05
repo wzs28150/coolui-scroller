@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "coolui-scroller": "workspace:^",
-    "wave-bg-weapp": "^1.0.3"
+    "wave-bg-weapp": "^1.0.4"
   }
 }

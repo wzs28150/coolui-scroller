@@ -1,10 +1,12 @@
 .component {
   position: relative;
+  height  : calc(100vh - 100rpx);
 
   .bg {
-    height  : 33vh;
+    height  : 30vh;
     z-index : 0;
     overflow: hidden;
+    color   : #d13435;
   }
 
   .logo {
@@ -32,26 +34,28 @@
   }
 
   .inner {
-    padding   : 33vh 30rpx 30rpx;
-    height    : calc(100vh - 100rpx);
-    position  : absolute;
-    width     : 100vw;
-    top       : 0;
-    left      : 0;
-    z-index   : 89;
-    box-sizing: border-box;
+    margin          : 30vh 30rpx 30rpx;
+    height          : calc(100% - 100rpx - 40px - 30vh - 60rpx);
+    position        : absolute;
+    width           : calc(100vw - 60rpx);
+    top             : 0;
+    left            : 0;
+    z-index         : 89;
+    box-sizing      : border-box;
+    background-color: #fff;
+    border-radius   : 10rpx;
+    overflow        : hidden;
 
     /* display: none; */
     .scroll {
-      height          : 100%;
-      background-color: #fff;
-      border-radius   : 10rpx;
+      height: 100%;
+
 
       .list {
         padding  : 30rpx;
         display  : flex;
         flex-wrap: wrap;
-        height   : calc(100vh - 100rpx - 90rpx - 33vh);
+        height   : calc(100vh - 100rpx - 90rpx - 30vh);
 
         .item {
           position       : relative;
@@ -63,8 +67,8 @@
           text-align     : center;
 
           .icon {
-            width  : 3em;
-            height : 3em;
+            width  : 28 * 3rpx;
+            height : 28 * 3rpx;
             display: block;
             margin : 0 auto;
           }
@@ -97,15 +101,17 @@
             border-right    : 1px solid #eee;
           }
 
-          &:nth-child(3n) {
+
+          &.brn {
+            // background-color: #ccc;
+
             &::before {
               display: none;
             }
           }
 
-          &:nth-child(7),
-          &:nth-child(8),
-          &:nth-child(9) {
+          &.bbn {
+
             &::after {
               display: none;
             }

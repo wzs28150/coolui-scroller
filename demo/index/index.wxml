@@ -1,10 +1,12 @@
 <view class="page" bind:touchstart="TouchStart" bind:touchend="TouchEnd">
-  <view class="index-page-swiper {{PageCur == 1?'on':''}} {{trans?'trans':''}}">
+  <nav-bar config="{{navBarConfig}}">coolui-scroller</nav-bar>
+  <view class="index-page-swiper {{PageCur == 1?'on':''}} {{trans?'trans':''}}" style="height: calc(100vh - 100rpx - {{statusBarHeight}}px);">
     <view class="index-page">
       <component pageCur="{{PageCur}}" />
     </view>
     <view class="index-page">
-      <case />
+      案例
+      <!-- <case /> -->
     </view>
   </view>
 </view>
@@ -19,6 +21,6 @@
     <view class="cuIcon-cu-image">
       <image src="../img/case{{PageCur == 1 ? '_cur' : ''}}.png"></image>
     </view>
-    <view class="{{PageCur == 1 ? 'text-red' : 'text-gray'}}">案例</view>
+    <view class="{{PageCur == 1 ? 't ext-red' : 'text-gray'}}">案例</view>
   </view>
 </view>
