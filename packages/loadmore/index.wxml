@@ -1,8 +1,6 @@
 <view class="coolui-scroller-loadmore">
-  <block wx:if="{{status === 'more'}}">
-    <text style="color: {{more.color}}">{{more.text}}</text>
-  </block>
-  <block wx:elif="{{status === 'loading'}}">
+  <view wx:if="{{status === 'more'}}" style="color: {{more.color}}">{{more.text}}</view>
+  <view wx:elif="{{status === 'loading'}}">
     <view class="cool-indicator cool-indicator--isopened">
       <view class="cool-indicator__body">
         <view class="cool-loading">
@@ -13,8 +11,6 @@
       </view>
     </view>
     <text class="at-indicator__content" style="color: {{loading.color}}">{{loading.text}}</text>
-  </block>
-  <block wx:elif="{{status === 'noMore'}}" >
-    <text style="color: {{noMore.color}}">{{noMore.text}}</text>
-  </block>
+  </view>
+  <view wx:elif="{{status === 'noMore'}}" style="color: {{noMore.color}}">{{noMore.text}}</view>
 </view>
