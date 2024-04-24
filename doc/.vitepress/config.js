@@ -21,6 +21,14 @@ export default defineConfig({
         text: 'v' + info.version,
         items: [
           {
+            text: 'v3.3.4',
+            link: '/version.md#v3-3-4',
+          },
+          {
+            text: 'v3.3.3',
+            link: '/version.md#v3-3-3',
+          },
+          {
             text: 'v3.3.2',
             link: '/version.md#v3-3-2',
           },
@@ -104,6 +112,7 @@ export default defineConfig({
         { text: 'Search 搜索组件', link: '/components/search.md' },
         { text: 'Sort 排序及分类筛选组件', link: '/components/sort.md' },
         { text: 'Floor 下拉二楼组件', link: '/components/floor.md' },
+        { text: 'BackToTop 回到顶部组件', link: '/components/backToTop.md' },
       ],
     },
 

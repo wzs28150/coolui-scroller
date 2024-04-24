@@ -22,7 +22,7 @@
 .item {
   padding: 30rpx 0 0;
   margin : 0 30rpx;
-  width: calc(100vw - 60rpx);
+  width  : calc(100vw - 60rpx);
 }
 
 .item-image {
@@ -65,4 +65,8 @@
       border-color: #d13435;
     }
   }
+}
+
+.backToTop {
+  background-color: #d13435 !important;
 }

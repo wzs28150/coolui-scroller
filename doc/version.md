@@ -1,5 +1,15 @@
 # 版本更新
 
+### v3.3.4
+
+1. 修改 scroller 组件 增加 backToTop 插槽, 可单独配置返回顶部按钮，移除 isBackBtn 配置。
+
+2. 新增 backToTop 组件，可设置阈值、显示时间及样式。
+
+### v3.3.3
+
+1. 修改 loadmore 组件 解决 loadmore 组件的 no more 颜色属性不起作用。
+
 ### v3.3.2
 
 1. 修改 search 组件 增加 css 变量, 可修改搜索文字颜色及背景颜色。

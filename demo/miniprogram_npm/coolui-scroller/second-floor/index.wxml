@@ -12,7 +12,7 @@
       <view style="height: {{statusBarHeight}}px">
         <slot name="nav-bar"></slot>
       </view>
-      <view style="height: calc(100vh - {{statusBarHeight}}px)">
+      <view style="height: {{scroll_height - statusBarHeight}}px">
         <slot></slot>
       </view>
     </view>

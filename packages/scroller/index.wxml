@@ -16,5 +16,5 @@
       </view>
     </view>
   </scroll-view>
-  <view class="backToTop" wx:if="{{isBackToTopShow && isBackBtn}}" bindtap="backToTop"></view>
+  <slot name="backToTop" wx:if="{{isBackToTopShow}}"></slot>
 </view>

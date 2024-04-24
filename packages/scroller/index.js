@@ -25,6 +25,14 @@ Component({
         })
       },
     },
+    '../backToTop/index': {
+      type: 'child',
+      linked: function (target) {
+        this.setData({
+          isBackBtn: true,
+        })
+      },
+    },
     '../nav-pannel/index': {
       type: 'parent',
       linked: function (target) {
@@ -80,6 +88,10 @@ Component({
     this.setWapHeight()
     this.refreshNodes = this.getRelationNodes('../refresh/index')
     this.refreshNode = this.refreshNodes[0] ? this.refreshNodes[0] : null
+
+    this.backToTopNodes = this.getRelationNodes('../backToTop/index')
+
+    this.backToTopNode = this.backToTopNodes[0] ? this.backToTopNodes[0] : null
   },
   methods: {
     setWapHeight() {
@@ -248,12 +260,28 @@ Component({
       }
     },
     scroll(e) {
-      if (e.detail.scrollTop > 100 && this.data.isBackToTopShow == false) {
-        this.setData({
-          isBackToTopShow: true,
-        })
+      // console.log(this.backToTopNode)
+      const that = this
+      if (
+        e.detail.scrollTop > that.backToTopNode.data.threshold &&
+        this.data.isBackToTopShow == false
+      ) {
+        this.setData(
+          {
+            isBackToTopShow: true,
+          },
+          () => {
+            if (that.backToTopNode.data.delay !== 0) {
+              that.debounce(() => {
+                that.setData({
+                  isBackToTopShow: false,
+                })
+              }, that.backToTopNode.data.delay)()
+            }
+          }
+        )
       } else if (
-        e.detail.scrollTop <= 100 &&
+        e.detail.scrollTop <= that.backToTopNode.data.threshold &&
         this.data.isBackToTopShow == true
       ) {
         this.setData({
