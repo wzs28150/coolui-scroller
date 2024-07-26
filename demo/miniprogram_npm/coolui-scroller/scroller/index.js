@@ -260,7 +260,6 @@ Component({
       }
     },
     scroll(e) {
-      console.log(this.backToTopNode)
       const that = this
       if (!that.backToTopNode) {
         return

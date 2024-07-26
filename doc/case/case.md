@@ -2,14 +2,14 @@
 
 ## 魔性吃面
 
-[代码](https://github.com/wzs28150/coolui-scroller/tree/demo/miniprogram_dev/pages/demo/noodles)
+[代码](https://github.com/wzs28150/coolui-scroller/tree/master/demo/pages/demo/animation/noodles)
 | 效果 | 扫码查看 |
 | ----------------------------------------------------------------------- | -------------------------------------------------------- |
 | <img src="https://test.wzs.pub/pic/food_pic.gif" height="200" /> | <img src="/images/mxcm.png" width="200" /> |
 
 ## 飞上云霄
 
-[代码](https://github.com/wzs28150/coolui-scroller/tree/demo/miniprogram_dev/pages/demo/fly)
+[代码](https://github.com/wzs28150/coolui-scroller/tree/master/demo/pages/demo/animation/fly)
 
 | 效果                                                             | 扫码查看                                   |
 | ---------------------------------------------------------------- | ------------------------------------------ |
@@ -17,7 +17,7 @@
 
 ## 圣诞主题
 
-[代码](https://github.com/wzs28150/coolui-scroller/tree/demo/miniprogram_dev/pages/demo/christmas)
+[代码](https://github.com/wzs28150/coolui-scroller/tree/master/demo/pages/demo/animation/christmas)
 
 | 效果                                                                             | 扫码查看                                      |
 | -------------------------------------------------------------------------------- | --------------------------------------------- |
@@ -25,7 +25,7 @@
 
 ## 浩瀚宇宙
 
-[代码](https://github.com/wzs28150/coolui-scroller/tree/demo/miniprogram_dev/pages/demo/universe)
+[代码](https://github.com/wzs28150/coolui-scroller/tree/master/demo/pages/demo/animation/universe)
 
 | 效果                                                                   | 扫码查看                                       |
 | ---------------------------------------------------------------------- | ---------------------------------------------- |
@@ -33,7 +33,7 @@
 
 ## 冰墩墩
 
-[代码](https://github.com/wzs28150/coolui-scroller/tree/demo/miniprogram_dev/pages/demo/bingdwendwen)
+[代码](https://github.com/wzs28150/coolui-scroller/tree/master/demo/pages/demo/animation/bingdwendwen)
 
 | 效果                                                              | 扫码查看                                   |
 | ----------------------------------------------------------------- | ------------------------------------------ |

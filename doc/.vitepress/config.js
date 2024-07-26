@@ -16,7 +16,23 @@ export default defineConfig({
         text: '组件',
         link: '/components/scroller.md',
       },
-      { text: '有趣的下拉', link: '/case' },
+      {
+        text: '示例',
+        items: [
+          {
+            text: '有趣的下拉',
+            link: '/case/case',
+          },
+          {
+            text: '下拉组合',
+            link: '/case/case2',
+          },
+          {
+            text: '下拉二楼',
+            link: '/case/case3',
+          },
+        ],
+      },
       { text: '社群', link: '/community' },
       { text: '赞助', link: '/sponsors' },
       {
