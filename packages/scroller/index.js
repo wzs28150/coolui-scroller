@@ -260,8 +260,10 @@ Component({
       }
     },
     scroll(e) {
-      // console.log(this.backToTopNode)
       const that = this
+      if (!that.backToTopNode) {
+        return
+      }
       if (
         e.detail.scrollTop > that.backToTopNode.data.threshold &&
         this.data.isBackToTopShow == false

@@ -1,5 +1,9 @@
 # 版本更新
 
+### v3.3.5
+
+1. 修改 scroller 组件 解决滚动时由于未使用 backToTop 缺少判断时造成的 data 不存在的 bug。
+
 ### v3.3.4
 
 1. 修改 scroller 组件 增加 backToTop 插槽, 可单独配置返回顶部按钮，移除 isBackBtn 配置。
