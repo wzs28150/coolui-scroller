@@ -113,19 +113,6 @@ scroll: {
 12. ~~新增组件 coolui-scroller-sort(分类筛选及排序组件)~~
 13. ~~新增组件 coolui-scroller-floor(下拉二楼组件)~~
 
-### 支持 coolui-scroller
-
-做一个组件库是一个繁琐且长期的事情，接下来我将花费业余时间进行多版本的完善。
-如果 coolui-scroller 对您的工作或者学习有所帮助，您可以捐赠 coolui-scroller 的研发工作，捐赠无门槛，哪怕是一瓶肥宅快乐水，也可以帮助我多敲半小时代码。
-
-| 微信                                                                 | 支付宝                                                                  |
-| -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| ![微信](https://wzs28150.github.io/coolui-scroller/v3/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v3/images/zfb.jpg) |
-
-### 微信群
-
-<img src="https://wzs28150.github.io/coolui-scroller/v3/images/qun.jpg" style="width:50%"/>
-
 ## 示例 demo
 
 请微信扫码打开小程序查看
@@ -180,3 +167,28 @@ npm i coolui-scroller --production
 ### 4.组件
 
 根据自己的业务场景选用组件，也可以在对应的插槽中自定义
+
+## 赞助
+
+做一个组件库是一个繁琐且长期的事情，接下来我将花费业余时间进行多版本的完善。
+如果 coolui-scroller 对您的工作或者学习有所帮助，您可以捐赠 coolui-scroller 的研发工作，捐赠无门槛，哪怕是一瓶肥宅快乐水，也可以帮助我多敲半小时代码。
+
+| 微信                                                                 | 支付宝                                                                  |
+| -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| ![微信](https://wzs28150.github.io/coolui-scroller/v3/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v3/images/zfb.jpg) |
+
+## 社群
+
+### github 论坛
+
+如果你有问题想寻求帮助，或者有任何想要分享的，欢迎到 [GitHub Discussions](https://github.com/wzs28150/coolui-scroller/discussions) 发帖。
+
+### 交流群
+
+coolui-scroller 有多个交流群：
+
+QQ：[点击加入](https://qm.qq.com/cgi-bin/qm/qr?authKey=fy9bB5aA1RX7P931EYgaGEVUbP1OJAh3TrYJrB1HZiIt1MlAOowL53Ybz3X1PZPJ&k=m22V8nGscs3SJjchYj0J8XsaX5gS98pW&noverify=0)
+
+Discord：[点击加入](https://discord.com/invite/8MPGMebT)
+
+微信：请添加作者微信 `mrxc1989`，他会邀请你入群。添加作者微信时，请备注加群意图。

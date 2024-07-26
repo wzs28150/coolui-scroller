@@ -17,6 +17,8 @@ export default defineConfig({
         link: '/components/scroller.md',
       },
       { text: '有趣的下拉', link: '/case' },
+      { text: '社群', link: '/community' },
+      { text: '赞助', link: '/sponsors' },
       {
         text: 'v' + info.version,
         items: [
