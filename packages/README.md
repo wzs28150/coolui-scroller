@@ -24,7 +24,7 @@ Page({
   onPageScroll: function () {
     // 监听用户滑动页面事件。
   },
-});
+})
 ```
 
 2. 组件级的：利用 scroll-view。 但是当你打开 scroll-view 官方文档时，映入眼帘的是一列列的参数属性方法。要完全弄懂里面的内容，恐怕你得上手写写，挨个试试里面的参数和方法才行。而对于下拉刷新这个效果文档上有个简易的 demo 可寻。上拉加载也只有 bindscrolltolower 这么个方法和 lower-threshold 阈值。所以要实现起来完全还得靠自己。
@@ -111,22 +111,13 @@ scroll: {
 10. ~~新增组件 coolui-scroller-parallax(下拉刷新视差位移组件)~~
 11. ~~新增组件 coolui-scroller-search(搜索组件)~~
 12. ~~新增组件 coolui-scroller-sort(分类筛选及排序组件)~~
-
-### 支持 coolui-scroller
-
-做一个组件库是一个繁琐且长期的事情，接下来我将花费业余时间进行多版本的完善。
-如果 coolui-scroller 对您的工作或者学习有所帮助，您可以捐赠 coolui-scroller 的研发工作，捐赠无门槛，哪怕是一瓶肥宅快乐水，也可以帮助我多敲半小时代码。
-
-| 微信                                       | 支付宝 |
-| ------------------------------------------ | ------ |
-| ![微信](https://wzs28150.github.io/coolui-scroller/v3/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v3/images/zfb.jpg) |
+13. ~~新增组件 coolui-scroller-floor(下拉二楼组件)~~
 
 ## 示例 demo
 
 请微信扫码打开小程序查看
 
 ![示例](https://wzs28150.github.io/coolui-scroller/v3/images/demo.jpg)
-
 
 示例代码： [https://github.com/wzs28150/coolui-scroller/tree/demo](https://github.com/wzs28150/coolui-scroller/tree/demo)
 
@@ -166,7 +157,7 @@ npm i coolui-scroller --production
 ### 2.页面结构
 
 ```html
-<scroller class="my-scroller" > </scroller>
+<scroller class="my-scroller"> </scroller>
 ```
 
 ### 3.配置
@@ -176,3 +167,28 @@ npm i coolui-scroller --production
 ### 4.组件
 
 根据自己的业务场景选用组件，也可以在对应的插槽中自定义
+
+## 赞助
+
+做一个组件库是一个繁琐且长期的事情，接下来我将花费业余时间进行多版本的完善。
+如果 coolui-scroller 对您的工作或者学习有所帮助，您可以捐赠 coolui-scroller 的研发工作，捐赠无门槛，哪怕是一瓶肥宅快乐水，也可以帮助我多敲半小时代码。
+
+| 微信                                                                 | 支付宝                                                                  |
+| -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| ![微信](https://wzs28150.github.io/coolui-scroller/v3/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v3/images/zfb.jpg) |
+
+## 社群
+
+### github 论坛
+
+如果你有问题想寻求帮助，或者有任何想要分享的，欢迎到 [GitHub Discussions](https://github.com/wzs28150/coolui-scroller/discussions) 发帖。
+
+### 交流群
+
+coolui-scroller 有多个交流群：
+
+QQ：[点击加入](https://qm.qq.com/cgi-bin/qm/qr?authKey=fy9bB5aA1RX7P931EYgaGEVUbP1OJAh3TrYJrB1HZiIt1MlAOowL53Ybz3X1PZPJ&k=m22V8nGscs3SJjchYj0J8XsaX5gS98pW&noverify=0)
+
+Discord：[点击加入](https://discord.com/invite/8MPGMebT)
+
+微信：请添加作者微信 `mrxc1989`，他会邀请你入群。添加作者微信时，请备注加群意图。
