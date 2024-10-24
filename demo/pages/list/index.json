@@ -3,5 +3,6 @@
     "scroller": "coolui-scroller/scroller/index",
     "item": "coolui-scroller/item/index"
   },
+  "disableScroll": true,
   "navigationBarTitleText": "滚动列表组件"
 }

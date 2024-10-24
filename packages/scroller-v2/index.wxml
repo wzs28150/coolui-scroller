@@ -1,0 +1,22 @@
+<view id="content" class="wrap {{active?'active':''}}">
+  <view class="slot-header" id="header">
+    <slot name="header"></slot>
+  </view>
+  <view class="scroll-view" id="scrollView" bind:touchstart="touchStart" bind:touchend="touchEnd" bind:touchmove="touchMove">
+    <view class="scroll-view-inner" animation="{{innerAnimationData}}">
+      <view slot="refresher" wx:if="{{type != 'default'}}" class="refresh-container" style="height:{{refreshConfig.height}}px; background:{{background}};">
+        <slot name="refresh"></slot>
+      </view>
+      <view class="inner" style="min-height:{{contentHeight}}px;">
+        <slot></slot>
+        <view style="height:{{contentHeight}}px" hidden="{{!isEmpty}}" class="slot-empty">
+          <slot name="empty"></slot>
+        </view>
+        <view class="slot-loadmore" hidden="{{isEmpty}}">
+          <slot name="loadmore"></slot>
+        </view>
+      </view>
+    </view>
+  </view>
+  <slot name="backToTop" wx:if="{{isBackToTopShow}}"></slot>
+</view>

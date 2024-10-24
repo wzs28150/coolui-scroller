@@ -10,6 +10,7 @@
     margin-bottom : 30rpx;
     display       : flex;
     flex-direction: column;
+    flex          : 1;
 
     .tip {
       float    : right;
@@ -18,19 +19,22 @@
     }
 
     .pannel-inner {
-      margin  : 20rpx 0;
-      padding : 0;
-      height  : 300rpx;
-      border  : 1px solid #eee;
-      overflow: hidden;
+      margin     : 20rpx 0;
+      padding    : 0;
+      // height  : 300rpx;
+      height     : calc(100vh - 60rpx - 74rpx - 66rpx - 40rpx - 2px - 84rpx);
+      border     : 1px solid #eee;
+      overflow   : hidden;
+      // flex    : 1;
 
       .scroller-pannel {
         display        : flex;
         justify-content: center;
         align-items    : center;
-        height         : 300rpx;
+        height         : calc(100vh - 60rpx - 74rpx - 66rpx - 40rpx - 2px - 84rpx);
         font-size      : 28rpx;
         color          : #999;
+        flex           : 1;
 
         .logoText {
           font-size                                : 50rpx;
@@ -169,7 +173,7 @@
           height          : 40px;
           background-size : cover;
           background-image: url('https://test.wzs.pub/pic/a.png');
-          animation       : play 0.5s steps(3) infinite;
+          animation       : move 0.5s steps(3) infinite;
         }
       }
 
@@ -201,14 +205,13 @@
   }
 }
 
-@keyframes play {
-  from {
-    background-position: 0px 0px;
-  }
-
-  to {
-    background-position: -81px 0px;
-  }
+.text-img {
+  width           : 26px;
+  height          : 40px;
+  background-size : cover;
+  background-image: url('https://test.wzs.pub/pic/a.png');
+  animation       : move 0.5s steps(3) infinite;
+  margin          : 0 auto;
 }
 
 @keyframes play2 {
@@ -218,5 +221,15 @@
 
   to {
     background-position: -120px 0px;
+  }
+}
+
+@keyframes move {
+  from {
+    background-position: 0px 0px;
+  }
+
+  to {
+    background-position: -81px 0px;
   }
 }

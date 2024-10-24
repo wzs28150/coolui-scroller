@@ -12,5 +12,6 @@
     "backtotop": "coolui-scroller/backToTop/index"
   },
   "pageOrientation": "auto",
+  "disableScroll": true,
   "navigationBarTitleText": "组合使用"
 }

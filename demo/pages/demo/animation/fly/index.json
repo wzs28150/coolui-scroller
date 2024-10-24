@@ -3,6 +3,7 @@
     "scroller": "coolui-scroller/scroller/index",
     "refresh": "coolui-scroller/refresh/index"
   },
+  "disableScroll": true,
   "pageOrientation": "auto",
   "navigationBarTitleText": "飞上云霄"
 }

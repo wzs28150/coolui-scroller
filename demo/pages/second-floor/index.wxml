@@ -1,6 +1,6 @@
 <second-floor bind:refresh="onRefresh" bind:secondShow="onSecondShow" bind:secondBack="onSecondBack" model:threshold="{{val}}" offset="{{offset ? 100: 0}}" class="my-second-floor" center="{{type === 'center'}}" bottom="{{type === 'bottom'}}" top="{{type === 'top'}}" scale="{{scale}}" tip="{{tip}}">
   <view slot="second-floor">
-    <view class="second-floor" style="background: #d13435;">
+    <view class="second-floor" style="background: rgba(0,0,0,0.5);">
       <view>我是二楼顶部</view>
       <view>我是二楼中部</view>
       <view>我是二楼底部</view>

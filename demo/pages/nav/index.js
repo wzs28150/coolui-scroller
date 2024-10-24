@@ -40,7 +40,7 @@ Page({
     textPlain: { color: '#ccc', activeColor: '#d13435' },
     backgroundPlain: { color: '#ccc', activeColor: '#d13435' },
     text: { color: '#333', activeColor: '#fff' },
-    background: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#ccc', activeColor: '#d13435' },
   },
   onChange: function (e) {
     wx.showToast({

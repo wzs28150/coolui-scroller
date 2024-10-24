@@ -4,5 +4,6 @@
     "refresh": "coolui-scroller/refresh/index"
   },
   "pageOrientation": "auto",
+  "disableScroll": true,
   "navigationBarTitleText": "魔性吃面"
 }

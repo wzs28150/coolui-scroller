@@ -188,3 +188,17 @@ Page({
 | 名称         | 用法                                                                                                                              | 说明                                                                                                                                       | 返回参数 | 版本  |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ----- |
 | settriggered | 先获取组件实例：<br/>`const scroller = this.selectComponent('.elm-scroller');`, 然后调用方法：<br/>`scroller.settriggered(false)` | 在 refresh 方法中执行，当刷新组件设置不自动回弹时，设置手动回弹，可增加 setTimeout 设置回弹时机。详见[非自动回弹](./refresh.md#非自动回弹) | promise  | 3.0.4 |
+
+## 注意
+
+> 下拉刷新(除下拉二楼组件)与页面级的滚动下拉刷新效果会有冲突，建议关闭页面级的滚动，页面设置中需增加"disableScroll": true。
+
+```json
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "refresh": "coolui-scroller/refresh/index"
+  },
+  "disableScroll": true
+}
+```

@@ -4,5 +4,6 @@
     "scroller": "coolui-scroller/scroller/index",
     "item": "coolui-scroller/item/index"
   },
+  "disableScroll": true,
   "navigationBarTitleText": "加载更多"
 }

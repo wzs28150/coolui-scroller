@@ -2,5 +2,6 @@
   "usingComponents": {
     "empty": "coolui-scroller/empty/index"
   },
+  "disableScroll": true,
   "navigationBarTitleText": "空列表"
 }

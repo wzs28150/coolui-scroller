@@ -1,41 +1,56 @@
 <view class="page">
   <view class="pannel">
     <view class="title" bind:tap="test">下拉刷新组件</view>
-    <nav border="{{false}}" spaceBetween="{{20}}" list="{{nav}}" bind:change="onChange" model:active="{{active}}" text="{{text}}" background="{{background}}" navPerView="auto" type="round" />
     <!-- 基础使用 -->
     <view class="content" style="padding-bottom:0">
-      {{nav[active].title}}
-      <view class="tip">
-        {{nav[active].description}}
-        {{active == 7? ('threshold：'+ val) : ''}}
-        {{active == 8? ('refreshstate：'+ refreshstate) : ''}}
-      </view>
+      原生效果
+      <view class="tip">不使用组件</view>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 0}}">
+    <view class="pannel-inner">
       <scroller isBackBtn="{{true}}" background="#f2f2f2">
         <refresh slot="refresh" type="default" config="{{defaultSetting}}" />
         <view class="scroller-pannel">下拉查看效果</view>
       </scroller>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 1}}">
+    <!-- 基础使用 -->
+    <view class="content" style="padding-bottom:0">
+      基础效果
+      <view class="tip">使用组件</view>
+    </view>
+    <view class="pannel-inner">
       <scroller isBackBtn="{{true}}" background="#f2f2f2">
         <refresh slot="refresh" type="base" config="{{baseConfig}}" />
         <view class="scroller-pannel">下拉查看效果</view>
       </scroller>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 2}}">
+    <!-- logo文字效果 -->
+    <view class="content" style="padding-bottom:0">
+      logo文字效果
+      <view class="tip">使用组件</view>
+    </view>
+    <view class="pannel-inner">
       <scroller isBackBtn="{{true}}" background="#f2f2f2">
         <refresh slot="refresh" type="logoText" config="{{logoConfig}}" />
         <view class="scroller-pannel ">下拉查看效果</view>
       </scroller>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 3}}">
+    <!-- gif背景效果 -->
+    <view class="content" style="padding-bottom:0">
+      gif背景效果
+      <view class="tip">隐藏文字将背景设为动图</view>
+    </view>
+    <view class="pannel-inner">
       <scroller isBackBtn="{{true}}">
         <refresh slot="refresh" config="{{gifSetting}}" type="diy" />
         <view class="scroller-pannel">天猫动图,下拉查看效果</view>
       </scroller>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 4}}">
+    <!-- 视差效果 -->
+    <view class="content" style="padding-bottom:0;">
+      视差效果
+      <view class="tip">搭配视差子组件实现</view>
+    </view>
+    <view class="pannel-inner">
       <scroller isBackBtn="{{true}}">
         <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
           <parallax parallax-class="parallax-item parallax-item1" slot="parallax" direction="to top" parallax="{{35}}">
@@ -54,7 +69,7 @@
         <view class="scroller-pannel">不同方向,下拉查看效果</view>
       </scroller>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 5}}">
+    <view class="pannel-inner">
       <scroller isBackBtn="{{true}}">
         <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
           <parallax parallax-class="parallax-sitem parallax-item1" slot="parallax" direction="to top" parallax="{{0}}">
@@ -73,7 +88,7 @@
         <view class="scroller-pannel">同方向不同位移数值,下拉查看效果</view>
       </scroller>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 6}}">
+    <view class="pannel-inner">
       <scroller>
         <refresh slot="refresh" type="diy" config="{{parallaxDemoSetting}}">
           <parallax parallax-class="parallax-demoitem parallax-demoitem1" slot="parallax" direction="to bottom" parallax="{{0}}">
@@ -112,7 +127,12 @@
         </view>
       </scroller>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 7}}">
+    <!-- 京东效果 -->
+    <view class="content" style="padding-bottom:0">
+      京东效果
+      <view class="tip">threshold：{{val}}</view>
+    </view>
+    <view class="pannel-inner">
       <scroller isBackBtn="{{true}}">
         <refresh slot="refresh" type="diy" refresh-class="jd-refresh" model:threshold="{{val}}" config="{{jdSetting}}">
           <view class="jd-wapper">
@@ -133,7 +153,12 @@
         </view>
       </scroller>
     </view>
-    <view class="pannel-inner" wx:if="{{active == 8}}">
+    <!-- 饿了么效果 -->
+    <view class="content" style="padding-bottom:0">
+      饿了么效果
+      <view class="tip">refreshstate: {{refreshstate}}</view>
+    </view>
+    <view class="pannel-inner">
       <scroller isBackBtn="{{true}}" class="elm-scroller" bind:refresh="diyRefresh">
         <refresh slot="refresh" refresh-class="elm-refresh" type="diy" model:threshold="{{val}}" model:isloading="{{isLoading}}" model:refreshstate="{{refreshstate}}" config="{{elmSetting}}">
           <view class="elm-wapper">

@@ -4,6 +4,7 @@
     "refresh": "coolui-scroller/refresh/index"
   },
   "pageOrientation": "auto",
+  "disableScroll": true,
   "navigationBarTitleText": "浩瀚宇宙",
   "navigationBarBackgroundColor": "#352b76"
 }

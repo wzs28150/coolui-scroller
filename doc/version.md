@@ -1,5 +1,9 @@
 # 版本更新
 
+### v3.3.7
+
+1. 修改 scroller 组件 解决 ios 下下拉与滚动相互冲突带来的闪烁 bug。
+
 ### v3.3.6
 
 1. 修改 scroller 组件 解决滚动时由于未使用 backToTop 缺少判断时造成的 data 不存在的 bug。

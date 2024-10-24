@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  width  : 100%;
+  height : 100%;
+}
+
+
+
+.wrap {
+  display : block;
+  height  : 100%;
+  overflow: hidden;
+  position: relative;
+
+  .slot-header {
+    position: relative;
+    z-index : 5;
+  }
+
+  .scroll-view {
+    .refresh-container {
+      width: 100%;
+    }
+
+    .inner {
+      .slot-empty {
+        position: absolute;
+        width   : 100%;
+        bottom  : 0;
+        left    : 0;
+      }
+    }
+
+  }
+}

@@ -78,6 +78,55 @@ Page({
     refreshstate: 'pulldown',
     isLoading: false,
     triggered: false,
+    nav: [
+      {
+        id: 1,
+        title: '原生效果',
+        description: '不使用组件',
+      },
+      {
+        id: 2,
+        title: '基础效果',
+        description: '使用组件',
+      },
+      {
+        id: 3,
+        title: 'logo文字效果',
+        description: '使用组件',
+      },
+      {
+        id: 4,
+        title: 'gif背景效果',
+        description: '隐藏文字将背景设为动图',
+      },
+      {
+        id: 5,
+        title: '视差效果1',
+        description: '搭配视差子组件实现',
+      },
+      {
+        id: 6,
+        title: '视差效果2',
+        description: '搭配视差子组件实现',
+      },
+      {
+        id: 7,
+        title: '视差效果3',
+        description: '搭配视差子组件实现',
+      },
+      {
+        id: 8,
+        title: '京东效果',
+      },
+      {
+        id: 9,
+        title: '饿了么效果',
+      },
+    ],
+    titleList: [],
+    text: { color: '#666', activeColor: '#fff' },
+    background: { color: '#ccc', activeColor: '#d13435' },
+    active: 0, // 当前选中的Index值
   },
   onLoad: function () {},
   onRefresh: function () {
