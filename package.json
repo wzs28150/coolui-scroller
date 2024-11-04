@@ -9,9 +9,15 @@
   "scripts": {
     "dev": "pnpm run --filter ./doc docs:dev",
     "build": "pnpm run --filter ./doc docs:build",
-    "push": "pnpm run --filter ./packages push"
+    "push": "pnpm run --filter ./packages push",
+    "gulp": "gulp"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-shell": "^0.8.0",
+    "gulp-watch": "^4.3.4"
+  }
 }

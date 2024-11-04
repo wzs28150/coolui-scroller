@@ -1,19 +1,18 @@
 Page({
   data: {
     val: 0,
-    refreshstate: "pulldown",
+    refreshstate: 'pulldown',
     isLoading: false,
     universeSetting: {
       shake: true, // 是否开启下拉震动
       height: 150,
       isAutoTriggered: false,
       background: {
-        color: "#443687",
+        color: '#443687',
       },
     },
   },
   onRefresh() {
-    console.log(1);
     setTimeout(() => {
       // 开启第二段动画
       this.setData(
@@ -21,13 +20,13 @@ Page({
           isLoading: true,
         },
         () => {
-          const scroll = this.selectComponent(".universe-scroller");
+          const scroll = this.selectComponent('.universe-scroller')
           setTimeout(() => {
             scroll.settriggered(false)
-          }, 2000); // 自定义回弹时间
+          }, 2000) // 自定义回弹时间
         }
-      );
-    }, 1000);
+      )
+    }, 1000)
   },
   onShareAppMessage: function () {},
-});
+})

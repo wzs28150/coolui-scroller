@@ -9,6 +9,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "组合使用",
+          "pathName": "pages/combined/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "下拉刷新",
           "pathName": "pages/refresh/index",
           "query": "",

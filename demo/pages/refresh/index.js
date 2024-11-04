@@ -126,7 +126,7 @@ Page({
     titleList: [],
     text: { color: '#666', activeColor: '#fff' },
     background: { color: '#ccc', activeColor: '#d13435' },
-    active: 0, // 当前选中的Index值
+    active: 1, // 当前选中的Index值
   },
   onLoad: function () {},
   onRefresh: function () {
@@ -137,6 +137,8 @@ Page({
   },
   diyRefresh() {
     const that = this
+    console.log('执行自定义下拉刷新')
+
     const scroll = this.selectComponent('.elm-scroller')
     setTimeout(() => {
       scroll.settriggered(false).then(() => {

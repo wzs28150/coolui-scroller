@@ -2,19 +2,23 @@
   <view class="slot-header" id="header">
     <slot name="header"></slot>
   </view>
-  <scroll-view scroll-y="{{threshold>0 ? false : true}}" class="scroll flex" enable-passive="{{true}}" enhanced="{{true}}" fast-deceleration="{{true}}" enable-back-to-top="{{true}}" enable-flex="{{enableFlex}}" refresher-enabled="{{type?true:false}}" refresher-threshold="{{refreshConfig.height?refreshConfig.height:50}}" lower-threshold="{{100}}" refresher-default-style="{{type == 'default' ? refreshConfig.style : 'none'}}" refresher-background="{{refreshConfig.background.color}}" refresher-triggered="{{triggered}}" bindrefresherrefresh="onDefaultRefresh" bindrefresherpulling="onPulling" bindrefresherrestore="onRestore" bindscrolltolower="onLoadmore" bindscroll="scroll" bind:touchend="dragend" scroll-top="{{top}}" scroll-with-animation="{{animation}}" scroll-into-view="{{toView}}" style="height:{{contentHeight}}px;">
-    <view slot="refresher" wx:if="{{type != 'default'}}" class="refresh-container">
-      <slot name="refresh"></slot>
-    </view>
-    <view class="inner" style="min-height:{{contentHeight}}px;">
-      <slot></slot>
-      <view style="height:{{contentHeight}}px" hidden="{{!isEmpty}}" class="slot-empty">
-        <slot name="empty"></slot>
+  <view class="scroll-view" id="scrollView" bind:touchstart="touchStart" bind:touchend="touchEnd" bind:touchmove="touchMove">
+    <view class="scroll-view-inner" animation="{{innerAnimationData}}" style=";transition:0ms ease-out 0ms;transform:translateY(-{{moveHeight}}px) scale(1,1);transition-property:transform,opacity;transform-origin:50% 50% 0;-webkit-transition:0ms ease-out 0ms;-webkit-transform:translateY(-{{moveHeight}}px) scale(1,1);-webkit-transition-property:transform,opacity;-webkit-transform-origin:50% 50% 0;opacity:1">
+      <view slot="refresher" wx:if="{{type != 'default'}}" class="refresh-container" style="height:{{refreshConfig.background.height}}px; background-color:{{refreshConfig.background.color}};">
+        <slot name="refresh"></slot>
       </view>
-      <view class="slot-loadmore" hidden="{{isEmpty}}">
-        <slot name="loadmore"></slot>
-      </view>
+      <scroll-view scroll-y="{{threshold>0 ? false : true}}" enable-passive="{{true}}" enhanced="{{true}}" fast-deceleration="{{true}}" enable-back-to-top="{{true}}" enable-flex="{{enableFlex}}" lower-threshold="{{100}}" bindscrolltolower="onLoadmore" scroll-top="{{top}}" scroll-with-animation="{{animation}}" scroll-into-view="{{toView}}" bindscroll="scroll" style="height:{{contentHeight}}px">
+        <view class="inner" style="min-height:{{contentHeight}}px;">
+          <slot></slot>
+          <view style="height:{{contentHeight}}px" hidden="{{!isEmpty}}" class="slot-empty">
+            <slot name="empty"></slot>
+          </view>
+          <view class="slot-loadmore" hidden="{{isEmpty}}">
+            <slot name="loadmore"></slot>
+          </view>
+        </view>
+      </scroll-view>
     </view>
-  </scroll-view>
+  </view>
   <slot name="backToTop" wx:if="{{isBackToTopShow}}"></slot>
 </view>

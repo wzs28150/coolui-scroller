@@ -5,9 +5,9 @@ $height: 150px;
 
   .pannel-inner {
     .scroller-pannel {
-      background-color: #443687;
-      border-top      : 5px solid #352b76;
-      margin-top      : -5px;
+      background-color   : #443687;
+      border-top         : 5px solid #352b76;
+      // margin-top      : -5px;
 
       .title,
       .des,
@@ -31,18 +31,19 @@ $height: 150px;
   }
 
   .universe-wapper {
-    position: relative;
-    height  : $height;
+    position   : relative;
+    height     : $height;
     // border  : 1px solid #352b76;
 
     .universe-bg {
-      position: absolute;
-      width   : 100%;
-      height  : 100%;
-      left: 50%;
-      top: 50%;
+      position : absolute;
+      width    : 100%;
+      height   : 100%;
+      left     : 50%;
+      top      : 50%;
       transform: translate(-50%, -50%);
-      opacity: 0.2;
+      opacity  : 0.2;
+
       &::after {
         content         : "";
         display         : block;
@@ -170,8 +171,10 @@ $height: 150px;
       position        : absolute;
       left            : 50px;
       bottom          : -50rpx;
-      opacity: 0;
-      &.loosen,&.loading{
+      opacity         : 0;
+
+      &.loosen,
+      &.loading {
         opacity: 1;
       }
     }

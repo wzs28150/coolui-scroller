@@ -118,7 +118,7 @@
           <view class="jd-wapper">
             <view class="img" wx:if="{{val == 1}}" />
             <block wx:else>
-              <view class="moveimg" style="transform: scale({{val}}) translateX({{-100 + val * 100}}px);" />
+              <view class="moveimg" style="transform: scale({{val}}) translateX({{-100 + val * 90}}px);" />
               <view class="moveimg2" style="transform: translateY({{-100 + val * 100}}px);" />
             </block>
           </view>

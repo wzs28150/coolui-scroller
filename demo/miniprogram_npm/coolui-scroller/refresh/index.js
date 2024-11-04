@@ -71,7 +71,7 @@ Component({
       const that = this
       return new Promise((resolve) => {
         let refreshstate = 'pulldown'
-        if (that.data.triggered && !that.data.isloading) {
+        if (that.data.triggered && !that.data.isloading && threshold > 0.5) {
           refreshstate = 'loosen'
         }
         that.setData(
