@@ -6,7 +6,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner {
   position: absolute;
   text-align: center;
@@ -16,14 +15,12 @@
   justify-content: center;
   align-items: center;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down {
   width: 12px;
   height: 12px;
   margin-right: 20rpx;
   position: relative;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down .line:nth-child(1) {
   display: block;
   width: 2px;
@@ -36,7 +33,6 @@
   border-radius: 2px;
   opacity: 1;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down .line:nth-child(2) {
   width: 8px;
   height: 2px;
@@ -50,7 +46,6 @@
   border-radius: 2px;
   opacity: 1;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down .line:nth-child(3) {
   width: 8px;
   height: 2px;
@@ -64,16 +59,13 @@
   border-radius: 2px;
   opacity: 1;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down.loading {
   display: inline-block;
   position: relative;
   width: 36rpx;
   height: 36rpx;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down.loading .line {
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   display: block;
   position: absolute;
@@ -82,7 +74,6 @@
   border-style: solid;
   border-color: #6190e8 transparent transparent;
   border-radius: 50%;
-  -webkit-animation: circle 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   animation: circle 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
   width: 36rpx;
   height: 36rpx;
@@ -92,22 +83,15 @@
   background-color: transparent;
   transform: translate(-50%, -50%);
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down.loading .line:nth-child(1) {
-  -webkit-animation-delay: -.45s;
   animation-delay: -0.45s;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down.loading .line:nth-child(2) {
-  -webkit-animation-delay: -.3s;
   animation-delay: -0.3s;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .down.loading .line:nth-child(3) {
-  -webkit-animation-delay: -.15s;
   animation-delay: -0.15s;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .has-bg {
   font-weight: bold;
   background-clip: text;
@@ -117,11 +101,9 @@
   background-position: -100% -100%;
   background-repeat: no-repeat;
 }
-
 .wx-coolui-scroller-refresh .refresh-inner .has-bg.loading {
   animation: play 0.5s line infinite;
 }
-
 @keyframes circle {
   0% {
     transform: rotate(0);
@@ -130,7 +112,6 @@
     transform: rotate(360deg);
   }
 }
-
 @keyframes play {
   from {
     opacity: 1;

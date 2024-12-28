@@ -4,18 +4,15 @@
   width: 100vw;
   border-bottom: 1px solid #efefef;
 }
-
 .header .item {
   padding: 20rpx;
 }
-
 .header .item .photo {
   border: 6rpx solid #ffb0a6;
   padding: 6rpx;
   border-radius: 100%;
   position: relative;
 }
-
 .header .item .photo .photo-img {
   width: 80rpx;
   height: 80rpx;
@@ -23,12 +20,10 @@
   border-radius: 100%;
   display: block;
 }
-
 .header .item .name {
   font-size: 24rpx;
   text-align: center;
 }
-
 .header .item.add .icon {
   width: 30rpx;
   height: 30rpx;
@@ -39,7 +34,6 @@
   right: 0;
   border: 6rpx solid #fff;
 }
-
 .header .item.add .icon .line {
   background-color: #fff;
   width: 20rpx;
@@ -50,11 +44,9 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
-
 .header .item.add .icon .line:first-child {
   transform: translate(-50%, -50%) rotate(90deg);
 }
-
 .header .item.add .photo {
   border-color: #fff;
 }

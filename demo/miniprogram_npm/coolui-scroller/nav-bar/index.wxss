@@ -1,21 +1,18 @@
 .nav-bar {
   position: relative;
 }
-
 .nav-bar .nav-bar-inner {
   display: flex;
   align-items: center;
   box-sizing: border-box;
   position: relative;
 }
-
 .nav-bar .action {
   position: absolute;
   width: 40rpx;
   height: 40rpx;
   margin-left: 24rpx;
 }
-
 .nav-bar .action .line {
   width: 24rpx;
   height: 4rpx;
@@ -27,12 +24,10 @@
   margin-top: 0rpx;
   transform: translate(-40%, -50%) rotate(45deg);
 }
-
 .nav-bar .action .line + .line {
   margin-top: 0.5rpx;
   transform: translate(-40%, -50%) rotate(-45deg);
 }
-
 .nav-bar .content {
   text-align: center;
   width: 100%;

@@ -14,26 +14,21 @@ page {
   width: 100%;
   background-image: url(https://test.wzs.pub/pic/taobao.png);
 }
-
 .second-floor.show {
   background-position: top center;
   background-size: auto 150%;
 }
-
 .second-floor .second-search {
   padding: 10vh 50rpx 30rpx;
 }
-
 .second-floor .search-inner {
   background-color: #7d6f93 !important;
 }
-
 .second-floor .recently-used {
   color: #fff;
   padding: 0 50rpx;
   margin-bottom: 50rpx;
 }
-
 .second-floor .recently-used .title {
   font-weight: bold;
   font-size: 32rpx;
@@ -41,24 +36,20 @@ page {
   display: flex;
   justify-content: space-between;
 }
-
 .second-floor .recently-used .title > view {
   font-weight: normal;
   font-size: 24rpx;
   align-items: center;
 }
-
 .second-floor .recently-used .list {
   display: flex;
   flex-wrap: wrap;
 }
-
 .second-floor .recently-used .list .item {
   text-align: center;
   font-size: 28rpx;
   width: 20%;
 }
-
 .second-floor .recently-used .list .item .icon {
   width: 3em;
   height: 3em;
@@ -68,11 +59,9 @@ page {
   background-position: center;
   background-size: cover;
 }
-
 .second-floor .recently-used .list .item .name {
   margin: 20rpx 0;
 }
-
 .second-floor .my-used .list {
   border: 1px dashed #7d6f93;
   border-radius: 20rpx;
@@ -107,10 +96,10 @@ radio-group {
 
 .second-floor-refresh {
   background-color: rgba(125, 111, 147, 0);
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .second-floor-refresh-back {
   background-color: #7d6f93;
-  transition: all .4s;
+  transition: all 0.4s;
 }

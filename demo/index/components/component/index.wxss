@@ -1,13 +1,11 @@
 .component {
   position: relative;
 }
-
 .component .bg {
   height: 33vh;
   z-index: 0;
   overflow: hidden;
 }
-
 .component .logo {
   margin: 0 auto;
   position: absolute;
@@ -21,17 +19,15 @@
   font-weight: bold;
   font-size: 100rpx;
   color: #fff;
-  font-family: 'Lobster variant0';
+  font-family: "Lobster variant0";
 }
-
 .component .logo .logo-img {
   width: 80vw;
-  height: calc(0.13 * 80vw);
+  height: 10.4vw;
   margin: 0 auto;
   padding: 30rpx 0;
   display: block;
 }
-
 .component .inner {
   padding: 33vh 30rpx 30rpx;
   height: calc(100vh - 100rpx);
@@ -43,20 +39,17 @@
   box-sizing: border-box;
   /* display: none; */
 }
-
 .component .inner .scroll {
   height: 100%;
   background-color: #fff;
   border-radius: 10rpx;
 }
-
 .component .inner .scroll .list {
   padding: 30rpx;
   display: flex;
   flex-wrap: wrap;
   height: calc(100vh - 100rpx - 90rpx - 33vh);
 }
-
 .component .inner .scroll .list .item {
   position: relative;
   display: flex;
@@ -66,14 +59,12 @@
   width: 33.3333%;
   text-align: center;
 }
-
 .component .inner .scroll .list .item .icon {
   width: 3em;
   height: 3em;
   display: block;
   margin: 0 auto;
 }
-
 .component .inner .scroll .list .item::after {
   content: "";
   position: absolute;
@@ -87,7 +78,6 @@
   transform: scale(0.5);
   border-bottom: 1px solid #eee;
 }
-
 .component .inner .scroll .list .item::before {
   content: "";
   position: absolute;
@@ -101,22 +91,18 @@
   transform: scale(0.5);
   border-right: 1px solid #eee;
 }
-
 .component .inner .scroll .list .item:nth-child(3n)::before {
   display: none;
 }
-
 .component .inner .scroll .list .item:nth-child(7)::after, .component .inner .scroll .list .item:nth-child(8)::after, .component .inner .scroll .list .item:nth-child(9)::after {
   display: none;
 }
-
 .component .inner .scroll .list .item .right-icon {
   width: 14px;
   height: 14px;
   position: relative;
   overflow: hidden;
 }
-
 .component .inner .scroll .list .item .right-icon::before {
   width: 10px;
   height: 1px;
@@ -129,7 +115,6 @@
   right: 0;
   transform-origin: 10px;
 }
-
 .component .inner .scroll .list .item .right-icon::after {
   width: 10px;
   height: 1px;

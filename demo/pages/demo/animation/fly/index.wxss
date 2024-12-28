@@ -4,7 +4,6 @@
   background-color: #019ff0;
   overflow: hidden;
 }
-
 .demopage .fly-wapper .plane {
   height: 75rpx;
   width: 122.5rpx;
@@ -16,16 +15,13 @@
   transform: rotate(-30deg) translate(0, 20px);
   transition: all 1s;
 }
-
 .demopage .fly-wapper .plane.loosen {
   top: 10px;
   transform: rotate(0);
 }
-
 .demopage .fly-wapper .plane.loosen.loading {
   transform: rotate(0deg) translate(250px, -30px);
 }
-
 .demopage .fly-wapper .plane .frame {
   z-index: 1;
   height: 10rpx;
@@ -37,7 +33,6 @@
   transform: rotate(-15deg);
   background-color: #fff;
 }
-
 .demopage .fly-wapper .plane .frame::after {
   content: "";
   height: 14rpx;
@@ -50,7 +45,6 @@
   clip: rect(0rpx 102.5rpx 15rpx 92.5rpx);
   transform: rotate(10deg);
 }
-
 .demopage .fly-wapper .plane .wrings-left {
   width: 0;
   height: 0;
@@ -63,7 +57,6 @@
   top: 6.25rpx;
   left: 37.5rpx;
 }
-
 .demopage .fly-wapper .plane .tail-left {
   width: 0;
   height: 0;
@@ -76,7 +69,6 @@
   top: 30rpx;
   left: 15rpx;
 }
-
 .demopage .fly-wapper .plane .tail-top {
   width: 15rpx;
   height: 3.75rpx;
@@ -90,7 +82,6 @@
   z-index: 3;
   background-color: #fff;
 }
-
 .demopage .fly-wapper .plane .tail-top::before {
   content: "";
   width: 15rpx;
@@ -102,7 +93,6 @@
   background: #fff;
   display: block;
 }
-
 .demopage .fly-wapper .wind .wind1 {
   width: 40rpx;
   height: 2rpx;
@@ -112,7 +102,6 @@
   opacity: 0.6;
   animation: windflow linear 1s infinite;
 }
-
 .demopage .fly-wapper .wind .wind2 {
   width: 40rpx;
   height: 2rpx;
@@ -122,7 +111,6 @@
   opacity: 0.6;
   animation: windflow linear 3s infinite;
 }
-
 .demopage .fly-wapper .wind .wind3 {
   width: 40rpx;
   height: 2rpx;
@@ -132,18 +120,15 @@
   opacity: 0.6;
   animation: windflow linear 2s infinite;
 }
-
 .demopage .fly-wapper .clouds_center {
   position: relative;
   height: 100%;
   transition: all 1s;
   transform: translateY(50px) scale(1.2);
 }
-
 .demopage .fly-wapper .clouds_center.loosen, .demopage .fly-wapper .clouds_center.loading {
   transform: translateY(0) scale(1);
 }
-
 .demopage .fly-wapper .clouds_center .clouds1 {
   width: 60rpx;
   height: 60rpx;
@@ -155,7 +140,6 @@
   bottom: -40rpx;
   z-index: 3;
 }
-
 .demopage .fly-wapper .clouds_center .clouds2 {
   width: 60rpx;
   height: 60rpx;
@@ -167,7 +151,6 @@
   bottom: -40rpx;
   z-index: 2;
 }
-
 .demopage .fly-wapper .clouds_center .clouds3 {
   width: 60rpx;
   height: 60rpx;
@@ -179,7 +162,6 @@
   bottom: -20rpx;
   z-index: 1;
 }
-
 .demopage .fly-wapper .clouds_center .clouds4 {
   width: 30rpx;
   height: 30rpx;
@@ -191,7 +173,6 @@
   bottom: -20rpx;
   z-index: 3;
 }
-
 .demopage .fly-wapper .clouds_center .clouds5 {
   width: 30rpx;
   height: 30rpx;
@@ -203,7 +184,6 @@
   bottom: -20rpx;
   z-index: 2;
 }
-
 .demopage .fly-wapper .clouds_center .clouds6 {
   width: 30rpx;
   height: 30rpx;
@@ -215,7 +195,6 @@
   bottom: -10rpx;
   z-index: 1;
 }
-
 .demopage .fly-wapper .clouds_center .clouds7 {
   width: 60rpx;
   height: 60rpx;
@@ -227,7 +206,6 @@
   bottom: -40rpx;
   z-index: 3;
 }
-
 .demopage .fly-wapper .clouds_center .clouds8 {
   width: 60rpx;
   height: 60rpx;
@@ -240,7 +218,6 @@
   z-index: 2;
   opacity: 0.5;
 }
-
 .demopage .fly-wapper .clouds_center .clouds9 {
   width: 60rpx;
   height: 60rpx;

@@ -2,21 +2,17 @@
   overflow: hidden;
   height: 100vh !important;
 }
-
 .wx-coolui-scroller-second-floor .second-floor-wapper {
   transform: translateY(-50%) scale(1, 1);
   height: 200vh;
 }
-
 .wx-coolui-scroller-second-floor .second-floor-wapper .second-floor-inner {
   height: 100vh;
 }
-
 .wx-coolui-scroller-second-floor .second-floor-wapper .first-floor {
   height: 100vh;
   overflow: hidden;
 }
-
 .wx-coolui-scroller-second-floor .second-floor-wapper .second-floor-inner .second-floor-text {
   width: 100%;
   position: absolute;
@@ -26,7 +22,6 @@
   align-items: center;
   z-index: 99;
 }
-
 .wx-coolui-scroller-second-floor .second-floor-inner {
   position: relative;
   overflow: hidden;

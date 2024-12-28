@@ -2,15 +2,12 @@
   border-bottom: 1px solid transparent;
   height: 83rpx;
 }
-
 .wx-coolui-nav.border {
   border-bottom: 1px solid #eee;
 }
-
 .wx-coolui-nav .nav-inner {
   white-space: nowrap;
 }
-
 .wx-coolui-nav .nav-inner .item {
   display: inline-block;
   text-align: center;
@@ -20,7 +17,6 @@
   color: #333;
   transition: color 0.4s;
 }
-
 .wx-coolui-nav .nav-inner .item .text {
   position: relative;
   display: inline-block;
@@ -28,7 +24,6 @@
   font-size: 28rpx;
   width: 100%;
 }
-
 .wx-coolui-nav .nav-inner .item .text > view:first-child {
   position: relative;
   z-index: 1;
@@ -36,12 +31,10 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 .wx-coolui-nav .nav-inner .item.round .text {
   padding: 0 20px;
   width: calc(100% - 40px);
 }
-
 .wx-coolui-nav .nav-inner .item.round .line {
   display: block;
   position: absolute;
@@ -51,16 +44,14 @@
   width: 100%;
   height: 60%;
   background-color: #ccc;
-  transition: width 0.4s;
+  transition: color 0.4s;
   border-radius: 50px;
   z-index: 0;
 }
-
 .wx-coolui-nav .nav-inner .item.plain .text {
   padding: 0 20px;
   width: calc(100% - 40px);
 }
-
 .wx-coolui-nav .nav-inner .item.plain .line {
   display: block;
   position: absolute;
@@ -75,7 +66,6 @@
   border-radius: 50px;
   z-index: 0;
 }
-
 .wx-coolui-nav .nav-inner .item.line .text .line {
   display: block;
   position: absolute;
@@ -87,11 +77,9 @@
   background-color: transparent;
   transition: width 0.4s;
 }
-
 .wx-coolui-nav .nav-inner .item.line.on {
   color: #0cba70;
 }
-
 .wx-coolui-nav .nav-inner .item.line.on .text .line {
   width: 100%;
 }

@@ -5,7 +5,6 @@
   position: relative;
   overflow: hidden;
 }
-
 .christmas-wapper .snow {
   width: calc(100vw - 60rpx);
   height: 150px;
@@ -13,7 +12,6 @@
   background-size: calc(100vw - 60rpx) 150px;
   background-position: 0px 0px;
 }
-
 .christmas-wapper .santa-claus {
   width: 124rpx;
   height: 190rpx;
@@ -27,7 +25,6 @@
   opacity: 1;
   z-index: 2;
 }
-
 .christmas-wapper .chimney {
   position: absolute;
   bottom: 0;
@@ -35,14 +32,12 @@
   margin-left: -55rpx;
   transform: scale(1);
 }
-
 .christmas-wapper .chimney .chimney-head {
   background-color: #4a6b84;
   height: 26rpx;
   width: 110rpx;
   border-radius: 6rpx;
 }
-
 .christmas-wapper .chimney .chimney-main {
   height: 52rpx;
   width: 86rpx;
@@ -51,34 +46,27 @@
   background-position: 0px 0px;
   margin: 0 auto;
 }
-
 .christmas-wapper.loading .santa-claus {
   background-position: -992rpx 0px;
   animation: santa-play 0.8s steps(8);
   opacity: 0.8;
 }
-
 .christmas-wapper.loading .chimney .chimney-main {
   height: 150px;
   transition: height 2s linear;
 }
-
 .christmas-wapper.loading.loading2 .santa-claus {
   animation: santa-play2 0.8s steps(7) infinite;
 }
-
 .christmas-wapper.loading.loading2 .snow {
   animation: snow-play 0.9s linear infinite;
 }
-
 .christmas-wapper.loading.loading2 .chimney .chimney-main {
   animation: chimney-play 0.3s linear infinite;
 }
-
 .christmas-wapper.loosen .chimney {
   transform: scale(3);
 }
-
 @keyframes santa-play {
   from {
     background-position: 0px 0px;
@@ -87,7 +75,6 @@
     background-position: -992rpx 0px;
   }
 }
-
 @keyframes santa-play2 {
   from {
     background-position: -992rpx 0px;
@@ -96,7 +83,6 @@
     background-position: -1860rpx 0px;
   }
 }
-
 @keyframes chimney-play {
   from {
     background-position: 0px 0px;
@@ -105,7 +91,6 @@
     background-position: 0px -52rpx;
   }
 }
-
 @keyframes snow-play {
   from {
     background-position: 0px 0px;

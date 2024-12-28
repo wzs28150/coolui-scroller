@@ -40,16 +40,18 @@ Component({
     // height: 100
     isBtnShow: false,
     isFocus: false,
+    isClear: false,
   },
   methods: {
     heightChange() {},
     focus() {
       this.setData({
         isBtnShow: true,
+        isClear: false,
       })
     },
     blur() {
-      if (this.data.key.length == 0) {
+      if (this.data.key.length == 0 && this.data.isClear == false) {
         this.setData({
           isBtnShow: false,
           isFocus: false,
@@ -59,6 +61,7 @@ Component({
     input({ detail }) {
       this.setData({
         key: detail.value,
+        isClear: false,
       })
     },
     btnClick() {
@@ -69,10 +72,33 @@ Component({
       }
     },
     clear() {
-      this.setData({
-        key: '',
-        isFocus: true,
-      })
+      this.setData(
+        {
+          key: '',
+          isFocus: true,
+          isClear: true,
+        },
+        () => {
+          setTimeout(() => {
+            this.setData({
+              isClear: false,
+            })
+          }, 100)
+        }
+      )
+      // this.setData(
+      //   {
+      //     key: '',
+      //     isFocus: true,
+      //   },
+      //   () => {
+      //     if (!this.data.button.hide) {
+      //       this.setData({
+      //         isBtnShow: true,
+      //       })
+      //     }
+      //   }
+      // )
     },
     confirm() {
       if (this.data.key) {

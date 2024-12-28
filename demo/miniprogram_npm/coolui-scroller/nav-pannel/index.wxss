@@ -8,24 +8,19 @@
   height: 100%;
   overflow: hidden;
 }
-
 .wx-coolui-nav-pannel-inner {
   height: 100%;
 }
-
 .wx-coolui-nav-pannel-inner.side {
   display: flex;
   transform: translateX(var(--left));
 }
-
 .wx-coolui-nav-pannel-inner.side scroller {
   flex: 1;
 }
-
 .wx-coolui-nav-pannel-inner.fade {
   position: relative;
 }
-
 .wx-coolui-nav-pannel-inner.fade scroller {
   position: absolute;
   width: 100%;
@@ -34,7 +29,6 @@
   top: 0;
   z-index: 0;
 }
-
 .wx-coolui-nav-pannel-inner.fade scroller:first-child {
   position: relative;
   z-index: 1;
