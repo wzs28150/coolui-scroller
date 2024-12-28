@@ -1,5 +1,10 @@
 # 版本更新
 
+### v3.3.8
+
+1. 修改 scroller 组件 解决 ios 下下拉滚动抖动 bug。
+2. 修改 search 组件 解决 ios 下图标不显示 bug。
+
 ### v3.3.7
 
 1. 修改 scroller 组件 解决 ios 下下拉与滚动相互冲突带来的闪烁 bug。
