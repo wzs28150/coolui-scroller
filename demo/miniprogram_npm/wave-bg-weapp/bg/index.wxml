@@ -1,4 +1,0 @@
-<canvas type="2d" id="canvas" class="canvas"></canvas>
-<cover-view class="slot">
-  <slot></slot>
-</cover-view>

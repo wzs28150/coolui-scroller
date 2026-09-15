@@ -1,4 +1,9 @@
 packages:
-  - 'packages'
-  - 'doc'
-  - 'demo'
+  - packages
+  - doc
+  - demo
+
+onlyBuiltDependencies:
+  - es5-ext
+  - esbuild
+  - vue-demi
