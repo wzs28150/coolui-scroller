@@ -1,9 +1,28 @@
 packages:
-  - packages
+  - packages/native
+  - packages/uniapp
+  - packages/taro
   - doc
-  - demo
-
+  - demo/native
+  - demo/uniapp
+  - demo/taro
+allowBuilds:
+  '@parcel/watcher': true
+  '@swc/core': true
+  '@tarojs/binding': true
+  '@tarojs/cli': true
+  core-js: true
+  core-js-pure: true
+  es5-ext: true
+  esbuild: true
+  vue-demi: true
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - '@tarojs/binding'
+  - '@tarojs/cli'
+  - core-js
+  - core-js-pure
   - es5-ext
   - esbuild
   - vue-demi

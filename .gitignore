@@ -12,3 +12,12 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+
+# 二进制压缩包
+*.rar
+*.zip
+
+# 文档构建缓存
+doc/.vitepress/cache/
+
+demo/uniapp/dist/

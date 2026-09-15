@@ -1,0 +1,236 @@
+<script setup>
+import { ref, onMounted, nextTick, getCurrentInstance } from 'vue'
+import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
+import CooluiScrollerPage from 'coolui-scroller-uni/components/coolui-scroller-page/coolui-scroller-page.vue'
+import CooluiScrollerItem from 'coolui-scroller-uni/components/coolui-scroller-item/coolui-scroller-item.vue'
+import CooluiScrollerLoadmore from 'coolui-scroller-uni/components/coolui-scroller-loadmore/coolui-scroller-loadmore.vue'
+import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
+import { setHeight } from 'coolui-scroller-uni/utils/longlist.js'
+
+const vm = getCurrentInstance()
+
+const isEmpty = ref(false)
+const list = ref([])
+const defaultSetting = {
+  shake: true,
+  style: 'black', // 设置圆点深色还是浅色
+}
+const loadMoreSetting = ref({
+  status: 'more',
+  more: { text: '上拉加载更多', color: '#999' },
+  loading: { text: '加载中...', color: '#999' },
+  noMore: { text: '-- 到底啦 --', color: '#999' },
+})
+const emptySetting = { img: '/img/empty.png', text: '暂无文章' }
+
+let wholeList = []
+let currentRenderIndex = 0
+let pageHeightArr = []
+const totalPageNum = ref(0)
+const param = ref({ limit: 4, page: 0 })
+
+const getList = () => {
+  // 判断当前是否为加载状态 防止页面重复添加数据
+  if (loadMoreSetting.value.status !== 'loading') {
+    loadMoreSetting.value.status = 'loading'
+    const page = param.value.page
+    currentRenderIndex = page
+    if (totalPageNum.value > 0 && page == totalPageNum.value) {
+      loadMoreSetting.value.status = 'noMore'
+    } else {
+      //  获取远程数据可换成自己封装的请求方法
+      uni.request({
+        url: 'https://api.wzs.pub/mock/21/list',
+        data: {
+          page: page + 1,
+          isempty: 0, // 设置为1可测试空数据
+          limit: 10,
+          pagenum: 10,
+          islong: 1,
+        },
+        method: 'GET',
+        success: (res) => {
+          if (res.data.code === 200) {
+            totalPageNum.value = res.data.data.last
+            if (res.data.data.list.length === 0 && page === 0) {
+              isEmpty.value = true
+              loadMoreSetting.value.status = 'noMore'
+            } else {
+              wholeList[page] = res.data.data.list
+              list.value[page] = res.data.data.list
+              nextTick(() => {
+                setHeight({
+                  param: param.value,
+                  pageHeightArr,
+                  wholeList,
+                  list: list.value,
+                  $scope: vm.$scope,
+                })
+                loadMoreSetting.value.status = 'more'
+                param.value.page += 1
+              })
+            }
+          }
+        },
+      })
+    }
+  }
+}
+const refresh = () => {
+  // 初始化缓存数据
+  wholeList = []
+  currentRenderIndex = 0
+  pageHeightArr = []
+  param.value = { limit: 4, page: 0 }
+  list.value = []
+  // 重新拉取数据
+  getList()
+}
+const scroll = () => {}
+
+onMounted(() => {
+  getList()
+})
+</script>
+
+<template>
+  <view class="page">
+    <view class="pannel">
+      <view class="title">长列表</view>
+      <view class="content">
+        当滚动加载的数据越来越多时,页面渲染就会很慢.会出现卡顿状况.长列表实现实际上将数据做成分页处理,不在可视区的分页,将里面的item删掉用空结构占位处理。在scroller中使用scroller-page搭配scroller-item使用
+      </view>
+      <view class="pannel-inner">
+        <coolui-scroller
+          id="scroller"
+          :class="loadMoreSetting.status == 'loading' && list.length == 0 ? 'isloading' : ''"
+          :isEmpty="isEmpty"
+          background="#f2f2f2"
+          @loadmore="getList"
+          @refresh="refresh"
+          @scroll="scroll"
+        >
+          <template #refresh>
+            <coolui-scroller-refresh type="default" :config="defaultSetting" />
+          </template>
+          <!-- 列表 -->
+          <!-- page组件循环页 -->
+          <coolui-scroller-page
+            v-for="(listSingleItem, pageIndex) in list"
+            :key="pageIndex"
+            :id="'wrp_' + pageIndex"
+            :page-list="listSingleItem"
+          >
+            <!-- item组件循环项 -->
+            <coolui-scroller-item
+              v-for="(listItem, index) in listSingleItem"
+              :key="index"
+            >
+              <view class="item">
+                <image class="item-image" :src="listItem.img"></image>
+                <view class="item-title">
+                  {{ (pageIndex * 3) + listItem.id }}.{{ listItem.title }}
+                </view>
+              </view>
+            </coolui-scroller-item>
+            <!-- item组件循环项 -->
+          </coolui-scroller-page>
+          <!-- page组件循环页 -->
+          <!-- 列表 -->
+          <!-- 加载更多组件 -->
+          <template #loadmore>
+            <coolui-scroller-loadmore
+              :status="loadMoreSetting.status"
+              :loading="loadMoreSetting.loading"
+              :no-more="loadMoreSetting.noMore"
+              :more="loadMoreSetting.more"
+            />
+          </template>
+          <!-- 加载更多组件 -->
+        </coolui-scroller>
+      </view>
+    </view>
+  </view>
+</template>
+
+<style lang="scss" scoped>
+.page {
+  height: 100vh;
+  background-color: #f2f2f2;
+  overflow: hidden;
+  display: flex;
+}
+
+.pannel {
+  flex: 1;
+  margin-bottom: 30rpx;
+  margin-top: 30rpx;
+  background-color: #fff;
+  padding: 0 20rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pannel .title {
+  font-size: 32rpx;
+  line-height: 32rpx;
+  border-bottom: 1rpx solid #eee;
+  padding: 20rpx 0 20rpx 30rpx;
+  position: relative;
+}
+
+.pannel .title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #d13435;
+  width: 8rpx;
+  height: 32rpx;
+  border-radius: 8rpx;
+}
+
+.pannel .content {
+  font-size: 28rpx;
+  color: #666;
+  padding: 30rpx 0;
+}
+
+.pannel .pannel-inner {
+  flex: 1;
+  padding: 0;
+}
+
+/* 列表项自定义结构样式 */
+.coolui-scroller .item {
+  padding: 30rpx 0 0;
+}
+
+.item-image {
+  display: block;
+  width: 100%;
+  height: 300rpx;
+}
+
+.item-title {
+  font-size: 32rpx;
+  line-height: 3em;
+  background-color: #fff;
+  padding: 0 30rpx;
+}
+
+.header {
+  background-color: #fff;
+}
+
+/* empty组件可冲突样式 */
+:deep(.empty-img) {
+  width: 40vw !important;
+}
+
+:deep(.empty-text) {
+  color: #666 !important;
+}
+</style>

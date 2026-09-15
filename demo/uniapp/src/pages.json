@@ -1,0 +1,240 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "coolui-scroller",
+        "disableScroll": true,
+        "pageOrientation": "auto",
+        "usingComponents": {
+          "wave-bg": "/wxcomponents/wave-bg/bg/index"
+        }
+      }
+    }
+  ],
+  "subPackages": [
+    {
+      "root": "pages/list",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "滚动列表组件",
+            "disableScroll": true
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/loadmore",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "加载更多",
+            "disableScroll": true
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/refresh",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "下拉刷新组件",
+            "disableScroll": true,
+            "pageOrientation": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/hand",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "手势组件",
+            "disableScroll": true
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/empty",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "空列表",
+            "disableScroll": true
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/longlist",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "长列表",
+            "pageOrientation": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/search",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "搜索组件",
+            "pageOrientation": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/nav",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "分类组件",
+            "pageOrientation": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/nav-pannel",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "分类组件",
+            "pageOrientation": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/sort",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "分类组件",
+            "pageOrientation": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/second-floor",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationStyle": "custom",
+            "disableScroll": true
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/combined",
+      "pages": [
+        {
+          "path": "index",
+          "style": {
+            "navigationBarTitleText": "组合使用",
+            "disableScroll": true,
+            "pageOrientation": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/demo/animation",
+      "pages": [
+        {
+          "path": "fly/index",
+          "style": {
+            "navigationBarTitleText": "飞上云霄",
+            "disableScroll": true,
+            "pageOrientation": "auto"
+          }
+        },
+        {
+          "path": "noodles/index",
+          "style": {
+            "navigationBarTitleText": "魔性吃面",
+            "disableScroll": true,
+            "pageOrientation": "auto"
+          }
+        },
+        {
+          "path": "christmas/index",
+          "style": {
+            "navigationBarTitleText": "圣诞老人",
+            "disableScroll": true,
+            "pageOrientation": "auto"
+          }
+        },
+        {
+          "path": "universe/index",
+          "style": {
+            "navigationBarTitleText": "浩瀚宇宙",
+            "disableScroll": true,
+            "pageOrientation": "auto",
+            "navigationBarBackgroundColor": "#352b76",
+            "navigationBarTextStyle": "white"
+          }
+        },
+        {
+          "path": "bingdwendwen/index",
+          "style": {
+            "navigationBarTitleText": "冰墩墩",
+            "disableScroll": true,
+            "pageOrientation": "auto"
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/demo/combined",
+      "pages": [
+        {
+          "path": "pics/index/index",
+          "style": {
+            "navigationBarTitleText": "图文社交",
+            "disableScroll": true
+          }
+        }
+      ]
+    },
+    {
+      "root": "pages/demo/second-floor",
+      "pages": [
+        {
+          "path": "taobao/index",
+          "style": {
+            "navigationStyle": "custom",
+            "disableScroll": true
+          }
+        }
+      ]
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "Coolui Scroller Demo",
+    "navigationBarBackgroundColor": "#d13435",
+    "backgroundColor": "#f2f2f2"
+  }
+}

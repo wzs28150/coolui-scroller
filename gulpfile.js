@@ -3,12 +3,12 @@ var watch = require('gulp-watch') // 注意：gulp 4 默认已经包含了 watch
 
 const shell = require('gulp-shell')
 
-var source_path = ['packages/**/*']
+var source_path = ['packages/native/**/*']
 // 执行npm构建命令
 gulp.task(
   'execute-command',
   shell.task(
-    'H:\\微信web开发者工具\\cli.bat build-npm --project E:\\个人项目\\coolui-scroller\\demo --appid wx2537a62364a912fd'
+    'H:\\微信web开发者工具\\cli.bat build-npm --project E:\\个人项目\\coolui-scroller\\demo\\native --appid wx2537a62364a912fd'
   )
 )
 
