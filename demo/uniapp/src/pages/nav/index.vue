@@ -1,6 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-import CooluiScrollerNav from 'coolui-scroller-uni/components/coolui-scroller-nav/coolui-scroller-nav.vue'
 
 const nav = [
   { id: 1, title: '分类1分类1分类1分类1' },

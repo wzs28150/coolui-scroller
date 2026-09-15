@@ -1,5 +1,4 @@
 <script setup>
-import CooluiScrollerEmpty from 'coolui-scroller-uni/components/coolui-scroller-empty/coolui-scroller-empty.vue'
 
 const emptySetting = {
   img: '/static/img/empty.png',

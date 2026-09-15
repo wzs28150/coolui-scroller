@@ -1,9 +1,4 @@
 <script setup>
-import { ref, watch } from 'vue'
-import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
-import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
-import CooluiScrollerItem from 'coolui-scroller-uni/components/coolui-scroller-item/coolui-scroller-item.vue'
-import CooluiScrollerNav from 'coolui-scroller-uni/components/coolui-scroller-nav/coolui-scroller-nav.vue'
 
 const PageCur = ref(0)
 const trans = ref(false)

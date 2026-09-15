@@ -25,12 +25,12 @@ const props = defineProps({
 })
 </script>
 
-<style>
-/* 与原生 :host 对齐：撑满宿主节点，避免被放入 flex 居中容器时塌缩 */
-/* :host {
+<style lang="scss">
+/* 与原生 :host 对齐：撑满宿主高度，保证空列表插槽内可垂直居中 */
+:host {
   display: block;
-  width: 100%;
-} */
+  height: 100%;
+}
 
 .coolui-scroller-empty {
   display: block;
@@ -38,19 +38,19 @@ const props = defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.coolui-scroller-empty .empty-img {
-  width: 30vw;
-  height: 30vw;
-  display: block;
-  margin: 0 auto;
-}
+  .empty-img {
+    width: 30vw;
+    height: 30vw;
+    display: block;
+    margin: 0 auto;
+  }
 
-.coolui-scroller-empty .empty-text {
-  text-align: center;
-  font-size: 28rpx;
-  color: #999;
-  margin: 50rpx auto;
+  .empty-text {
+    text-align: center;
+    font-size: 28rpx;
+    color: #999;
+    margin: 50rpx auto;
+  }
 }
 </style>

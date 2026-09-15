@@ -1,5 +1,4 @@
 <script setup>
-import CooluiScrollerHandtip from 'coolui-scroller-uni/components/coolui-scroller-handtip/coolui-scroller-handtip.vue'
 
 const reset = () => {
   console.log(1)

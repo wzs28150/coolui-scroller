@@ -34,23 +34,24 @@ const itemTap = (e) => {
 }
 </script>
 
-<style>
+<style lang="scss">
 .coolui-scroller-item {
   display: block;
   position: relative;
   overflow: hidden;
+
+  .ripple {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 100%;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    transform: scale(0);
+    top: 50%;
+  }
 }
 
-.coolui-scroller-item .ripple {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 100%;
-  height: 10px;
-  width: 10px;
-  position: absolute;
-  transform: scale(0);
-  top: 50%;
-}
-
+/* 水波纹动画名与按键名保持一致，供 item 的 ripple 元素引用 */
 @keyframes coolui-ripple {
   100% {
     transform: scale(80);

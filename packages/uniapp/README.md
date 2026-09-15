@@ -33,7 +33,7 @@ export function createApp() {
 
 Vue2 项目使用 `Vue.use(CooluiScrollerUni)` 即可。
 
-### 方式二：easycom（推荐，免 import）
+### 方式二：easycom（推荐，免 import，本仓库 demo 即用此方式）
 
 在 `pages.json` 中配置：
 
@@ -188,6 +188,8 @@ pnpm --filter demo-uniapp dev:mp-weixin     # 开发模式（watch）
 ```
 
 用微信开发者工具打开 `demo/uniapp/dist/build/mp-weixin` 即可预览。
+
+示例工程已配置 **easycom**（组件免 import）与 **unplugin-auto-import**（Vue API 免 import），页面内不出现任何组件或 `ref` 之类的 import，可直接作为接入参考。
 
 ## 目录结构
 

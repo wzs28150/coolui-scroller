@@ -75,12 +75,11 @@ const props = defineProps({
 })
 </script>
 
-<style>
+<style lang="scss">
 /* 与原生 :host 对齐：撑满宿主节点，避免被放入 flex 居中容器时塌缩 */
-/* :host {
+:host {
   display: block;
-  width: 100%;
-} */
+}
 
 .coolui-scroller-loadmore {
   display: block;
@@ -90,6 +89,65 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .cool-indicator {
+    display: flex;
+    line-height: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+    /* 展开态：与 --isopened 同时控制可见性与透明度 */
+    &.cool-indicator--isopened {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .cool-indicator__body,
+  .cool-indicator__content {
+    flex: 0 0 auto;
+  }
+
+  .at-indicator__content {
+    align-self: center;
+    margin-left: 24rpx;
+    color: #999;
+    font-size: 28rpx;
+  }
+
+  .cool-loading,
+  .cool-loading__ring {
+    display: inline-block;
+    position: relative;
+    width: 36rpx;
+    height: 36rpx;
+  }
+
+  /* 三个环叠放，靠 animation-delay 错开形成转圈 */
+  .cool-loading__ring {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    margin: 2px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #6190e8 transparent transparent;
+    border-radius: 50%;
+    animation: coolui-loadmore-loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
 }
 
 @keyframes coolui-loadmore-loading {
@@ -99,62 +157,5 @@ const props = defineProps({
   to {
     transform: rotate(360deg);
   }
-}
-
-.coolui-scroller-loadmore .cool-indicator {
-  display: flex;
-  line-height: 1;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-}
-
-.coolui-scroller-loadmore .cool-indicator.cool-indicator--isopened {
-  opacity: 1;
-  visibility: visible;
-}
-
-.coolui-scroller-loadmore .cool-indicator__body,
-.coolui-scroller-loadmore .cool-indicator__content {
-  flex: 0 0 auto;
-}
-
-.coolui-scroller-loadmore .at-indicator__content {
-  align-self: center;
-  margin-left: 24rpx;
-  color: #999;
-  font-size: 28rpx;
-}
-
-.coolui-scroller-loadmore .cool-loading,
-.coolui-scroller-loadmore .cool-loading__ring {
-  display: inline-block;
-  position: relative;
-  width: 36rpx;
-  height: 36rpx;
-}
-
-.coolui-scroller-loadmore .cool-loading__ring {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  margin: 2px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #6190e8 transparent transparent;
-  border-radius: 50%;
-  animation: coolui-loadmore-loading 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-}
-
-.coolui-scroller-loadmore .cool-loading__ring:nth-child(1) {
-  animation-delay: -0.45s;
-}
-
-.coolui-scroller-loadmore .cool-loading__ring:nth-child(2) {
-  animation-delay: -0.3s;
-}
-
-.coolui-scroller-loadmore .cool-loading__ring:nth-child(3) {
-  animation-delay: -0.15s;
 }
 </style>

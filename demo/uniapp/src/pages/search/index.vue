@@ -1,6 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-import CooluiScrollerSearch from 'coolui-scroller-uni/components/coolui-scroller-search/coolui-scroller-search.vue'
 
 const searchBtnShow = { button: { show: true } }
 const searchBtnHide = { button: { hide: true } }
@@ -85,7 +83,7 @@ const test = () => {
       </view>
       <!-- 自定义按钮样式 -->
       <view class="content" style="padding-bottom: 0">自定义按钮样式</view>
-      <view class="pannel-inner search-full">
+      <view class="pannel-inner">
         <coolui-scroller-search
           :button="searchBtnShow.button"
           v-model:keyword="key7"
@@ -93,7 +91,7 @@ const test = () => {
           @btnClick="onBtnClick"
         />
       </view>
-      <view class="pannel-inner search-textonly">
+      <view class="pannel-inner">
         <coolui-scroller-search
           :button="searchBtnShow.button"
           v-model:keyword="key8"
@@ -171,30 +169,11 @@ const test = () => {
   padding: 20rpx 0;
 }
 
-/* 基础：右侧按钮红字红边框 */
+/* 右侧按钮统一样式：红字 + 红边框（与 native 一致，不做多实例变体） */
 :deep(.search-btn) {
   color: #d13435;
   &::after {
     border-color: #d13435;
-  }
-}
-
-/* 实心：白字红底 */
-.search-full :deep(.search-btn) {
-  color: #fff;
-  background-color: #d13435;
-  &::after {
-    border-color: #d13435;
-  }
-}
-
-/* 纯文字：无底无边 */
-.search-textonly :deep(.search-btn) {
-  color: #d13435;
-  background: none;
-  padding: 0 0 !important;
-  &::after {
-    border: none;
   }
 }
 </style>

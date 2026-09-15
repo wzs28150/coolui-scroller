@@ -1,7 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
-import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
 
 const val = ref(0)
 const refreshstate = ref('pulldown')

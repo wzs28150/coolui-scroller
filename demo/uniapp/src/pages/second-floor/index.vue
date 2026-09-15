@@ -1,9 +1,4 @@
 <script setup>
-import { ref, onMounted, nextTick } from 'vue'
-import { onLoad } from '@dcloudio/uni-app'
-import CooluiScrollerSecondFloor from 'coolui-scroller-uni/components/coolui-scroller-second-floor/coolui-scroller-second-floor.vue'
-import CooluiScrollerSecondFloorRefresh from 'coolui-scroller-uni/components/coolui-scroller-second-floor-refresh/coolui-scroller-second-floor-refresh.vue'
-import CooluiScrollerNavBar from 'coolui-scroller-uni/components/coolui-scroller-nav-bar/coolui-scroller-nav-bar.vue'
 
 const refreshConfig = {
   downText: '下拉刷新',

@@ -1,7 +1,4 @@
 <script setup>
-import { ref, computed } from 'vue'
-import CooluiScrollerSort from 'coolui-scroller-uni/components/coolui-scroller-sort/coolui-scroller-sort.vue'
-import CooluiScrollerSortItem from 'coolui-scroller-uni/components/coolui-scroller-sort-item/coolui-scroller-sort-item.vue'
 
 const options = [
   { id: 1, title: '综合排序' },

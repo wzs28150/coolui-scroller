@@ -1,6 +1,4 @@
 <script setup>
-import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
-import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
 
 const giffoodSetting = {
   shake: true, // 是否开启下拉震动

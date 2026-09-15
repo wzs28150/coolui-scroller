@@ -14,7 +14,11 @@
     }"
   >
     <!-- 内置原生风格三点效果（跨端实现） -->
-    <view class="refresh-inner" v-if="type === 'default'">
+    <view
+      class="refresh-inner"
+      v-if="type === 'default'"
+      :style="{ height: mergedConfig.height + 'px' }"
+    >
       <view class="cool-loading-dots" :class="mergedConfig.style === 'white' ? 'white' : 'black'">
         <view class="dot"></view>
         <view class="dot"></view>

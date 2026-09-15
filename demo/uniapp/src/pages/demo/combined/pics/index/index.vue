@@ -1,11 +1,6 @@
 <script setup>
-import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
-import CooluiScrollerItem from 'coolui-scroller-uni/components/coolui-scroller-item/coolui-scroller-item.vue'
-import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
 import PicsHeader from '../component/header.vue'
 import PicsItem from '../component/picsItem.vue'
-import { ref } from 'vue'
-import { onLoad } from '@dcloudio/uni-app'
 
 const isEmpty = ref(false)
 const list = ref([])

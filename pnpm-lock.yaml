@@ -66,6 +66,9 @@ importers:
       sass:
         specifier: 1.104.1
         version: 1.104.1
+      unplugin-auto-import:
+        specifier: ^21.1.0
+        version: 21.1.0(@vueuse/core@10.1.2(vue@3.5.42))(esbuild@0.20.2)(rollup@4.63.3)(vite@5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2))
       vite:
         specifier: 5.2.8
         version: 5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2)
@@ -2998,6 +3001,15 @@ packages:
   fb-watchman@2.0.2:
     resolution: {integrity: sha512-p5161BqbuCaSnB8jIbzQHOlpgsPmK5rJVDfDKO91Axs5NC1uu3HRQm6wt9cd9/+GtQQIO53JdGXXoyDpTAsgYA==, tarball: https://registry.npmjs.org/fb-watchman/-/fb-watchman-2.0.2.tgz}
 
+  fdir@6.5.0:
+    resolution: {integrity: sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==, tarball: https://registry.npmjs.org/fdir/-/fdir-6.5.0.tgz}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      picomatch: ^3 || ^4
+    peerDependenciesMeta:
+      picomatch:
+        optional: true
+
   file-type@9.0.0:
     resolution: {integrity: sha512-Qe/5NJrgIOlwijpq3B7BEpzPFcgzggOTagZmkXQY4LA6bsXKTUstK7Wp12lEJ/mLKTpvIZxmIuRcLYWT6ov9lw==, tarball: https://registry.npmjs.org/file-type/-/file-type-9.0.0.tgz}
     engines: {node: '>=6'}
@@ -3823,6 +3835,9 @@ packages:
   jpeg-js@0.3.7:
     resolution: {integrity: sha512-9IXdWudL61npZjvLuVe/ktHiA41iE8qFyLB+4VDTblEsWBzeg8WQTlktdUK4CdncUqtUgUg0bbOmTE2bKBKaBQ==, tarball: https://registry.npmjs.org/jpeg-js/-/jpeg-js-0.3.7.tgz}
 
+  js-tokens@10.0.0:
+    resolution: {integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==, tarball: https://registry.npmjs.org/js-tokens/-/js-tokens-10.0.0.tgz}
+
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==, tarball: https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz}
 
@@ -4040,6 +4055,9 @@ packages:
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==, tarball: https://registry.npmjs.org/magic-string/-/magic-string-0.30.21.tgz}
+
+  magic-string@1.3.2:
+    resolution: {integrity: sha512-rZJrVxZ8cnWz3Mlor980ckHFN60rm/eyjVOpeDAH2z1DsRNbve2o4AB7bGafQvGSdCK90gEfUdiMct4BCKSZTw==, tarball: https://registry.npmjs.org/magic-string/-/magic-string-1.3.2.tgz}
 
   make-dir@4.0.0:
     resolution: {integrity: sha512-hXdUTZYIVOt1Ex//jAQi+wTZZpUpwBj/0QsOzqegb3rGMMeJiSEu5xLHnYfBrRV4RH2+OCSOO95Is/7x1WJ4bw==, tarball: https://registry.npmjs.org/make-dir/-/make-dir-4.0.0.tgz}
@@ -5173,6 +5191,9 @@ packages:
   strip-literal@3.1.0:
     resolution: {integrity: sha512-8r3mkIM/2+PpjHoOtiAW8Rg3jJLHaV7xPwG+YRGrv6FP0wwk/toTpATxWYOW0BKdWwl82VT2tFYi5DlROa0Mxg==, tarball: https://registry.npmjs.org/strip-literal/-/strip-literal-3.1.0.tgz}
 
+  strip-literal@4.0.0:
+    resolution: {integrity: sha512-PaqAvfUZKBwc/SLmNZtHmzK+v19Z4O4eS3cKPeGvbIv/U3pnyEq4Tuw3/4v/FwfM8VQaEawsyCcOQ0P+kpwWWw==, tarball: https://registry.npmjs.org/strip-literal/-/strip-literal-4.0.0.tgz}
+
   supports-color@2.0.0:
     resolution: {integrity: sha512-KKNVtd6pCYgPIKU4cp2733HWYCpplQhddZLBUryaAHou723x+FRzQ5Df824Fj+IyyuiQTRoub4SnIFfIcrp70g==, tarball: https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz}
     engines: {node: '>=0.8.0'}
@@ -5248,6 +5269,10 @@ packages:
 
   tinycolor2@1.6.0:
     resolution: {integrity: sha512-XPaBkWQJdsf3pLKJV9p4qN/S+fm2Oj8AIPo1BTUhg5oxkvm9+SVEGFdhyOz7tTdUTfvxMiAs4sp6/eZO2Ew+pw==, tarball: https://registry.npmjs.org/tinycolor2/-/tinycolor2-1.6.0.tgz}
+
+  tinyglobby@0.2.17:
+    resolution: {integrity: sha512-wXR/dYpcqKmfWpEdZjiKJOwCNFndD0DMnrW/cYjVGttEkBfVgcLFHoNrlj47mjOVic9yyNu65alsgF4NQyTa2g==, tarball: https://registry.npmjs.org/tinyglobby/-/tinyglobby-0.2.17.tgz}
+    engines: {node: '>=12.0.0'}
 
   tmpl@1.0.5:
     resolution: {integrity: sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==, tarball: https://registry.npmjs.org/tmpl/-/tmpl-1.0.5.tgz}
@@ -5356,6 +5381,18 @@ packages:
     resolution: {integrity: sha512-j9+fijH6aDd05yv1fXlyt7HSxtOWtGtrZeYTVBsSUg57Iuf+Ps2itIZjeyu7bEQ4k0WOgYhHrdW8m/pJgOpl5g==, tarball: https://registry.npmjs.org/unimport/-/unimport-4.1.1.tgz}
     engines: {node: '>=18.12.0'}
 
+  unimport@6.5.0:
+    resolution: {integrity: sha512-t0KLJLRbebz3f7NrQe+vy2ObeugVeM1XqI2oeYnauddmHSglYj3U6bxOJ65IbXmOFkcAGFJK2OyGH7aqHPM6Ug==, tarball: https://registry.npmjs.org/unimport/-/unimport-6.5.0.tgz}
+    engines: {node: '>=18.12.0'}
+    peerDependencies:
+      oxc-parser: '*'
+      rolldown: ^1.0.0
+    peerDependenciesMeta:
+      oxc-parser:
+        optional: true
+      rolldown:
+        optional: true
+
   union-value@1.0.1:
     resolution: {integrity: sha512-tJfXmxMeWYnczCVs7XAEvIV7ieppALdyepWMkHkwciRpZraG/xwT+s2JN8+pr1+8jCRf80FFzvr+MpQeeoF4Xg==, tarball: https://registry.npmjs.org/union-value/-/union-value-1.0.1.tgz}
     engines: {node: '>=0.10.0'}
@@ -5392,13 +5429,62 @@ packages:
       '@vueuse/core':
         optional: true
 
+  unplugin-auto-import@21.1.0:
+    resolution: {integrity: sha512-EzrSqWIBulEqCuP7idADXH+tVKYrbwKlR5+r/lOWik0o+Ksny1kitmtryHGNSv7puzzORlcIwT/x2JStiszlHA==, tarball: https://registry.npmjs.org/unplugin-auto-import/-/unplugin-auto-import-21.1.0.tgz}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      '@nuxt/kit': ^4.0.0
+      '@vueuse/core': '*'
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+      '@vueuse/core':
+        optional: true
+
   unplugin-utils@0.2.5:
     resolution: {integrity: sha512-gwXJnPRewT4rT7sBi/IvxKTjsms7jX7QIDLOClApuZwR49SXbrB1z2NLUZ+vDHyqCj/n58OzRRqaW+B8OZi8vg==, tarball: https://registry.npmjs.org/unplugin-utils/-/unplugin-utils-0.2.5.tgz}
     engines: {node: '>=18.12.0'}
 
+  unplugin-utils@0.3.2:
+    resolution: {integrity: sha512-xVToRh2CTmLk2HnEG7ac4rl1MJTT3RFkpS8B++/SnB0kXvuaavD+n3m/vrzyWQOdJNSZQACnbz01pnppbwV5BA==, tarball: https://registry.npmjs.org/unplugin-utils/-/unplugin-utils-0.3.2.tgz}
+    engines: {node: '>=20.19.0'}
+
   unplugin@2.3.11:
     resolution: {integrity: sha512-5uKD0nqiYVzlmCRs01Fhs2BdkEgBS3SAVP6ndrBsuK42iC2+JHyxM05Rm9G8+5mkmRtzMZGY8Ct5+mliZxU/Ww==, tarball: https://registry.npmjs.org/unplugin/-/unplugin-2.3.11.tgz}
     engines: {node: '>=18.12.0'}
+
+  unplugin@3.3.0:
+    resolution: {integrity: sha512-qa66K+crbfyE6JK10GjvbJeRrOsuC/JpbnHctfyp/i4oBTxWOzJfRZyDiOk1PtErMFRu8JhsU/wPvOdBNWe5Rg==, tarball: https://registry.npmjs.org/unplugin/-/unplugin-3.3.0.tgz}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    peerDependencies:
+      '@farmfe/core': '*'
+      '@rspack/core': '*'
+      bun-types-no-globals: '*'
+      esbuild: '*'
+      rolldown: '*'
+      rollup: '*'
+      unloader: '*'
+      vite: '*'
+      webpack: '*'
+    peerDependenciesMeta:
+      '@farmfe/core':
+        optional: true
+      '@rspack/core':
+        optional: true
+      bun-types-no-globals:
+        optional: true
+      esbuild:
+        optional: true
+      rolldown:
+        optional: true
+      rollup:
+        optional: true
+      unloader:
+        optional: true
+      vite:
+        optional: true
+      webpack:
+        optional: true
 
   unquote@1.1.1:
     resolution: {integrity: sha512-vRCqFv6UhXpWxZPyGDh/F3ZpNv8/qo7w6iufLpQg9aKnQ71qM4B5KiI7Mia9COcjEhrO9LueHpMYjYzsWH3OIg==, tarball: https://registry.npmjs.org/unquote/-/unquote-1.1.1.tgz}
@@ -9277,6 +9363,10 @@ snapshots:
     dependencies:
       bser: 2.1.1
 
+  fdir@6.5.0(picomatch@4.0.7):
+    optionalDependencies:
+      picomatch: 4.0.7
+
   file-type@9.0.0: {}
 
   file-uri-to-path@1.0.0:
@@ -10381,6 +10471,8 @@ snapshots:
 
   jpeg-js@0.3.7: {}
 
+  js-tokens@10.0.0: {}
+
   js-tokens@4.0.0: {}
 
   js-tokens@9.0.1: {}
@@ -10620,6 +10712,10 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.6.0
 
   magic-string@0.30.21:
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.6.0
+
+  magic-string@1.3.2:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
 
@@ -11776,6 +11872,10 @@ snapshots:
     dependencies:
       js-tokens: 9.0.1
 
+  strip-literal@4.0.0:
+    dependencies:
+      js-tokens: 10.0.0
+
   supports-color@2.0.0: {}
 
   supports-color@5.5.0:
@@ -11850,6 +11950,11 @@ snapshots:
   timm@1.7.1: {}
 
   tinycolor2@1.6.0: {}
+
+  tinyglobby@0.2.17:
+    dependencies:
+      fdir: 6.5.0(picomatch@4.0.7)
+      picomatch: 4.0.7
 
   tmpl@1.0.5: {}
 
@@ -11967,6 +12072,32 @@ snapshots:
       unplugin: 2.3.11
       unplugin-utils: 0.2.5
 
+  unimport@6.5.0(esbuild@0.20.2)(rollup@4.63.3)(vite@5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2)):
+    dependencies:
+      acorn: 8.18.0
+      escape-string-regexp: 5.0.0
+      estree-walker: 3.0.3
+      local-pkg: 1.2.1
+      magic-string: 1.3.2
+      mlly: 1.8.2
+      pathe: 2.0.3
+      picomatch: 4.0.7
+      pkg-types: 2.3.3
+      scule: 1.3.0
+      strip-literal: 4.0.0
+      tinyglobby: 0.2.17
+      unplugin: 3.3.0(esbuild@0.20.2)(rollup@4.63.3)(vite@5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2))
+      unplugin-utils: 0.3.2
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rspack/core'
+      - bun-types-no-globals
+      - esbuild
+      - rollup
+      - unloader
+      - vite
+      - webpack
+
   union-value@1.0.1:
     dependencies:
       arr-union: 3.1.0
@@ -11998,7 +12129,34 @@ snapshots:
     optionalDependencies:
       '@vueuse/core': 10.1.2(vue@3.5.42)
 
+  unplugin-auto-import@21.1.0(@vueuse/core@10.1.2(vue@3.5.42))(esbuild@0.20.2)(rollup@4.63.3)(vite@5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2)):
+    dependencies:
+      local-pkg: 1.2.1
+      magic-string: 1.3.2
+      picomatch: 4.0.7
+      unimport: 6.5.0(esbuild@0.20.2)(rollup@4.63.3)(vite@5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2))
+      unplugin: 3.3.0(esbuild@0.20.2)(rollup@4.63.3)(vite@5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2))
+      unplugin-utils: 0.3.2
+    optionalDependencies:
+      '@vueuse/core': 10.1.2(vue@3.5.42)
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rspack/core'
+      - bun-types-no-globals
+      - esbuild
+      - oxc-parser
+      - rolldown
+      - rollup
+      - unloader
+      - vite
+      - webpack
+
   unplugin-utils@0.2.5:
+    dependencies:
+      pathe: 2.0.3
+      picomatch: 4.0.7
+
+  unplugin-utils@0.3.2:
     dependencies:
       pathe: 2.0.3
       picomatch: 4.0.7
@@ -12009,6 +12167,16 @@ snapshots:
       acorn: 8.18.0
       picomatch: 4.0.7
       webpack-virtual-modules: 0.6.2
+
+  unplugin@3.3.0(esbuild@0.20.2)(rollup@4.63.3)(vite@5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2)):
+    dependencies:
+      '@jridgewell/remapping': 2.3.5
+      picomatch: 4.0.7
+      webpack-virtual-modules: 0.6.2
+    optionalDependencies:
+      esbuild: 0.20.2
+      rollup: 4.63.3
+      vite: 5.2.8(@types/node@20.2.5)(sass@1.104.1)(terser@5.51.2)
 
   unquote@1.1.1: {}
 

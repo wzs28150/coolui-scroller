@@ -1,7 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
-import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
 
 const flySetting = {
   shake: true, // 是否开启下拉震动

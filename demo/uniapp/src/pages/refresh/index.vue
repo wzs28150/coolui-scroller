@@ -1,9 +1,4 @@
 <script setup>
-import { ref } from 'vue'
-import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
-import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
-import CooluiScrollerParallax from 'coolui-scroller-uni/components/coolui-scroller-parallax/coolui-scroller-parallax.vue'
-import CooluiScrollerNav from 'coolui-scroller-uni/components/coolui-scroller-nav/coolui-scroller-nav.vue'
 
 const val = ref(0)
 const refreshstate = ref('pulldown')
@@ -11,8 +6,11 @@ const active = ref(1) // 当前选中的Index值
 
 const defaultSetting = {
   shake: true,
-  style: 'black', // 设置圆点申诉还是浅色
-  background: { color: '#eeeeee' },
+  style: 'black', // 设置圆点深色还是浅色
+  // 关键：下拉高度(background.height) 大于 refresh 自身高度(height)，
+  // 松手后先回落到 refresh 高度显示加载动画，刷新完成再整体回弹（与"基础效果"同一机制）
+  height: 50,
+  background: { color: '#eeeeee', height: 120 },
 }
 const baseConfig = {
   shake: true, // 是否开启下拉震动

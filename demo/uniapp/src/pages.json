@@ -1,4 +1,10 @@
 {
+  "easycom": {
+    "autoscan": false,
+    "custom": {
+      "^coolui-scroller(-.*)?$": "coolui-scroller-uni/components/coolui-scroller$1/coolui-scroller$1.vue"
+    }
+  },
   "pages": [
     {
       "path": "pages/index/index",

@@ -11,8 +11,7 @@
 </template>
 
 <script setup>
-import { ref, computed, provide, onMounted, nextTick, getCurrentInstance } from 'vue'
-import { getSelectorQuery } from '../../utils/platform.js'
+import { computed, provide } from 'vue'
 
 const props = defineProps({
   active: {
@@ -29,73 +28,34 @@ const props = defineProps({
   },
 })
 
-const width = ref(0)
-const scrollerLength = ref(0)
-const vm = getCurrentInstance()
-
-// 与原生一致：内层宽度 = 单个 scroller 宽度 × scroller 数量；
-// 切换位移 = 单个宽度 × active（而非整体 100%）
+// side 模式：每个 scroller 的宿主节点占满一屏（见样式 flex: 0 0 100%），
+// 切换时按内层自身宽度（100%）位移即可，无需统计子组件数量。
+// 说明：插槽里的 scroller 在 Vue 实例树上并非 nav-pannel 的子级，
+// provide/inject 不可靠，原先依赖子组件注册来算宽度会失败，故改为纯 CSS 布局。
 const innerStyle = computed(() => {
-  const len = scrollerLength.value || 1
-  const w = props.type === 'side' ? width.value * len : width.value
-  const style = {
-    width: w + 'px',
+  if (props.type !== 'side') {
+    return {}
   }
-  if (props.type === 'side') {
-    style.transform = 'translateX(' + -width.value * props.active + 'px)'
-    style.transition = props.animation ? 'transform 0.4s' : 'none'
+  return {
+    transform: 'translateX(' + -100 * props.active + '%)',
+    transition: props.animation ? 'transform 0.4s' : 'none',
   }
-  return style
 })
 
-const registerScroller = () => {
-  scrollerLength.value += 1
-}
-
+// 保留注册接口：scroller 挂载时会调用，这里不再需要计数
+const registerScroller = () => {}
 provide('cooluiNavPannel', { registerScroller })
-defineExpose({ registerScroller })
-
-defineOptions({
-  virtualHost: true,
-  styleIsolation: 'apply-shared',
-})
-
-onMounted(() => {
-  nextTick(() => {
-    getSelectorQuery(vm)
-      .select('.wx-coolui-nav-pannel')
-      .boundingClientRect()
-      .exec((res) => {
-        if (res && res.length > 0 && res[0]) {
-          width.value = res[0].width
-        }
-        // 兜底：若子组件通过注入注册失败，用小程序选择器统计子 scroller 数量
-        try {
-          const scope = vm.$scope
-          if (!scrollerLength.value && scope && scope.selectAllComponents) {
-            const list = scope.selectAllComponents('.coolui-scroller')
-            if (list && list.length) {
-              scrollerLength.value = list.length
-            }
-          }
-        } catch (e) {
-          // ignore
-        }
-      })
-  })
-})
 </script>
 
-<style>
+<style lang="scss">
 /* 关键：让组件宿主节点撑满父级。
    根节点若失去宿主高度，height:100% 会解析为 0（flex:1 也会失效），
    整条高度链塌陷导致内容不可见。与 scroller 组件保持一致 */
-/* :host {
+:host {
   display: block;
   width: 100%;
   height: 100%;
-  flex: 1;
-} */
+}
 
 .wx-coolui-nav-pannel {
   display: flex;
@@ -111,31 +71,37 @@ onMounted(() => {
 .wx-coolui-nav-pannel-inner {
   flex: 1;
   min-height: 0;
-}
 
-.wx-coolui-nav-pannel-inner.side {
-  display: flex;
-}
+  /* side：横向并排，每个 scroller 占满一屏，超出部分由外层 overflow 裁掉。
+     注意必须用「组件标签选择器」命中真正的 flex 子项 —— scroller 的宿主节点；
+     .coolui-scroller 类位于 scroller 内部根节点（受样式隔离、且不是 flex 子项），
+     命中不到，会导致多个列表被挤在一屏内同时显示 */
+  &.side {
+    display: flex;
+    width: 100%;
 
-.wx-coolui-nav-pannel-inner.side .coolui-scroller {
-  flex: 1;
-}
+    coolui-scroller {
+      flex: 0 0 100%;
+    }
+  }
 
-.wx-coolui-nav-pannel-inner.fade {
-  position: relative;
-}
+  /* fade：叠层切换，非首个 scroller 绝对定位铺满，首个作为基准层 */
+  &.fade {
+    position: relative;
 
-.wx-coolui-nav-pannel-inner.fade .coolui-scroller {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  z-index: 0;
-}
+    coolui-scroller {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 0;
 
-.wx-coolui-nav-pannel-inner.fade .coolui-scroller:first-child {
-  position: relative;
-  z-index: 1;
+      &:first-child {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
 }
 </style>

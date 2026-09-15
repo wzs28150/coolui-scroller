@@ -1,10 +1,4 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
-import CooluiScrollerItem from 'coolui-scroller-uni/components/coolui-scroller-item/coolui-scroller-item.vue'
-import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
-import CooluiScrollerLoadmore from 'coolui-scroller-uni/components/coolui-scroller-loadmore/coolui-scroller-loadmore.vue'
-import CooluiScrollerEmpty from 'coolui-scroller-uni/components/coolui-scroller-empty/coolui-scroller-empty.vue'
 
 const isEmpty = ref(false)
 const list = ref([])

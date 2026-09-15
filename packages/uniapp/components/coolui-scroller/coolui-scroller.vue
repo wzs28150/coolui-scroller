@@ -545,34 +545,41 @@ defineExpose({
 })
 </script>
 
-<style>
-/* :host {
+<style lang="scss">
+/* 宿主节点样式：uni-app 编译到原生小程序时组件外层存在宿主 wrapper 节点，
+   需在宿主上撑满宽高，否则内部 height:100% / flex 均会失效（与原生 :host 一致） */
+:host {
   display: block;
   width: 100%;
   height: 100%;
-} */
-
-.coolui-scroller.wrap {
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
 }
 
-.coolui-scroller .slot-header {
-  position: relative;
-  z-index: 5;
-}
+.coolui-scroller {
+  /* 根节点的 .wrap 由模板条件添加，代表"容器已就绪"态 */
+  &.wrap {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 
-.coolui-scroller .scroll-view .refresh-container {
-  width: 100%;
-}
+  .slot-header {
+    position: relative;
+    z-index: 5;
+  }
 
-.coolui-scroller .scroll-view .inner .slot-empty {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
+  .scroll-view {
+    .refresh-container {
+      width: 100%;
+    }
+
+    .inner .slot-empty {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+    }
+  }
 }
 </style>

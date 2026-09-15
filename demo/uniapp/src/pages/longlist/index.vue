@@ -1,10 +1,4 @@
 <script setup>
-import { ref, onMounted, nextTick, getCurrentInstance } from 'vue'
-import CooluiScroller from 'coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue'
-import CooluiScrollerPage from 'coolui-scroller-uni/components/coolui-scroller-page/coolui-scroller-page.vue'
-import CooluiScrollerItem from 'coolui-scroller-uni/components/coolui-scroller-item/coolui-scroller-item.vue'
-import CooluiScrollerLoadmore from 'coolui-scroller-uni/components/coolui-scroller-loadmore/coolui-scroller-loadmore.vue'
-import CooluiScrollerRefresh from 'coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue'
 import { setHeight } from 'coolui-scroller-uni/utils/longlist.js'
 
 const vm = getCurrentInstance()

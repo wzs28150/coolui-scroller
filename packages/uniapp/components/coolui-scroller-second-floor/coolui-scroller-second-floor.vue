@@ -375,45 +375,43 @@ defineExpose({
 })
 </script>
 
-<style>
+<style lang="scss">
 .wx-coolui-scroller-second-floor {
   overflow: hidden;
   height: 100vh !important;
-}
 
-.wx-coolui-scroller-second-floor .second-floor-wapper {
-  transform: translateY(-50%) scale(1, 1);
-  height: 200vh;
-}
+  /* 承载 200vh 的滑动层，向上偏移 50vh 后正好露出第一屏 */
+  .second-floor-wapper {
+    transform: translateY(-50%) scale(1, 1);
+    height: 200vh;
 
-.wx-coolui-scroller-second-floor .second-floor-wapper .second-floor-inner {
-  height: 100vh;
-}
+    .second-floor-inner {
+      height: 100vh;
 
-.wx-coolui-scroller-second-floor .second-floor-wapper .first-floor {
-  height: 100vh;
-  overflow: hidden;
-}
+      .second-floor-text {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+      }
+    }
 
-.wx-coolui-scroller-second-floor
-  .second-floor-wapper
-  .second-floor-inner
-  .second-floor-text {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99;
-}
+    .first-floor {
+      height: 100vh;
+      overflow: hidden;
+    }
+  }
 
-.wx-coolui-scroller-second-floor .second-floor-inner {
-  position: relative;
-  overflow: hidden;
-}
+  .second-floor-inner {
+    position: relative;
+    overflow: hidden;
+  }
 
-.wx-coolui-scroller-second-floor .second-floor-content {
-  height: 100vh;
+  .second-floor-content {
+    height: 100vh;
+  }
 }
 </style>

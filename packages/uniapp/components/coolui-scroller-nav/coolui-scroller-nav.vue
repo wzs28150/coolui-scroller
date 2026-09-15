@@ -164,11 +164,11 @@ const changeNavPerView = (navPerView) => {
 
 <style>
 /* 与原生 :host 对齐：撑满宿主节点（nav 靠测量自身宽度算各项宽，宿主塌缩会算错） */
-/* :host {
+:host {
   display: block;
   width: 100%;
   font-size: 28rpx;
-} */
+}
 
 .wx-coolui-nav {
   border-bottom: 1px solid transparent;

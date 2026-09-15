@@ -125,51 +125,53 @@ defineExpose({
 })
 </script>
 
-<style>
+<style lang="scss">
 /* 与原生 :host 对齐：撑满宿主节点，避免被放入 flex 居中容器时塌缩 */
-/* :host {
+:host {
   display: block;
   width: 100%;
-} */
+}
 
 .coolui-scroller-sort {
   display: block;
   width: 100%;
   box-shadow: 0 2px 12px rgb(100 101 102 / 12%);
   position: relative;
+
+  /* 下拉遮罩：紧贴 100rpx 的导航条下方铺满一屏 */
+  .overlay {
+    position: absolute;
+    top: 100rpx;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+  }
 }
 
+/* 排序条内部复用了分类导航的样式，flex / scroll 为两种布局模式 */
 .coolui-scroller-nav {
   width: 100%;
   height: 100rpx;
-}
 
-.coolui-scroller-nav.flex {
-  display: flex;
-}
+  &.flex {
+    display: flex;
+  }
 
-.coolui-scroller-nav.scroll {
-  white-space: nowrap;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-}
+  &.scroll {
+    white-space: nowrap;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+  }
 
-.coolui-scroller-nav::-webkit-scrollbar {
-  display: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .coolui-scroller-nav-scroll {
   white-space: nowrap;
   overflow: visible;
-}
-
-.coolui-scroller-sort .overlay {
-  position: absolute;
-  top: 100rpx;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
-  opacity: 0;
 }
 </style>

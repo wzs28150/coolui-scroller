@@ -88,7 +88,7 @@ defineExpose({
 })
 </script>
 
-<style>
+<style lang="scss">
 /* 页面定位类（top/left/margin）落在宿主节点上，让宿主也绝对定位，
    使 top/left 与子节点的 position:absolute 处于同一条定位链 */
 :host {

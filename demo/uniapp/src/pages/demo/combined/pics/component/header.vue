@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue'
 
 const tempFilePaths = ref(null)
 const list = [

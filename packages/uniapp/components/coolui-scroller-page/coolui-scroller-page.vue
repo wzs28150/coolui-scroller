@@ -22,7 +22,7 @@ const props = defineProps({
 })
 </script>
 
-<style>
+<style lang="scss">
 .coolui-scroller-page {
   display: block;
 }

@@ -241,13 +241,15 @@ defineExpose({
 })
 </script>
 
-<style>
+<style lang="scss">
 /* 宽度必须设在组件宿主节点上（与原生 :host 一致）：
-   设在内部根节点时，28.5% 会相对宿主自身宽度解析，导致每个 item 被挤成极窄 */
-/* :host {
+   uni-app 编译到原生小程序时，组件外层存在宿主 wrapper 节点，真正作为
+   sort 容器 flex 子项的是宿主节点，故 28.5% 必须落在 :host 上，否则会被
+   内部根节点的 width:100% 反噬，导致每个 item 被挤成内容宽 */
+:host {
   display: inline-block;
   width: 28.5%;
-} */
+}
 
 .coolui-scroller-sort-item {
   display: block;

@@ -109,45 +109,46 @@ const backPage = () => {
 }
 </script>
 
-<style>
+<style lang="scss">
 .nav-bar {
   position: relative;
-}
 
-.nav-bar .nav-bar-inner {
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
-}
+  .nav-bar-inner {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+  }
 
-.nav-bar .action {
-  position: absolute;
-  width: 40rpx;
-  height: 40rpx;
-  margin-left: 24rpx;
-}
+  /* 返回箭头：两条 .line 交叉成 ×，用相邻兄弟选择器覆盖第二条 */
+  .action {
+    position: absolute;
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 24rpx;
 
-.nav-bar .action .line {
-  width: 24rpx;
-  height: 4rpx;
-  background-color: #fff;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform-origin: 0 center;
-  margin-top: 0rpx;
-  transform: translate(-40%, -50%) rotate(45deg);
-}
+    .line {
+      width: 24rpx;
+      height: 4rpx;
+      background-color: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform-origin: 0 center;
+      margin-top: 0rpx;
+      transform: translate(-40%, -50%) rotate(45deg);
 
-.nav-bar .action .line + .line {
-  margin-top: 0.5rpx;
-  transform: translate(-40%, -50%) rotate(-45deg);
-}
+      & + .line {
+        margin-top: 0.5rpx;
+        transform: translate(-40%, -50%) rotate(-45deg);
+      }
+    }
+  }
 
-.nav-bar .content {
-  text-align: center;
-  width: 100%;
-  font-size: 34rpx;
+  .content {
+    text-align: center;
+    width: 100%;
+    font-size: 34rpx;
+  }
 }
 </style>
