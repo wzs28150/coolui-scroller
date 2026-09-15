@@ -3,13 +3,22 @@
   "version": "1.0.0",
   "description": "coolui-scroller 的 uni-app 版本：上拉加载下拉刷新组件，支持微信/支付宝/百度/字节/QQ 小程序及 H5、App",
   "main": "index.js",
+  "types": "types.ts",
   "files": [
     "components",
     "utils",
+    "types.ts",
     "index.js"
   ],
   "scripts": {
-    "push": "npm publish"
+    "push": "npm publish",
+    "type-check": "vue-tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "^3.4.8",
+    "typescript": "^5.6.3",
+    "vue": "^3.4.21",
+    "vue-tsc": "^2.1.10"
   },
   "repository": {
     "type": "git",

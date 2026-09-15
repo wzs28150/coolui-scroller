@@ -41,14 +41,15 @@
   </view>
 </template>
 
-<script setup>
-import { ref, computed, inject, onMounted } from 'vue'
+<script setup lang="ts">
+import { ref, computed, inject, onMounted, type PropType } from 'vue'
 import {
   getWindowInfo,
   getMenuButtonBoundingClientRect,
   navigateBack,
   deepMerge,
 } from '../../utils/platform.js'
+import type { CooluiNavBarConfig, CooluiSecondFloorApi } from '../../types'
 
 const defaultConfig = {
   back: {
@@ -65,16 +66,19 @@ const defaultConfig = {
 
 const props = defineProps({
   type: {
-    type: String,
+    type: String as PropType<'default' | (string & {})>,
     default: 'default',
   },
   config: {
-    type: Object,
+    type: Object as PropType<CooluiNavBarConfig>,
     default: () => ({}),
   },
 })
 
-const cooluiSecondFloor = inject('cooluiSecondFloor', null)
+const cooluiSecondFloor = inject<CooluiSecondFloorApi | null>(
+  'cooluiSecondFloor',
+  null
+)
 
 const StatusBar = ref(0)
 const statusBarHeight = ref(0)

@@ -26,9 +26,24 @@
   </view>
 </template>
 
-<script setup>
-import { ref, computed, watch, provide, onMounted, nextTick, getCurrentInstance } from 'vue'
+<script setup lang="ts">
+import {
+  ref,
+  computed,
+  watch,
+  provide,
+  onMounted,
+  nextTick,
+  getCurrentInstance,
+  type PropType,
+} from 'vue'
 import { getWindowInfo } from '../../utils/platform.js'
+import type {
+  CooluiNavBarApi,
+  CooluiSecondFloorApi,
+  CooluiSecondFloorRefreshApi,
+  CooluiSecondFloorTip,
+} from '../../types'
 
 const props = defineProps({
   threshold: {
@@ -56,7 +71,7 @@ const props = defineProps({
     default: false,
   },
   tip: {
-    type: Object,
+    type: Object as PropType<CooluiSecondFloorTip>,
     default: () => ({
       show: false,
       height: 100,
@@ -66,7 +81,14 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['secondShow', 'refresh', 'secondBack'])
+const emit = defineEmits<{
+  /** 二楼展开之后触发 */
+  (e: 'secondShow'): void
+  /** 下拉刷新时触发 */
+  (e: 'refresh'): void
+  /** 二楼关闭之后触发 */
+  (e: 'secondBack'): void
+}>()
 
 const vm = getCurrentInstance()
 
@@ -85,8 +107,8 @@ const tipInner = ref({
 const wapper = ref({ y: 0, duration: 0, timing: 'ease-out' })
 const inner = ref({ y: 0, duration: 0, scale: 1, opacity: 1 })
 
-let refreshNode = null
-let navBarNode = null
+let refreshNode: CooluiSecondFloorRefreshApi | null = null
+let navBarNode: CooluiNavBarApi | null = null
 
 const transformOrigin = computed(() => {
   if (props.top) {
@@ -131,18 +153,18 @@ watch(
 )
 
 /* ---------------- 子组件注册（替代原生 relations） ---------------- */
-const registerRefresh = (node) => {
+const registerRefresh = (node: CooluiSecondFloorRefreshApi) => {
   refreshNode = node
 }
-const registerNavBar = (node) => {
+const registerNavBar = (node: CooluiNavBarApi) => {
   navBarNode = node
 }
 
 /* ---------------- 动画辅助 ---------------- */
-const setWapper = (y, duration = 0, timing = 'ease-out') => {
+const setWapper = (y: number, duration = 0, timing = 'ease-out') => {
   wapper.value = { y, duration, timing }
 }
-const setInner = (y, duration = 0, scale = 1, opacity = 1) => {
+const setInner = (y: number, duration = 0, scale = 1, opacity = 1) => {
   inner.value = { y, duration, scale, opacity }
 }
 const innerInitY = () => {
@@ -158,7 +180,7 @@ const innerInitY = () => {
 /**
  * 初始化：根据设置初始化动画、初始化参数、初始化子组件
  */
-const init = (callback = null) => {
+const init = (callback: (() => void) | null = null) => {
   if (refreshNode) {
     refreshNode.setScrollHeight(scrollHeight.value)
     refreshNode.setDown()
@@ -176,7 +198,7 @@ const init = (callback = null) => {
     }
   })
 }
-const tipShow = (duration, wait, times) => {
+const tipShow = (duration?: number, wait?: number, times?: number) => {
   duration = duration === undefined ? tipInner.value.duration : duration
   wait = wait === undefined ? tipInner.value.duration : wait
   times = times === undefined ? tipInner.value.times : times
@@ -214,7 +236,7 @@ const tipShow = (duration, wait, times) => {
 /**
  * 触摸拖拽开始：记录初始触摸位置
  */
-const touchStart = (e) => {
+const touchStart = (e: TouchEvent) => {
   if (tipInner.value.show) {
     return false
   }
@@ -226,7 +248,7 @@ const touchStart = (e) => {
 /**
  * 拖动时执行：修改页面动画，传递触摸动态参数给 refresh 组件
  */
-const touchMove = (e) => {
+const touchMove = (e: TouchEvent) => {
   if (tipInner.value.show) {
     return false
   }
@@ -305,7 +327,7 @@ const touchEnd = () => {
  * 回弹及二楼关闭：拖动小于六分之一直接回顶部或外部自定义调用关闭二楼
  */
 const back = (callback = true) =>
-  new Promise((resolve) => {
+  new Promise<void>((resolve) => {
     setWapper(-scrollHeight.value + props.offset, 800)
     if (props.top) {
       setInner(scrollHeight.value, 800, 1, props.scale ? 0 : 1)
@@ -330,7 +352,7 @@ const back = (callback = true) =>
  * 刷新后的回弹：请求完数据之后执行
  */
 const settriggered = () =>
-  new Promise((resolve) => {
+  new Promise<void>((resolve) => {
     setWapper(-scrollHeight.value + props.offset, 800)
     if (props.top) {
       setInner(scrollHeight.value, 800, 1, props.scale ? 0 : 1)
@@ -360,7 +382,11 @@ onMounted(() => {
 })
 
 // 不能传 vm.proxy：<script setup> 公共实例代理不含内部绑定，需以普通对象暴露方法
-provide('cooluiSecondFloor', { registerRefresh, registerNavBar, back })
+provide<CooluiSecondFloorApi>('cooluiSecondFloor', {
+  registerRefresh,
+  registerNavBar,
+  back,
+})
 defineOptions({
   virtualHost: true,
   styleIsolation: 'apply-shared',

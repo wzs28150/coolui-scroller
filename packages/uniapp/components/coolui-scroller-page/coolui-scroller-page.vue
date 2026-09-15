@@ -8,7 +8,10 @@
   </view>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { CooluiPageListItem } from '../../types'
+
 defineOptions({
   virtualHost: true,
   styleIsolation: 'apply-shared',
@@ -16,8 +19,8 @@ defineOptions({
 
 const props = defineProps({
   pageList: {
-    type: Array,
-    default: () => [],
+    type: Array as PropType<CooluiPageListItem[]>,
+    default: (): CooluiPageListItem[] => [],
   },
 })
 </script>

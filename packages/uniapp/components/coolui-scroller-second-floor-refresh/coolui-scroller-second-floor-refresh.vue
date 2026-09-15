@@ -42,9 +42,13 @@
   </view>
 </template>
 
-<script setup>
-import { ref, computed, inject, onMounted } from 'vue'
+<script setup lang="ts">
+import { ref, computed, inject, onMounted, type PropType } from 'vue'
 import { deepMerge } from '../../utils/platform.js'
+import type {
+  CooluiSecondFloorApi,
+  CooluiSecondFloorRefreshConfig,
+} from '../../types'
 
 const defaultConfig = {
   loadingText: '正在加载',
@@ -57,7 +61,7 @@ const defaultConfig = {
 
 const props = defineProps({
   refreshConfig: {
-    type: Object,
+    type: Object as PropType<CooluiSecondFloorRefreshConfig>,
     default: () => ({}),
   },
   // 返回首页（back）状态的背景色，仅传入的页面（如淘宝）才带背景；不传则无背景
@@ -67,7 +71,10 @@ const props = defineProps({
   },
 })
 
-const cooluiSecondFloor = inject('cooluiSecondFloor', null)
+const cooluiSecondFloor = inject<CooluiSecondFloorApi | null>(
+  'cooluiSecondFloor',
+  null
+)
 
 const text = ref('')
 const isLoading = ref(false)
@@ -78,7 +85,7 @@ const status = ref('down')
 
 const mergedConfig = computed(() => deepMerge(defaultConfig, props.refreshConfig))
 const rootStyle = computed(() => {
-  const style = { color: mergedConfig.value.color }
+  const style: Record<string, string> = { color: mergedConfig.value.color }
   // 仅在返回首页（back）状态且页面传入了底色时，才给背景色（满宽由 :host 撑满）
   if (status.value === 'back' && props.backBgColor) {
     style.backgroundColor = props.backBgColor
@@ -107,10 +114,10 @@ onMounted(() => {
   text.value = mergedConfig.value.downText
 })
 
-const setScrollHeight = (height) => {
+const setScrollHeight = (height: number) => {
   scrollHeight.value = height
 }
-const setText = (val) => {
+const setText = (val: number) => {
   if (val > 0 && val <= scrollHeight.value / 6) {
     if (text.value !== mergedConfig.value.downText) {
       text.value = mergedConfig.value.downText
@@ -129,7 +136,7 @@ const setText = (val) => {
   }
   p.value = val
 }
-const setLoading = (flag) => {
+const setLoading = (flag: boolean) => {
   isLoading.value = flag
   status.value = 'loading'
   text.value = mergedConfig.value.loadingText
@@ -140,7 +147,7 @@ const setDown = () => {
   p.value = 0
   status.value = 'down'
 }
-const setSecondShow = (flag) => {
+const setSecondShow = (flag: boolean) => {
   isFloorShow.value = flag
   text.value = flag ? mergedConfig.value.backText : ''
   status.value = 'back'
@@ -313,4 +320,11 @@ defineExpose({
 .second-floor-refresh.second-floor-refresh-back {
   text-align: center;
 }
+/* #ifdef H5 */
+/* H5 下组件没有宿主节点，上面的 :host 不生效，宿主样式改为落到根节点上 */
+.second-floor-refresh {
+  width: 100%;
+  font-size: 28rpx;
+}
+/* #endif */
 </style>

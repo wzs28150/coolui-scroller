@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 
 const reset = () => {
   console.log(1)

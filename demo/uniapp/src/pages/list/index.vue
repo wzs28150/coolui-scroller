@@ -1,8 +1,16 @@
-<script setup>
+<script setup lang="ts">
+import type {
+  DemoArticle,
+  DemoEmptySetting,
+  DemoListResponse,
+  DemoLoadmoreSetting,
+  DemoPageParam,
+  DemoRefreshConfig,
+} from '../../types'
 
 const isEmpty = ref(false)
-const list = ref([])
-const refreshSetting = {
+const list = ref<DemoArticle[]>([])
+const refreshSetting: DemoRefreshConfig = {
   type: 'default',
   style: 'black',
   background: {
@@ -11,19 +19,19 @@ const refreshSetting = {
   isBackBtn: true,
   shake: false,
 }
-const loadMoreSetting = ref({
+const loadMoreSetting = ref<DemoLoadmoreSetting>({
   status: '',
   more: { text: '上拉加载更多', color: '#999' },
   loading: { text: '加载中...', color: '#999' },
   noMore: { text: '-- 到底啦 --', color: '#999' },
 })
-const emptySetting = {
+const emptySetting: DemoEmptySetting = {
   img: '/static/img/empty.png',
   // img: 'http://www.365editor.com/images/nodata.png',
   text: '暂无文章',
 }
 const totalPageNum = ref(0)
-const param = ref({ limit: 4, page: 0 })
+const param = ref<DemoPageParam>({ limit: 4, page: 0 })
 
 const refresh = () => {}
 const getList = () => {
@@ -43,15 +51,16 @@ const getList = () => {
           isempty: 0, // 设置为1可测试空数据
           pagenum: 10,
         },
-        method: 'get',
+        method: 'GET',
         success: (res) => {
-          if (res.data.code === 200) {
-            totalPageNum.value = res.data.data.last
-            if (res.data.data.list.length === 0 && page === 0) {
+          const data = res.data as unknown as DemoListResponse<DemoArticle>
+          if (data.code === 200) {
+            totalPageNum.value = data.data.last
+            if (data.data.list.length === 0 && page === 0) {
               loadMoreSetting.value.status = 'noMore'
               isEmpty.value = true
             } else {
-              const datas = list.value.concat(res.data.data.list)
+              const datas = list.value.concat(data.data.list)
               setTimeout(() => {
                 list.value = datas
                 loadMoreSetting.value.status = 'more'

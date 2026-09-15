@@ -1,10 +1,17 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiRefreshConfig } from 'coolui-scroller-uni/types'
 import PicsHeader from '../component/header.vue'
 import PicsItem from '../component/picsItem.vue'
+import type {
+  DemoListResponse,
+  DemoLoadmoreSetting,
+  DemoPageParam,
+  DemoSocialItem,
+} from '../../../../../types'
 
 const isEmpty = ref(false)
-const list = ref([])
-const loadMoreSetting = ref({
+const list = ref<DemoSocialItem[]>([])
+const loadMoreSetting = ref<DemoLoadmoreSetting>({
   status: 'more',
   more: {
     text: '上拉加载更多',
@@ -19,7 +26,7 @@ const loadMoreSetting = ref({
     color: '#999',
   },
 })
-const baseConfig = {
+const baseConfig: CooluiRefreshConfig = {
   shake: false, // 是否开启下拉震动
   height: 70,
   text: {
@@ -33,7 +40,7 @@ const baseConfig = {
   },
 }
 const totalPageNum = ref(0)
-const param = ref({
+const param = ref<DemoPageParam>({
   limit: 4,
   page: 0,
 })
@@ -69,17 +76,18 @@ const getList = () => {
           isempty: 0, // 设置为1可测试空数据
           pagenum: 10,
         },
-        method: 'get',
+        method: 'GET',
         success: (res) => {
-          if (res.data.code === 200) {
-            totalPageNum.value = res.data.data.last
-            if (res.data.data.list.length === 0 && page === 0) {
+          const data = res.data as unknown as DemoListResponse<DemoSocialItem>
+          if (data.code === 200) {
+            totalPageNum.value = data.data.last
+            if (data.data.list.length === 0 && page === 0) {
               const s = loadMoreSetting.value
               s.status = 'noMore'
               isEmpty.value = true
               loadMoreSetting.value = { ...s }
             } else {
-              const datas = list.value.concat(res.data.data.list)
+              const datas = list.value.concat(data.data.list)
               setTimeout(() => {
                 list.value = datas
                 const s = loadMoreSetting.value

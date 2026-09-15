@@ -10,8 +10,9 @@
   </view>
 </template>
 
-<script setup>
-import { computed, provide } from 'vue'
+<script setup lang="ts">
+import { computed, provide, type PropType } from 'vue'
+import type { CooluiNavPannelApi } from '../../types'
 
 const props = defineProps({
   active: {
@@ -23,7 +24,7 @@ const props = defineProps({
     default: false,
   },
   type: {
-    type: String,
+    type: String as PropType<'side' | 'fade' | (string & {})>,
     default: 'side', // 可选 side,fade
   },
 })
@@ -44,7 +45,7 @@ const innerStyle = computed(() => {
 
 // 保留注册接口：scroller 挂载时会调用，这里不再需要计数
 const registerScroller = () => {}
-provide('cooluiNavPannel', { registerScroller })
+provide<CooluiNavPannelApi>('cooluiNavPannel', { registerScroller })
 </script>
 
 <style lang="scss">
@@ -104,4 +105,25 @@ provide('cooluiNavPannel', { registerScroller })
     }
   }
 }
+/* #ifdef H5 */
+/* H5 下子组件没有宿主节点，`coolui-scroller` 标签选择器不命中，
+   改为用子组件根节点类名选择器，效果与小程序端一致 */
+.wx-coolui-nav-pannel-inner.side .coolui-scroller {
+  flex: 0 0 100%;
+}
+
+.wx-coolui-nav-pannel-inner.fade .coolui-scroller {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.wx-coolui-nav-pannel-inner.fade .coolui-scroller:first-child {
+  position: relative;
+  z-index: 1;
+}
+/* #endif */
 </style>

@@ -1,6 +1,13 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiScrollerNavItem } from 'coolui-scroller-uni/types'
+import type {
+  DemoNavChangeEvent,
+  DemoNavColorConfig,
+  DemoTapEvent,
+  DemoTouchEvent,
+} from '../../types'
 
-const nav = [
+const nav: CooluiScrollerNavItem[] = [
   { id: 1, title: '分类1分类1分类1分类1' },
   { id: 2, title: '分类2' },
   { id: 3, title: '分类3' },
@@ -12,30 +19,30 @@ const nav = [
 const active = ref(0)
 const type = ref('line')
 const border = ref(true)
-const navPerView = ref(3.5)
+const navPerView = ref<number | string>(3.5)
 const spaceBetween = ref(0)
 const touchx = ref(0)
 const touchy = ref(0)
-const textLine = { color: '#333', activeColor: '#d13435' }
-const backgroundLine = { color: '#333', activeColor: '#d13435' }
-const textPlain = { color: '#ccc', activeColor: '#d13435' }
-const backgroundPlain = { color: '#ccc', activeColor: '#d13435' }
-const text = { color: '#333', activeColor: '#fff' }
-const background = { color: '#ccc', activeColor: '#d13435' }
+const textLine: DemoNavColorConfig = { color: '#333', activeColor: '#d13435' }
+const backgroundLine: DemoNavColorConfig = { color: '#333', activeColor: '#d13435' }
+const textPlain: DemoNavColorConfig = { color: '#ccc', activeColor: '#d13435' }
+const backgroundPlain: DemoNavColorConfig = { color: '#ccc', activeColor: '#d13435' }
+const text: DemoNavColorConfig = { color: '#333', activeColor: '#fff' }
+const background: DemoNavColorConfig = { color: '#ccc', activeColor: '#d13435' }
 
 const test = () => {}
-const onChange = (e) => {
+const onChange = (e: DemoNavChangeEvent) => {
   uni.showToast({
     title: 'change方法返回id:' + e.id,
     icon: 'none',
     duration: 2000,
   })
 }
-const TouchStart = (e) => {
+const TouchStart = (e: DemoTouchEvent) => {
   touchx.value = e.changedTouches[0].clientX
   touchy.value = e.changedTouches[0].clientY
 }
-const TouchEnd = (e) => {
+const TouchEnd = (e: DemoTouchEvent) => {
   const x = e.changedTouches[0].clientX
   const y = e.changedTouches[0].clientY
   let turn = ''
@@ -60,17 +67,17 @@ const TouchEnd = (e) => {
     }
   }
 }
-const changeType = (e) => {
+const changeType = (e: DemoTapEvent) => {
   const t = e.currentTarget.dataset.type
   type.value = t
   navPerView.value = t !== 'line' ? 'auto' : navPerView.value
   spaceBetween.value = t !== 'line' ? 20 : spaceBetween.value
 }
-const changeNavPerView = (e) => {
+const changeNavPerView = (e: DemoTapEvent) => {
   const t = e.currentTarget.dataset.type
   navPerView.value = t === 'auto' ? 'auto' : Number(t)
 }
-const changeSpaceBetween = (e) => {
+const changeSpaceBetween = (e: DemoTapEvent) => {
   spaceBetween.value = Number(e.currentTarget.dataset.type)
 }
 const borderChange = () => {
@@ -81,7 +88,7 @@ const borderChange = () => {
 <template>
   <view class="page">
     <view class="pannel">
-      <view class="title" @tap="test">分类组件</view>
+      <view class="title+" @tap="test">分类组件</view>
       <!-- 基础使用 -->
       <view class="content" style="padding-bottom: 0">
         置于滚动组件头部插槽中,用于切换分类。active为选中的index值,可设置间距、显示类型、显示个数等，可添加touch事件左右侧滑切换改变active。来切换分类导航
@@ -107,7 +114,7 @@ const borderChange = () => {
                 line
               </button>
               <button :class="type === 'round' ? 'on' : ''" @tap="changeType" data-type="round">
-                round
+                round，
               </button>
               <button :class="type === 'plain' ? 'on' : ''" @tap="changeType" data-type="plain">
                 plain

@@ -12,9 +12,12 @@
         "navigationBarTitleText": "coolui-scroller",
         "disableScroll": true,
         "pageOrientation": "auto",
+        // wave-bg 放在 wxcomponents 下（原生小程序组件格式），只有微信端能用
+        // #ifdef MP-WEIXIN
         "usingComponents": {
           "wave-bg": "/wxcomponents/wave-bg/bg/index"
         }
+        // #endif
       }
     }
   ],

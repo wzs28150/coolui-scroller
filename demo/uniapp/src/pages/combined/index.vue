@@ -1,8 +1,18 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiRefreshConfig, CooluiScrollerNavItem } from 'coolui-scroller-uni/types'
+import type {
+  DemoArticle,
+  DemoEmptySetting,
+  DemoListResponse,
+  DemoLoadmoreSetting,
+  DemoPageParam,
+  DemoTouchEvent,
+} from '../../types'
 
 const isEmpty = ref(false)
-const list = ref([])
-const baseConfig = {
+/** 分页列表：list[page] 为一页的数据（配合 scroller-page 使用） */
+const list = ref<DemoArticle[][]>([])
+const baseConfig: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 70,
   text: {
@@ -15,19 +25,19 @@ const baseConfig = {
     img: 'https://test.wzs.pub/pic/bg.jpg',
   },
 }
-const loadMoreSetting = ref({
+const loadMoreSetting = ref<DemoLoadmoreSetting>({
   status: 'more',
   more: { text: '上拉加载更多', color: '#999' },
   loading: { text: '加载中...', color: '#999' },
   noMore: { text: '-- 到底啦 --', color: '#999' },
   color: '#999',
 })
-const emptySetting = {
+const emptySetting: DemoEmptySetting = {
   img: '/static/img/empty.png',
   // img: 'http://www.365editor.com/images/nodata.png',
   text: '暂无文章',
 }
-const nav = [
+const nav: CooluiScrollerNavItem[] = [
   { id: 1, title: '分类1' },
   { id: 2, title: '分类2' },
   { id: 3, title: '分类3' },
@@ -39,13 +49,13 @@ const nav = [
 const active = ref(0)
 const key = ref('')
 
-let wholeList = []
+let wholeList: DemoArticle[][] = []
 let currentRenderIndex = 0
-let pageHeightArr = []
+let pageHeightArr: number[] = []
 let touchx = 0
 let touchy = 0
 const totalPageNum = ref(0)
-const param = ref({ limit: 4, page: 0 })
+const param = ref<DemoPageParam>({ limit: 4, page: 0 })
 
 const getList = () => {
   // 判断当前是否为加载状态 防止页面重复添加数据
@@ -67,16 +77,17 @@ const getList = () => {
         },
         method: 'GET',
         success: (res) => {
-          if (res.data.code === 200) {
-            totalPageNum.value = res.data.data.last
-            if (res.data.data.list.length === 0 && page === 0) {
+          const data = res.data as unknown as DemoListResponse<DemoArticle>
+          if (data.code === 200) {
+            totalPageNum.value = data.data.last
+            if (data.data.list.length === 0 && page === 0) {
               loadMoreSetting.value.status = 'noMore'
               isEmpty.value = true
             } else {
-              wholeList[page] = res.data.data.list
+              wholeList[page] = data.data.list
               setTimeout(() => {
                 // Vue3 数组索引赋值即响应式（替代原 Vue2 的 $set）
-                list.value[page] = res.data.data.list
+                list.value[page] = data.data.list
                 loadMoreSetting.value.status = 'more'
                 param.value.page += 1
               }, 500)
@@ -100,11 +111,11 @@ const refresh = () => {
 const onBtnClick = () => refresh()
 const confirm = () => refresh()
 const onChange = () => refresh()
-const TouchStart = (e) => {
+const TouchStart = (e: DemoTouchEvent) => {
   touchx = e.changedTouches[0].clientX
   touchy = e.changedTouches[0].clientY
 }
-const TouchEnd = (e) => {
+const TouchEnd = (e: DemoTouchEvent) => {
   const x = e.changedTouches[0].clientX
   const y = e.changedTouches[0].clientY
   let turn = ''

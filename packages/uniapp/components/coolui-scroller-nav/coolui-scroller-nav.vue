@@ -25,28 +25,36 @@
   </view>
 </template>
 
-<script setup>
-import { ref, watch, onMounted, nextTick, getCurrentInstance } from 'vue'
+<script setup lang="ts">
+import {
+  ref,
+  watch,
+  onMounted,
+  nextTick,
+  getCurrentInstance,
+  type PropType,
+} from 'vue'
 import { getSelectorQuery } from '../../utils/platform.js'
+import type { CooluiScrollerNavItem } from '../../types'
 
 const props = defineProps({
   list: {
-    type: Array,
-    default: () => [],
+    type: Array as PropType<CooluiScrollerNavItem[]>,
+    default: (): CooluiScrollerNavItem[] => [],
   },
   border: {
     type: Boolean,
     default: true,
   },
   text: {
-    type: Object,
+    type: Object as PropType<{ color?: string; activeColor?: string }>,
     default: () => ({
       color: '#333333',
       activeColor: '#d13435',
     }),
   },
   background: {
-    type: Object,
+    type: Object as PropType<{ color?: string; activeColor?: string }>,
     default: () => ({
       color: '#333333',
       activeColor: '#d13435',
@@ -61,7 +69,7 @@ const props = defineProps({
     default: 0,
   },
   type: {
-    type: String,
+    type: String as PropType<'line' | 'round' | 'plain' | (string & {})>,
     default: 'line', // 可选 line,round,plain
   },
   active: {
@@ -70,7 +78,12 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['change', 'update:active'])
+const emit = defineEmits<{
+  /** 选中项变化 */
+  (e: 'change', payload: { id?: string | number; index: number }): void
+  /** 选中下标变化（配合 v-model:active） */
+  (e: 'update:active', index: number): void
+}>()
 const vm = getCurrentInstance()
 
 const toView = ref('item0')
@@ -100,7 +113,7 @@ onMounted(() => {
   })
 })
 
-const itemStyle = (index) => {
+const itemStyle = (index: number) => {
   const isActive = activeInner.value === index
   return {
     width: navWidth.value,
@@ -109,9 +122,9 @@ const itemStyle = (index) => {
     color: isActive ? props.text.activeColor : props.text.color,
   }
 }
-const lineStyle = (index) => {
+const lineStyle = (index: number) => {
   const isActive = activeInner.value === index
-  const style = {
+  const style: Record<string, string> = {
     backgroundColor: isActive
       ? props.background.activeColor
       : props.type === 'line'
@@ -125,13 +138,13 @@ const lineStyle = (index) => {
   }
   return style
 }
-const changeNav = (index) => {
+const changeNav = (index: number) => {
   activeInner.value = index
   toView.value = 'item' + (index - 1)
   emit('update:active', index)
   change(index)
 }
-const change = (index) => {
+const change = (index: number) => {
   // 去重：changeNav 与 active watcher 都可能触发，避免同一 index 重复 emit
   // （受控模式下点击会先 change 再经 update:active 回流触发 watcher，需去重）
   if (index === _lastChangeIndex) {
@@ -144,18 +157,19 @@ const change = (index) => {
     index,
   })
 }
-const changeNavPerView = (navPerView) => {
+const changeNavPerView = (navPerView: number | string) => {
   const query = getSelectorQuery(vm)
   query
     .select('.wx-coolui-nav')
     .boundingClientRect()
     .exec((res) => {
       if (res && res.length > 0 && res[0]) {
+        // 'auto' 时宽度交给 CSS，其余按每屏个数均分可用宽度
+        const perView = Number(navPerView)
         navWidth.value =
           navPerView === 'auto'
             ? 'auto'
-            : (res[0].width - props.spaceBetween * (navPerView - 1)) /
-                navPerView +
+            : (res[0].width - props.spaceBetween * (perView - 1)) / perView +
               'px'
       }
     })
@@ -267,4 +281,12 @@ const changeNavPerView = (navPerView) => {
 .wx-coolui-nav .nav-inner .item.line.on .text .line {
   width: 100%;
 }
+/* #ifdef H5 */
+/* H5 下组件没有宿主节点，上面的 :host 不生效，宿主样式改为落到根节点上 */
+.wx-coolui-nav {
+  display: block;
+  width: 100%;
+  font-size: 28rpx;
+}
+/* #endif */
 </style>

@@ -1,6 +1,7 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiRefreshConfig } from 'coolui-scroller-uni/types'
 
-const giffoodSetting = {
+const giffoodSetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 120,
   background: {

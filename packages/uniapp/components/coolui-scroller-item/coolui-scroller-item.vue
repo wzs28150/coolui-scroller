@@ -5,7 +5,7 @@
   </view>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 const props = defineProps({
@@ -17,7 +17,7 @@ const props = defineProps({
 
 const rippleStyle = ref('')
 
-const itemTap = (e) => {
+const itemTap = (e: TouchEvent) => {
   if (props.ripple) {
     const touch =
       (e.changedTouches && e.changedTouches[0]) ||

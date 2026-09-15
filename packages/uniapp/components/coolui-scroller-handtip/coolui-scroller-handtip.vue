@@ -65,7 +65,7 @@
   </view>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { setStorageSync, getStorageSync } from '../../utils/platform.js'
 
@@ -96,7 +96,10 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits<{
+  /** 关闭手势提示时触发 */
+  (e: 'close'): void
+}>()
 const isTipShow = ref(true)
 
 onMounted(() => {

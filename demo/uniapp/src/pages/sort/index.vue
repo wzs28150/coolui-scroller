@@ -1,6 +1,7 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiSortItemApi, CooluiSortOption } from 'coolui-scroller-uni/types'
 
-const options = [
+const options: CooluiSortOption[] = [
   { id: 1, title: '综合排序' },
   { id: 2, title: '距离最近' },
   { id: 3, title: '好评优先' },
@@ -8,22 +9,31 @@ const options = [
   { id: 5, title: '价格由高到低' },
   { id: 6, title: '其他' },
 ]
-const options2 = [
+const options2: CooluiSortOption[] = [
   { id: 1, title: '手机' },
   { id: 2, title: '电视' },
   { id: 3, title: '冰箱' },
 ]
-const options3 = [
+const options3: CooluiSortOption[] = [
   { id: 1, title: '华为' },
   { id: 2, title: '小米' },
   { id: 3, title: '一加' },
   { id: 4, title: '苹果' },
   { id: 5, title: 'OPPO' },
 ]
-const value1 = ref(null)
-const value2 = ref(null)
-const value3 = ref(null)
-const sort4 = ref(null)
+const value1 = ref<string | number | null>(null)
+const value2 = ref<string | number | null>(null)
+const value3 = ref<string | number | null>(null)
+const sort4 = ref<CooluiSortItemApi | null>(null)
+
+/** 取选项标题：value 为空或越界时返回空串，由模板给出默认文案 */
+const optionTitle = (list: CooluiSortOption[], value: string | number | null) => {
+  if (value === null || value === '') {
+    return ''
+  }
+  const item = list[Number(value)]
+  return (item && item.title) || ''
+}
 
 const value3Titles = computed(() => {
   if (!value3.value) {
@@ -95,11 +105,11 @@ const close = () => {
         </coolui-scroller-sort>
         <view class="nav-pannel">
           <view>
-            <view>排序:{{ options[value1] ? options[value1].title : '综合排序' }}</view>
-            <view>分类:{{ options2[value2] ? options2[value2].title : '无' }}</view>
+            <view>排序:{{ optionTitle(options, value1) || '综合排序' }}</view>
+            <view>分类:{{ optionTitle(options2, value2) || '无' }}</view>
             <view>
               品牌:
-              <block v-if="value3 && value3.length > 0">
+              <block v-if="value3Titles.length > 0">
                 <text v-for="item in value3Titles" :key="item">{{ item }},</text>
               </block>
               <block v-else>无</block>

@@ -1,25 +1,32 @@
-<script setup>
+<script setup lang="ts">
+import type {
+  DemoArticle,
+  DemoListResponse,
+  DemoLoadmoreSetting,
+  DemoPageParam,
+  DemoRefreshConfig,
+} from '../../types'
 
 // 静态配置（不会被修改，普通常量即可）
-const loadMoreSetting = {
+const loadMoreSetting: DemoLoadmoreSetting = {
   status: 'more',
   more: { text: '上拉加载更多', color: '#999' },
   loading: { text: '加载中...', color: '#999' },
   noMore: { text: '-- 到底啦 --', color: '#999' },
 }
-const loadMoreSetting1 = {
+const loadMoreSetting1: DemoLoadmoreSetting = {
   status: 'loading',
   more: { text: '上拉加载更多', color: '#999' },
   loading: { text: '加载中...', color: '#999' },
   noMore: { text: '-- 到底啦 --', color: '#999' },
 }
-const loadMoreSetting2 = {
+const loadMoreSetting2: DemoLoadmoreSetting = {
   status: 'noMore',
   more: { text: '上拉加载更多', color: '#999' },
   loading: { text: '加载中...', color: '#999' },
   noMore: { text: '-- 到底啦 --', color: '#999' },
 }
-const refreshSetting = {
+const refreshSetting: DemoRefreshConfig = {
   type: 'default',
   style: 'black',
   background: { color: '#f2f2f2' },
@@ -27,15 +34,15 @@ const refreshSetting = {
   shake: false,
 }
 
-const loadMoreSetting3 = ref({
+const loadMoreSetting3 = ref<DemoLoadmoreSetting>({
   status: 'more',
   more: { text: '上拉加载更多', color: '#999' },
   loading: { text: '加载中...', color: '#999' },
   noMore: { text: '-- 到底啦 --', color: '#999' },
 })
-const list = ref([])
+const list = ref<DemoArticle[]>([])
 const totalPageNum = ref(0)
-const param = ref({ limit: 4, page: 0 })
+const param = ref<DemoPageParam>({ limit: 4, page: 0 })
 const isEmpty = ref(false)
 
 const refresh = () => {}
@@ -56,15 +63,16 @@ const getList = () => {
           limit: 8,
           pagenum: 10,
         },
-        method: 'get',
+        method: 'GET',
         success: (res) => {
-          if (res.data.code === 200) {
-            totalPageNum.value = res.data.data.last
-            if (res.data.data.list.length === 0 && page === 0) {
+          const data = res.data as unknown as DemoListResponse<DemoArticle>
+          if (data.code === 200) {
+            totalPageNum.value = data.data.last
+            if (data.data.list.length === 0 && page === 0) {
               loadMoreSetting3.value.status = 'noMore'
               isEmpty.value = true
             } else {
-              const datas = list.value.concat(res.data.data.list)
+              const datas = list.value.concat(data.data.list)
               setTimeout(() => {
                 list.value = datas
                 loadMoreSetting3.value.status = 'more'

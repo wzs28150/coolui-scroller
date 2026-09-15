@@ -110,9 +110,15 @@
   </view>
 </template>
 
-<script setup>
-import { ref, computed, watch, provide, inject, onMounted, onBeforeUnmount, nextTick, getCurrentInstance } from 'vue'
+<script setup lang="ts">
+import { ref, computed, watch, provide, inject, onMounted, onBeforeUnmount, nextTick, getCurrentInstance, type PropType } from 'vue'
 import { getSelectorQuery, deepMerge } from '../../utils/platform.js'
+import type {
+  CooluiParallaxApi,
+  CooluiRefreshConfig,
+  CooluiRefreshProvideApi,
+  CooluiScrollerApi,
+} from '../../types'
 
 const defaultConfig = {
   shake: false,
@@ -128,7 +134,7 @@ const defaultConfig = {
 
 const props = defineProps({
   type: {
-    type: String,
+    type: String as PropType<'default' | 'base' | 'logoText' | 'diy' | (string & {})>,
     default: 'default',
   },
   threshold: {
@@ -140,23 +146,27 @@ const props = defineProps({
     default: false,
   },
   refreshstate: {
-    type: String,
+    type: String as PropType<'pulldown' | 'loosen' | 'loading' | (string & {})>,
     default: 'pulldown', // pulldown loosen loading
   },
   config: {
-    type: Object,
+    type: Object as PropType<CooluiRefreshConfig>,
     default: () => ({}),
   },
 })
 
-const emit = defineEmits([
-  'thresholdChange',
-  'refreshstateChange',
-  'update:threshold',
-  'update:refreshstate',
-])
+const emit = defineEmits<{
+  /** 下拉进度变化 */
+  (e: 'thresholdChange', threshold: number): void
+  /** 刷新状态变化 */
+  (e: 'refreshstateChange', state: string): void
+  /** 下拉进度变化（配合 v-model:threshold） */
+  (e: 'update:threshold', threshold: number): void
+  /** 刷新状态变化（配合 v-model:refreshstate） */
+  (e: 'update:refreshstate', state: string): void
+}>()
 
-const cooluiScroller = inject('cooluiScroller', null)
+const cooluiScroller = inject<CooluiScrollerApi | null>('cooluiScroller', null)
 const vm = getCurrentInstance()
 
 const triggered = ref(false)
@@ -164,7 +174,7 @@ const textWidth = ref(0)
 const thresholdInner = ref(props.threshold)
 const isloading = ref(props.isloading)
 const refreshstate = ref(props.refreshstate)
-const parallaxNodes = []
+const parallaxNodes: CooluiParallaxApi[] = []
 
 const mergedConfig = computed(() => deepMerge(defaultConfig, props.config))
 const textColor = computed(
@@ -231,18 +241,18 @@ onBeforeUnmount(() => {
 })
 
 /* 供视差组件注册 */
-const registerParallax = (node) => {
+const registerParallax = (node: CooluiParallaxApi) => {
   parallaxNodes.push(node)
 }
-const unregisterParallax = (node) => {
+const unregisterParallax = (node: CooluiParallaxApi) => {
   const idx = parallaxNodes.indexOf(node)
   if (idx > -1) {
     parallaxNodes.splice(idx, 1)
   }
 }
 /* 供 scroller 调用 */
-const changeThreshold = (t) =>
-  new Promise((resolve) => {
+const changeThreshold = (t: number) =>
+  new Promise<void>((resolve) => {
     let rs = 'pulldown'
     if (triggered.value && !isloading.value && t > 0.5) {
       rs = 'loosen'
@@ -256,16 +266,16 @@ const changeThreshold = (t) =>
     })
     resolve()
   })
-const setLoading = (flag) =>
-  new Promise((resolve) => {
+const setLoading = (flag: boolean) =>
+  new Promise<void>((resolve) => {
     isloading.value = flag
     setRefreshstate(flag ? 'loading' : 'pulldown')
     resolve()
   })
-const setTriggered = (flag) => {
+const setTriggered = (flag: boolean) => {
   triggered.value = flag
 }
-const setRefreshstate = (rs) => {
+const setRefreshstate = (rs: string) => {
   if (refreshstate.value !== rs) {
     refreshstate.value = rs
     emit('refreshstateChange', rs)
@@ -274,7 +284,7 @@ const setRefreshstate = (rs) => {
 }
 
 // 不能传 vm.proxy：<script setup> 公共实例代理不含内部绑定，需以普通对象暴露
-provide('cooluiRefresh', {
+provide<CooluiRefreshProvideApi>('cooluiRefresh', {
   get type() {
     return props.type
   },

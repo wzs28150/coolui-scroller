@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM"],
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "types": ["@dcloudio/types"],
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "coolui-scroller-uni/*": ["./*"]
+    },
+    /* 公共类型（props / emits / provide / inject）与组件内部实现均已补齐显式类型，
+       故打开 noImplicitAny：新增代码漏写类型会直接报错。
+       strictNullChecks 暂不开启，避免历史代码里大量 null 访问告警。 */
+    "strict": false,
+    "noImplicitAny": true,
+    "strictNullChecks": false
+  },
+  "include": ["types.ts", "shims.d.ts", "components/**/*.vue", "utils/**/*.d.ts"],
+  "vueCompilerOptions": {
+    /* uni-app 内置组件与 HTML 同名标签语义不同，按自定义元素处理，不做 HTML 属性校验 */
+    "isCustomElement": [
+      "view",
+      "text",
+      "button",
+      "input",
+      "image",
+      "block",
+      "scroll-view",
+      "page-container"
+    ]
+  }
+}

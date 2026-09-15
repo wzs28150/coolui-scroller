@@ -1,9 +1,11 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiRefreshConfig, CooluiScrollerApi } from 'coolui-scroller-uni/types'
+import type { DemoRefreshState } from '../../../../types'
 
 const val = ref(0)
-const refreshstate = ref('pulldown')
+const refreshstate = ref<DemoRefreshState>('pulldown')
 const isLoading = ref(false)
-const giffoodSetting = {
+const giffoodSetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 150,
   isAutoTriggered: false,
@@ -11,12 +13,12 @@ const giffoodSetting = {
     color: '#3ac6f4',
   },
 }
-const christmasScroller = ref(null)
+const christmasScroller = ref<CooluiScrollerApi | null>(null)
 
-const onThreshold = (v) => {
+const onThreshold = (v: number) => {
   val.value = v
 }
-const onRefreshstate = (v) => {
+const onRefreshstate = (v: string) => {
   refreshstate.value = v
 }
 const onRefresh = () => {

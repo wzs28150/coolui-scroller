@@ -1,6 +1,7 @@
-<script setup>
+<script setup lang="ts">
+import type { DemoEmptySetting } from '../../types'
 
-const emptySetting = {
+const emptySetting: DemoEmptySetting = {
   img: '/static/img/empty.png',
   // img: 'http://www.365editor.com/images/nodata.png',
   text: '暂无文章',

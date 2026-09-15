@@ -1,10 +1,22 @@
-<script setup>
+<script setup lang="ts">
+import type {
+  CooluiRefreshConfig,
+  CooluiScrollerApi,
+  CooluiScrollerNavItem,
+} from 'coolui-scroller-uni/types'
+import type {
+  DemoCaseEntry,
+  DemoComponentEntry,
+  DemoNavChangeEvent,
+  DemoTapEvent,
+  DemoTouchEvent,
+} from '../../types'
 
 const PageCur = ref(0)
 const trans = ref(false)
 const touchx = ref(0)
 const touchy = ref(0)
-const componentList = [
+const componentList: DemoComponentEntry[] = [
   { title: '滚动列表组件', path: '/pages/list/index' },
   { title: '加载更多组件', path: '/pages/loadmore/index' },
   { title: '下拉刷新组件', path: '/pages/refresh/index' },
@@ -18,12 +30,12 @@ const componentList = [
   { title: '下拉二楼', path: '/pages/second-floor/index' },
   { title: '组合使用', path: '/pages/combined/index' },
 ]
-const caseNav = [
+const caseNav: CooluiScrollerNavItem[] = [
   { id: 1, title: '下拉动画' },
   { id: 2, title: '下拉组合' },
   { id: 3, title: '下拉二楼' },
 ]
-const caseList = [
+const caseList: DemoCaseEntry[][] = [
   [
     {
       id: 5,
@@ -73,7 +85,7 @@ const caseList = [
     },
   ],
 ]
-const caseConfig = {
+const caseConfig: CooluiRefreshConfig = {
   shake: true,
   height: 70,
   text: {
@@ -90,7 +102,7 @@ const caseConfig = {
   },
 }
 const active = ref(0)
-const caseScroller = ref(null)
+const caseScroller = ref<CooluiScrollerApi | null>(null)
 
 // 案例子 tab（下拉动画/下拉组合/下拉二楼）切换时重新计算 scroller 高度
 watch(active, () => {
@@ -107,19 +119,19 @@ watch(PageCur, () => {
   }
 })
 
-const go = (path) => uni.navigateTo({ url: path })
-const navChange = (e) => {
+const go = (path: string) => uni.navigateTo({ url: path })
+const navChange = (e: DemoTapEvent) => {
   // dataset 取到的是字符串，必须转成数字，否则模板里的 === 判断恒不成立、tab 不切换
   PageCur.value = Number(e.currentTarget.dataset.cur)
   trans.value = false
 }
-const touchStart = (e) => {
+const touchStart = (e: DemoTouchEvent) => {
   const t = e.changedTouches[0]
   touchx.value = t.clientX
   touchy.value = t.clientY
   trans.value = true
 }
-const touchEnd = (e) => {
+const touchEnd = (e: DemoTouchEvent) => {
   const t = e.changedTouches[0]
   const x = t.clientX
   const y = t.clientY
@@ -142,8 +154,8 @@ const touchEnd = (e) => {
     }, 1000)
   }
 }
-const onChange = (e) => {
-  active.value = e.id - 1
+const onChange = (e: DemoNavChangeEvent) => {
+  active.value = Number(e.id) - 1
 }
 </script>
 
@@ -163,11 +175,28 @@ const onChange = (e) => {
           <!-- 原生 canvas 波浪背景组件（对齐原生 wave-bg-weapp）。
                uni-app 会把组件属性通过 u-p 传给组件实例，原生小程序组件读不到这些属性，
                因此这里不传参，参数走组件默认值（color #d13435 / percent 90 / position top）；
-               高度用行内样式确保作用到原生组件的宿主节点上。 -->
+               高度用行内样式确保作用到原生组件的宿主节点上。
+               该组件是 wxcomponents 里的原生小程序组件，只在微信端注册（见 pages.json）。 -->
+          <!-- #ifdef MP-WEIXIN -->
           <wave-bg
             class="bg"
             style="display: block; position: relative; height: 33vh; overflow: hidden; z-index: 0"
           ></wave-bg>
+          <!-- #endif -->
+          <!-- #ifndef MP-WEIXIN -->
+          <!-- 其它端没有该原生组件：用同尺寸、同主色的渐变底替代，保证布局与观感一致 -->
+          <view
+            class="bg"
+            style="
+              display: block;
+              position: relative;
+              height: 33vh;
+              overflow: hidden;
+              z-index: 0;
+              background: linear-gradient(180deg, #d13435 0%, #ef7f80 60%, #f2f2f2 100%);
+            "
+          ></view>
+          <!-- #endif -->
           <view class="logo">coolui-scroller</view>
           <view class="inner">
             <scroll-view scroll-y class="scroll">

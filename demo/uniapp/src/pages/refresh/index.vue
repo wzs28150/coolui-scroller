@@ -1,10 +1,20 @@
-<script setup>
+<script setup lang="ts">
+import type {
+  CooluiRefreshConfig,
+  CooluiScrollerApi,
+  CooluiScrollerNavItem,
+} from 'coolui-scroller-uni/types'
+import type {
+  DemoNavChangeEvent,
+  DemoNavColorConfig,
+  DemoRefreshState,
+} from '../../types'
 
 const val = ref(0)
-const refreshstate = ref('pulldown')
+const refreshstate = ref<DemoRefreshState>('pulldown')
 const active = ref(1) // 当前选中的Index值
 
-const defaultSetting = {
+const defaultSetting: CooluiRefreshConfig = {
   shake: true,
   style: 'black', // 设置圆点深色还是浅色
   // 关键：下拉高度(background.height) 大于 refresh 自身高度(height)，
@@ -12,7 +22,7 @@ const defaultSetting = {
   height: 50,
   background: { color: '#eeeeee', height: 120 },
 }
-const baseConfig = {
+const baseConfig: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 70,
   text: {
@@ -25,7 +35,7 @@ const baseConfig = {
     img: 'https://test.wzs.pub/pic/bg.jpg',
   },
 }
-const logoConfig = {
+const logoConfig: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 70,
   text: {
@@ -42,7 +52,7 @@ const logoConfig = {
     // img: 'https://test.wzs.pub/pic/bg.jpg',
   },
 }
-const gifSetting = {
+const gifSetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 70,
   background: {
@@ -50,28 +60,28 @@ const gifSetting = {
     img: 'https://test.wzs.pub/pic/tm_mui_bike.gif',
   },
 }
-const parallaxSetting = {
+const parallaxSetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 70,
   background: { color: '#eeeeee' },
 }
-const parallaxDemoSetting = {
+const parallaxDemoSetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 70,
   background: { color: '#ffaf1b' },
 }
-const jdSetting = {
+const jdSetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 80,
   background: { color: '#eeeeee' },
 }
-const elmSetting = {
+const elmSetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 80,
   isAutoTriggered: false,
   background: { color: '#eeeeee' },
 }
-const nav = [
+const nav: CooluiScrollerNavItem[] = [
   { id: 1, title: '原生效果', description: '不使用组件' },
   { id: 2, title: '基础效果', description: '使用组件' },
   { id: 3, title: 'logo文字效果', description: '使用组件' },
@@ -82,13 +92,13 @@ const nav = [
   { id: 8, title: '京东效果' },
   { id: 9, title: '饿了么效果' },
 ]
-const text = { color: '#666', activeColor: '#fff' }
-const background = { color: '#ccc', activeColor: '#d13435' }
+const text: DemoNavColorConfig = { color: '#666', activeColor: '#fff' }
+const background: DemoNavColorConfig = { color: '#ccc', activeColor: '#d13435' }
 
-const elmScroller = ref(null)
+const elmScroller = ref<CooluiScrollerApi | null>(null)
 
 const test = () => {}
-const onChange = (e) => {
+const onChange = (e: DemoNavChangeEvent) => {
   active.value = e.index
 }
 const onRefresh = () => {

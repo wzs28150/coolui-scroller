@@ -36,8 +36,9 @@
   </view>
 </template>
 
-<script setup>
-import { ref } from 'vue'
+<script setup lang="ts">
+import { ref, type PropType } from 'vue'
+import type { CooluiScrollerSearchButton } from '../../types'
 
 const props = defineProps({
   placeholder: {
@@ -45,7 +46,7 @@ const props = defineProps({
     default: '请输入要搜索的内容',
   },
   button: {
-    type: Object,
+    type: Object as PropType<CooluiScrollerSearchButton>,
     default: () => ({
       show: false,
       text: '搜索',
@@ -66,14 +67,20 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits([
-  'update:keyword',
-  'input',
-  'focus',
-  'blur',
-  'btnClick',
-  'confirm',
-])
+const emit = defineEmits<{
+  /** 关键字变化（配合 v-model:keyword） */
+  (e: 'update:keyword', keyword: string): void
+  /** 输入事件 */
+  (e: 'input', keyword: string): void
+  /** 获得焦点 */
+  (e: 'focus'): void
+  /** 失去焦点 */
+  (e: 'blur'): void
+  /** 右侧按钮点击，返回当前关键字 */
+  (e: 'btnClick', payload: { key: string }): void
+  /** 键盘完成，返回当前关键字 */
+  (e: 'confirm', payload: { key: string }): void
+}>()
 
 const isBtnShow = ref(false)
 const isFocus = ref(false)
@@ -89,8 +96,12 @@ const blur = () => {
   }
   emit('blur')
 }
-const input = (e) => {
-  const value = e.detail.value
+/**
+ * input 与 HTML 标签同名，模板事件按 DOM 校验，故参数声明为 Event，
+ * 再按小程序事件对象取 detail.value
+ */
+const input = (e: Event) => {
+  const value = (e as unknown as { detail: { value: string } }).detail.value
   emit('update:keyword', value)
   emit('input', value)
 }

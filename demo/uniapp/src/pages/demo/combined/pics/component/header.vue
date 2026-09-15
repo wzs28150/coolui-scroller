@@ -1,7 +1,16 @@
-<script setup>
+<script setup lang="ts">
 
-const tempFilePaths = ref(null)
-const list = [
+/** 分享瞬间：选中的图片临时路径（uni.chooseImage 返回 string | string[]） */
+const tempFilePaths = ref<string | string[] | null>(null)
+
+/** 分享瞬间列表项 */
+interface HeaderItem {
+  id: number
+  photo: string
+  name: string
+}
+
+const list: HeaderItem[] = [
   {
     id: 1,
     photo: 'https://test.wzs.pub/pic/pics/1.jpg',
@@ -50,8 +59,10 @@ const chooseimage = () => {
 <template>
   <scroll-view
     class="header"
+    <!-- #ifdef MP-WEIXIN -->
     :enhanced="true"
     :show-scrollbar="false"
+    <!-- #endif -->
     scroll-x
     enable-flex
   >

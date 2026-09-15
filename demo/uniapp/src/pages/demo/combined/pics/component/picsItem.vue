@@ -1,10 +1,8 @@
-<script setup>
-defineProps({
-  item: {
-    type: Object,
-    default: () => ({}),
-  },
-})
+<script setup lang="ts">
+import type { DemoSocialItem } from '../../../../../types'
+
+/** 图文动态数据（由 pics 列表页传入） */
+defineProps<{ item: DemoSocialItem }>()
 </script>
 
 <template>

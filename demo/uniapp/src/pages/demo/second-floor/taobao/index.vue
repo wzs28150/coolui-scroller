@@ -1,13 +1,20 @@
-<script setup>
+<script setup lang="ts">
+import type {
+  CooluiNavBarConfig,
+  CooluiScrollerSearchButton,
+  CooluiSecondFloorInstance,
+  CooluiSecondFloorRefreshConfig,
+} from 'coolui-scroller-uni/types'
+import type { DemoChannelItem } from '../../../../types'
 
-const refreshConfig = {
+const refreshConfig: CooluiSecondFloorRefreshConfig = {
   downText: '下拉刷新',
   loadingText: '正在加载',
   backText: '返回首页',
   tipText: '松开刷新',
   moreText: '二楼可以访问您添加的频道哦~\n请下拉访问',
 }
-const navBarConfig = {
+const navBarConfig: CooluiNavBarConfig = {
   back: {
     show: true,
     click: () => {
@@ -23,11 +30,11 @@ const navBarConfig = {
     color: '#d13435',
   },
 }
-const pic = {
+const pic: { tb: string; elm: string } = {
   tb: 'https://test.wzs.pub/pic/second-floor-bg.jpeg',
   elm: 'https://test.wzs.pub/pic/2lou/elm.jpg',
 }
-const list = [
+const list: DemoChannelItem[] = [
   { icon: 'https://test.wzs.pub/pic/xian.jpg', name: '闲鱼' },
   { icon: 'https://test.wzs.pub/pic/cai.jpg', name: '菜鸟' },
   { icon: 'https://test.wzs.pub/pic/xian.jpg', name: '闲鱼' },
@@ -46,11 +53,11 @@ const isSecond = ref(false)
 const statusBarHeight = ref(0)
 const key = ref('')
 const newPage = ref(false)
-const button = ref({
+const button = ref<CooluiScrollerSearchButton>({
   hide: true,
 })
 const placeholder = ref('搜索')
-const mySecondFloor = ref(null)
+const mySecondFloor = ref<CooluiSecondFloorInstance | null>(null)
 
 onLoad(() => {
   // getWindowInfo 返回 statusBarHeight，且不会触发 wx.getSystemInfo 弃用告警

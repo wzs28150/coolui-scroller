@@ -2,8 +2,9 @@
   <view class="coolui-backToTop" @tap="backToTop"></view>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { inject, onMounted, onBeforeUnmount } from 'vue'
+import type { CooluiScrollerApi } from '../../types'
 
 const props = defineProps({
   delay: {
@@ -16,7 +17,7 @@ const props = defineProps({
   },
 })
 
-const cooluiScroller = inject('cooluiScroller', null)
+const cooluiScroller = inject<CooluiScrollerApi | null>('cooluiScroller', null)
 
 const backToTop = () => {
   if (cooluiScroller && cooluiScroller.scrollToTop) {

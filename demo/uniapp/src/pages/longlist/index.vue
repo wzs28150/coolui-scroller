@@ -1,27 +1,36 @@
-<script setup>
+<script setup lang="ts">
 import { setHeight } from 'coolui-scroller-uni/utils/longlist.js'
+import type {
+  DemoArticle,
+  DemoEmptySetting,
+  DemoListResponse,
+  DemoLoadmoreSetting,
+  DemoPageParam,
+  DemoRefreshConfig,
+} from '../../types'
 
-const vm = getCurrentInstance()
+/** 页面实例（小程序组件实例挂在 $scope 上，透传给 setHeight 做节点查询） */
+const vm = getCurrentInstance() as { $scope?: object } | null
 
 const isEmpty = ref(false)
-const list = ref([])
-const defaultSetting = {
+const list = ref<DemoArticle[][]>([])
+const defaultSetting: DemoRefreshConfig = {
   shake: true,
   style: 'black', // 设置圆点深色还是浅色
 }
-const loadMoreSetting = ref({
+const loadMoreSetting = ref<DemoLoadmoreSetting>({
   status: 'more',
   more: { text: '上拉加载更多', color: '#999' },
   loading: { text: '加载中...', color: '#999' },
   noMore: { text: '-- 到底啦 --', color: '#999' },
 })
-const emptySetting = { img: '/img/empty.png', text: '暂无文章' }
+const emptySetting: DemoEmptySetting = { img: '/img/empty.png', text: '暂无文章' }
 
-let wholeList = []
+let wholeList: DemoArticle[][] = []
 let currentRenderIndex = 0
-let pageHeightArr = []
+let pageHeightArr: number[] = []
 const totalPageNum = ref(0)
-const param = ref({ limit: 4, page: 0 })
+const param = ref<DemoPageParam>({ limit: 4, page: 0 })
 
 const getList = () => {
   // 判断当前是否为加载状态 防止页面重复添加数据
@@ -44,21 +53,22 @@ const getList = () => {
         },
         method: 'GET',
         success: (res) => {
-          if (res.data.code === 200) {
-            totalPageNum.value = res.data.data.last
-            if (res.data.data.list.length === 0 && page === 0) {
+          const data = res.data as unknown as DemoListResponse<DemoArticle>
+          if (data.code === 200) {
+            totalPageNum.value = data.data.last
+            if (data.data.list.length === 0 && page === 0) {
               isEmpty.value = true
               loadMoreSetting.value.status = 'noMore'
             } else {
-              wholeList[page] = res.data.data.list
-              list.value[page] = res.data.data.list
+              wholeList[page] = data.data.list
+              list.value[page] = data.data.list
               nextTick(() => {
                 setHeight({
                   param: param.value,
                   pageHeightArr,
                   wholeList,
                   list: list.value,
-                  $scope: vm.$scope,
+                  $scope: vm?.$scope,
                 })
                 loadMoreSetting.value.status = 'more'
                 param.value.page += 1

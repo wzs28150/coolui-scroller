@@ -1,11 +1,13 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiRefreshConfig, CooluiScrollerApi } from 'coolui-scroller-uni/types'
+import type { DemoRefreshState } from '../../../../types'
 
 const val = ref(0)
-const refreshstate = ref('pulldown')
+const refreshstate = ref<DemoRefreshState>('pulldown')
 const isLoading = ref(false)
-const universeScroller = ref(null)
+const universeScroller = ref<CooluiScrollerApi | null>(null)
 
-const universeSetting = {
+const universeSetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 150,
   isAutoTriggered: false,
@@ -14,10 +16,10 @@ const universeSetting = {
   },
 }
 
-const onThreshold = (v) => {
+const onThreshold = (v: number) => {
   val.value = v
 }
-const onRefreshstate = (v) => {
+const onRefreshstate = (v: string) => {
   refreshstate.value = v
 }
 const onRefresh = () => {

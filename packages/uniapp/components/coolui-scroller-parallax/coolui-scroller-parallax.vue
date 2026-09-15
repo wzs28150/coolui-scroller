@@ -4,8 +4,9 @@
   </view>
 </template>
 
-<script setup>
-import { inject, ref, computed, onMounted, onBeforeUnmount } from 'vue'
+<script setup lang="ts">
+import { inject, ref, computed, onMounted, onBeforeUnmount, type PropType } from 'vue'
+import type { CooluiRefreshProvideApi } from '../../types'
 
 const props = defineProps({
   parallax: {
@@ -13,12 +14,15 @@ const props = defineProps({
     default: 0,
   },
   direction: {
-    type: String,
+    type: String as PropType<'to top' | 'to bottom' | 'to left' | 'to right' | (string & {})>,
     default: 'to bottom', // to top / to bottom / to left / to right
   },
 })
 
-const cooluiRefresh = inject('cooluiRefresh', null)
+const cooluiRefresh = inject<CooluiRefreshProvideApi | null>(
+  'cooluiRefresh',
+  null
+)
 const threshold = ref(0)
 
 const configHeight = computed(() => {

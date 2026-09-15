@@ -32,7 +32,10 @@
   </view>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { PropType } from 'vue'
+import type { CooluiLoadmoreState } from '../../types'
+
 defineOptions({
   virtualHost: true,
   styleIsolation: 'apply-shared',
@@ -40,25 +43,25 @@ defineOptions({
 
 const props = defineProps({
   status: {
-    type: String,
+    type: String as PropType<'more' | 'loading' | 'noMore' | (string & {})>,
     default: 'more', // more loading noMore
   },
   loading: {
-    type: Object,
+    type: Object as PropType<CooluiLoadmoreState>,
     default: () => ({
       text: '加载中',
       color: '#999999',
     }),
   },
   more: {
-    type: Object,
+    type: Object as PropType<CooluiLoadmoreState>,
     default: () => ({
       text: '查看更多',
       color: '#333333',
     }),
   },
   noMore: {
-    type: Object,
+    type: Object as PropType<CooluiLoadmoreState>,
     default: () => ({
       text: '没有更多',
       color: '#999999',

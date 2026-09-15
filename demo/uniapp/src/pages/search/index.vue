@@ -1,8 +1,10 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiScrollerSearchButton } from 'coolui-scroller-uni/types'
+import type { DemoSearchPayload } from '../../types'
 
-const searchBtnShow = { button: { show: true } }
-const searchBtnHide = { button: { hide: true } }
-const searchBtnText = { button: { text: '搜一下' } }
+const searchBtnShow: { button: CooluiScrollerSearchButton } = { button: { show: true } }
+const searchBtnHide: { button: CooluiScrollerSearchButton } = { button: { hide: true } }
+const searchBtnText: { button: CooluiScrollerSearchButton } = { button: { text: '搜一下' } }
 const key = ref('')
 const key1 = ref('')
 const key2 = ref('')
@@ -13,14 +15,14 @@ const key6 = ref('')
 const key7 = ref('')
 const key8 = ref('')
 
-const onBtnClick = (e) => {
+const onBtnClick = (e: DemoSearchPayload) => {
   uni.showToast({
     title: '来自右侧按钮点击:' + e.key,
     icon: 'none',
     duration: 4000,
   })
 }
-const confirm = (e) => {
+const confirm = (e: DemoSearchPayload) => {
   uni.showToast({
     title: '来自完成按钮触发:' + e.key,
     icon: 'none',

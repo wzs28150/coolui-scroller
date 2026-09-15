@@ -160,6 +160,33 @@ export default {
 | `coolui-scroller-second-floor` / `coolui-scroller-second-floor-refresh` | 下拉二楼 |
 | `coolui-scroller-handtip` | 手势提示 |
 
+## TypeScript 支持
+
+组件全部使用 `<script setup lang="ts">` 编写：props 用 `PropType<T>` 精确标注、`defineEmits` 标注了事件名与参数类型、`provide/inject` 带上了通信 API 类型，编辑器（Volar / vue-tsc）可获得完整提示。
+
+公共类型集中在 [`types.ts`](./types.ts)，可直接引入复用：
+
+```ts
+import type {
+  CooluiScrollerProps,
+  CooluiScrollerRefreshProps,
+  CooluiRefreshConfig,
+  CooluiSortOption,
+} from 'coolui-scroller-uni/types'
+```
+
+- 组件内部通过 `import type { Xxx } from '../../types'` 复用这些类型；类型导入在构建时会被抹除，不产生运行时代码。
+- `utils/platform.js`、`utils/longlist.js` 保持 JS 实现（便于直接发布源码供小程序构建），类型由同目录 `*.d.ts` 提供。
+- 本包自带 `tsconfig.json` 与类型检查脚本：
+
+```bash
+cd packages/uniapp
+pnpm type-check   # vue-tsc --noEmit
+```
+
+> 为保证运行时行为与原生版完全一致（`type: String/Number/Array` 的类型转换、Boolean 隐式转换等），props 采用**运行时声明 + `PropType<T>` 标注**，而不是 `defineProps<泛型>()`（后者会让编译产物丢失运行时 `type`）。
+> 组件内部实现由历史 JS 迁移而来，`tsconfig` 暂未开启 `strict`；公共 API 类型已精确，内部类型可后续逐步收紧。
+
 ## 组件通信
 
 原生版通过 `relations` 关联父子组件，uni-app 版改为 Vue `provide/inject`：
@@ -200,7 +227,13 @@ packages/uniapp/
 │   ├── coolui-scroller-refresh/  # 下拉刷新
 │   └── ...                       # 其余组件
 ├── utils/
-│   └── platform.js               # 跨端 API 封装
+│   ├── platform.js               # 跨端 API 封装
+│   ├── platform.d.ts             # 类型声明
+│   ├── longlist.js               # 长列表分页工具
+│   └── longlist.d.ts             # 类型声明
+├── types.ts                      # 公共类型（props / emits / 组件间通信）
+├── shims.d.ts                    # uni-app 内置组件声明
+├── tsconfig.json                 # 类型检查配置
 └── index.js                      # 入口（install 插件 + 组件导出）
 ```
 

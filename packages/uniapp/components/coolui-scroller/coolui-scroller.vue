@@ -57,7 +57,7 @@
   </view>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {
   ref,
   computed,
@@ -77,6 +77,13 @@ import {
   hideNavigationBarLoading,
   createDebouncer,
 } from '../../utils/platform.js'
+import type {
+  CooluiBackToTopApi,
+  CooluiNavPannelApi,
+  CooluiRefreshApi,
+  CooluiRefreshConfig,
+  CooluiScrollerApi,
+} from '../../types'
 
 const props = defineProps({
   isEmpty: {
@@ -111,21 +118,32 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits([
-  'refresh',
-  'loadmore',
-  'restore',
-  'contentHeight',
-  'update:top',
-])
+const emit = defineEmits<{
+  /** 下拉刷新触发 */
+  (e: 'refresh'): void
+  /** 滚动到底部触发（执行加载更多） */
+  (e: 'loadmore'): void
+  /** 刷新回弹结束 */
+  (e: 'restore'): void
+  /** 中间内容区高度变化，返回高度(px)，便于自定义内容时按高度撑开 */
+  (e: 'contentHeight', height: number): void
+  /** 滚动位置变化（配合 v-model:top） */
+  (e: 'update:top', top: number): void
+  /** 滚动事件透传 */
+  (e: 'scroll', event: unknown): void
+}>()
 
-const cooluiNavPannel = inject('cooluiNavPannel', null)
+const cooluiNavPannel = inject<CooluiNavPannelApi | null>('cooluiNavPannel', null)
 const vm = getCurrentInstance()
 const slots = useSlots()
 
 const hasRefresh = ref(false)
 const type = ref('default')
-const refreshConfig = ref({ shake: false, height: 50, style: 'black' })
+const refreshConfig = ref<CooluiRefreshConfig>({
+  shake: false,
+  height: 50,
+  style: 'black',
+})
 const moveHeight = ref(0)
 const contentHeight = ref(0)
 const triggered = ref(null)
@@ -142,19 +160,19 @@ const refreshFlag = ref(true)
 const topInner = ref(null)
 
 // 非响应式实例字段
-let refreshNode = null
-let backToTopNode = null
+let refreshNode: CooluiRefreshApi | null = null
+let backToTopNode: CooluiBackToTopApi | null = null
 let p = 0
 let touchy = 0
 const debounce = createDebouncer(vm)
-let backToTopHideTimer = null
+let backToTopHideTimer: ReturnType<typeof setTimeout> | null = null
 
 const refreshBgHeight = computed(() => {
-  const cfg = refreshConfig.value || {}
+  const cfg: CooluiRefreshConfig = refreshConfig.value || {}
   return (cfg.background && cfg.background.height) || cfg.height || 50
 })
 const refreshBgColor = computed(() => {
-  const cfg = refreshConfig.value || {}
+  const cfg: CooluiRefreshConfig = refreshConfig.value || {}
   return (cfg.background && cfg.background.color) || 'transparent'
 })
 const innerStyle = computed(() => ({
@@ -179,7 +197,7 @@ watch(
 // 直接通过 refresh 插槽 vnode 的组件实例（defineExpose 结果）或 props 建立联系，
 // 保证无注入时下拉刷新依旧可用
 // uni-app mp 下 useSlots() 返回的插槽可能是函数，也可能是 vnode 数组，统一兼容
-const resolveSlotNodes = (slot) => {
+const resolveSlotNodes = (slot: unknown) => {
   if (typeof slot === 'function') {
     return slot()
   }
@@ -204,7 +222,7 @@ const linkRefreshSlot = () => {
   }
   // 2) 兜底：用小程序选择器直接找 refresh 组件实例
   try {
-    const scope = vm.$scope
+    const scope = (vm as any).$scope
     if (scope && scope.selectComponent) {
       const comp = scope.selectComponent('.coolui-scroller-refresh')
       const exposed = comp && (comp.exposed || (comp.$vm && comp.$vm.exposed))
@@ -239,7 +257,7 @@ onMounted(() => {
 })
 
 /* ---------------- 子组件注册（替代原生 relations） ---------------- */
-const registerRefresh = (node) => {
+const registerRefresh = (node: CooluiRefreshApi) => {
   refreshNode = node
   syncRefreshConfig()
 }
@@ -264,7 +282,7 @@ const syncRefreshConfig = () => {
     moveY.value = -height
   }
 }
-const registerBackToTop = (node) => {
+const registerBackToTop = (node: CooluiBackToTopApi) => {
   backToTopNode = node
 }
 const unregisterBackToTop = () => {
@@ -297,7 +315,7 @@ const setWapHeight = () => {
 }
 
 /* ---------------- 动画 ---------------- */
-const animateTo = (y, duration = 400) => {
+const animateTo = (y: number, duration = 400) => {
   if (duration > 0) {
     transitionDuration.value = duration
     transitionEnabled.value = true
@@ -308,8 +326,8 @@ const animateTo = (y, duration = 400) => {
 }
 
 /* ---------------- 下拉刷新流程 ---------------- */
-const settriggered = (flag) =>
-  new Promise((resolve) => {
+const settriggered = (flag: boolean) =>
+  new Promise<void>((resolve) => {
     if (flag !== triggered.value) {
       if (refreshNode && refreshNode.setTriggered) {
         refreshNode.setTriggered(flag)
@@ -326,8 +344,8 @@ const settriggered = (flag) =>
       resolve()
     }
   })
-const setThreshold = (val) =>
-  new Promise((resolve) => {
+const setThreshold = (val: number) =>
+  new Promise<void>((resolve) => {
     if (refreshNode && refreshNode.changeThreshold) {
       refreshNode.changeThreshold(val).then(() => {
         resolve()
@@ -338,7 +356,7 @@ const setThreshold = (val) =>
   })
 // 模板 @scrolltoupper 绑定，占位空实现
 const scrollTopStart = () => {}
-const touchStart = (e) => {
+const touchStart = (e: TouchEvent) => {
   if (isLoading.value && !refreshFlag.value) {
     return false
   }
@@ -351,7 +369,7 @@ const touchStart = (e) => {
       ? e.changedTouches[0].clientY
       : e.touches[0].clientY
 }
-const touchMove = (e) => {
+const touchMove = (e: TouchEvent) => {
   if (!hasRefresh.value) {
     return
   }
@@ -451,7 +469,7 @@ const onRestore = () => {
   }
 }
 const backToTop = () =>
-  new Promise((resolve) => {
+  new Promise<void>((resolve) => {
     animateTo(-moveHeight.value, 400)
     setTimeout(() => {
       onRestore()
@@ -470,7 +488,8 @@ const onLoadmore = () => {
 }
 
 /* ---------------- 滚动 & 回到顶部 ---------------- */
-const scroll = (e) => {
+/** 小程序 scroll-view 的滚动事件（detail.scrollTop 为滚动距离） */
+const scroll = (e: { detail: { scrollTop: number } }) => {
   const scrollTop = e.detail.scrollTop
   if (backToTopNode) {
     const t = backToTopNode.threshold
@@ -517,7 +536,7 @@ const recalculateHeight = () => {
 }
 
 // 不能传 vm.proxy：<script setup> 公共实例代理不含内部绑定，需以普通对象暴露方法
-provide('cooluiScroller', {
+provide<CooluiScrollerApi>('cooluiScroller', {
   registerRefresh,
   unregisterRefresh,
   syncRefreshConfig,
@@ -582,4 +601,11 @@ defineExpose({
     }
   }
 }
+/* #ifdef H5 */
+/* H5 下组件没有宿主节点，上面的 :host 不生效：只补宽高，display 交给根节点自己（根节点是 flex 容器） */
+.coolui-scroller {
+  width: 100%;
+  height: 100%;
+}
+/* #endif */
 </style>

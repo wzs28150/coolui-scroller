@@ -1,0 +1,85 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM"],
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    /* uni / wx 全局 API 类型 */
+    "types": ["@dcloudio/types"],
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    /* 页面与库组件均已补齐显式类型，故打开 noImplicitAny：
+       新增代码若漏写类型会直接报错。
+       strictNullChecks 暂不开启，避免历史代码里大量 null 访问告警。 */
+    "strict": false,
+    "noImplicitAny": true,
+    "strictNullChecks": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"],
+  "vueCompilerOptions": {
+    /* uni-app 内置组件里有不少与 HTML / SVG 同名（button、image、switch、text…），
+       语义却完全不同：统一按自定义元素处理，避免被 DOM 属性类型误判 */
+    "isCustomElement": [
+      "view",
+      "scroll-view",
+      "swiper",
+      "swiper-item",
+      "movable-area",
+      "movable-view",
+      "cover-view",
+      "cover-image",
+      "match-media",
+      "page-container",
+      "share-element",
+      "icon",
+      "text",
+      "rich-text",
+      "progress",
+      "button",
+      "checkbox",
+      "checkbox-group",
+      "form",
+      "input",
+      "label",
+      "picker",
+      "picker-view",
+      "picker-view-column",
+      "radio",
+      "radio-group",
+      "slider",
+      "switch",
+      "textarea",
+      "navigator",
+      "functional-page-navigator",
+      "audio",
+      "image",
+      "video",
+      "camera",
+      "live-player",
+      "live-pusher",
+      "map",
+      "canvas",
+      "web-view",
+      "editor",
+      "open-data",
+      "ad",
+      "ad-custom",
+      "official-account",
+      "page-meta",
+      "navigation-bar"
+    ]
+  }
+}

@@ -13,9 +13,18 @@
   </view>
 </template>
 
-<script setup>
-import { ref, computed, provide, watch, nextTick, getCurrentInstance } from 'vue'
+<script setup lang="ts">
+import {
+  ref,
+  computed,
+  provide,
+  watch,
+  nextTick,
+  getCurrentInstance,
+  type CSSProperties,
+} from 'vue'
 import { getSelectorQuery, getWindowInfo } from '../../utils/platform.js'
+import type { CooluiSortApi, CooluiSortItemApi } from '../../types'
 
 const props = defineProps({
   overlay: {
@@ -34,24 +43,24 @@ const props = defineProps({
 
 const vm = getCurrentInstance()
 
-const active = ref(null)
+const active = ref<string | null>(null)
 const overlayHeight = ref(0)
 const isOverLayShow = ref(false)
 const overlayOpacity = ref(0)
-const items = []
-let overlayTimer = null
+const items: CooluiSortItemApi[] = []
+let overlayTimer: ReturnType<typeof setTimeout> | null = null
 
-const overlayStyle = computed(() => ({
+const overlayStyle = computed<CSSProperties>(() => ({
   height: overlayHeight.value + 'px',
   opacity: overlayOpacity.value,
   transition: 'opacity ' + props.overlayDuration + 'ms ease-in',
   pointerEvents: isOverLayShow.value ? 'auto' : 'none',
 }))
 
-const registerItem = (node) => {
+const registerItem = (node: CooluiSortItemApi) => {
   items.push(node)
 }
-const unregisterItem = (node) => {
+const unregisterItem = (node: CooluiSortItemApi) => {
   const index = items.indexOf(node)
   if (index > -1) {
     items.splice(index, 1)
@@ -70,7 +79,7 @@ const setOverlayHeight = () => {
       }
     })
 }
-const toggle = (activeVal) => {
+const toggle = (activeVal: string | null) => {
   const flag =
     activeVal === active.value && active.value !== null
       ? true
@@ -81,7 +90,7 @@ const toggle = (activeVal) => {
   toggleOverlay(flag)
   toggleDropdown()
 }
-const toggleOverlay = (flag) => {
+const toggleOverlay = (flag: boolean) => {
   if (flag) {
     if (isOverLayShow.value === true) {
       // 不显示
@@ -114,7 +123,7 @@ const close = () => {
 }
 
 // 不能传 vm.proxy：<script setup> 公共实例代理不含内部绑定，需以普通对象暴露方法
-provide('cooluiSort', { registerItem, unregisterItem, toggle })
+provide<CooluiSortApi>('cooluiSort', { registerItem, unregisterItem, toggle })
 defineExpose({
   registerItem,
   unregisterItem,

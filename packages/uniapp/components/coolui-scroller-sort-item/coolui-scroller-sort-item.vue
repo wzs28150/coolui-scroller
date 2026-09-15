@@ -35,9 +35,9 @@
           <slot></slot>
         </view>
         <view class="action-bar" v-if="actionBar">
-          <button type="default" class="action-bar-btn" @tap="clear">清空</button>
+          <button :type="'default' as any" class="action-bar-btn" @tap="clear">清空</button>
           <button
-            type="primary"
+            :type="'primary' as any"
             class="action-bar-btn"
             :style="{ background: activeColor }"
             @tap="confirm"
@@ -50,8 +50,9 @@
   </view>
 </template>
 
-<script setup>
-import { ref, computed, watch, inject, onMounted, onBeforeUnmount } from 'vue'
+<script setup lang="ts">
+import { ref, computed, watch, inject, onMounted, onBeforeUnmount, type PropType } from 'vue'
+import type { CooluiSortApi, CooluiSortItemApi, CooluiSortOption } from '../../types'
 
 const props = defineProps({
   title: {
@@ -63,16 +64,16 @@ const props = defineProps({
     default: '',
   },
   type: {
-    type: String,
+    type: String as PropType<'sort' | 'classify' | 'diy' | (string & {})>,
     default: '',
   },
   value: {
-    type: [String, Number],
+    type: [String, Number] as PropType<string | number>,
     default: '',
   },
   options: {
-    type: Array,
-    default: () => [],
+    type: Array as PropType<CooluiSortOption[]>,
+    default: (): CooluiSortOption[] => [],
   },
   color: {
     type: String,
@@ -92,9 +93,14 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['update:value', 'change'])
+const emit = defineEmits<{
+  /** 选中值变化（配合 v-model:value） */
+  (e: 'update:value', value: string | number | null): void
+  /** 选中值变化 */
+  (e: 'change', payload: { name: string; value: string | number | null }): void
+}>()
 
-const cooluiSort = inject('cooluiSort', null)
+const cooluiSort = inject<CooluiSortApi | null>('cooluiSort', null)
 
 const isDropdownShow = ref(false)
 const select = ref(null)
@@ -111,7 +117,7 @@ const displayTitle = computed(() => {
   if (v === null || v === undefined || v === '') {
     return props.options[0] ? props.options[0].title : ''
   }
-  const item = props.options[v]
+  const item = props.options[Number(v)]
   return item ? item.title : ''
 })
 
@@ -134,7 +140,7 @@ watch(
   }
 )
 
-let itemApi = null
+let itemApi: CooluiSortItemApi | null = null
 onMounted(() => {
   // sort 组件会调用 item.toggleDropdown()，需以普通对象暴露方法
   itemApi = { toggleDropdown, confirm }
@@ -153,7 +159,7 @@ const toggle = () => {
     cooluiSort.toggle(props.name)
   }
 }
-const toggleDropdown = (active) => {
+const toggleDropdown = (active: string | null) => {
   if (active === props.name) {
     if (isDropdownShow.value === false) {
       if (props.multiple) {
@@ -161,7 +167,7 @@ const toggleDropdown = (active) => {
           ? String(valueInner.value).split(',')
           : []
       } else {
-        const parsed = parseInt(valueInner.value)
+        const parsed = parseInt(String(valueInner.value))
         select.value = isNaN(parsed) ? null : parsed
       }
       isDropdownShow.value = true
@@ -174,7 +180,7 @@ const toggleDropdown = (active) => {
 }
 // 原函数 select 与原 data.select 同名（Options 合并时方法覆盖 data 导致高亮失效），
 // 这里把方法改名 onSelect，保留 select 作为选中态 ref 供模板对比高亮
-const onSelect = (id) => {
+const onSelect = (id: string | number) => {
   if (props.multiple) {
     const isIn = inArray(id, selectArray.value)
     if (isIn === false) {
@@ -201,7 +207,7 @@ const onSelect = (id) => {
     }
   }
 }
-const inArray = (search, array) => {
+const inArray = (search: string | number, array: Array<string | number>) => {
   for (let i = 0; i < array.length; i++) {
     if (array[i] == search) {
       return i
@@ -393,4 +399,11 @@ defineExpose({
 .action-bar .action-bar-btn::after {
   border-radius: 0;
 }
+/* #ifdef H5 */
+/* H5 下组件没有宿主节点，上面的 :host 不生效，改为直接落到根节点上（覆盖根节点的 100% 宽度） */
+.coolui-scroller-sort-item.coolui-scroller-sort-item {
+  display: inline-block;
+  width: 28.5%;
+}
+/* #endif */
 </style>

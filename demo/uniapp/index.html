@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      /* H5 端入口模板（uni-app CLI 约定：放在工程根目录）
+         - 小程序 / App 端不使用本文件
+         - % 变量、<!--preload-links-->、<!--app-context--> 由 uni-app 编译时注入 */
+      var coverSupport =
+        'CSS' in window &&
+        typeof CSS.supports === 'function' &&
+        (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
+      document.write(
+        '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+          (coverSupport ? ', viewport-fit=cover' : '') +
+          '" />'
+      )
+    </script>
+    <title>coolui-scroller uni-app 示例</title>
+    <!--preload-links-->
+    <!--app-context-->
+  </head>
+  <body>
+    <div id="app"><!--app-html--></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

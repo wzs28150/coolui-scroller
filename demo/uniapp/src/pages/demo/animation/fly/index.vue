@@ -1,6 +1,8 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiRefreshConfig, CooluiScrollerApi } from 'coolui-scroller-uni/types'
+import type { DemoRefreshState } from '../../../../types'
 
-const flySetting = {
+const flySetting: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 80,
   // isAutoTriggered: false,
@@ -8,15 +10,15 @@ const flySetting = {
     color: '#019ff0',
   },
 }
-const refreshstate = ref('pulldown')
+const refreshstate = ref<DemoRefreshState>('pulldown')
 const triggered = ref(false)
 const val = ref(0)
-const flyScroller = ref(null)
+const flyScroller = ref<CooluiScrollerApi | null>(null)
 
-const onThreshold = (v) => {
+const onThreshold = (v: number) => {
   val.value = v
 }
-const onRefreshstate = (v) => {
+const onRefreshstate = (v: string) => {
   refreshstate.value = v
 }
 const onRefresh = () => {

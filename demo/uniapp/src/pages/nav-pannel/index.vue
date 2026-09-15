@@ -1,6 +1,7 @@
-<script setup>
+<script setup lang="ts">
+import type { CooluiRefreshConfig } from 'coolui-scroller-uni/types'
 
-const logoConfig = {
+const logoConfig: CooluiRefreshConfig = {
   shake: true, // 是否开启下拉震动
   height: 70,
   text: {
@@ -20,7 +21,7 @@ const height = ref(0)
 const active = ref(0)
 const animation = ref(false)
 
-const getHeight = (res) => {
+const getHeight = (res: number) => {
   height.value = res
 }
 const next = () => {

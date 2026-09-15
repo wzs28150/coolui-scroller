@@ -1,13 +1,20 @@
-<script setup>
+<script setup lang="ts">
+import type {
+  CooluiNavBarConfig,
+  CooluiSecondFloorInstance,
+  CooluiSecondFloorRefreshConfig,
+  CooluiSecondFloorTip,
+} from 'coolui-scroller-uni/types'
+import type { DemoChangeEvent, DemoSecondFloorType } from '../../types'
 
-const refreshConfig = {
+const refreshConfig: CooluiSecondFloorRefreshConfig = {
   downText: '下拉刷新',
   loadingText: '正在加载',
   backText: '返回首页',
   tipText: '松开刷新',
   moreText: '继续下拉有惊喜~',
 }
-const navBarConfig = {
+const navBarConfig: CooluiNavBarConfig = {
   back: {
     show: true,
     click: () => {
@@ -23,13 +30,13 @@ const navBarConfig = {
     color: '#fff',
   },
 }
-const pic = {
+const pic: { tb: string; elm: string } = {
   tb: 'https://test.wzs.pub/pic/second-floor-bg.jpeg',
   elm: 'https://test.wzs.pub/pic/2lou/elm.jpg',
 }
 const val = ref(0)
-const type = ref('bottom')
-const types = [
+const type = ref<DemoSecondFloorType>('bottom')
+const types: { value: DemoSecondFloorType; name: string }[] = [
   { value: 'top', name: 'top' },
   { value: 'center', name: 'center' },
   { value: 'bottom', name: 'bottom' },
@@ -45,7 +52,7 @@ const overlay = ref(true)
 const customStyle = ref('')
 const overlayStyle = ref('')
 const statusBarHeight = ref(0)
-const tip = ref({
+const tip = ref<CooluiSecondFloorTip>({
   show: false,
   height: 200,
   times: 1,
@@ -53,7 +60,7 @@ const tip = ref({
 })
 const offset = ref(false)
 
-const mySecondFloor = ref(null)
+const mySecondFloor = ref<CooluiSecondFloorInstance | null>(null)
 
 onLoad(() => {
   const t = uni.getStorageSync('type')
@@ -110,7 +117,7 @@ const onSecondShow = () => {
 const onSecondBack = () => {
   console.log('二楼已关闭')
 }
-const radioChange = (e) => {
+const radioChange = (e: DemoChangeEvent<DemoSecondFloorType>) => {
   type.value = e.detail.value
   uni.setStorageSync('type', e.detail.value)
 }
@@ -119,24 +126,34 @@ const exit = () => {
     show.value = false
   })
 }
-const switchChange = (e) => {
-  newPage.value = e.detail.value
-  uni.setStorageSync('newPage', e.detail.value)
+/**
+ * switch 的 change 事件取值
+ * `<switch>` 与 SVG 的 switch 同名，模板上按 DOM 的 Event 校验，故这里断言成小程序事件对象
+ */
+const switchValue = (e: Event) => (e as unknown as DemoChangeEvent<boolean>).detail.value
+
+const switchChange = (e: Event) => {
+  const value = switchValue(e)
+  newPage.value = value
+  uni.setStorageSync('newPage', value)
 }
-const scaleChange = (e) => {
-  scale.value = e.detail.value
-  uni.setStorageSync('scale', e.detail.value)
+const scaleChange = (e: Event) => {
+  const value = switchValue(e)
+  scale.value = value
+  uni.setStorageSync('scale', value)
 }
-const offsetChange = (e) => {
-  offset.value = e.detail.value
+const offsetChange = (e: Event) => {
+  const value = switchValue(e)
+  offset.value = value
   nextTick(() => {
     mySecondFloor.value.init()
   })
-  uni.setStorageSync('offset', e.detail.value)
+  uni.setStorageSync('offset', value)
 }
-const tipChange = (e) => {
+const tipChange = (e: Event) => {
+  const value = switchValue(e)
   tip.value = {
-    show: e.detail.value,
+    show: value,
     height: 200,
     times: 1,
     duration: 2000,
@@ -144,7 +161,7 @@ const tipChange = (e) => {
   nextTick(() => {
     mySecondFloor.value.init()
   })
-  uni.setStorageSync('offset', e.detail.value)
+  uni.setStorageSync('offset', value)
 }
 </script>
 
@@ -219,6 +236,8 @@ const tipChange = (e) => {
       </view>
     </coolui-scroller-second-floor>
 
+    <!-- page-container 是微信内置组件，只在微信端渲染 -->
+    <!-- #ifdef MP-WEIXIN -->
     <page-container
       :show="show"
       :round="round"
@@ -230,13 +249,71 @@ const tipChange = (e) => {
       :overlay-style="overlayStyle"
     >
       <view class="detail-page">
-        <button type="primary" @tap="exit">退出</button>
+        <button :type="'primary' as any" @tap="exit">退出</button>
       </view>
     </page-container>
+    <!-- #endif -->
+    <!-- #ifndef MP-WEIXIN -->
+    <!-- 其它端用固定定位浮层等价替代（按 position 对齐、点击遮罩关闭） -->
+    <view
+      v-if="show"
+      class="detail-overlay"
+      :class="'detail-overlay--' + position"
+      :style="overlayStyle"
+      @tap="exit"
+    >
+      <view class="detail-page" :style="customStyle" @tap.stop>
+        <button :type="'primary' as any" @tap="exit">退出</button>
+      </view>
+    </view>
+    <!-- #endif -->
   </view>
 </template>
 
 <style lang="scss" scoped>
+/* #ifndef MP-WEIXIN */
+/* page-container 的等价替代：固定浮层 + 按 position 对齐的面板 */
+.detail-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  background: rgba(0, 0, 0, 0.4);
+
+  &.detail-overlay--right {
+    justify-content: flex-end;
+  }
+
+  &.detail-overlay--left {
+    justify-content: flex-start;
+  }
+
+  &.detail-overlay--top {
+    align-items: flex-start;
+  }
+
+  &.detail-overlay--bottom {
+    align-items: flex-end;
+  }
+
+  &.detail-overlay--center {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .detail-page {
+    box-sizing: border-box;
+    width: 70vw;
+    height: 100vh;
+    padding: 30rpx;
+    background: #ffffff;
+  }
+}
+/* #endif */
+
 .second-floor-page {
   height: 100vh;
 }
