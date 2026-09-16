@@ -150,7 +150,8 @@ export default {
 | `coolui-scroller-back-to-top` | 回到顶部 |
 | `coolui-scroller-empty` | 空列表占位 |
 | `coolui-scroller-item` | 列表项（水波纹） |
-| `coolui-scroller-page` | 长列表分页 |
+| `coolui-scroller-page` | 长列表分页（旧方案：整页占位） |
+| `coolui-scroller-longlist` | 长列表窗口化容器（推荐：窗口外折叠为上下占位块，节点数与总页数无关） |
 | `coolui-scroller-parallax` | 下拉视差 |
 | `coolui-scroller-nav` | 分类导航 |
 | `coolui-scroller-nav-bar` | 顶部导航栏 |
