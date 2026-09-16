@@ -1,4 +1,6 @@
-# coolui-scroller
+# 组件库介绍
+
+coolui-scroller 是一个专注小程序**下拉刷新 / 上拉加载 / 长列表**的组件库，提供[原生微信小程序版](/native/install)与 [uni-app 版](/uniapp/install)两套实现，组件能力与配置项一致。
 
 <a style="display: inline-block;" href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/v/coolui-scroller.svg" alt="Version"></a>&nbsp;
 <a style="display: inline-block;" href="https://www.npmjs.com/package/coolui-scroller"><img src="https://img.shields.io/npm/l/coolui-scroller.svg" alt="License"></a>&nbsp;
@@ -125,43 +127,8 @@ scroll: {
 git clone https://github.com/wzs28150/coolui-scroller.git
 ```
 
-## 安装
+## 接下来
 
-### npm 安装
-
-```
-npm i coolui-scroller --production
-```
-
-### npm 构建
-
-安装之后开发者工具点击 npm 构建:<br/>
-<img src="/images/set1.png" alt="npm构建1"><br/>
-当看到站点里面出现 miniprogram_npm 文件夹就算安装完成了<br/>
-<img src="/images/set2.png" alt="npm构建1">
-
-## 引入
-
-### 1.调用组件
-
-在`app.json`或`index.json`中引入组件
-
-```json
-"usingComponents": {
-  "scroller": "coolui-scroller/scroller/index"
-}
-```
-
-### 2.页面结构
-
-```html
-<scroller class="my-scroller"> </scroller>
-```
-
-### 3.配置
-
-在 js 的 data 中进行配置参数设置，v3.0 版将功能细化到各个组件中具体配置详见([组件](./components/scroller.md))
-
-### 4.组件
-
-根据自己的业务场景选用组件，也可以在对应的插槽中自定义
+- **安装与引入**：[安装与引入](/native/install) —— npm 安装、构建 npm、`usingComponents` 全量引入清单
+- **挑组件**：[组件文档](/native/components/scroller) —— 根据自己的业务场景选用，也可以在对应插槽里自定义
+- **换平台**：如果项目是 uni-app，请看 [uni-app 版文档](/uniapp/install)，或用页面顶部的平台切换器

@@ -1,0 +1,8 @@
+/* 首页正文：默认主题的 home 布局只给 hero / features 套了 .container，
+   markdown 正文是直接铺满的（看起来像没样式）。这里自己约束宽度，
+   与上方卡片、以及其它文档页保持一致。 */
+.home-content {
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 24px;
+}

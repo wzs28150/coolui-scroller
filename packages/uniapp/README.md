@@ -2,7 +2,7 @@
 
 coolui-scroller 的 **uni-app 版本**：下拉刷新、上拉加载、长列表分页、下拉二楼、排序筛选等组件库，支持编译到微信/支付宝/百度/字节/QQ 小程序及 H5、App 端。
 
-- 组件 API 与交互效果与原生版保持一致，属性与配置项可直接对照原生版文档。
+- 组件 API 与交互效果与原生微信小程序版保持一致，属性与配置项可直接对照原生微信小程序版文档。
 - 基于 Vue `provide/inject` 实现组件通信，替代原生 `relations`。
 - 跨端 API 统一封装在 `utils/platform.js`，自动适配各端差异。
 - 兼容 Vue 2 / Vue 3。
@@ -190,7 +190,7 @@ pnpm type-check   # vue-tsc --noEmit
 
 ## 组件通信
 
-原生版通过 `relations` 关联父子组件，uni-app 版改为 Vue `provide/inject`：
+原生微信小程序版通过 `relations` 关联父子组件，uni-app 版改为 Vue `provide/inject`：
 
 - `coolui-scroller` → `coolui-scroller-refresh` / `coolui-scroller-back-to-top`
 - `coolui-scroller-refresh` → `coolui-scroller-parallax`
@@ -200,10 +200,10 @@ pnpm type-check   # vue-tsc --noEmit
 
 使用时保持组件的**嵌套层级**与文档一致即可，无需手动配置。
 
-## 与原生版的差异
+## 与原生微信小程序版的差异
 
-- **保留字属性改名**：原生 `key` 在 Vue 中为保留字，search 组件改用 `keyword`，通过 `@update:keyword` 同步。
-- **事件命名**：原生 `bind:xxx` 对应 Vue 的 `@xxx`（如 `bind:refresh` → `@refresh`）；受控属性通过 `@update:propName` 同步（如 sort-item 的 `@update:value`）。
+- **保留字属性改名**：原生微信小程序版的 `key` 在 Vue 中为保留字，search 组件改用 `keyword`，通过 `@update:keyword` 同步。
+- **事件命名**：原生微信小程序版的 `bind:xxx` 对应 Vue 的 `@xxx`（如 `bind:refresh` → `@refresh`）；受控属性通过 `@update:propName` 同步（如 sort-item 的 `@update:value`）。
 
 ## 示例工程
 
@@ -240,4 +240,4 @@ packages/uniapp/
 
 ## 使用文档
 
-各组件详细属性与配置见 [coolui-scroller 官方文档](https://wzs28150.github.io/coolui-scroller/v3/platform/uni-app)。
+各组件详细属性与配置见 [coolui-scroller 官方文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install)。

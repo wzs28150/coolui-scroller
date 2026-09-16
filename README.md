@@ -117,7 +117,7 @@ scroll: {
 
 请微信扫码打开小程序查看
 
-![示例](https://wzs28150.github.io/coolui-scroller/v3/images/demo.jpg)
+![示例](https://wzs28150.github.io/coolui-scroller/v4/images/demo.jpg)
 
 示例代码： [https://github.com/wzs28150/coolui-scroller/tree/demo](https://github.com/wzs28150/coolui-scroller/tree/demo)
 
@@ -138,9 +138,9 @@ npm i coolui-scroller --production
 ### npm 构建
 
 安装之后开发者工具点击 npm 构建:<br/>
-![npm构建1](https://wzs28150.github.io/coolui-scroller/v3/images/set1.png)<br/>
+![npm构建1](https://wzs28150.github.io/coolui-scroller/v4/images/set1.png)<br/>
 当看到站点里面出现 miniprogram_npm 文件夹就算安装完成了<br/>
-![npm构建2](https://wzs28150.github.io/coolui-scroller/v3/images/set2.png)
+![npm构建2](https://wzs28150.github.io/coolui-scroller/v4/images/set2.png)
 
 ## 引入
 
@@ -162,7 +162,7 @@ npm i coolui-scroller --production
 
 ### 3.配置
 
-在 js 的 data 中进行配置参数设置，v3.0 版将功能细化到各个组件中具体配置详见([组件](https://wzs28150.github.io/coolui-scroller/v3/components/scroller.html))
+在 js 的 data 中进行配置参数设置，v3.0 版将功能细化到各个组件中具体配置详见([组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/scroller))
 
 ### 4.组件
 
@@ -175,7 +175,7 @@ npm i coolui-scroller --production
 
 | 微信                                                                 | 支付宝                                                                  |
 | -------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| ![微信](https://wzs28150.github.io/coolui-scroller/v3/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v3/images/zfb.jpg) |
+| ![微信](https://wzs28150.github.io/coolui-scroller/v4/images/wx.jpg) | ![支付宝](https://wzs28150.github.io/coolui-scroller/v4/images/zfb.jpg) |
 
 ## 社群
 
