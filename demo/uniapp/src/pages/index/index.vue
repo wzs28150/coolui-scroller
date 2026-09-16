@@ -11,6 +11,7 @@ import type {
   DemoTapEvent,
   DemoTouchEvent,
 } from '../../types'
+import WaveBgCanvas from '../../components/wave-bg-canvas/wave-bg-canvas.vue'
 
 const PageCur = ref(0)
 const trans = ref(false)
@@ -184,18 +185,11 @@ const onChange = (e: DemoNavChangeEvent) => {
           ></wave-bg>
           <!-- #endif -->
           <!-- #ifndef MP-WEIXIN -->
-          <!-- 其它端没有该原生组件：用同尺寸、同主色的渐变底替代，保证布局与观感一致 -->
-          <view
+          <!-- 其它端用等价的 canvas 版本（同一份噪声算法），动效与微信端一致 -->
+          <wave-bg-canvas
             class="bg"
-            style="
-              display: block;
-              position: relative;
-              height: 33vh;
-              overflow: hidden;
-              z-index: 0;
-              background: linear-gradient(180deg, #d13435 0%, #ef7f80 60%, #f2f2f2 100%);
-            "
-          ></view>
+            style="display: block; position: relative; height: 33vh; overflow: hidden; z-index: 0"
+          ></wave-bg-canvas>
           <!-- #endif -->
           <view class="logo">coolui-scroller</view>
           <view class="inner">
