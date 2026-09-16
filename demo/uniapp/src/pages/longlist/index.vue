@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { setHeight } from 'coolui-scroller-uni/utils/longlist.js'
 import type {
   DemoArticle,
   DemoEmptySetting,
@@ -8,9 +7,6 @@ import type {
   DemoPageParam,
   DemoRefreshConfig,
 } from '../../types'
-
-/** 页面实例（小程序组件实例挂在 $scope 上，透传给 setHeight 做节点查询） */
-const vm = getCurrentInstance() as { $scope?: object } | null
 
 const isEmpty = ref(false)
 const list = ref<DemoArticle[][]>([])
@@ -30,18 +26,16 @@ const loadMoreSetting = ref<DemoLoadmoreSetting>({
 })
 const emptySetting: DemoEmptySetting = { img: '/img/empty.png', text: '暂无文章' }
 
-let wholeList: DemoArticle[][] = []
-let currentRenderIndex = 0
-let pageHeightArr: number[] = []
 const totalPageNum = ref(0)
 const param = ref<DemoPageParam>({ limit: 4, page: 0 })
+/** 当前滚动距离：透传给窗口化长列表组件，用于计算渲染窗口 */
+const scrollTop = ref(0)
 
 const getList = () => {
   // 判断当前是否为加载状态 防止页面重复添加数据
   if (loadMoreSetting.value.status !== 'loading') {
     loadMoreSetting.value.status = 'loading'
     const page = param.value.page
-    currentRenderIndex = page
     if (totalPageNum.value > 0 && page == totalPageNum.value) {
       loadMoreSetting.value.status = 'noMore'
     } else {
@@ -64,19 +58,10 @@ const getList = () => {
               isEmpty.value = true
               loadMoreSetting.value.status = 'noMore'
             } else {
-              wholeList[page] = data.data.list
+              // 追加一页数据即可：页高测量与渲染窗口由 coolui-scroller-longlist 内部处理
               list.value[page] = data.data.list
-              nextTick(() => {
-                setHeight({
-                  param: param.value,
-                  pageHeightArr,
-                  wholeList,
-                  list: list.value,
-                  $scope: vm?.$scope,
-                })
-                loadMoreSetting.value.status = 'more'
-                param.value.page += 1
-              })
+              loadMoreSetting.value.status = 'more'
+              param.value.page += 1
             }
           }
         },
@@ -86,15 +71,16 @@ const getList = () => {
 }
 const refresh = () => {
   // 初始化缓存数据
-  wholeList = []
-  currentRenderIndex = 0
-  pageHeightArr = []
   param.value = { limit: 4, page: 0 }
   list.value = []
+  scrollTop.value = 0
   // 重新拉取数据
   getList()
 }
-const scroll = () => {}
+/** scroller 的滚动事件：把 scrollTop 透传给窗口化长列表组件 */
+const onScroll = (e: { detail: { scrollTop: number } }) => {
+  scrollTop.value = e.detail.scrollTop
+}
 
 onMounted(() => {
   getList()
@@ -116,34 +102,26 @@ onMounted(() => {
           background="#f2f2f2"
           @loadmore="getList"
           @refresh="refresh"
-          @scroll="scroll"
+          @scroll="onScroll"
         >
           <template #refresh>
             <coolui-scroller-refresh type="default" :config="defaultSetting" />
           </template>
-          <!-- 列表 -->
-          <!-- page组件循环页 -->
-          <coolui-scroller-page
-            v-for="(listSingleItem, pageIndex) in list"
-            :key="pageIndex"
-            :id="'wrp_' + pageIndex"
-            :page-list="listSingleItem"
-          >
-            <!-- item组件循环项 -->
-            <coolui-scroller-item
-              v-for="(listItem, index) in listSingleItem"
-              :key="index"
-            >
-              <view class="item">
-                <image class="item-image" :src="listItem.img"></image>
-                <view class="item-title">
-                  {{ (pageIndex * 3) + listItem.id }}.{{ listItem.title }}
+          <!-- 列表：窗口化长列表（只渲染窗口内的页，窗口外折叠为上下两个占位块） -->
+          <coolui-scroller-longlist :pages="list" :scroll-top="scrollTop">
+            <template #page="{ items, pageIndex }">
+              <!-- item组件循环项 -->
+              <coolui-scroller-item v-for="(listItem, index) in items" :key="index">
+                <view class="item">
+                  <image class="item-image" :src="listItem.img"></image>
+                  <view class="item-title">
+                    {{ (pageIndex * 3) + listItem.id }}.{{ listItem.title }}
+                  </view>
                 </view>
-              </view>
-            </coolui-scroller-item>
-            <!-- item组件循环项 -->
-          </coolui-scroller-page>
-          <!-- page组件循环页 -->
+              </coolui-scroller-item>
+              <!-- item组件循环项 -->
+            </template>
+          </coolui-scroller-longlist>
           <!-- 列表 -->
           <!-- 加载更多组件 -->
           <template #loadmore>

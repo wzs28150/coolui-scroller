@@ -261,6 +261,11 @@ Component({
     },
     scroll(e) {
       const that = this
+      // 把滚动距离透出给页面（长列表窗口化需要它来计算渲染窗口）
+      // 注意必须放在下面的提前 return 之前，否则没用到 back-to-top 组件时不会触发
+      that.triggerEvent('scroll', {
+        scrollTop: e.detail.scrollTop,
+      })
       if (!that.backToTopNode) {
         return
       }

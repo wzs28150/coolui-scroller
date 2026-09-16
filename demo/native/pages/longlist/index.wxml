@@ -5,13 +5,15 @@
       当滚动加载的数据越来越多时,页面渲染就会很慢.会出现卡顿状况.长列表实现实际上将数据做成分页处理,不在可视区的分页,将里面的item删掉用空结构占位处理。在scroller中使用scroller-page搭配scroller-item使用
     </view>
     <view class="pannel-inner">
-      <scroller class="{{(loadMoreSetting.status == 'loading' && list.length == 0) ? 'isloading' : ''}}" id="scroller" bind:loadmore="getList" bind:refresh="refresh" isEmpty="{{isEmpty}}" background="#f2f2f2">
+      <scroller class="{{(loadMoreSetting.status == 'loading' && list.length == 0) ? 'isloading' : ''}}" id="scroller" bind:loadmore="getList" bind:refresh="refresh" bind:scroll="onScroll" isEmpty="{{isEmpty}}" background="#f2f2f2">
         <refresh slot="refresh" type="default" config="{{defaultSetting}}" />
         <!-- 列表 -->
-        <!-- page组件循环页 -->
-        <scroll-page wx:for="{{ list }}" id="wrp_{{pageIndex}}" wx:for-index="pageIndex" wx:for-item="listSingleItem" wx:key="index" pageList="{{ listSingleItem }}">
+        <!-- 窗口上方占位：窗口外的页不再产生 scroll-page 实例 -->
+        <view wx:if="{{topHeight > 0}}" style="height: {{topHeight}}px"></view>
+        <!-- 只渲染窗口内的页 -->
+        <scroll-page wx:for="{{ visiblePages }}" wx:for-item="pageIndex" wx:key="*this" id="wrp_{{pageIndex}}" pageList="{{ list[pageIndex] }}">
           <!-- item组件循环项 -->
-          <item wx:for="{{ listSingleItem }}" wx:for-index="index" wx:for-item="listItem" wx:key="index">
+          <item wx:for="{{ list[pageIndex] }}" wx:for-index="index" wx:for-item="listItem" wx:key="index">
             <view class="item">
               <image class='item-image' src="{{listItem.img}}"></image>
               <view class="item-title">{{(pageIndex * 3) + listItem.id}}.{{listItem.title}}</view>
@@ -19,7 +21,8 @@
           </item>
           <!-- item组件循环项 -->
         </scroll-page>
-        <!-- page组件循环页 -->
+        <!-- 窗口下方占位 -->
+        <view wx:if="{{bottomHeight > 0}}" style="height: {{bottomHeight}}px"></view>
         <!-- 列表 -->
         <!-- 加载更多组件 -->
         <loadmore slot="loadmore" status="{{loadMoreSetting.status}}" loading="{{loadMoreSetting.loading}}" noMore="{{loadMoreSetting.noMore}}" more="{{loadMoreSetting.more}}" />

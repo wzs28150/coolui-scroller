@@ -17,6 +17,7 @@ declare module 'vue' {
     CooluiScrollerEmpty: typeof import('coolui-scroller-uni/components/coolui-scroller-empty/coolui-scroller-empty.vue')['default']
     CooluiScrollerItem: typeof import('coolui-scroller-uni/components/coolui-scroller-item/coolui-scroller-item.vue')['default']
     CooluiScrollerPage: typeof import('coolui-scroller-uni/components/coolui-scroller-page/coolui-scroller-page.vue')['default']
+    CooluiScrollerLonglist: typeof import('coolui-scroller-uni/components/coolui-scroller-longlist/coolui-scroller-longlist.vue')['default']
     CooluiScrollerParallax: typeof import('coolui-scroller-uni/components/coolui-scroller-parallax/coolui-scroller-parallax.vue')['default']
     CooluiScrollerNav: typeof import('coolui-scroller-uni/components/coolui-scroller-nav/coolui-scroller-nav.vue')['default']
     CooluiScrollerNavBar: typeof import('coolui-scroller-uni/components/coolui-scroller-nav-bar/coolui-scroller-nav-bar.vue')['default']
