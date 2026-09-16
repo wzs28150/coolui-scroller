@@ -256,6 +256,15 @@ onMounted(() => {
   display: flex;
 }
 
+/* #ifdef H5 */
+/* H5 端 uni 会额外渲染内置导航栏（--window-top，44px），100vh 是整个视口高度，
+   页面因此比可视区多出这一截 → 出现页面级滚动条。小程序端导航栏由原生提供，不受影响。 */
+.page {
+  height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+  min-height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
+
 .item {
   padding: 30rpx 0 0;
   margin: 0 30rpx;

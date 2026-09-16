@@ -13,8 +13,12 @@ const list = ref<DemoArticle[]>([])
 const refreshSetting: DemoRefreshConfig = {
   type: 'default',
   style: 'black',
+  // 与「下拉刷新 - 原生效果」保持一致：下拉高度(background.height) 大于 refresh 自身高度(height)，
+  // 松手后先回落到 height 显示加载动画、刷新完成再整体回弹（弹性/两段回弹的关键）
+  height: 50,
   background: {
     color: '#f2f2f2',
+    height: 120,
   },
   isBackBtn: true,
   shake: false,
@@ -141,6 +145,15 @@ onMounted(() => {
   overflow: hidden;
   display: flex;
 }
+
+/* #ifdef H5 */
+/* H5 端 uni 会额外渲染内置导航栏（高度即 CSS 变量 --window-top），而 100vh 是整个视口高度，
+   页面因此比可视区多出导航栏这一截，出现页面级滚动条（小程序端导航栏由原生提供、disableScroll
+   生效，所以一直正常）。这里改为按可视区高度兜底；变量缺失时默认 0px，不会反向变矮。 */
+.page {
+  height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
 
 .pannel {
   flex: 1;

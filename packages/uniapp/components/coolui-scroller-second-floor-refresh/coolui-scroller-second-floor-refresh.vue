@@ -320,8 +320,8 @@ defineExpose({
 .second-floor-refresh.second-floor-refresh-back {
   text-align: center;
 }
-/* #ifdef H5 */
-/* H5 下组件没有宿主节点，上面的 :host 不生效，宿主样式改为落到根节点上 */
+/* #ifdef H5 || APP-PLUS */
+/* H5 / App 下组件没有宿主节点，上面的 :host 不生效，宿主样式改为落到根节点上 */
 .second-floor-refresh {
   width: 100%;
   font-size: 28rpx;

@@ -437,6 +437,16 @@ const diyRefresh = () => {
   display: flex;
   flex-direction: column;
 }
+
+/* #ifdef H5 */
+/* H5 端 uni 会额外渲染内置导航栏（--window-top，44px），100vh 没扣掉这一截会多出页面级滚动条。
+   本页内容是固定组合，所以直接固定成可视区高度，配合 .page 的 overflow:hidden
+   把内层手算常量的零点几 px 误差吃掉，不产生滚动条、也不影响内容区高度。 */
+.page {
+  height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+  min-height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
 .page .pannel {
   margin-bottom: 30rpx;
   display: flex;
@@ -464,6 +474,19 @@ const diyRefresh = () => {
   color: #999;
   flex: 1;
 }
+
+/* #ifdef H5 */
+/* 内层高度是 calc(100vh - 常量) 手算的：H5 的 .page 比 100vh 少了导航栏那一截，
+   内层不跟着扣掉就会比滚动区高 44px，scroller 内部出现滚动条。
+   这里外层、内层同减导航栏高度，保证两边相等（仍保持确定高度，scroller 的高度测量不受影响）。 */
+.page .pannel .pannel-inner,
+.page .pannel .pannel-inner .scroller-pannel {
+  height: calc(
+    100vh - 60rpx - 74rpx - 66rpx - 40rpx - 2px - 84rpx - var(--window-top, 0px) -
+      var(--window-bottom, 0px)
+  );
+}
+/* #endif */
 .page .pannel .pannel-inner .scroller-pannel .logoText {
   font-size: 50rpx;
   font-weight: bold;

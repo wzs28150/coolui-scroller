@@ -44,6 +44,31 @@ page {
   padding: 20rpx;
 }
 
+/* #ifdef H5 */
+/* uni 的 H5 导航栏 loading 会把标题替换成转圈；组件端改为给页面打 .coolui-nav-loading 标记，
+   这里保留标题，并在标题左侧叠加一个转圈（与小程序 / App「标题 + 左侧转圈」观感一致）。
+   用 ::before + 负外边距的方式参与行内排版，不依赖标题容器的宽度/定位方式。 */
+body.coolui-nav-loading .uni-page-head__title::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin: 0 6px 0 -20px;
+  box-sizing: border-box;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  vertical-align: -2px;
+  animation: coolui-nav-loading-spin 0.8s linear infinite;
+}
+
+@keyframes coolui-nav-loading-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* #endif */
+
 .pannel .content {
   font-size: 28rpx;
   color: #666;

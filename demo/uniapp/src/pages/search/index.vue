@@ -130,6 +130,14 @@ const test = () => {
   flex-direction: column;
 }
 
+/* #ifdef H5 */
+/* H5 端 uni 会额外渲染内置导航栏（--window-top，44px），100vh 没扣掉这一截会多出页面级滚动条。
+   这里只改最小高度：本页内容本身就高于一屏，仍保持正常滚动。 */
+.page {
+  min-height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
+
 .pannel {
   margin-bottom: 30rpx;
   margin-top: 30rpx;

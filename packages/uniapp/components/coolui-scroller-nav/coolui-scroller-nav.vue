@@ -281,8 +281,8 @@ const changeNavPerView = (navPerView: number | string) => {
 .wx-coolui-nav .nav-inner .item.line.on .text .line {
   width: 100%;
 }
-/* #ifdef H5 */
-/* H5 下组件没有宿主节点，上面的 :host 不生效，宿主样式改为落到根节点上 */
+/* #ifdef H5 || APP-PLUS */
+/* H5 / App 下组件没有宿主节点，上面的 :host 不生效，宿主样式改为落到根节点上 */
 .wx-coolui-nav {
   display: block;
   width: 100%;

@@ -17,6 +17,10 @@ const list = ref<DemoArticle[][]>([])
 const defaultSetting: DemoRefreshConfig = {
   shake: true,
   style: 'black', // 设置圆点深色还是浅色
+  // 与「下拉刷新 - 原生效果」保持一致：下拉高度大于 refresh 自身高度，
+  // 松手先回落显示加载动画、刷新完成再整体回弹（弹性效果的关键）
+  height: 50,
+  background: { color: '#f2f2f2', height: 120 },
 }
 const loadMoreSetting = ref<DemoLoadmoreSetting>({
   status: 'more',
@@ -161,17 +165,24 @@ onMounted(() => {
 .page {
   height: 100vh;
   background-color: #f2f2f2;
+  padding: 0 30rpx;
   overflow: hidden;
   display: flex;
 }
 
+/* #ifdef H5 */
+/* H5 端 uni 会额外渲染内置导航栏（高度即 CSS 变量 --window-top），而 100vh 是整个视口高度，
+   页面因此比可视区多出导航栏这一截，出现页面级滚动条（小程序端导航栏由原生提供，所以一直正常）。 */
+.page {
+  height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
+
+/* 卡片外观与空列表页保持一致：白底 / 上边距 / 左右内边距 / overflow 都由全局 .pannel 提供，
+   这里只补布局相关的三条，避免重复声明导致各页观感不一致 */
 .pannel {
   flex: 1;
   margin-bottom: 30rpx;
-  margin-top: 30rpx;
-  background-color: #fff;
-  padding: 0 20rpx;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -202,13 +213,16 @@ onMounted(() => {
   padding: 30rpx 0;
 }
 
+/* 与空列表页一致：不重置内边距，沿用全局 .pannel .pannel-inner 的 20rpx */
 .pannel .pannel-inner {
   flex: 1;
-  padding: 0;
 }
 
-/* 列表项自定义结构样式 */
-.coolui-scroller .item {
+/* 列表项自定义结构样式
+   `.item` 是插槽内容、属于本页作用域，直接写类名即可；
+   不要写成 `.coolui-scroller .item` —— `.coolui-scroller` 是子组件内部的根节点，
+   页面样式无法穿过组件边界，整条规则会失效（表现为各 item 之间没有间距） */
+.item {
   padding: 30rpx 0 0;
 }
 
@@ -222,7 +236,6 @@ onMounted(() => {
   font-size: 32rpx;
   line-height: 3em;
   background-color: #fff;
-  padding: 0 30rpx;
 }
 
 .header {

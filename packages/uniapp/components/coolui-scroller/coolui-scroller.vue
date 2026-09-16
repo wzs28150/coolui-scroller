@@ -601,8 +601,8 @@ defineExpose({
     }
   }
 }
-/* #ifdef H5 */
-/* H5 下组件没有宿主节点，上面的 :host 不生效：只补宽高，display 交给根节点自己（根节点是 flex 容器） */
+/* #ifdef H5 || APP-PLUS */
+/* H5 / App 下组件没有宿主节点，上面的 :host 不生效：只补宽高，display 交给根节点自己（根节点是 flex 容器） */
 .coolui-scroller {
   width: 100%;
   height: 100%;

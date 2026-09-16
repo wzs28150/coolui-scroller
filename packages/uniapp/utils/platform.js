@@ -65,8 +65,53 @@ export function vibrateShort() {
   }
 }
 
+/**
+ * H5 / App 端兜底：
+ * 这两个端上 uni 调用 showNavigationBarLoading 都会把导航栏标题文本替换成转圈
+ * （小程序是原生导航栏，标题保留、转圈在标题左侧），所以改为给页面打标记，
+ * 由全局样式在标题左侧叠加转圈，标题文字保留；小程序仍走 uni 原生接口。
+ */
+function shouldPatchNavLoading() {
+  try {
+    const info = typeof uni !== 'undefined' && uni.getSystemInfoSync ? uni.getSystemInfoSync() : null
+    const platform = (info && info.uniPlatform) || ''
+    if (platform) {
+      // 只有各小程序的导航栏是原生的（标题不会被替换），保持 uni 原生接口；
+      // H5 的 uniPlatform 在不同版本里是 'h5' 或 'web'，App 端是 'app'，这些都要走自绘方案
+      return platform.indexOf('mp-') !== 0
+    }
+  } catch (e) {
+    // ignore
+  }
+  // 取不到平台信息时退回 DOM 能力检测：只有 H5 存在 uni 的导航栏 DOM
+  return typeof document !== 'undefined' && !!document.querySelector('uni-page-head .uni-page-head__title')
+}
+
+/**
+ * 标记挂在 body 上：uni 的 H5 导航栏(uni-page-head) 与页面内容(uni-page-body) 是兄弟节点，
+ * 挂在 uni-page-body 上选不中导航栏。
+ */
+function setNavLoadingClass(loading) {
+  if (typeof document === 'undefined' || !document.body) {
+    return
+  }
+  try {
+    if (loading) {
+      document.body.classList.add('coolui-nav-loading')
+    } else {
+      document.body.classList.remove('coolui-nav-loading')
+    }
+  } catch (e) {
+    // ignore
+  }
+}
+
 /** 顶部导航栏加载动画（部分平台不支持，静默降级） */
 export function showNavigationBarLoading() {
+  if (shouldPatchNavLoading()) {
+    setNavLoadingClass(true)
+    return
+  }
   try {
     if (typeof uni.showNavigationBarLoading === 'function') {
       uni.showNavigationBarLoading()
@@ -77,6 +122,10 @@ export function showNavigationBarLoading() {
 }
 
 export function hideNavigationBarLoading() {
+  if (shouldPatchNavLoading()) {
+    setNavLoadingClass(false)
+    return
+  }
   try {
     if (typeof uni.hideNavigationBarLoading === 'function') {
       uni.hideNavigationBarLoading()

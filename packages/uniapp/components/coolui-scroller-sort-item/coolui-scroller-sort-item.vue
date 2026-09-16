@@ -399,8 +399,8 @@ defineExpose({
 .action-bar .action-bar-btn::after {
   border-radius: 0;
 }
-/* #ifdef H5 */
-/* H5 下组件没有宿主节点，上面的 :host 不生效，改为直接落到根节点上（覆盖根节点的 100% 宽度） */
+/* #ifdef H5 || APP-PLUS */
+/* H5 / App 下组件没有宿主节点，上面的 :host 不生效，改为直接落到根节点上（覆盖根节点的 100% 宽度） */
 .coolui-scroller-sort-item.coolui-scroller-sort-item {
   display: inline-block;
   width: 28.5%;

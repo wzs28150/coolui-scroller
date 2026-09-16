@@ -211,19 +211,19 @@ const tipChange = (e: Event) => {
                   class="weui-cell weui-check__label"
                 >
                   <view class="weui-cell__hd">
-                    <radio :value="item.value" :checked="item.value === type" />
+                    <radio color="#d13435" :value="item.value" :checked="item.value === type" />
                   </view>
                   <view class="weui-cell__bd">{{ item.name }}</view>
                 </label>
               </radio-group>
               <view class="des">是否开启缩放:</view>
-              <switch :checked="scale" @change="scaleChange" />
+              <switch color="#d13435" :checked="scale" @change="scaleChange" />
               <view class="des">是否弹出新页面:</view>
-              <switch :checked="newPage" @change="switchChange" />
+              <switch color="#d13435" :checked="newPage" @change="switchChange" />
               <view class="des">是否开启自动下拉提示:</view>
-              <switch :checked="tip.show" @change="tipChange" />
+              <switch color="#d13435" :checked="tip.show" @change="tipChange" />
               <view class="des">设置offset 100:</view>
-              <switch :checked="offset" @change="offsetChange" />
+              <switch color="#d13435" :checked="offset" @change="offsetChange" />
               <view class="downtip">下拉查看效果</view>
               <view class="downicon">
                 <view class="line"></view>

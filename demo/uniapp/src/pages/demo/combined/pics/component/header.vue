@@ -10,6 +10,17 @@ interface HeaderItem {
   name: string
 }
 
+/* 注意：条件编译注释不能写在标签属性中间——H5 / App 端解析后 scroll-x 属性会丢失，
+   scroll-view 就不再是横向滚动，头像条会竖向堆叠（小程序端恰好能编译过去，所以只有 App/H5 出问题）。
+   这两个增强属性只有微信端需要，放在脚本里按平台赋值、模板上显式绑定
+   （不能用 v-bind="对象"：小程序 WXML 不支持动态属性展开，会直接编译失败）。 */
+let enhanced = false
+let showScrollbar = false
+// #ifdef MP-WEIXIN
+enhanced = true
+showScrollbar = false
+// #endif
+
 const list: HeaderItem[] = [
   {
     id: 1,
@@ -59,32 +70,32 @@ const chooseimage = () => {
 <template>
   <scroll-view
     class="header"
-    <!-- #ifdef MP-WEIXIN -->
-    :enhanced="true"
-    :show-scrollbar="false"
-    <!-- #endif -->
     scroll-x
     enable-flex
+    :enhanced="enhanced"
+    :show-scrollbar="showScrollbar"
   >
-    <view class="item add" @tap="chooseimage">
-      <view class="photo">
-        <image
-          class="photo-img"
-          mode="aspectFill"
-          src="https://test.wzs.pub/pic/pics/4.jpg"
-        />
-        <view class="icon">
-          <view class="line"></view>
-          <view class="line"></view>
+    <view class="list">
+      <view class="item add" @tap="chooseimage">
+        <view class="photo">
+          <image
+            class="photo-img"
+            mode="aspectFill"
+            src="https://test.wzs.pub/pic/pics/4.jpg"
+          />
+          <view class="icon">
+            <view class="line"></view>
+            <view class="line"></view>
+          </view>
         </view>
+        <view class="name">分享瞬间</view>
       </view>
-      <view class="name">分享瞬间</view>
-    </view>
-    <view class="item" v-for="item in list" :key="item.id">
-      <view class="photo">
-        <image class="photo-img" mode="aspectFill" :src="item.photo" />
+      <view class="item" v-for="item in list" :key="item.id">
+        <view class="photo">
+          <image class="photo-img" mode="aspectFill" :src="item.photo" />
+        </view>
+        <view class="name">{{ item.name }}</view>
       </view>
-      <view class="name">{{ item.name }}</view>
     </view>
   </scroll-view>
 </template>
@@ -92,9 +103,15 @@ const chooseimage = () => {
 <style lang="scss" scoped>
 .header {
   height: 168rpx;
-  display: flex;
-  width: 100vw;
+  width: 100%;
   border-bottom: 1px solid #efefef;
+  /* 横向排列统一交给内部的 .list（inline-flex），
+     不依赖小程序独有的 enable-flex 行为，App / H5 表现一致 */
+  white-space: nowrap;
+
+  .list {
+    display: inline-flex;
+  }
 
   .item {
     padding: 20rpx;

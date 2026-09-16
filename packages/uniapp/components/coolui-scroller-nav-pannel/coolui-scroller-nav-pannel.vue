@@ -105,14 +105,14 @@ provide<CooluiNavPannelApi>('cooluiNavPannel', { registerScroller })
     }
   }
 }
-/* #ifdef H5 */
-/* H5 下子组件没有宿主节点，`coolui-scroller` 标签选择器不命中，
-   改为用子组件根节点类名选择器，效果与小程序端一致 */
-.wx-coolui-nav-pannel-inner.side .coolui-scroller {
+/* #ifdef H5 || APP-PLUS */
+/* H5 / App 下子组件没有宿主节点，`coolui-scroller` 标签选择器不命中；
+   同时这两端会给组件样式加作用域属性，必须用 :deep() 才能穿透到子组件根节点 */
+.wx-coolui-nav-pannel-inner.side :deep(.coolui-scroller) {
   flex: 0 0 100%;
 }
 
-.wx-coolui-nav-pannel-inner.fade .coolui-scroller {
+.wx-coolui-nav-pannel-inner.fade :deep(.coolui-scroller) {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -121,7 +121,7 @@ provide<CooluiNavPannelApi>('cooluiNavPannel', { registerScroller })
   z-index: 0;
 }
 
-.wx-coolui-nav-pannel-inner.fade .coolui-scroller:first-child {
+.wx-coolui-nav-pannel-inner.fade :deep(.coolui-scroller:first-child) {
   position: relative;
   z-index: 1;
 }

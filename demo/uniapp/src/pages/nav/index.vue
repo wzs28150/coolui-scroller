@@ -122,7 +122,7 @@ const borderChange = () => {
             </view>
             <view class="btn">
               显示底边:
-              <switch class="switch" :checked="border" @change="borderChange" />
+              <switch class="switch" color="#d13435" :checked="border" @change="borderChange" />
             </view>
             <view class="btn">
               显示个数:
@@ -158,6 +158,14 @@ const borderChange = () => {
   display: flex;
   flex-direction: column;
 }
+
+/* #ifdef H5 */
+/* H5 端 uni 会额外渲染内置导航栏（--window-top，44px），100vh 没扣掉这一截会多出页面级滚动条。
+   这里只改最小高度：内容更高时页面仍可正常滚动，内容不满一屏时则不会出现滚动条。 */
+.page {
+  min-height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
 
 .pannel {
   margin-bottom: 30rpx;
