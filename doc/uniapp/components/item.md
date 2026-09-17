@@ -6,10 +6,12 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
-    <coolui-scroller-item v-for="(item, index) in list" :id="'item' + index" :key="index">
+    <coolui-scroller-item v-for="(item, index) in list" :id="'item' + index" :key="index" ripple>
       <view class="item">
         <image class="item-image" lazy-load :src="item.img" />
         <view class="item-title">{{ index }}.{{ item.title }}</view>
@@ -17,9 +19,23 @@
     </coolui-scroller-item>
   </coolui-scroller>
 </template>
-```
 
-```scss
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string; img: string }[]>([])
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+
+<style lang="scss" scoped>
 .item {
   display: flex;
   align-items: center;
@@ -36,7 +52,61 @@
     font-size: 30rpx;
   }
 }
+</style>
 ```
+
+```vue [选项式 API]
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :id="'item' + index" :key="index" ripple>
+      <view class="item">
+        <image class="item-image" lazy-load :src="item.img" />
+        <view class="item-title">{{ index }}.{{ item.title }}</view>
+      </view>
+    </coolui-scroller-item>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+    }
+  },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+
+  .item-image {
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+  }
+
+  .item-title {
+    flex: 1;
+    font-size: 30rpx;
+  }
+}
+</style>
+```
+
+::::
 
 ## 属性
 

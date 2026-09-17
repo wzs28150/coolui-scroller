@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller-nav-pannel :active="active" :animation="animation">
     <coolui-scroller class="scroller0" background="#f2f2f2" @contentHeight="getHeight">
@@ -21,14 +23,49 @@
     </coolui-scroller>
   </coolui-scroller-nav-pannel>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const active = ref(0)        // 当前显示第几屏，由 nav 的 change 事件同步
+const animation = ref(true)  // 是否开启切换动画
+const logoConfig = ref({
+  height: 50,
+  text: { content: 'coolui-scroller', size: 40 },
+})
+
+function getHeight(height: number) {
+  // 各屏内容高度，用于撑开容器
+}
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller-nav-pannel :active="active" :animation="animation">
+    <coolui-scroller class="scroller0" background="#f2f2f2" @contentHeight="getHeight">
+      <template #refresh>
+        <coolui-scroller-refresh type="logoText" :config="logoConfig" />
+      </template>
+      <view class="pannel">第一屏内容</view>
+    </coolui-scroller>
+
+    <coolui-scroller class="scroller1" background="#f2f2f2" @contentHeight="getHeight">
+      <view class="pannel">第二屏内容</view>
+    </coolui-scroller>
+  </coolui-scroller-nav-pannel>
+</template>
+
+<script>
 export default {
   data() {
     return {
       active: 0,        // 当前显示第几屏，由 nav 的 change 事件同步
       animation: true,  // 是否开启切换动画
+      logoConfig: {
+        height: 50,
+        text: { content: 'coolui-scroller', size: 40 },
+      },
     }
   },
   methods: {
@@ -37,7 +74,10 @@ export default {
     },
   },
 }
+</script>
 ```
+
+::::
 
 ## 属性
 

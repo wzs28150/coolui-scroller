@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
     <template #empty>
@@ -18,9 +20,40 @@
     </template>
   </coolui-scroller>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const emptySetting = ref({
+  img: '/static/empty.png',
+  text: '暂无内容',
+})
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #empty>
+      <coolui-scroller-empty
+        class="empty"
+        :emptyText="emptySetting.text"
+        :emptyImg="emptySetting.img"
+      />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script>
 export default {
   data() {
     return {
@@ -31,8 +64,19 @@ export default {
       },
     }
   },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
 }
+</script>
 ```
+
+::::
 
 ## 属性
 

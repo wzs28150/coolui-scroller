@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller-search
     v-model:keyword="keyword"
@@ -18,9 +20,36 @@
     @btnClick="onBtnClick"
   />
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const keyword = ref('')
+
+function onConfirm({ key }: { key: string }) {
+  // 回车/确认搜索
+}
+
+function onBtnClick({ key }: { key: string }) {
+  // 点击右侧按钮
+}
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller-search
+    v-model:keyword="keyword"
+    placeholder="请输入要搜索的内容"
+    :button="{ show: true, text: '搜索' }"
+    round
+    clearable
+    @confirm="onConfirm"
+    @btnClick="onBtnClick"
+  />
+</template>
+
+<script>
 export default {
   data() {
     return { keyword: '' }
@@ -34,7 +63,10 @@ export default {
     },
   },
 }
+</script>
 ```
+
+::::
 
 ## 属性
 

@@ -12,7 +12,7 @@ uni-app 版（`coolui-scroller-uni`）的组件能力、交互效果与原生微
 | 保留字属性 | search 组件用 `key` | 改名为 `keyword`，用 `@update:keyword` 同步 |
 | 组件通信 | 小程序 `relations` 关联父子组件 | Vue `provide/inject` |
 | 长列表 | `scroll-page`（整页占位） | `coolui-scroller-page`（旧方案）+ `coolui-scroller-longlist`（窗口化，推荐） |
-| 类型 | — | `.vue` + `types.ts`，可 `import type { CooluiScrollerProps } from 'coolui-scroller-uni/types'` |
+| 类型 | — | `.vue` + `types.d.ts`，可 `import type { CooluiScrollerProps } from 'coolui-scroller-uni/types'` |
 
 需要在组件之间通信的嵌套关系（保持层级即可，无需手动配置）：
 

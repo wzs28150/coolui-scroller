@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller
     :isEmpty="isEmpty"
@@ -35,20 +37,89 @@
     </template>
   </coolui-scroller>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+const status = ref('more')
+const refreshSetting = ref({
+  height: 50,
+  background: { color: '#f2f2f2', height: 120 },
+})
+
+let page = 1
+
+// @refresh / @loadmore 需要返回 promise，返回前不要 resolve，否则动画会提前收起
+function getList(p: number) {
+  page = p
+  return new Promise<void>((resolve) => {
+    // 请求数据，更新 list / isEmpty / status 之后再 resolve()
+    resolve()
+  })
+}
+
+function refresh() {
+  return getList(1)
+}
+
+function loadmore() {
+  return getList(page + 1)
+}
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller
+    :isEmpty="isEmpty"
+    background="#f2f2f2"
+    @refresh="refresh"
+    @loadmore="loadmore"
+  >
+    <!-- 下拉刷新 -->
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <!-- 列表内容 -->
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <!-- 空列表 -->
+    <template #empty>
+      <coolui-scroller-empty emptyImg="/static/empty.png" emptyText="暂无内容" />
+    </template>
+
+    <!-- 加载更多 -->
+    <template #loadmore>
+      <coolui-scroller-loadmore :status="status" />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script>
 export default {
   data() {
     return {
       isEmpty: false,
       list: [],
       status: 'more',
+      page: 1,
       refreshSetting: { height: 50, background: { color: '#f2f2f2', height: 120 } },
     }
   },
   methods: {
     // @refresh / @loadmore 需要返回 promise，返回前不要 resolve，否则动画会提前收起
+    getList(page) {
+      this.page = page
+      return new Promise((resolve) => {
+        // 请求数据，更新 list / isEmpty / status 之后再 resolve()
+        resolve()
+      })
+    },
     refresh() {
       return this.getList(1)
     },
@@ -57,7 +128,10 @@ export default {
     },
   },
 }
+</script>
 ```
+
+::::
 
 ## 属性
 

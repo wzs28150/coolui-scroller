@@ -30,6 +30,6 @@ uni-app 版组件与原生微信小程序版一一对应，能力与配置项一
 - **插槽**：插槽名与原生一致（`#header`、`#refresh`、`#empty`、`#loadmore`、`#backToTop` 等），保持组件的**嵌套层级**即可，无需额外配置。
 - **组件通信**：原生用 `relations` 自动关联父子组件，uni-app 版改为 Vue `provide/inject`，所以层级关系不要打乱。
 - **样式**：原生 `externalClasses` 在这里换成 `virtualHost + apply-shared`，页面里覆盖组件内部样式请用 `:deep(...)`。
-- **类型**：公共类型集中在 `types.ts`，可 `import type { CooluiScrollerProps, CooluiRefreshConfig } from 'coolui-scroller-uni/types'`。
+- **类型**：公共类型集中在 `types.d.ts`，可 `import type { CooluiScrollerProps, CooluiRefreshConfig } from 'coolui-scroller-uni/types'`。
 
 各组件详细属性与示例见左侧「组件」下的独立页面。

@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
     <coolui-scroller-handtip
@@ -20,7 +22,64 @@
     />
   </coolui-scroller>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+
+function onClose() {
+  // 提示关闭
+}
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
 ```
+
+```vue [选项式 API]
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-handtip
+      top="下拉刷新"
+      bottom="上拉加载"
+      left="侧滑切换"
+      right="侧滑切换"
+      :opacity="0.7"
+      storageKey="hand2"
+      @close="onClose"
+    />
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+    }
+  },
+  methods: {
+    onClose() {
+      // 提示关闭
+    },
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+::::
 
 ## 属性
 

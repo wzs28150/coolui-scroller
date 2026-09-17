@@ -63,7 +63,7 @@ v3 的长列表是「每一页都保留一个页组件实例，滚出视口后�
 | 事件 | `bind:xxx` | `@xxx`；受控属性 `@update:propName`（可写 `v-model:xxx`） |
 | 引入方式 | `usingComponents` | easycom 免 import，也支持全局注册 / 页面内局部引入 |
 | 长列表 | `scroll-page` 窗口化渲染 | 新增 `coolui-scroller-longlist`（窗口化容器，推荐） |
-| 类型 | — | 组件用 `<script setup lang="ts">`，公共类型集中在 `types.ts` |
+| 类型 | — | 组件用 `<script setup lang="ts">`，公共类型集中在 `types.d.ts` |
 | 样式定制 | `externalClasses` | `virtualHost + apply-shared`，页面里用 `:deep()` 覆盖 |
 
 - 一套代码编译到微信 / 支付宝 / 百度 / 字节 / QQ 小程序以及 H5、App 端；

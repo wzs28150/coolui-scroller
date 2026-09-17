@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller
     :isEmpty="isEmpty"
@@ -28,14 +30,65 @@
     </coolui-scroller-longlist>
   </coolui-scroller>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+// 二维数组：list[pageIndex] 是该页的 item 数组
+const list = ref<{ title: string }[][]>([])
+const scrollTop = ref(0)
+const refreshSetting = ref({
+  height: 50,
+  background: { color: '#f2f2f2', height: 120 },
+})
+
+// 把 scroller 的滚动距离透传进来，组件据此判断窗口位置
+function onScroll(e: { detail: { scrollTop: number } }) {
+  scrollTop.value = e.detail.scrollTop
+}
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller
+    :isEmpty="isEmpty"
+    background="#f2f2f2"
+    @refresh="refresh"
+    @loadmore="loadmore"
+    @scroll="onScroll"
+  >
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <coolui-scroller-longlist :pages="list" :scroll-top="scrollTop">
+      <template #page="{ items, pageIndex }">
+        <coolui-scroller-item v-for="(item, index) in items" :key="index">
+          <view class="item">{{ pageIndex }} - {{ item.title }}</view>
+        </coolui-scroller-item>
+      </template>
+    </coolui-scroller-longlist>
+  </coolui-scroller>
+</template>
+
+<script>
 export default {
   data() {
     return {
+      isEmpty: false,
       list: [],      // 二维数组：pages[pageIndex] 是该页的 item 数组
       scrollTop: 0,
+      refreshSetting: { height: 50, background: { color: '#f2f2f2', height: 120 } },
     }
   },
   methods: {
@@ -43,9 +96,18 @@ export default {
     onScroll(e) {
       this.scrollTop = e.detail.scrollTop
     },
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
   },
 }
+</script>
 ```
+
+::::
 
 ## 属性
 

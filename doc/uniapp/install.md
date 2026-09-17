@@ -8,15 +8,15 @@
 
 ## 安装
 
-::: warning 当前发布状态
-uni-app 版目前以**源码**形式提供（仓库 `packages/uniapp`），**尚未发布到 npm**。现在请用下面的「源码安装」；发布后可直接 `npm i coolui-scroller-uni`（包名已按此配置好）。
+::: tip 当前发布状态
+uni-app 版已发布到 npm，推荐直接 `npm i coolui-scroller-uni`（当前 `1.0.1`）；需要改动组件源码时再用下面的「源码安装」。
 :::
 
-### 源码安装（当前可用）
+### 源码安装（需要改组件源码时）
 
-把 `packages/uniapp` 里的 `components/`、`utils/`、`types.ts`、`index.js` 拷进项目目录 —— 提供的就是源码，可以直接参与编译；把 easycom 规则指向你实际放置的目录即可（见下方「引入组件」）。
+把 `packages/uniapp` 里的 `components/`、`utils/`、`types.d.ts`、`index.js` 拷进项目目录 —— 提供的就是源码，可以直接参与编译；把 easycom 规则指向你实际放置的目录即可（见下方「引入组件」）。
 
-### npm 安装（发布后可用）
+### npm 安装（推荐）
 
 ```bash
 npm i coolui-scroller-uni
@@ -82,7 +82,7 @@ export default {
 
 ## TypeScript 支持
 
-组件用 `PropType<T>` 精确标注了 props，并给 `defineEmits`、`provide/inject` 的通信 API 补了类型，编辑器（Volar / vue-tsc）可获得完整提示。公共类型集中在 `types.ts`，可直接引入：
+组件用 `PropType<T>` 精确标注了 props，并给 `defineEmits`、`provide/inject` 的通信 API 补了类型，编辑器（Volar / vue-tsc）可获得完整提示。公共类型集中在 `types.d.ts`，可直接引入：
 
 ```ts
 import type {

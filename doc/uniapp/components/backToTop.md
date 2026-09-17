@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
     <coolui-scroller-item v-for="(item, index) in list" :key="index">
@@ -18,7 +20,57 @@
     </template>
   </coolui-scroller>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
 ```
+
+```vue [选项式 API]
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <template #backToTop>
+      <coolui-scroller-back-to-top :delay="3000" :threshold="100" />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+    }
+  },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+::::
 
 ## 属性
 

@@ -10,6 +10,7 @@
     "dev": "pnpm run --filter ./doc docs:dev",
     "build": "pnpm run --filter ./doc docs:build",
     "push": "pnpm run --filter ./packages/native push",
+    "push:uniapp": "pnpm run --filter ./packages/uniapp push",
     "dev:uniapp": "pnpm run --filter ./demo/uniapp dev:mp-weixin",
     "build:uniapp": "pnpm run --filter ./demo/uniapp build:mp-weixin",
     "gulp": "gulp"

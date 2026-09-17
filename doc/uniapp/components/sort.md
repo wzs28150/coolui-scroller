@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller-sort>
     <coolui-scroller-sort-item
@@ -40,9 +42,62 @@
     </coolui-scroller-sort-item>
   </coolui-scroller-sort>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const value1 = ref('')
+const value3 = ref('')
+const value2 = ref('')
+
+// options 每项 { id, title }
+const options = ref([
+  { id: 1, title: '综合' },
+  { id: 2, title: '销量' },
+])
+const options3 = ref([
+  { id: 1, title: '品牌一' },
+  { id: 2, title: '品牌二' },
+])
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller-sort>
+    <coolui-scroller-sort-item
+      title="排序"
+      name="sort"
+      type="sort"
+      v-model:value="value1"
+      :options="options"
+      active-color="#d13435"
+    />
+
+    <coolui-scroller-sort-item
+      title="品牌"
+      name="sort3"
+      type="classify"
+      v-model:value="value3"
+      :options="options3"
+      active-color="#d13435"
+      multiple
+      action-bar
+    />
+
+    <coolui-scroller-sort-item
+      title="设置"
+      name="sort4"
+      type="diy"
+      v-model:value="value2"
+      active-color="#d13435"
+    >
+      <view class="diy">自定义区域</view>
+    </coolui-scroller-sort-item>
+  </coolui-scroller-sort>
+</template>
+
+<script>
 export default {
   data() {
     return {
@@ -61,7 +116,10 @@ export default {
     }
   },
 }
+</script>
 ```
+
+::::
 
 ## Sort 属性
 

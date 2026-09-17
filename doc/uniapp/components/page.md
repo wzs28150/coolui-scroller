@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
     <coolui-scroller-page
@@ -20,7 +22,60 @@
     </coolui-scroller-page>
   </coolui-scroller>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+// 二维数组：list[pageIndex] 是该页的 item 数组
+const list = ref<{ title: string }[][]>([])
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
 ```
+
+```vue [选项式 API]
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-page
+      v-for="(pageItems, pageIndex) in list"
+      :key="pageIndex"
+      :pageList="pageItems"
+    >
+      <coolui-scroller-item v-for="(item, index) in pageItems" :key="index" ripple>
+        <view class="item">{{ item.title }}</view>
+      </coolui-scroller-item>
+    </coolui-scroller-page>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [], // 二维数组：list[pageIndex] 是该页的 item 数组
+    }
+  },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+::::
 
 ## 属性
 

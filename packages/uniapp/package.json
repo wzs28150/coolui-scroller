@@ -1,13 +1,13 @@
 {
   "name": "coolui-scroller-uni",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "coolui-scroller 的 uni-app 版本：上拉加载下拉刷新组件，支持微信/支付宝/百度/字节/QQ 小程序及 H5、App",
   "main": "index.js",
-  "types": "types.ts",
+  "types": "types.d.ts",
   "files": [
     "components",
     "utils",
-    "types.ts",
+    "types.d.ts",
     "index.js"
   ],
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:wzs28150/coolui-scroller.git"
+    "url": "git+ssh://git@github.com/wzs28150/coolui-scroller.git"
   },
   "keywords": [
     "uniapp",

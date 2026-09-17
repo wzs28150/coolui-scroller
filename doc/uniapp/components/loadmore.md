@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
     <coolui-scroller-item v-for="(item, index) in list" :key="index">
@@ -23,12 +25,58 @@
     </template>
   </coolui-scroller>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+
+const loadMoreSetting = ref({
+  status: 'more', // more | loading | noMore
+  loading: { text: '加载中', color: '#999999' },
+  more: { text: '查看更多', color: '#333333' },
+  noMore: { text: '没有更多', color: '#999999' },
+})
+
+function refresh() {
+  loadMoreSetting.value.status = 'loading'
+  // 刷新完成后改为 'more'（还有数据）或 'noMore'（没有更多）
+  return Promise.resolve()
+}
+
+function loadmore() {
+  loadMoreSetting.value.status = 'loading'
+  // 加载完成后改为 'more'（还有数据）或 'noMore'（没有更多）
+  return Promise.resolve()
+}
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <template #loadmore>
+      <coolui-scroller-loadmore
+        :status="loadMoreSetting.status"
+        :loading="loadMoreSetting.loading"
+        :more="loadMoreSetting.more"
+        :noMore="loadMoreSetting.noMore"
+      />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script>
 export default {
   data() {
     return {
+      isEmpty: false,
+      list: [],
       loadMoreSetting: {
         status: 'more', // more | loading | noMore
         loading: { text: '加载中', color: '#999999' },
@@ -37,8 +85,23 @@ export default {
       },
     }
   },
+  methods: {
+    refresh() {
+      this.loadMoreSetting.status = 'loading'
+      // 刷新完成后改为 'more'（还有数据）或 'noMore'（没有更多）
+      return Promise.resolve()
+    },
+    loadmore() {
+      this.loadMoreSetting.status = 'loading'
+      // 加载完成后改为 'more'（还有数据）或 'noMore'（没有更多）
+      return Promise.resolve()
+    },
+  },
 }
+</script>
 ```
+
+::::
 
 ## 属性
 

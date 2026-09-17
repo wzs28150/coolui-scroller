@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
     <template #header>
@@ -26,12 +28,66 @@
     <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
   </coolui-scroller>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+
+const navList = ref([
+  { id: 1, title: '分类一' },
+  { id: 2, title: '分类二' },
+])
+const type = ref('line')          // line | round | plain
+const navPerView = ref(4.5)       // 也可传 'auto'
+const spaceBetween = ref(0)
+const border = ref(true)
+const active = ref(0)
+const textStyle = ref({ color: '#333333', activeColor: '#d13435' })
+const backgroundStyle = ref({ color: '#333333', activeColor: '#d13435' })
+
+function onChange({ id, index }: { id: number; index: number }) {
+  // 切换分类后同步内容
+}
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #header>
+      <coolui-scroller-nav
+        :list="navList"
+        :type="type"
+        :navPerView="navPerView"
+        :spaceBetween="spaceBetween"
+        :border="border"
+        :text="textStyle"
+        :background="backgroundStyle"
+        v-model:active="active"
+        @change="onChange"
+      />
+    </template>
+
+    <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
+  </coolui-scroller>
+</template>
+
+<script>
 export default {
   data() {
     return {
+      isEmpty: false,
+      list: [],
       navList: [
         { id: 1, title: '分类一' },
         { id: 2, title: '分类二' },
@@ -49,9 +105,18 @@ export default {
     onChange({ id, index }) {
       // 切换分类后同步内容
     },
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
   },
 }
+</script>
 ```
+
+::::
 
 ## 属性
 

@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller-second-floor ref="mySecondFloor" :threshold="val" @refresh="onRefresh">
     <template #nav-bar>
@@ -16,21 +18,56 @@
     <view class="demopage">页面内容</view>
   </coolui-scroller-second-floor>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const val = ref(0) // 下拉进度 0~1
+const navBarConfig = ref({
+  back: { show: true },                  // 是否显示返回按钮
+  background: { color: '#ffffff' },      // 背景色
+  text: { color: '#000000', shadow: 0 }, // 文字颜色与阴影
+})
+
+function onRefresh() {
+  // 二楼下拉刷新
+}
+</script>
 ```
 
-```js
+```vue [选项式 API]
+<template>
+  <coolui-scroller-second-floor ref="mySecondFloor" :threshold="val" @refresh="onRefresh">
+    <template #nav-bar>
+      <coolui-scroller-nav-bar :config="navBarConfig">下拉二楼</coolui-scroller-nav-bar>
+    </template>
+
+    <view class="demopage">页面内容</view>
+  </coolui-scroller-second-floor>
+</template>
+
+<script>
 export default {
   data() {
     return {
+      val: 0, // 下拉进度 0~1
       navBarConfig: {
-        back: { show: true },                 // 是否显示返回按钮
-        background: { color: '#ffffff' },     // 背景色
-        text: { color: '#000000', shadow: 0 },// 文字颜色与阴影
+        back: { show: true },                  // 是否显示返回按钮
+        background: { color: '#ffffff' },      // 背景色
+        text: { color: '#000000', shadow: 0 }, // 文字颜色与阴影
       },
     }
   },
+  methods: {
+    onRefresh() {
+      // 二楼下拉刷新
+    },
+  },
 }
+</script>
 ```
+
+::::
 
 ## 属性
 

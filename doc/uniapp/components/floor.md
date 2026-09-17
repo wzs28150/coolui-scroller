@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller-second-floor
     ref="mySecondFloor"
@@ -40,7 +42,115 @@
     <view class="demopage">一楼内容</view>
   </coolui-scroller-second-floor>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const threshold = ref(0)     // 下拉进度 0~1
+const offset = ref(false)    // 是否开启触发偏移
+const type = ref('center')   // center | bottom | top
+const scale = ref(false)     // 是否开启缩放
+const tip = ref({ show: false, height: 100, times: 1, duration: 2000 })
+
+const refreshConfig = ref({
+  downText: '下拉刷新',
+  loadingText: '加载中...',
+  backText: '松开返回',
+  color: '#ffffff',
+})
+const navBarConfig = ref({
+  back: { show: true },
+  background: { color: '#ffffff' },
+  text: { color: '#000000', shadow: 0 },
+})
+
+function onRefresh() {
+  // 二楼下拉刷新
+}
+
+function onSecondShow() {
+  // 进入二楼
+}
+
+function onSecondBack() {
+  // 返回一楼
+}
+</script>
 ```
+
+```vue [选项式 API]
+<template>
+  <coolui-scroller-second-floor
+    ref="mySecondFloor"
+    :threshold="threshold"
+    :offset="offset ? 100 : 0"
+    :center="type === 'center'"
+    :bottom="type === 'bottom'"
+    :top="type === 'top'"
+    :scale="scale"
+    :tip="tip"
+    @refresh="onRefresh"
+    @secondShow="onSecondShow"
+    @secondBack="onSecondBack"
+  >
+    <!-- 二楼内容 -->
+    <template #second-floor>
+      <view class="second-floor">二楼</view>
+    </template>
+
+    <!-- 二楼下拉刷新 -->
+    <template #second-floor-refresh>
+      <coolui-scroller-second-floor-refresh :refreshConfig="refreshConfig" />
+    </template>
+
+    <!-- 二楼顶部导航栏 -->
+    <template #nav-bar>
+      <coolui-scroller-nav-bar :config="navBarConfig">下拉二楼</coolui-scroller-nav-bar>
+    </template>
+
+    <!-- 一楼内容（默认插槽） -->
+    <view class="demopage">一楼内容</view>
+  </coolui-scroller-second-floor>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      threshold: 0,     // 下拉进度 0~1
+      offset: false,    // 是否开启触发偏移
+      type: 'center',   // center | bottom | top
+      scale: false,     // 是否开启缩放
+      tip: { show: false, height: 100, times: 1, duration: 2000 },
+      refreshConfig: {
+        downText: '下拉刷新',
+        loadingText: '加载中...',
+        backText: '松开返回',
+        color: '#ffffff',
+      },
+      navBarConfig: {
+        back: { show: true },
+        background: { color: '#ffffff' },
+        text: { color: '#000000', shadow: 0 },
+      },
+    }
+  },
+  methods: {
+    onRefresh() {
+      // 二楼下拉刷新
+    },
+    onSecondShow() {
+      // 进入二楼
+    },
+    onSecondBack() {
+      // 返回一楼
+    },
+  },
+}
+</script>
+```
+
+::::
 
 ## SecondFloor 属性
 

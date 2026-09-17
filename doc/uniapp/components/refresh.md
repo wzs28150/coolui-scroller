@@ -6,7 +6,9 @@
 
 ## 代码演示
 
-```vue [index.vue]
+:::: code-group
+
+```vue [组合式 API]
 <template>
   <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
     <template #refresh>
@@ -16,22 +18,81 @@
     <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
   </coolui-scroller>
 </template>
-```
 
-```ts
+<script setup lang="ts">
+import { ref } from 'vue'
 import type { CooluiRefreshConfig } from 'coolui-scroller-uni/types'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
 
 // 下拉行程(background.height) 大于 refresh 自身高度(height) 时，
 // 松手先回落到 height 显示加载动画、刷新完成再整体回弹，也就是「两段回弹」的弹性感
-const refreshSetting: CooluiRefreshConfig = {
+const refreshSetting = ref<CooluiRefreshConfig>({
   style: 'black',       // 圆点深色 / 浅色
   height: 50,           // refresh 自身高度
   background: {
     color: '#f2f2f2',
     height: 120,        // 下拉行程
   },
+})
+
+function refresh() {
+  // 刷新完成后 resolve()
+  return Promise.resolve()
 }
+
+function loadmore() {
+  // 加载完成后 resolve()
+  return Promise.resolve()
+}
+</script>
 ```
+
+```vue [选项式 API]
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+      // 下拉行程(background.height) 大于 refresh 自身高度(height) 时，
+      // 松手先回落到 height 显示加载动画、刷新完成再整体回弹，也就是「两段回弹」的弹性感
+      refreshSetting: {
+        style: 'black',       // 圆点深色 / 浅色
+        height: 50,           // refresh 自身高度
+        background: {
+          color: '#f2f2f2',
+          height: 120,        // 下拉行程
+        },
+      },
+    }
+  },
+  methods: {
+    refresh() {
+      // 刷新完成后 resolve()
+      return Promise.resolve()
+    },
+    loadmore() {
+      // 加载完成后 resolve()
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+::::
 
 ## 属性
 

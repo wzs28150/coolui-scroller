@@ -165,7 +165,7 @@ export default {
 
 组件全部使用 `<script setup lang="ts">` 编写：props 用 `PropType<T>` 精确标注、`defineEmits` 标注了事件名与参数类型、`provide/inject` 带上了通信 API 类型，编辑器（Volar / vue-tsc）可获得完整提示。
 
-公共类型集中在 [`types.ts`](./types.ts)，可直接引入复用：
+公共类型集中在 [`types.d.ts`](./types.d.ts)，可直接引入复用：
 
 ```ts
 import type {
@@ -232,7 +232,7 @@ packages/uniapp/
 │   ├── platform.d.ts             # 类型声明
 │   ├── longlist.js               # 长列表分页工具
 │   └── longlist.d.ts             # 类型声明
-├── types.ts                      # 公共类型（props / emits / 组件间通信）
+├── types.d.ts                    # 公共类型（props / emits / 组件间通信）
 ├── shims.d.ts                    # uni-app 内置组件声明
 ├── tsconfig.json                 # 类型检查配置
 └── index.js                      # 入口（install 插件 + 组件导出）
