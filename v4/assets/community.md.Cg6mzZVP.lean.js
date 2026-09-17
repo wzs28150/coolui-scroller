@@ -1,0 +1,1 @@
+import{_ as a,o as r,c as t,a3 as o}from"./chunks/framework.Dq9u6otn.js";const d=JSON.parse('{"title":"社群","description":"","frontmatter":{},"headers":[],"relativePath":"community.md","filePath":"community.md"}'),i={name:"community.md"};function s(n,e,c,l,h,m){return r(),t("div",null,[...e[0]||(e[0]=[o("",8)])])}const u=a(i,[["render",s]]);export{d as __pageData,u as default};

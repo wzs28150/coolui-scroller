@@ -19,8 +19,7 @@
   "license": "ISC",
   "pnpm": {
     "overrides": {
-      "vitepress>vite": ">=4.5.2 <5",
-      "demo-uniapp>vite": ">=5.4.21 <6",
+      "vite": "^5.4.21",
       "jpeg-js": ">=0.4.4",
       "braces": ">=3.0.3",
       "rollup": ">=3.29.5",
