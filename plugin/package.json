@@ -1,0 +1,110 @@
+{
+  "name": "coolui-scroller-vscode",
+  "displayName": "coolui-scroller 组件提示",
+  "description": "为 coolui-scroller 组件库提供 WXML 与 uni-app Vue 模板的标签、属性、事件、插槽补全、悬停文档与引入诊断。",
+  "version": "0.1.2",
+  "publisher": "coolui",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Snippets",
+    "Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "coolui-scroller",
+    "wxml",
+    "miniprogram",
+    "weapp",
+    "uniapp",
+    "vue",
+    "小程序"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wzs28150/coolui-scroller.git"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onLanguage:wxml",
+    "onLanguage:html",
+    "onLanguage:vue",
+    "onLanguage:vue-html",
+    "onLanguage:json",
+    "onLanguage:jsonc"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "coolui-scroller.insertComponent",
+        "title": "coolui-scroller: 插入组件"
+      },
+      {
+        "command": "coolui-scroller.usingComponents.add",
+        "title": "coolui-scroller: 引入缺失的组件"
+      },
+      {
+        "command": "coolui-scroller.openDocs",
+        "title": "coolui-scroller: 打开组件文档"
+      },
+      {
+        "command": "coolui-scroller.diagnose",
+        "title": "coolui-scroller: 诊断（排查提示不生效）"
+      }
+    ],
+    "configuration": {
+      "title": "coolui-scroller",
+      "properties": {
+        "cooluiScroller.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否启用 coolui-scroller 的补全与悬停提示。"
+        },
+        "cooluiScroller.enableDiagnostics": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否在 WXML 中检查组件是否已在 json 的 usingComponents 里引入。"
+        },
+        "cooluiScroller.packageName": {
+          "type": "string",
+          "default": "coolui-scroller",
+          "description": "原生小程序的 npm 包名，用于生成 usingComponents 的引入路径。"
+        },
+        "cooluiScroller.uniappPackageName": {
+          "type": "string",
+          "default": "coolui-scroller-uni",
+          "description": "uni-app 的 npm 包名，用于解析 .vue 中组件的 import 路径。"
+        },
+        "cooluiScroller.docsBaseUrl": {
+          "type": "string",
+          "default": "https://wzs28150.github.io/coolui-scroller/v4/native/components",
+          "description": "原生小程序组件文档站点地址，用于悬停与跳转。"
+        },
+        "cooluiScroller.uniappDocsBaseUrl": {
+          "type": "string",
+          "default": "https://wzs28150.github.io/coolui-scroller/v4/uniapp/components",
+          "description": "uni-app 组件文档站点地址，用于悬停与跳转。"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "extract": "node scripts/extract-metadata.mjs",
+    "build": "node scripts/extract-metadata.mjs && node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "compile": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/build.mjs && node scripts/smoke.mjs",
+    "package": "npx @vscode/vsce package --no-dependencies",
+    "vscode:prepublish": "node scripts/extract-metadata.mjs && node scripts/build.mjs --production",
+    "publish": "npx @vscode/vsce publish --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.70.0",
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.5"
+  }
+}

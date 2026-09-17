@@ -1,0 +1,3297 @@
+{
+  "version": "4.0.0",
+  "packageName": "coolui-scroller",
+  "uniappPackageName": "coolui-scroller-uni",
+  "generatedAt": "2026-09-17T08:02:01.675Z",
+  "components": [
+    {
+      "platform": "native",
+      "key": "backToTop",
+      "tag": "backtotop",
+      "aliases": [
+        "backToTop",
+        "back-to-top"
+      ],
+      "importPath": "coolui-scroller/backToTop/index",
+      "title": "BackToTop 回到顶部组件",
+      "desc": "当列表滚动到设置的阈值位置时，显示该组件，点击该组件列表回到顶部, 配合 scroller 组件写在 backToTop 插槽中",
+      "doc": "backToTop",
+      "props": [
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "3000",
+          "desc": "设置滚动停止后多久隐藏，设置为 0 时不隐藏",
+          "version": "3.3.4",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "100",
+          "desc": "阈值，当滚动距离超出这个值时显示，低于这个值时隐藏",
+          "version": "3.3.4",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [
+        {
+          "name": "refresh",
+          "desc": "",
+          "usage": "",
+          "detail": "",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [
+        "my-class"
+      ],
+      "relations": [
+        "scroller"
+      ]
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller",
+      "tag": "coolui-scroller",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller/coolui-scroller.vue",
+      "title": "Scroller 滚动容器",
+      "desc": "<coolui-scroller> 是列表能力的底座：下拉刷新 / 上拉加载 / 空列表 / 回到顶部都通过它的插槽接入。",
+      "doc": "scroller",
+      "props": [
+        {
+          "name": "isEmpty",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否为空数据（配合 empty 插槽）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "background",
+          "type": "string",
+          "default": "#f2f2f2",
+          "desc": "背景色（仅保留 API 兼容，组件内部不使用）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "isBackBtn",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否显示回到顶部按钮（实际由 backToTop 组件注册决定）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "enableFlex",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否开启 scroll-view 的 flex 模式",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "toView",
+          "type": "string",
+          "default": "",
+          "desc": "滚动到指定 id 的位置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "top",
+          "type": "number",
+          "default": "0",
+          "desc": "滚动到指定位置(scroll-top)",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "animation",
+          "type": "boolean",
+          "default": "true",
+          "desc": "设置滚动位置时使用动画过渡",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [
+        {
+          "name": "refresh",
+          "desc": "下拉刷新触发",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        },
+        {
+          "name": "loadmore",
+          "desc": "滚动到底部触发（执行加载更多）",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        },
+        {
+          "name": "restore",
+          "desc": "刷新回弹结束",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        },
+        {
+          "name": "contentHeight",
+          "desc": "中间内容区高度变化，返回高度(px)，便于自定义内容时按高度撑开",
+          "usage": "",
+          "detail": "height: number",
+          "version": ""
+        },
+        {
+          "name": "update:top",
+          "desc": "滚动位置变化（配合 v-model:top）",
+          "usage": "",
+          "detail": "top: number",
+          "version": ""
+        },
+        {
+          "name": "scroll",
+          "desc": "滚动事件透传",
+          "usage": "",
+          "detail": "event: unknown",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "header",
+          "desc": "列表顶部（不参与滚动区域）",
+          "usage": ""
+        },
+        {
+          "name": "refresh",
+          "desc": "下拉刷新组件位置",
+          "usage": ""
+        },
+        {
+          "name": "default",
+          "desc": "列表内容",
+          "usage": ""
+        },
+        {
+          "name": "empty",
+          "desc": "空列表内容，isEmpty 为 true 时显示",
+          "usage": ""
+        },
+        {
+          "name": "loadmore",
+          "desc": "加载更多位置",
+          "usage": ""
+        },
+        {
+          "name": "backToTop",
+          "desc": "回到顶部按钮位置",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-back-to-top",
+      "tag": "coolui-scroller-back-to-top",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-back-to-top/coolui-scroller-back-to-top.vue",
+      "title": "BackToTop 回到顶部组件",
+      "desc": "<coolui-scroller-back-to-top> 是回到顶部按钮，放在 coolui-scroller 的 backToTop 插槽里；滚动超过阈值后显示，一段时间无操作自动隐藏。",
+      "doc": "backToTop",
+      "props": [
+        {
+          "name": "delay",
+          "type": "number",
+          "default": "3000",
+          "desc": "显示后自动隐藏的延时(ms)，0 表示不自动隐藏",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "100",
+          "desc": "滚动超过该距离(px)后显示",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-empty",
+      "tag": "coolui-scroller-empty",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-empty/coolui-scroller-empty.vue",
+      "title": "Empty 空列表组件",
+      "desc": "<coolui-scroller-empty> 提供空数据时的占位内容，放在 coolui-scroller 的 empty 插槽里，isEmpty 为 true 时显示。",
+      "doc": "empty",
+      "props": [
+        {
+          "name": "emptyImg",
+          "type": "string",
+          "default": "",
+          "desc": "空列表图片",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "default": "暂无内容",
+          "desc": "空列表文字",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-handtip",
+      "tag": "coolui-scroller-handtip",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-handtip/coolui-scroller-handtip.vue",
+      "title": "Handtip 手势提示组件",
+      "desc": "<coolui-scroller-handtip> 用于第一次进入时提示用户「下拉刷新 / 上拉加载」等手势，看过一次后不再出现（用 storageKey 记录）。",
+      "doc": "handtip",
+      "props": [
+        {
+          "name": "top",
+          "type": "string",
+          "default": "",
+          "desc": "顶部提示文案",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "bottom",
+          "type": "string",
+          "default": "",
+          "desc": "底部提示文案",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "left",
+          "type": "string",
+          "default": "",
+          "desc": "左侧提示文案",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "right",
+          "type": "string",
+          "default": "",
+          "desc": "右侧提示文案",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "storageKey",
+          "type": "string",
+          "default": "isTipShow",
+          "desc": "存储 key，关闭后不再提示",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "opacity",
+          "type": "number",
+          "default": "0.5",
+          "desc": "蒙层透明度",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [
+        {
+          "name": "close",
+          "desc": "关闭手势提示时触发",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-item",
+      "tag": "coolui-scroller-item",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-item/coolui-scroller-item.vue",
+      "title": "Item 列表项组件",
+      "desc": "<coolui-scroller-item> 是列表项容器，自带点击水波纹。",
+      "doc": "item",
+      "props": [
+        {
+          "name": "ripple",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否开启点击水波纹",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "列表项内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-loadmore",
+      "tag": "coolui-scroller-loadmore",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-loadmore/coolui-scroller-loadmore.vue",
+      "title": "Loadmore 加载更多组件",
+      "desc": "<coolui-scroller-loadmore> 展示上拉加载的状态与文案，放在 coolui-scroller 的 loadmore 插槽里。",
+      "doc": "loadmore",
+      "props": [
+        {
+          "name": "status",
+          "type": "string",
+          "default": "more",
+          "desc": "状态：more / loading / noMore",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "more",
+            "loading",
+            "noMore"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "loading",
+          "type": "object",
+          "desc": "loading 状态配置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "more",
+          "type": "object",
+          "desc": "more 状态配置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "noMore",
+          "type": "object",
+          "desc": "noMore 状态配置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "#999999",
+          "desc": "兼容字段",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "shake",
+          "type": "boolean",
+          "default": "false",
+          "desc": "兼容字段",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-longlist",
+      "tag": "coolui-scroller-longlist",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-longlist/coolui-scroller-longlist.vue",
+      "title": "Longlist 长列表窗口化（推荐）",
+      "desc": "<coolui-scroller-longlist> 是 uni-app 版**新增**的长列表容器（原生侧没有同名组件）：窗口外的内容折叠为上下占位块，**渲染的节点数与总页数无关**，数据量大时比整页占位更稳。",
+      "doc": "longlist",
+      "props": [
+        {
+          "name": "pages",
+          "type": "array",
+          "desc": "分页数据，pages[pageIndex] 为该页的 item 数组",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "heights",
+          "type": "array",
+          "desc": "初始页高缓存（已测量过的页高，避免首次渲染跳动）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "scrollTop",
+          "type": "number",
+          "default": "0",
+          "desc": "当前滚动距离，由 scroller 的 @scroll 透传",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "scroller",
+            "@scroll"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "overscan",
+          "type": "number",
+          "default": "1",
+          "desc": "窗口前后各多渲染几页",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "estimateHeight",
+          "type": "number",
+          "default": "0",
+          "desc": "未测量页的估算高度（0 时取已测量页的均值，兜底 300）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "page",
+          "desc": "**作用域插槽**，参数 { items, pageIndex }，渲染单页内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-nav",
+      "tag": "coolui-scroller-nav",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-nav/coolui-scroller-nav.vue",
+      "title": "Nav 分类导航组件",
+      "desc": "<coolui-scroller-nav> 是分类导航（横向滚动 + 选中态），常放在 coolui-scroller 的 header 插槽里，与 [nav-pannel](/uniapp/components/navPannel) 联动切换内容。",
+      "doc": "nav",
+      "props": [
+        {
+          "name": "list",
+          "type": "array",
+          "desc": "导航数据",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "border",
+          "type": "boolean",
+          "default": "true",
+          "desc": "是否显示底部边框",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "text",
+          "type": "object",
+          "desc": "文字颜色配置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "background",
+          "type": "object",
+          "desc": "背景/下划线颜色配置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "navPerView",
+          "type": "number, string",
+          "default": "4.5",
+          "desc": "每屏显示个数，'auto' 表示按内容自适应",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "spaceBetween",
+          "type": "number",
+          "default": "0",
+          "desc": "项之间的间距(px)",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "line",
+          "desc": "选中样式",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "line",
+            "round",
+            "plain"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "active",
+          "type": "number",
+          "default": "0",
+          "desc": "当前选中项下标（可用 v-model:active 双向绑定）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "activeColor",
+          "type": "string",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [
+        {
+          "name": "change",
+          "desc": "选中项变化",
+          "usage": "",
+          "detail": "payload: { id?: string | number; index: number }",
+          "version": ""
+        },
+        {
+          "name": "update:active",
+          "desc": "选中下标变化（配合 v-model:active）",
+          "usage": "",
+          "detail": "index: number",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-nav-bar",
+      "tag": "coolui-scroller-nav-bar",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-nav-bar/coolui-scroller-nav-bar.vue",
+      "title": "NavBar 顶部导航栏",
+      "desc": "<coolui-scroller-nav-bar> 是自定义顶部导航栏，配合[下拉二楼](/uniapp/components/floor)使用（放在 second-floor 的 nav-bar 插槽里），也可单独用于自定义导航栏页面。",
+      "doc": "navBar",
+      "props": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "default",
+          "desc": "default 为内置返回按钮样式，其它值完全使用插槽",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "default"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "config",
+          "type": "object",
+          "desc": "导航栏配置",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "back",
+            "background",
+            "text"
+          ],
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "导航栏标题内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-nav-pannel",
+      "tag": "coolui-scroller-nav-pannel",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-nav-pannel/coolui-scroller-nav-pannel.vue",
+      "title": "NavPannel 切换组件",
+      "desc": "<coolui-scroller-nav-pannel> 是内容切换容器：默认插槽里放多个 coolui-scroller，通过 active 切换显示哪一个，常与[分类导航](/uniapp/components/nav)配合。",
+      "doc": "navPannel",
+      "props": [
+        {
+          "name": "active",
+          "type": "number",
+          "default": "0",
+          "desc": "当前显示第几个 scroller",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "animation",
+          "type": "boolean",
+          "default": "false",
+          "desc": "切换时是否使用过渡动画",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "side",
+          "desc": "切换方式：side(横向并排) / fade(叠层淡入)",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "side",
+            "fade"
+          ],
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "多个 coolui-scroller，顺序与 active 对应",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-page",
+      "tag": "coolui-scroller-page",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-page/coolui-scroller-page.vue",
+      "title": "Page 长列表分页（旧方案）",
+      "desc": "<coolui-scroller-page> 是长列表分页的旧方案：**按页整页占位**，未渲染的页用等高占位块撑起高度，减少同时存在的节点数。",
+      "doc": "page",
+      "props": [
+        {
+          "name": "pageList",
+          "type": "array",
+          "desc": "分页数据：length === 1 且 [0].height 时渲染为占位块",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "单页内容（一般放若干 coolui-scroller-item）",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-parallax",
+      "tag": "coolui-scroller-parallax",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-parallax/coolui-scroller-parallax.vue",
+      "title": "Parallax 下拉视差组件",
+      "desc": "<coolui-scroller-parallax> 让元素随下拉产生位移，**必须放在 coolui-scroller-refresh 的 parallax 插槽里**（配合 type=\"diy\"），它自己会从 refresh 拿到下拉进度。",
+      "doc": "parallax",
+      "props": [
+        {
+          "name": "parallax",
+          "type": "number",
+          "default": "0",
+          "desc": "视差系数（位移比例）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "default": "to bottom",
+          "desc": "位移方向",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "to top",
+            "to bottom",
+            "to left",
+            "to right"
+          ],
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "需要产生视差的内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-refresh",
+      "tag": "coolui-scroller-refresh",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-refresh/coolui-scroller-refresh.vue",
+      "title": "Refresh 下拉刷新组件",
+      "desc": "<coolui-scroller-refresh> 提供下拉刷新动画，放在 coolui-scroller 的 refresh 插槽里。type 支持 default（小程序原生三个圆点）、base、logoText、diy 四种效果。",
+      "doc": "refresh",
+      "props": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "default",
+          "desc": "刷新效果类型：default(内置三点) / base(基础箭头) / logoText(文字) / diy(完全自定义)",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "default",
+            "base",
+            "logoText",
+            "diy"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "0",
+          "desc": "当前下拉进度 0~1（可用 v-model:threshold 双向绑定）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "isloading",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否加载中",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "refreshstate",
+          "type": "string",
+          "default": "pulldown",
+          "desc": "刷新状态（可用 v-model:refreshstate 双向绑定）",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "pulldown",
+            "loosen",
+            "loading"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "config",
+          "type": "object",
+          "desc": "刷新配置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [
+        {
+          "name": "thresholdChange",
+          "desc": "下拉进度变化",
+          "usage": "",
+          "detail": "threshold: number",
+          "version": ""
+        },
+        {
+          "name": "refreshstateChange",
+          "desc": "刷新状态变化",
+          "usage": "",
+          "detail": "state: string",
+          "version": ""
+        },
+        {
+          "name": "update:threshold",
+          "desc": "下拉进度变化（配合 v-model:threshold）",
+          "usage": "",
+          "detail": "threshold: number",
+          "version": ""
+        },
+        {
+          "name": "update:refreshstate",
+          "desc": "刷新状态变化（配合 v-model:refreshstate）",
+          "usage": "",
+          "detail": "state: string",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "parallax",
+          "desc": "视差区域，配合 [coolui-scroller-parallax](/uniapp/components/parallax) 使用（type=\"diy\"）",
+          "usage": ""
+        },
+        {
+          "name": "default",
+          "desc": "diy 类型的自定义内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-search",
+      "tag": "coolui-scroller-search",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-search/coolui-scroller-search.vue",
+      "title": "Search 搜索组件",
+      "desc": "<coolui-scroller-search> 是搜索框，支持输入、清空、右侧按钮与自定义左侧插槽，常放在 coolui-scroller 的 header 插槽里。",
+      "doc": "search",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "请输入要搜索的内容",
+          "desc": "占位文字",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "button",
+          "type": "object",
+          "desc": "右侧按钮配置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "round",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否圆角",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否显示清除按钮",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "keyword",
+          "type": "string",
+          "default": "",
+          "desc": "搜索关键字（原生为 key，Vue 中 key 为保留字，故命名为 keyword；支持 v-model:keyword）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [
+        {
+          "name": "update:keyword",
+          "desc": "关键字变化（配合 v-model:keyword）",
+          "usage": "",
+          "detail": "keyword: string",
+          "version": ""
+        },
+        {
+          "name": "input",
+          "desc": "输入事件",
+          "usage": "",
+          "detail": "keyword: string",
+          "version": ""
+        },
+        {
+          "name": "focus",
+          "desc": "获得焦点",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        },
+        {
+          "name": "blur",
+          "desc": "失去焦点",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        },
+        {
+          "name": "btnClick",
+          "desc": "右侧按钮点击，返回当前关键字",
+          "usage": "",
+          "detail": "payload: { key: string }",
+          "version": ""
+        },
+        {
+          "name": "confirm",
+          "desc": "键盘完成，返回当前关键字",
+          "usage": "",
+          "detail": "payload: { key: string }",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "leftout",
+          "desc": "搜索框左侧自定义内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-second-floor",
+      "tag": "coolui-scroller-second-floor",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-second-floor/coolui-scroller-second-floor.vue",
+      "title": "SecondFloor 下拉二楼组件",
+      "desc": "<coolui-scroller-second-floor> 实现「下拉二楼」：下拉到阈值后进入第二个页面（二楼），支持居中、上下方向、缩放等效果。二楼内容的刷新动画用 <coolui-scroller-second-floor-refresh>，顶部导航栏用 [coolui-scroller-nav-bar](/uniapp/components/navBar)。",
+      "doc": "floor",
+      "props": [
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "0",
+          "desc": "拖拽进度（支持 v-model:threshold）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "0",
+          "desc": "偏移量",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "center",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼初始位置居中",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "bottom",
+          "type": "boolean",
+          "default": "true",
+          "desc": "二楼初始位置在底部（默认）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "top",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼初始位置在顶部",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "scale",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼展开时是否开启缩放动画",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "tip",
+          "type": "object",
+          "desc": "进入页面时的自动下拉提示",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [
+        {
+          "name": "secondShow",
+          "desc": "二楼展开之后触发",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        },
+        {
+          "name": "refresh",
+          "desc": "下拉刷新时触发",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        },
+        {
+          "name": "secondBack",
+          "desc": "二楼关闭之后触发",
+          "usage": "",
+          "detail": "—",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "second-floor",
+          "desc": "二楼内容",
+          "usage": ""
+        },
+        {
+          "name": "second-floor-refresh",
+          "desc": "二楼的下拉刷新动画",
+          "usage": ""
+        },
+        {
+          "name": "nav-bar",
+          "desc": "二楼顶部导航栏",
+          "usage": ""
+        },
+        {
+          "name": "default",
+          "desc": "一楼内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-second-floor-refresh",
+      "tag": "coolui-scroller-second-floor-refresh",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-second-floor-refresh/coolui-scroller-second-floor-refresh.vue",
+      "title": "SecondFloor 下拉二楼组件",
+      "desc": "<coolui-scroller-second-floor> 实现「下拉二楼」：下拉到阈值后进入第二个页面（二楼），支持居中、上下方向、缩放等效果。二楼内容的刷新动画用 <coolui-scroller-second-floor-refresh>，顶部导航栏用 [coolui-scroller-nav-bar](/uniapp/components/navBar)。",
+      "doc": "floor",
+      "props": [
+        {
+          "name": "refreshConfig",
+          "type": "object",
+          "desc": "刷新文案配置",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "backBgColor",
+          "type": "string",
+          "default": "",
+          "desc": "返回首页状态下的背景色（不传则无背景）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-sort",
+      "tag": "coolui-scroller-sort",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-sort/coolui-scroller-sort.vue",
+      "title": "Sort 排序及分类筛选组件",
+      "desc": "<coolui-scroller-sort> 是排序 / 筛选的容器，具体筛选项由 <coolui-scroller-sort-item> 提供，支持排序、多选分类、自定义面板三种类型。",
+      "doc": "sort",
+      "props": [
+        {
+          "name": "overlay",
+          "type": "boolean",
+          "default": "true",
+          "desc": "是否显示下拉遮罩",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "overlayDuration",
+          "type": "number",
+          "default": "500",
+          "desc": "遮罩动画时长(ms)",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "scroll",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否开启横向滚动",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "type=\"diy\" 时的自定义面板内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "uniapp",
+      "key": "coolui-scroller-sort-item",
+      "tag": "coolui-scroller-sort-item",
+      "aliases": [],
+      "importPath": "coolui-scroller-uni/components/coolui-scroller-sort-item/coolui-scroller-sort-item.vue",
+      "title": "Sort 排序及分类筛选组件",
+      "desc": "<coolui-scroller-sort> 是排序 / 筛选的容器，具体筛选项由 <coolui-scroller-sort-item> 提供，支持排序、多选分类、自定义面板三种类型。",
+      "doc": "sort",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "default": "",
+          "desc": "头部标题",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "",
+          "desc": "下拉唯一标识（同一 sort 内不可重复）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "",
+          "desc": "类型：sort(排序) / classify(分类) / diy(自定义)",
+          "version": "",
+          "deprecated": false,
+          "enum": [
+            "sort",
+            "classify",
+            "diy"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "value",
+          "type": "string, number",
+          "default": "",
+          "desc": "选中值：单选为 index，多选为逗号分隔的 index 字符串（支持 v-model:value）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "options",
+          "type": "array",
+          "desc": "选项列表",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "#333",
+          "desc": "未选中文字颜色",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "activeColor",
+          "type": "string",
+          "default": "#d13435",
+          "desc": "选中文字颜色（同时作为确认按钮背景色）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否多选",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "actionBar",
+          "type": "boolean",
+          "default": "false",
+          "desc": "是否显示操作按钮（清空/确定）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [
+        {
+          "name": "update:value",
+          "desc": "选中值变化（配合 v-model:value）",
+          "usage": "",
+          "detail": "value: string | number | null",
+          "version": ""
+        },
+        {
+          "name": "change",
+          "desc": "选中值变化",
+          "usage": "",
+          "detail": "payload: { name: string; value: string | number | null }",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "type=\"diy\" 时的自定义面板内容",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "native",
+      "key": "empty",
+      "tag": "empty",
+      "aliases": [],
+      "importPath": "coolui-scroller/empty/index",
+      "title": "Empty 空列表组件",
+      "desc": "当列表请求后台返回数据为空时，列表没有内容就会空白，使用该组件。可提示用户列表内容为空，增加用户体验。 组件可设置一张图标图片与提示文字：",
+      "doc": "empty",
+      "props": [
+        {
+          "name": "emptyImg",
+          "type": "string",
+          "default": "",
+          "desc": "提示图片",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "default": "暂无内容",
+          "desc": "提示文字",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [
+        "img-class",
+        "text-class"
+      ],
+      "relations": [
+        "scroller"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "handtip",
+      "tag": "handtip",
+      "aliases": [],
+      "importPath": "coolui-scroller/handtip/index",
+      "title": "handtip 手势提示组件",
+      "desc": "很多时候列表有些操作为了更好的用户体验，提供了一些手势上的操作。比如上滑、下拉、左右侧滑等。然而如果没有提醒用的状态下。用户并不知道有这些便捷操作。所以该组件就应运而生了。在整个列表的场景中。该组件只提供了上下左右的方向提示。",
+      "doc": "handtip",
+      "props": [
+        {
+          "name": "top",
+          "type": "string",
+          "default": "0",
+          "desc": "顶部向下的手势提示文字,为空则不显示",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "bottom",
+          "type": "string",
+          "default": "0",
+          "desc": "低部向上的手势提示文字,为空则不显示",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "left",
+          "type": "string",
+          "default": "0",
+          "desc": "左侧向右的手势提示文字,为空则不显示",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "right",
+          "type": "string",
+          "default": "0",
+          "desc": "右侧向左的手势提示文字,为空则不显示",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "key",
+          "type": "string",
+          "default": "isTipShow",
+          "desc": "缓存显示状态的字段名称,如果多个页面都有该组件需设置不同的字段名以防止冲突",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "opacity",
+          "type": "number",
+          "default": "0.5",
+          "desc": "遮罩层的透明度，可设置0到1之间的小数",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": []
+    },
+    {
+      "platform": "native",
+      "key": "item",
+      "tag": "item",
+      "aliases": [],
+      "importPath": "coolui-scroller/item/index",
+      "title": "item 列表项组件",
+      "desc": "包裹列表循环项的结构组件",
+      "doc": "item",
+      "props": [
+        {
+          "name": "ripple",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置点击是否显示波纹效果，可设置true或false。设置为true时开启",
+          "version": "3.0.4",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": [
+        "scroller"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "loadmore",
+      "tag": "loadmore",
+      "aliases": [],
+      "importPath": "coolui-scroller/loadmore/index",
+      "title": "loadmore 加载更多组件",
+      "desc": "该组件为上拉加载时的效果组件。组件分为 3 种状态效果： 1. 等待执行加载时 more 状态 2. 加载中的 loading 状态 3. 加载到最后无数据时的 noMore 状态",
+      "doc": "loadmore",
+      "props": [
+        {
+          "name": "noMoreTextStyle",
+          "type": "string",
+          "default": "",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "default": "more",
+          "desc": "显示状态设置，可设置more、loading、noMore,需根据列表数据加载情况切换状态",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "more",
+            "loading",
+            "noMore"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "loading",
+          "type": "object",
+          "default": "text: \"\\u52A0\\u8F7D\\u4E2D\", color: \"#999999\"",
+          "desc": "显示状态为loading时显示的文字",
+          "version": "3.1.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "more",
+          "type": "object",
+          "default": "text: \"\\u67E5\\u770B\\u66F4\\u591A\", color: \"#333333\"",
+          "desc": "显示状态为more时显示的文字",
+          "version": "3.1.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "noMore",
+          "type": "object",
+          "default": "text: \"\\u6CA1\\u6709\\u66F4\\u591A\", color: \"#999999\"",
+          "desc": "显示状态为noMore时显示的文字",
+          "version": "3.1.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "#999999",
+          "desc": "设置文字颜色",
+          "version": "3.0.0~3.0.9",
+          "deprecated": true,
+          "fromDoc": false
+        },
+        {
+          "name": "shake",
+          "type": "boolean",
+          "default": "false",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "moreText",
+          "type": "string",
+          "default": "上拉加载更多",
+          "desc": "显示状态为more时显示的文字",
+          "version": "3.0.0~3.0.9",
+          "deprecated": true,
+          "fromDoc": true
+        },
+        {
+          "name": "loadingText",
+          "type": "string",
+          "default": "加载中...",
+          "desc": "显示状态为loading时显示的文字",
+          "version": "3.0.0~3.0.9",
+          "deprecated": true,
+          "fromDoc": true
+        },
+        {
+          "name": "noMoreText",
+          "type": "string",
+          "default": "-- 到底啦 --",
+          "desc": "显示状态为noMore时显示的文字",
+          "version": "3.0.0~3.0.9",
+          "deprecated": true,
+          "fromDoc": true
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": [
+        "scroller"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "nav",
+      "tag": "nav",
+      "aliases": [],
+      "importPath": "coolui-scroller/nav/index",
+      "title": "nav 分类导航软件",
+      "desc": "该组件为列表头部插槽中的可选组件。组件提供了简单的分类导航效果用于切换分类。active 为选中的 index 值,支持双向绑定,可设置间距、显示类型、显示个数等，可在页面添加 touch 事件左右侧滑切换改变 active。来切换分类导航",
+      "doc": "nav",
+      "props": [
+        {
+          "name": "list",
+          "type": "any",
+          "desc": "导航列表数组项需设置标题title和id如[{id:1,title:'分类 1'}]",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "border",
+          "type": "boolean",
+          "default": "true",
+          "desc": "设置底边线是否显示",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "text",
+          "type": "object",
+          "default": "color: '#333333', activeColor: '#d13435',",
+          "desc": "设置文字颜色 color 为默认颜色 activeColor 为选中颜色",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "background",
+          "type": "object",
+          "default": "color: '#333333', activeColor: '#d13435',",
+          "desc": "设置背景颜色 color 为默认颜色 activeColor 为选中颜色",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "navPerView",
+          "type": "Number, String",
+          "default": "4.5",
+          "desc": "设置可视区显示个数",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "spaceBetween",
+          "type": "number",
+          "default": "0",
+          "desc": "设置分类间距",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "line",
+          "desc": "设置类型",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "active",
+          "type": "number",
+          "default": "0",
+          "desc": "当前选中的导航 index,注意不是 id 值,支持双向绑定(model:active)",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "active-color",
+          "type": "string",
+          "default": "#d13435",
+          "desc": "选中导航的颜色",
+          "version": "3.0.0 ~ 3.2.8",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [
+        {
+          "name": "change",
+          "desc": "导航切换时触发执行",
+          "usage": "bindchange或bind:change",
+          "detail": "无",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [],
+      "externalClasses": [],
+      "relations": [
+        "scroller"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "nav-bar",
+      "tag": "nav-bar",
+      "aliases": [],
+      "importPath": "coolui-scroller/nav-bar/index",
+      "title": "nav 分类导航软件",
+      "desc": "该组件为列表头部插槽中的可选组件。组件提供了简单的分类导航效果用于切换分类。active 为选中的 index 值,支持双向绑定,可设置间距、显示类型、显示个数等，可在页面添加 touch 事件左右侧滑切换改变 active。来切换分类导航",
+      "doc": "nav",
+      "props": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "default",
+          "desc": "设置类型",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "config",
+          "type": "object",
+          "default": "back: { show: true, }, background: { color: '#ffffff', }, text: { color: '#000000', shadow: 0, },",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "list",
+          "type": "obj[]",
+          "default": "无",
+          "desc": "导航列表数组项需设置标题title和id如[{id:1,title:'分类 1'}]",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "active",
+          "type": "number",
+          "default": "0",
+          "desc": "当前选中的导航 index,注意不是 id 值,支持双向绑定(model:active)",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "active-color",
+          "type": "string",
+          "default": "#d13435",
+          "desc": "选中导航的颜色",
+          "version": "3.0.0 ~ 3.2.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "border",
+          "type": "boolean",
+          "default": "true",
+          "desc": "设置底边线是否显示",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "navPerView",
+          "type": "number",
+          "default": "4.5",
+          "desc": "设置可视区显示个数",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "spaceBetween",
+          "type": "number",
+          "default": "0",
+          "desc": "设置分类间距",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "text",
+          "type": "object",
+          "default": "{color: '#333333',activeColor: '#d13435'}",
+          "desc": "设置文字颜色 color 为默认颜色 activeColor 为选中颜色",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "background",
+          "type": "object",
+          "default": "{color: '#333333',activeColor: '#d13435'}",
+          "desc": "设置背景颜色 color 为默认颜色 activeColor 为选中颜色",
+          "version": "3.2.9",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [
+        {
+          "name": "change",
+          "desc": "导航切换时触发执行",
+          "usage": "bindchange或bind:change",
+          "detail": "无",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [
+        "nav-bar-class"
+      ],
+      "relations": [
+        "second-floor"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "nav-pannel",
+      "tag": "nav-pannel",
+      "aliases": [],
+      "importPath": "coolui-scroller/nav-pannel/index",
+      "title": "nav-pannel 切换组件",
+      "desc": "该组件为解决多列表之间相互切换的组件。组件可设置第几个列表显示及是否开启动画。页面多个列表时想要判断只显示一个,如果用 wx:if 判断则切换后会丢失列表滚动的状态,比如我已经将列表滚动到了中间部分,切换后再回来就会重新加载,使用改组件可解决问题。",
+      "doc": "navPannel",
+      "props": [
+        {
+          "name": "active",
+          "type": "number",
+          "default": "0",
+          "desc": "设置第几个 scroller 显示",
+          "version": "3.2.7",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "animation",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置切换时是否使用过渡动画",
+          "version": "3.2.7",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "side",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": [
+        "scroller"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "parallax",
+      "tag": "parallax",
+      "aliases": [],
+      "importPath": "coolui-scroller/parallax/index",
+      "title": "parallax 下拉视差组件",
+      "desc": "置于下拉刷新组件的插槽中，配合下拉刷新组件使用。实现上下左右的位移视差效果。",
+      "doc": "parallax",
+      "props": [
+        {
+          "name": "parallax",
+          "type": "number",
+          "default": "0",
+          "desc": "设置移动偏移量百分比。如设置了值为10则该组件实际移动距离为：下拉高度height的10%",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "direction",
+          "type": "string",
+          "default": "to bottom",
+          "desc": "设置移动方向，可设置to top、to bottom、to right、to left。如设置to top则该组件由下往上移动、to bottom则该组件由上往下移动、to right则该组件由左往右移动、to left则该组件由右往左移动",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [
+        "parallax-class"
+      ],
+      "relations": [
+        "refresh"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "refresh",
+      "tag": "refresh",
+      "aliases": [],
+      "importPath": "coolui-scroller/refresh/index",
+      "title": "refresh 下拉刷新组件",
+      "desc": "置于下拉刷新插槽中配合滚动组件实现更多的下拉效果。未使用该组件则不开启下拉",
+      "doc": "refresh",
+      "props": [
+        {
+          "name": "type",
+          "type": "string",
+          "default": "default",
+          "desc": "设置下拉类型，可设置default或base或diy或logoText，如设置default则下拉为小程序原生的样式(三个圆点动画)。如设置base则下拉为组件提供的基础样式。如设置logoText则开启 LOGO 文字效果，如设置diy则下拉完全开放自定义，可根据下拉变化值或搭配[视差组件](./parallax.md)进行自定义",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "default",
+            "base",
+            "diy",
+            "logoText"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "0",
+          "desc": "下拉变化值，数值范围为0~1，双向绑定 model:threshold。无需主动设置值，自动返回下拉变化值。作用是实时返回下拉变化，可根据变化值做自定义动画效果(如移动、旋转等)",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "isloading",
+          "type": "boolean",
+          "default": "false",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "refreshstate",
+          "type": "string",
+          "default": "pulldown",
+          "desc": "下拉变化状态，有三种状态：pulldown(下拉刷新)、loosen(松手刷新)、loading(刷新中)，双向绑定 model:refreshstate。无需主动设置值，自动返回下拉变化状态。作用是实时返回下拉变化，可根据变化状态做自定义动画效果",
+          "version": "3.0.4",
+          "deprecated": false,
+          "enum": [
+            "pulldown",
+            "loosen",
+            "loading"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "config",
+          "type": "object",
+          "default": "shake: false, height: 50, isAutoTriggered: true, text: { color: '#000000', shadow: 0, },",
+          "desc": "一些下拉设置，详见[下拉设置](./refresh.md#下拉设置)",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "shake",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置下拉时是否开启手机震动，可设置true或false。设置为true时开启",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": true
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "",
+          "desc": "设置下拉时的背景的高度。因为一般虽然设置了下拉高度，但实际下拉拖拽时，拉动的距离会比设置的高很多，如果设置了背景图片，图片之上还会空很大一块。所以设置一下背景高度，高度高于下拉高度。这样背景就会铺满整个下拉区域",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "background",
+          "type": "obj",
+          "default": "",
+          "desc": "设置下拉背景，详见[背景设置](./refresh.md#背景设置)",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "text",
+          "type": "obj",
+          "default": "",
+          "desc": "当 type 为base时，可设置下拉文字，详见[文字设置](./refresh.md#文字设置)",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "isAutoTriggered",
+          "type": "boolean",
+          "default": "true",
+          "desc": "下拉刷新是否自动回弹,默认为true下拉之后自动回弹，可设置false下拉到最大松手之后只执行刷新操作，不自动回弹，获取 scroller 实例之后执行scroller.settriggered(false)方法。此设置为复杂动画提供可能，自定义回弹时机( 注意：default模式不支持此方法。如需要实现原生效果且支持此方法，请自行使用该组件写三个圆点闪烁来实现 )",
+          "version": "3.0.4",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": true
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "default": "#000000",
+          "desc": "设置下拉文字颜色",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "img",
+          "type": "string",
+          "default": "",
+          "desc": "设置文字底纹背景(type 为logoText时使用)",
+          "version": "3.2.6",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "shadow",
+          "type": "number",
+          "default": "0",
+          "desc": "设置下拉文字阴影。往往如果背景颜色过于花里胡哨，下拉文字就会容易看不清。加入阴影可以凸显文字。设置为0则不开启。数值越大阴影范围越大, type 为logoText时请设置为0, 否则设置底纹背景不明显",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "default": "",
+          "desc": "文字内容(type 为logoText时使用)",
+          "version": "3.2.6",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "font",
+          "type": "string",
+          "default": "",
+          "desc": "设置文字字体(type 为logoText时使用)",
+          "version": "3.2.6",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "size",
+          "type": "string",
+          "default": "",
+          "desc": "设置文字大小，单位 rpx(type 为logoText时使用)",
+          "version": "3.2.6",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "parallax",
+          "desc": "视差插槽区域",
+          "usage": "[parallax](./parallax.md)"
+        },
+        {
+          "name": "default",
+          "desc": "",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [
+        "refresh-class"
+      ],
+      "relations": [
+        "scroller",
+        "parallax"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "scroller",
+      "tag": "scroller",
+      "aliases": [],
+      "importPath": "coolui-scroller/scroller/index",
+      "title": "Scroller 滚动组件",
+      "desc": "Scroller 为 coolui-scroller 的地基。所以要使用 coolui-scroller 必须引入该组件。该组件将列表页面查分成如下各个区域:",
+      "doc": "scroller",
+      "props": [
+        {
+          "name": "isEmpty",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置是否显示空数据内容，可设置true或false， true为开启。如在空列表插槽中设置了内容则会显示出来",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "background",
+          "type": "string",
+          "default": "#f2f2f2",
+          "desc": "自定义下拉背景颜色(如：#f2f2f2)，该设置本应该在下拉刷新组件中设置，但是小程序 scroll-view 动态设置 refresher-background 会出现下拉区域下沉 bug 所以在这里设置背景颜色。(3.1.0 废弃)",
+          "version": "3.0.0~3.0.9",
+          "deprecated": true,
+          "fromDoc": false
+        },
+        {
+          "name": "isBackBtn",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置是否显示返回到顶部按钮，可设置true或false， true为开启",
+          "version": "3.0.0~3.3.3",
+          "deprecated": true,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "enableFlex",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置是否开启 scroll-view 的 flex 模式，可设置true或false， true为开启。",
+          "version": "3.0.9",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "toView",
+          "type": "string",
+          "default": "",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "top",
+          "type": "number",
+          "default": "0",
+          "desc": "设置滚动到指定位置",
+          "version": "3.2.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "animation",
+          "type": "boolean",
+          "default": "true",
+          "desc": "在设置滚动条位置时使用动画过渡 （同 scroll-with-animation）",
+          "version": "3.3.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "default",
+          "desc": "下拉样式类型,默认样式或插槽自定义，可设置 default 、base、 diy。default为小程序原版下拉样式。base为组件提供的基础样式。diy为开启完全自定义",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "default",
+            "base",
+            "diy"
+          ],
+          "fromDoc": true
+        }
+      ],
+      "events": [
+        {
+          "name": "contentHeight",
+          "desc": "获取 scroller 中间内容区高度，不包括 header 部分,方便不使用 page、item 等组件需要自定义内容的时候使用",
+          "usage": "bindcontentHeight或bind:contentHeight",
+          "detail": "返回 res,可用 res.detail 获取高度，单位 px",
+          "version": "3.2.7"
+        },
+        {
+          "name": "loadmore",
+          "desc": "执行加载更多后触发，可执行更新列表",
+          "usage": "bindloadmore或bind:loadmore",
+          "detail": "无",
+          "version": "3.x"
+        },
+        {
+          "name": "refresh",
+          "desc": "执行下拉刷新后触发，可执行更新列表",
+          "usage": "bindrefresh或bind:refresh",
+          "detail": "无",
+          "version": "3.x"
+        },
+        {
+          "name": "restore",
+          "desc": "",
+          "usage": "",
+          "detail": "",
+          "version": ""
+        },
+        {
+          "name": "scroll",
+          "desc": "",
+          "usage": "",
+          "detail": "",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "header",
+          "desc": "头部插槽区域",
+          "usage": "nav、search、sort"
+        },
+        {
+          "name": "refresh",
+          "desc": "下拉刷新插槽位置，使用 refresh 组件时开启",
+          "usage": "refresh"
+        },
+        {
+          "name": "default",
+          "desc": "",
+          "usage": ""
+        },
+        {
+          "name": "empty",
+          "desc": "空列表插槽位置，isEmpty 为 true 时显示",
+          "usage": "empty"
+        },
+        {
+          "name": "loadmore",
+          "desc": "加载更多插槽位置",
+          "usage": "loadmore"
+        },
+        {
+          "name": "backToTop",
+          "desc": "回到顶部插槽",
+          "usage": "backToTop"
+        }
+      ],
+      "externalClasses": [],
+      "relations": [
+        "scroll-page",
+        "nav",
+        "empty",
+        "refresh",
+        "backToTop",
+        "nav-pannel"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "scroll-page",
+      "tag": "scroller-page",
+      "aliases": [
+        "scroll-page"
+      ],
+      "importPath": "coolui-scroller/scroll-page/index",
+      "title": "scroll-page 长列表分页组件",
+      "desc": "长列表解决方案：将数据分为多个 page 页面(如下图)。每个 page 页面包含列表项 item。计算每个 page 的高度。当 page1 已加载完并且已经划过到可视区上面时，将该 page1 设为当前的 page 高度，并删除里面的列表项 item。完成用一个空的 page 进行占位。这样就减少了过多的列表项 dom。当页面向下滚动时。page1 又进入可视区时，将列表项 item 再还原回",
+      "doc": "page",
+      "props": [
+        {
+          "name": "pageList",
+          "type": "array",
+          "desc": "传入当前 page 分页面的列表数组",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "heights",
+          "type": "array",
+          "default": "[]",
+          "desc": "已测量的每页高度（未测量项用 estimate 代替）",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "default": "0",
+          "desc": "总页数",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "scrollTop",
+          "type": "number",
+          "default": "0",
+          "desc": "当前滚动距离",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "viewportHeight",
+          "type": "number",
+          "default": "0",
+          "desc": "可视区高度",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "overscan",
+          "type": "number",
+          "default": "1",
+          "desc": "前后各多渲染几页",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "estimate",
+          "type": "number",
+          "default": "0",
+          "desc": "未测量页的估算高度",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "**返回值**",
+          "type": "object",
+          "default": "-",
+          "desc": "{ start, end, topHeight, bottomHeight }",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": [
+        "scroller"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "search",
+      "tag": "search",
+      "aliases": [],
+      "importPath": "coolui-scroller/search/index",
+      "title": "search 搜索组件",
+      "desc": "用于搜索场景的输入框组件。可置于头部插槽中。",
+      "doc": "search",
+      "props": [
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "请输入要搜索的内容",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "button",
+          "type": "object",
+          "default": "show: false, text: '搜索',",
+          "desc": "可对右侧按钮进行设置,详见<a href=\"#按钮配置\">按钮配置</a>",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "round",
+          "type": "boolean",
+          "default": "false",
+          "desc": "圆角设置，可设置true或false，设置为 true 时搜索框为胶囊样式",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "default": "false",
+          "desc": "清除按钮设置，可设置true或false，设置为 true 时开启清除按钮，可清除输入框内容",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "key",
+          "type": "any",
+          "desc": "搜索的关键字，输入框里输入的内容。支持双向绑定 model:key",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "show",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置按钮是否一直显示，可设置true或false。设为true时按钮一直显示，设为false时按钮只有在输入框获取焦点时显示",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": true
+        },
+        {
+          "name": "hide",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置按钮是否一直隐藏，可设置true或false。设为true时按钮一直隐藏，设为false时按钮只有在输入框获取焦点时显示",
+          "version": "3.0.0",
+          "deprecated": false,
+          "enum": [
+            "true",
+            "false"
+          ],
+          "fromDoc": true
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "default": "搜索",
+          "desc": "设置按钮显示文字",
+          "version": "3.0.0",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [
+        {
+          "name": "btnClick",
+          "desc": "",
+          "usage": "",
+          "detail": "",
+          "version": ""
+        },
+        {
+          "name": "confirm",
+          "desc": "",
+          "usage": "",
+          "detail": "",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "leftout",
+          "desc": "",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [
+        "search-btn-class",
+        "search-inner-class",
+        "search-placeholder-class"
+      ],
+      "relations": [
+        "coolui-scroller"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "second-floor",
+      "tag": "second-floor",
+      "aliases": [],
+      "importPath": "coolui-scroller/second-floor/index",
+      "title": "second-floor 下拉二楼组件",
+      "desc": "很多 app 首页都带有下拉二楼的功能，拖拽屏幕向下松手刷新页面，但是继续向下拉动就会完整的拉下来一屏的内容,如下图：",
+      "doc": "floor",
+      "props": [
+        {
+          "name": "threshold",
+          "type": "number",
+          "default": "0",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "offset",
+          "type": "number",
+          "default": "0",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "center",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼初始位置",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "bottom",
+          "type": "boolean",
+          "default": "true",
+          "desc": "二楼初始位置",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "top",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼初始位置",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "scale",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼是否开启缩放动画",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "tip",
+          "type": "object",
+          "default": "show: false, height: 100, times: 1, duration: 2000,",
+          "desc": "二楼提示动画",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "show",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼 tip 动画是否开启",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "100",
+          "desc": "二楼 tip 动画自动下拉高度",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "times",
+          "type": "number",
+          "default": "1",
+          "desc": "二楼 tip 动画自动下拉次数",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2000",
+          "desc": "二楼 tip 动画自动下拉速度控制",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "refreshConfig",
+          "type": "object",
+          "default": "{ downText: \"下拉刷新\", loadingText: \"正在加载\", backText: \"返回首页\", tipText: \"松开刷新\", moreText: \"继续下拉有惊喜~\", color: \"#ffffff\" }",
+          "desc": "second-floor-refresh 组件的设置,详见[refreshConfig](./floor.md#refreshConfig)",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "downText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "开始下拉时的文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "loadingText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "正在加载时的文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "backText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼加载成功之后返回按钮的文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "tipText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "松开刷新时的提示文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "moreText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "继续下拉的提示文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "color",
+          "type": "boolean",
+          "default": "false",
+          "desc": "文字颜色",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [
+        {
+          "name": "secondShow",
+          "desc": "二楼打开之后执行",
+          "usage": "bind:secondShow",
+          "detail": "3.2.3",
+          "version": ""
+        },
+        {
+          "name": "refresh",
+          "desc": "刷新时执行，可执行请求数据,然后执行 settriggered 关闭刷新",
+          "usage": "bind:refresh",
+          "detail": "3.2.3",
+          "version": ""
+        },
+        {
+          "name": "secondBack",
+          "desc": "二楼关闭之后执行",
+          "usage": "bind:secondBack",
+          "detail": "3.2.3",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "second-floor",
+          "desc": "二楼插槽区域",
+          "usage": "-"
+        },
+        {
+          "name": "second-floor-refresh",
+          "desc": "下拉刷新插槽位置",
+          "usage": "second-floor-refresh"
+        },
+        {
+          "name": "nav-bar",
+          "desc": "顶部标题栏",
+          "usage": "nav-bar"
+        },
+        {
+          "name": "default",
+          "desc": "",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [
+        "second-floor-class"
+      ],
+      "relations": [
+        "second-floor-refresh",
+        "nav-bar"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "second-floor-refresh",
+      "tag": "second-floor-refresh",
+      "aliases": [],
+      "importPath": "coolui-scroller/second-floor-refresh/index",
+      "title": "second-floor 下拉二楼组件",
+      "desc": "很多 app 首页都带有下拉二楼的功能，拖拽屏幕向下松手刷新页面，但是继续向下拉动就会完整的拉下来一屏的内容,如下图：",
+      "doc": "floor",
+      "props": [
+        {
+          "name": "refreshConfig",
+          "type": "object",
+          "default": "loadingText: '正在加载', backText: '返回首页', downText: '下拉刷新', tipText: '松开刷新,继续下拉有惊喜~', moreText: '继续下拉有惊喜~', color: '#ffffff',",
+          "desc": "second-floor-refresh 组件的设置,详见[refreshConfig](./floor.md#refreshConfig)",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "top",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼初始位置",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "center",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼初始位置",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "bottom",
+          "type": "boolean",
+          "default": "true",
+          "desc": "二楼初始位置",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "scale",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼是否开启缩放动画",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "tip",
+          "type": "object",
+          "default": "详见[tip 设置](./floor.md#tip-设置)",
+          "desc": "二楼提示动画",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "show",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼 tip 动画是否开启",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "100",
+          "desc": "二楼 tip 动画自动下拉高度",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "times",
+          "type": "number",
+          "default": "1",
+          "desc": "二楼 tip 动画自动下拉次数",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "default": "2000",
+          "desc": "二楼 tip 动画自动下拉速度控制",
+          "version": "3.3.1",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "downText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "开始下拉时的文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "loadingText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "正在加载时的文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "backText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "二楼加载成功之后返回按钮的文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "tipText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "松开刷新时的提示文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "moreText",
+          "type": "boolean",
+          "default": "false",
+          "desc": "继续下拉的提示文字",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "color",
+          "type": "boolean",
+          "default": "false",
+          "desc": "文字颜色",
+          "version": "3.2.3",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [
+        {
+          "name": "refresh",
+          "desc": "刷新时执行，可执行请求数据,然后执行 settriggered 关闭刷新",
+          "usage": "bind:refresh",
+          "detail": "3.2.3",
+          "version": ""
+        },
+        {
+          "name": "secondShow",
+          "desc": "二楼打开之后执行",
+          "usage": "bind:secondShow",
+          "detail": "3.2.3",
+          "version": ""
+        },
+        {
+          "name": "secondBack",
+          "desc": "二楼关闭之后执行",
+          "usage": "bind:secondBack",
+          "detail": "3.2.3",
+          "version": ""
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "second-floor",
+          "desc": "二楼插槽区域",
+          "usage": "-"
+        },
+        {
+          "name": "second-floor-refresh",
+          "desc": "下拉刷新插槽位置",
+          "usage": "second-floor-refresh"
+        },
+        {
+          "name": "nav-bar",
+          "desc": "顶部标题栏",
+          "usage": "nav-bar"
+        }
+      ],
+      "externalClasses": [
+        "second-floor-refresh-class",
+        "second-floor-refresh-back"
+      ],
+      "relations": [
+        "second-floor"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "sort/index",
+      "tag": "sort",
+      "aliases": [
+        "sort-index"
+      ],
+      "importPath": "coolui-scroller/sort/index",
+      "title": "sort 排序及分类筛选组件",
+      "desc": "该组件为列表头部插槽中的可选组件。组件提供了简单的下拉排序及下拉分类筛选的功能。组件分为 sort 和 sort-item 两部分。",
+      "doc": "sort",
+      "props": [
+        {
+          "name": "overlay",
+          "type": "boolean",
+          "default": "true",
+          "desc": "设置是否显示遮罩背景",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "overlayDuration",
+          "type": "number",
+          "default": "500",
+          "desc": "设置遮罩背景动画的时间",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "scroll",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置开启横向滚动，默认为false布局为 flex 布局, 随着 item 的个数增多, item 宽度越来越小。设置为true时开启横向滚动 item 默认显示 4 个半",
+          "version": "3.0.8",
+          "deprecated": false,
+          "enum": [
+            "false",
+            "true"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "default": "",
+          "desc": "设置类型是排序还是筛选，可设置 sort 、classify 、diy,sort为排序模式。classify为分类模式。diy为自定义模式",
+          "version": "3.0.8",
+          "deprecated": false,
+          "enum": [
+            "sort",
+            "classify",
+            "diy"
+          ],
+          "fromDoc": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "default": "",
+          "desc": "设置头部标题",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "default": "",
+          "desc": "设置设置下拉的唯一标识，防止切换下拉冲突",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "default": "",
+          "desc": "设置选中的值，支持双向绑定 model:value，单选时值为选中的 option 的 index 值，多选时为选中的 option 的 index 值的集合逗号分隔的字符串(如:0,1,2)",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "options",
+          "type": "array",
+          "default": "",
+          "desc": "设置选项列表, 选项中 title 为选项的文字, id 为选项的 id",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "activeColor",
+          "type": "string",
+          "default": "",
+          "desc": "设置选中得文字颜色, 同时也设置操作按钮中确认按钮的颜色",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置开启多选模式",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "action-bar",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置开启操作按钮",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "自定义下拉插槽",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": [
+        "coolui-scroller",
+        "item"
+      ]
+    },
+    {
+      "platform": "native",
+      "key": "sort/item",
+      "tag": "sort-item",
+      "aliases": [],
+      "importPath": "coolui-scroller/sort/item",
+      "title": "sort 排序及分类筛选组件",
+      "desc": "该组件为列表头部插槽中的可选组件。组件提供了简单的下拉排序及下拉分类筛选的功能。组件分为 sort 和 sort-item 两部分。",
+      "doc": "sort",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "desc": "设置头部标题",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "desc": "设置设置下拉的唯一标识，防止切换下拉冲突",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "desc": "设置类型是排序还是筛选，可设置 sort 、classify 、diy,sort为排序模式。classify为分类模式。diy为自定义模式",
+          "version": "3.0.8",
+          "deprecated": false,
+          "enum": [
+            "sort",
+            "classify",
+            "diy"
+          ],
+          "fromDoc": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "desc": "设置选中的值，支持双向绑定 model:value，单选时值为选中的 option 的 index 值，多选时为选中的 option 的 index 值的集合逗号分隔的字符串(如:0,1,2)",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "options",
+          "type": "array",
+          "desc": "设置选项列表, 选项中 title 为选项的文字, id 为选项的 id",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "activeColor",
+          "type": "string",
+          "desc": "设置选中得文字颜色, 同时也设置操作按钮中确认按钮的颜色",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置开启多选模式",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "actionBar",
+          "type": "boolean",
+          "default": "false",
+          "desc": "",
+          "version": "",
+          "deprecated": false,
+          "fromDoc": false
+        },
+        {
+          "name": "overlay",
+          "type": "boolean",
+          "default": "true",
+          "desc": "设置是否显示遮罩背景",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "overlayDuration",
+          "type": "number",
+          "default": "500",
+          "desc": "设置遮罩背景动画的时间",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        },
+        {
+          "name": "scroll",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置开启横向滚动，默认为false布局为 flex 布局, 随着 item 的个数增多, item 宽度越来越小。设置为true时开启横向滚动 item 默认显示 4 个半",
+          "version": "3.0.8",
+          "deprecated": false,
+          "enum": [
+            "false",
+            "true"
+          ],
+          "fromDoc": true
+        },
+        {
+          "name": "action-bar",
+          "type": "boolean",
+          "default": "false",
+          "desc": "设置开启操作按钮",
+          "version": "3.0.8",
+          "deprecated": false,
+          "fromDoc": true
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "desc": "自定义下拉插槽",
+          "usage": ""
+        }
+      ],
+      "externalClasses": [],
+      "relations": [
+        "index"
+      ]
+    }
+  ]
+}
