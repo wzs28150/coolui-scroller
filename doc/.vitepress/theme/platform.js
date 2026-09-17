@@ -1,4 +1,5 @@
 import { ref } from 'vue'
+import { withBase } from 'vitepress'
 
 /**
  * 站点平台状态：整站只有「原生微信小程序」和「uni-app」两个平台维度。
@@ -88,6 +89,25 @@ export function setPlatform(key) {
   writeStored(key)
 }
 
+/** 用户是否显式选过平台（首页卡片、平台切换器、切换提示条都会记录） */
+export function hasChosenPlatform() {
+  return Boolean(readStored())
+}
+
+/**
+ * 站内跳转。
+ * 注意：这里**不能**用 useRouter().go(href) —— 在 vitepress 1.0.0-beta.1 里拿到的是
+ * vue-router 实例，`go()` 是「历史前进/后退几步」的语义，传字符串等于什么都不做。
+ * 优先用 push，拿不到再用整页跳转兜底。
+ */
+export function goto(router, path) {
+  if (router && typeof router.push === 'function') {
+    router.push(path)
+    return
+  }
+  if (typeof window !== 'undefined') window.location.assign(withBase(path))
+}
+
 /** 侧边栏 / 页面切换文案里用到的「另一平台」 */
 export function otherPlatform(key) {
   return PLATFORMS[otherKey(key)]
@@ -100,9 +120,10 @@ export function otherPlatform(key) {
 
 const PAGE_ALIAS = {
   '/native/install': '/uniapp/install',
-  '/native/guide': '/uniapp/quickstart',
+  '/native/guide': '/uniapp/guide',
   '/uniapp/install': '/native/install',
-  '/uniapp/quickstart': '/native/guide',
+  '/uniapp/guide': '/native/guide',
+  '/uniapp/quickstart': '/native/install',
   '/uniapp/platform-diff': '/native/guide',
 }
 

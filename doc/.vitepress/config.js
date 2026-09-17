@@ -56,12 +56,16 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
+      // 「开始」默认指向平台选择页 /start；如果用户之前选过平台，
+      // 点击时会直接进入对应平台的安装页（见 .vitepress/theme/Layout.vue 里的点击处理）。
+      { text: '开始', link: '/start' },
       // 平台入口放在导航栏右侧的切换器里（显示两个平台名、点击即切换），
       // 这里不再重复放「原生微信小程序 / uni-app」两个链接，避免又多一处平台入口。
       { text: '进阶', link: '/advanced/faq', activeMatch: '/advanced/' },
       {
         text: '示例',
         items: [
+          { text: '示例 demo（扫码 / 源码）', link: '/case/' },
           { text: '有趣的下拉', link: '/case/case' },
           { text: '下拉组合', link: '/case/case2' },
           { text: '下拉二楼', link: '/case/case3' },
@@ -98,6 +102,7 @@ export default defineConfig({
           items: [
             { text: '安装与引入', link: '/uniapp/install' },
             { text: '快速开始', link: '/uniapp/quickstart' },
+            { text: '组件库介绍', link: '/uniapp/guide' },
             { text: '与原生微信小程序版的差异', link: '/uniapp/platform-diff' },
           ],
         },

@@ -1,6 +1,6 @@
 # 安装与引入
 
-本页是 **uni-app 版**（npm 包 `coolui-scroller-uni`）的接入方式。组件源码为 `.vue`（`<script setup lang="ts">`），兼容 **Vue 2 / Vue 3**，可编译到微信 / 支付宝 / 百度 / 字节 / QQ 小程序以及 **H5、App** 端。
+本页是 **uni-app 版**（包名 `coolui-scroller-uni`）的接入方式。组件源码为 `.vue`（`<script setup lang="ts">`），兼容 **Vue 2 / Vue 3**，可编译到微信 / 支付宝 / 百度 / 字节 / QQ 小程序以及 **H5、App** 端。
 
 ::: tip 用的是原生微信小程序项目？
 请看 [原生微信小程序版安装与引入](/native/install)，或点顶部导航切换平台。
@@ -8,11 +8,19 @@
 
 ## 安装
 
+::: warning 当前发布状态
+uni-app 版目前以**源码**形式提供（仓库 `packages/uniapp`），**尚未发布到 npm**。现在请用下面的「源码安装」；发布后可直接 `npm i coolui-scroller-uni`（包名已按此配置好）。
+:::
+
+### 源码安装（当前可用）
+
+把 `packages/uniapp` 里的 `components/`、`utils/`、`types.ts`、`index.js` 拷进项目目录 —— 提供的就是源码，可以直接参与编译；把 easycom 规则指向你实际放置的目录即可（见下方「引入组件」）。
+
+### npm 安装（发布后可用）
+
 ```bash
 npm i coolui-scroller-uni
 ```
-
-不使用 npm 的项目（例如直接用 HBuilderX 开发），也可以把包里的 `components/`、`utils/`、`types.ts`、`index.js` 拷进项目目录——发布的是源码，可以直接参与编译，把 easycom 规则指向你的实际目录即可。
 
 ## 引入组件
 

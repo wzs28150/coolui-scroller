@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vitepress'
-import { PLATFORMS, activeKeyOf, setPlatform, switchTarget } from './platform'
+import { PLATFORMS, activeKeyOf, goto, setPlatform, switchTarget } from './platform'
 
 const route = useRoute()
 const router = useRouter()
@@ -13,7 +13,7 @@ function select(key) {
   if (key === active.value) return
   const target = switchTarget(route.path, key)
   setPlatform(key)
-  router.go(target)
+  goto(router, target)
 }
 </script>
 
@@ -40,7 +40,6 @@ function select(key) {
   align-items: center;
   gap: 2px;
   padding: 2px;
-  margin-right: 12px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 10px;
   background-color: var(--vp-c-bg-soft);

@@ -6,3 +6,38 @@
   margin: 0 auto;
   padding: 0 24px;
 }
+
+/* ---------------------------------------------------------------------------
+   导航栏右侧：平台切换器放在 GitHub 图标左边，两侧用竖线与相邻项分隔。
+   默认主题没有「插到社交图标之前」的插槽（slot 内容只能落在 .extra 之后），
+   这里用 flex order 把视觉顺序调成：主题切换 | 平台切换 | GitHub。
+   DOM 顺序：... .appearance / .social-links / .extra / .nav-bar-platform
+--------------------------------------------------------------------------- */
+.nav-bar-platform {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 1280px) {
+  /* 1280px 起社交图标才显示在导航栏里，这时才需要换位并补左侧竖线； 
+     768～1279px 保持原样（平台切换仍是最右侧那一项）。 */
+  .nav-bar-platform {
+    order: 1;
+  }
+
+  /* GitHub 图标前的竖线由默认主题生成（.appearance + .social-links::before），
+     换位后它正好落在平台切换器与 GitHub 之间，无需自己再画。 */
+  .VPNavBarSocialLinks {
+    order: 2;
+  }
+
+  /* 平台切换器与主题切换之间的竖线，左右边距与右侧那条保持一致 */
+  .nav-bar-platform::before {
+    margin-right: 16px;
+    margin-left: 16px;
+    width: 1px;
+    height: 24px;
+    background-color: var(--vp-c-divider);
+    content: '';
+  }
+}

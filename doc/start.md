@@ -17,6 +17,6 @@ coolui-scroller 提供两个版本，**组件能力与配置项一致**，差别
 
 ## 还想先看看？
 
-- [示例 demo](/case/case)：下拉二楼、下拉组合等完整案例
+- [示例 demo](/case/)：扫码预览与示例工程源码（原生 / uni-app 两个 demo）
 - [常见问题](/advanced/faq)：下拉没弹性、H5 页面滚动条、列表间距等
 - [组件库介绍](/native/guide)：设计初衷与长列表方案

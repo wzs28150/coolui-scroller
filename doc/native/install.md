@@ -105,13 +105,7 @@ npm i coolui-scroller --production
 
 ## 示例 demo
 
-扫码或用微信开发者工具打开仓库里的 demo 工程：
-
-<img src="/images/demo.jpg" alt="示例" />
-
-```bash
-git clone https://github.com/wzs28150/coolui-scroller.git
-```
+扫码预览、以及用微信开发者工具打开示例工程（`demo/native`）的方式，见 [示例 demo](/case/)。
 
 ## 下一步
 

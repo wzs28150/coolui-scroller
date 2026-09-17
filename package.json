@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "pnpm run --filter ./doc docs:dev",
     "build": "pnpm run --filter ./doc docs:build",
-    "push": "pnpm run --filter ./packages push",
+    "push": "pnpm run --filter ./packages/native push",
     "dev:uniapp": "pnpm run --filter ./demo/uniapp dev:mp-weixin",
     "build:uniapp": "pnpm run --filter ./demo/uniapp build:mp-weixin",
     "gulp": "gulp"
