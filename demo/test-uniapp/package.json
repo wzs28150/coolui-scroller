@@ -1,9 +1,0 @@
-{
-  "name": "test-uniapp",
-  "version": "1.0.0",
-  "private": true,
-  "description": "HBuilder 创建的基础项目，用于验证 coolui-scroller-uni@1.0.1 组件",
-  "dependencies": {
-    "coolui-scroller-uni": "^1.0.1"
-  }
-}
