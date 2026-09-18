@@ -2,8 +2,9 @@
   "name": "coolui-scroller-vscode",
   "displayName": "coolui-scroller 组件提示",
   "description": "为 coolui-scroller 组件库提供 WXML 与 uni-app Vue 模板的标签、属性、事件、插槽补全、悬停文档与引入诊断。",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "coolui",
+  "icon": "images/icon.png",
   "license": "MIT",
   "engines": {
     "vscode": "^1.70.0"

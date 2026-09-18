@@ -1,5 +1,13 @@
 # 版本更新
 
+## 组件库
+
+### v4.0.1
+
+1. 原生版 `coolui-scroller` 与 uni-app 版 `coolui-scroller-uni` 增加面向 AI 助手的文档：随 npm 包发布 `llms.txt`（该包文档索引）与 `AGENTS.md`（组件用法速查、最小可用示例、高频坑），AI 编码助手装包后即可读取。
+2. 线上新增 AI 单文件全文 [llms-full.txt](https://wzs28150.github.io/coolui-scroller/v4/llms-full.txt)，把全部组件 API 与示例合成一份，供 AI 一次性读入。
+3. 文档站新增[编辑器插件](/advanced/plugin)页面，说明 VS Code / Trae 插件的安装与使用。
+
 ### v4.0.0
 
 1. 新增 uni-app 版本（coolui-scroller-uni），与原生小程序版同仓维护，支持微信 / 支付宝 / 百度 / 字节 / QQ 小程序及 H5、App；提供 easycom 免引入、TypeScript 类型与多端编译。
@@ -102,3 +110,12 @@
 4. 修改参数配置使组件使用更便捷
 5. 增加加载插槽可以自定义加载更多样式
 6. 增加多组件配合使列表功能更丰富
+
+## 编辑器插件（VS Code / Trae）
+
+功能与安装见[编辑器插件](/advanced/plugin)页面。
+
+### 0.1.3
+
+1. 新增扩展图标（`images/icon.png`）。
+2. 补充 Open VSX 发布流程，Trae / VSCodium / Windsurf 等编辑器也可安装。

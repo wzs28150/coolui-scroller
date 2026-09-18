@@ -83,6 +83,10 @@ npm i coolui-scroller --production
 
 配置写在页面 `data` 里（或在组件上以属性传入），v3 起功能细化到各个组件，具体见 [Scroller 滚动组件](/native/components/scroller) 等各组件文档。
 
+:::: tip 写 WXML 时有补全和中文提示
+安装[编辑器插件](/advanced/plugin)后，组件标签、属性、事件、插槽都会自动补全，悬停可看中文说明；用到组件但漏了 `usingComponents` 时会告警，并支持一键引入。
+::::
+
 ## 组件清单
 
 | 组件 | 目录 | 说明 | 文档 |
@@ -110,4 +114,5 @@ npm i coolui-scroller --production
 ## 下一步
 
 - [组件库介绍](/native/guide)：设计初衷、版本演进与长列表方案
+- [编辑器插件](/advanced/plugin)：WXML 里的组件补全、悬停文档与引入诊断
 - [常见问题](/advanced/faq)：下拉没弹性、H5 滚动条、列表间距等高频问题

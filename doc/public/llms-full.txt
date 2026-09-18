@@ -1,0 +1,6320 @@
+# coolui-scroller · 完整文档（LLM 单文件版）
+
+> coolui-scroller 是一个专注小程序「下拉刷新 / 上拉加载 / 长列表」的组件库，提供两个 npm 包：
+>
+> - 原生微信小程序版 `coolui-scroller`（微信原生项目）
+> - uni-app 版 `coolui-scroller-uni`（Vue 2 / Vue 3，可编译到微信 / 支付宝 / 百度 / 字节 / QQ 小程序及 H5、App）
+>
+> 两个版本的**组件能力与配置项一致**，差别只在引入方式与个别平台写法。
+>
+> 文档站：https://wzs28150.github.io/coolui-scroller/v4/ ｜ 仓库：https://github.com/wzs28150/coolui-scroller
+>
+> 本文件由 `scripts/build-llms.mjs` 依据 `doc/` 下的 Markdown 文档自动生成，请勿手工编辑；修改文档后执行 `pnpm docs:llms` 重新生成。
+
+## 目录
+
+- **一、通用：这是什么、怎么安装**
+  - [coolui-scroller 组件库介绍](https://wzs28150.github.io/coolui-scroller/v4/native/guide)
+  - [原生微信小程序版：安装与引入](https://wzs28150.github.io/coolui-scroller/v4/native/install)
+- **二、原生微信小程序版（coolui-scroller）组件**
+  - [Scroller 滚动组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/scroller)
+  - [Item 列表项组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/item)
+  - [ScrollPage 长列表分页组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/page)
+  - [Empty 空列表组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/empty)
+  - [Handtip 手势提示组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/handtip)
+  - [Loadmore 加载更多组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/loadmore)
+  - [Refresh 下拉刷新组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh)
+  - [Parallax 下拉视差组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/parallax)
+  - [Nav 分类导航组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/nav)
+  - [NavPannel 切换组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/navPannel)
+  - [Search 搜索组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/search)
+  - [Sort 排序及分类筛选组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/sort)
+  - [SecondFloor 下拉二楼组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/floor)
+  - [BackToTop 回到顶部组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/backToTop)
+- **三、uni-app 版（coolui-scroller-uni）：安装与快速开始**
+  - [uni-app 版：安装与引入](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install)
+  - [uni-app 版：快速开始](https://wzs28150.github.io/coolui-scroller/v4/uniapp/quickstart)
+  - [uni-app 版：与原生版的差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff)
+- **四、uni-app 版组件**
+  - [uni-app 组件总览与命名对照](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/)
+  - [Scroller 滚动容器](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller)
+  - [Item 列表项组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/item)
+  - [Longlist 长列表窗口化容器（推荐）](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/longlist)
+  - [Page 长列表分页（旧方案）](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/page)
+  - [Empty 空列表组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/empty)
+  - [Handtip 手势提示组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/handtip)
+  - [Loadmore 加载更多组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/loadmore)
+  - [Refresh 下拉刷新组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/refresh)
+  - [Parallax 下拉视差组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/parallax)
+  - [Nav 分类导航组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/nav)
+  - [NavBar 顶部导航栏](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navBar)
+  - [NavPannel 切换组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navPannel)
+  - [Search 搜索组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/search)
+  - [Sort 排序及分类筛选组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/sort)
+  - [SecondFloor 下拉二楼组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/floor)
+  - [BackToTop 回到顶部组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/backToTop)
+- **五、进阶：常见问题**
+  - [常见问题 FAQ](https://wzs28150.github.io/coolui-scroller/v4/advanced/faq)
+
+# 一、通用：这是什么、怎么安装
+
+## coolui-scroller 组件库介绍
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/guide ｜ 来源：`doc/native/guide.md`
+
+coolui-scroller 是一个专注小程序**下拉刷新 / 上拉加载 / 长列表**的组件库，提供[原生微信小程序版](https://wzs28150.github.io/coolui-scroller/v4/native/install)与 [uni-app 版](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install)两套实现，组件能力与配置项一致。
+
+### 前言
+
+#### 初衷
+
+本来写这个组件的初衷，是在我写了一个小程序之后，发现小程序如果要实现下拉刷新、上拉加载有两种方式:
+
+1. 页面级的：利用页面 Page 里提供的方法。下拉虽说是那个东西但是它只有下拉三个点的动画效果而且只能显示在头部就很尴尬。很多时候一个列表的头部往往会有一些组件比如搜索、分类导航等等。所以往往列表都是局部的非页面级的。这时候下拉时动画出现在最顶部就显得很突兀。
+
+```javascript
+Page({
+  onPullDownRefresh: function () {
+    // 监听用户下拉刷新事件。
+  },
+  onReachBottom: function () {
+    // 监听用户上拉触底事件。
+  },
+  onPageScroll: function () {
+    // 监听用户滑动页面事件。
+  },
+})
+```
+
+2. 组件级的：利用 scroll-view。 但是当你打开 scroll-view 官方文档时，映入眼帘的是一列列的参数属性方法。要完全弄懂里面的内容，恐怕你得上手写写，挨个试试里面的参数和方法才行。而对于下拉刷新这个效果文档上有个简易的 demo 可寻。上拉加载也只有 bindscrolltolower 这么个方法和 lower-threshold 阈值。所以要实现起来完全还得靠自己。
+
+所以在写项目的最后我把页面的列表下拉刷新,上拉加载进行了初步的封装。单独拿出来方便之后重复使用。所以有了起初的 1.0 版。
+
+#### 发展
+
+##### V2.0
+
+scroll-view 组件初期并没有那么多配置,所以 1.0 实现的效果很有限。
+后来随着官方 scroll-view 组件的不断的更新。增加了很多新的属性和事件使得下拉可以自定义起来。虽然也有很多地方不尽人意，但是可玩度还是有很多的。所以又升级了 2.0 版增加了很多下拉的自定义动画效果和上拉加载的效果。
+
+2.0 版组件还是围绕着 scroll-view,写法上只有一个封装好的 scroller 组件。内置了一个基础的下拉效果。提供下拉的插槽位置。并给出了几个有趣的下拉效果 demo(如：天猫效果、京东小人效果)让下拉又有了更多的可能性;配置上也考虑了很多增加了列表为空时的设置上拉加载的配置。整个配置就是一个 Obj,细化到文字、背景。
+
+V2.0 配置：
+
+```js
+// data 中配置
+scroll: {
+  //  设置分页信息
+  pagination: {
+    page: 1,
+    totalPage: 10,
+    limit: 10,
+    length: 100
+  },
+  // 设置数据为空时的图片
+  empty: {
+    img: 'http://coolui.coolwl.cn/assets/mescroll-empty.png'
+  },
+  // 设置下拉刷新
+  refresh: {
+    type: 'default',
+    style: 'black',
+    background: "#000"
+  },
+  // 设置上拉加载
+  loadmore: {
+    type: 'default',
+    icon: 'http://upload-images.jianshu.io/upload_images/5726812-95bd7570a25bd4ee.gif',
+    background: '#f2f2f2',
+    // backgroundImage: 'http://coolui.coolwl.cn/assets/bg.jpg',
+    title: {
+      show: true,
+      text: '加载中',
+      color: "#999",
+      shadow: 5
+    }
+  }
+},
+```
+
+之后由于疫情及个人原因这个组件搁置了一阵子。当我再次打开它时便有了重构的想法。
+
+##### V3.0
+
+3.0 版打算把之前各个部分的插槽进行细化及拆分。并新增空列表插槽及组件、初次进入程序时的手势提示组件、顶部插槽及顶部插槽可用的组件(如：搜索组件、分类组件、下拉筛选组件)。
+
+除了组件的变化外，核心列表准备加入长列表处理，解决数据量大时列表会出现的问题(如：setData 加载大数据的耗时高、列表渲染出来的 Dom 结构多、占用的内存高，造成页面被系统回收的概率变大等)。起初想以官方给出的 recycle-view 组件进行扩展。但是使用中，遇到很多坑及不方便之处。最让我接受不了的是需要设置 itemSize 这个方法。当我在不确定列表元素宽高的时候就很难设置。后来经过大量的思考和查资料及尝试。决定采用知乎上 daisy 提出的长列表解决方案。
+
+#### v3.0 版
+
+1. 基于小程序原生组件 scroll-view 的扩展与封装,实现简单的上拉加载下拉刷新
+2. 扩展下拉刷新动画，有灵感的朋友可以丰富更多下拉动画
+3. 上传至 npm 包可安装下载并 npm 构建
+4. 修改参数配置使组件使用更便捷
+5. 增加加载插槽可以自定义加载更多样式
+6. 增加多组件配合使列表功能更丰富
+
+#### 开发进度
+
+1. ~~调整为虚拟长列表模式~~
+2. ~~支持多组件搭配，使插件更灵活~~
+3. ~~新增组件 coolui-scroller-item(列表项组件)~~
+4. ~~新增组件 coolui-scroller-page(长列表分页组件)~~
+5. ~~新增组件 coolui-scroller-empty(空列表组件)~~
+6. ~~新增组件 coolui-scroller-handtip(手势提示组件)~~
+7. ~~新增组件 coolui-scroller-loadmore(加载更多组件)~~
+8. ~~新增组件 coolui-scroller-nav(分类导航组件)~~
+9. ~~新增组件 coolui-scroller-refresh(下拉刷新组件)~~
+10. ~~新增组件 coolui-scroller-parallax(下拉刷新视差位移组件)~~
+11. ~~新增组件 coolui-scroller-search(搜索组件)~~
+12. ~~新增组件 coolui-scroller-sort(分类筛选及排序组件)~~
+13. ~~新增组件 coolui-scroller-floor(下拉二楼组件)~~
+
+### v4.0 版
+
+v4.0.0 有两条主线：**长列表窗口化**，以及**同仓维护的原生 + uni-app 双版本**。
+
+#### 长列表窗口化
+
+v3 的长列表是「每一页都保留一个 `scroll-page` 组件实例，滚出视口后把列表项换成占位」。当加载的页数足够多时，**页结构本身**也会成为卡顿来源：页组件实例与 IntersectionObserver 的数量都会随总页数线性增长。
+
+v4.0.0 把「窗口」从 item 层扩展到 page 层：
+
+- 只真实渲染**窗口内**的页（当前可见页 ± 相邻页），窗口外统一折叠为**上下两个占位块**；
+- 页高定位不再使用 IntersectionObserver，改为「滚动距离 + 页高前缀和二分」，复杂度 O(log N)；
+- 未测量的页用「已测量页的平均值」估算，滚过后测量回填并自动收敛。
+
+| 项目 | v3.x | v4.0.0 |
+| --- | --- | --- |
+| 页组件实例 | 每一页一个，随总页数增长（O(N)） | 只渲染窗口内的页，约 3~5 个（O(窗口)） |
+| 页高定位 | 每页一个 IntersectionObserver（N 个观察者） | 滚动距离 + 页高前缀和二分，**0 个观察者** |
+| 窗口外节点 | 每页一个占位节点（N 个） | 折叠为**上下两个**占位块 |
+| 窗口重算 | 由观察者回调触发 | 滚动时按需重算，O(log N) |
+
+页数越多收益越明显：加载 50 页时，节点数由「50 个页组件 + 50 个观察者」降为「约 5 个页组件 + 2 个占位块」。
+
+具体写法与升级对照见 [ScrollPage 长列表分页组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/page)。
+
+### uni-app 版
+
+从 v4 开始，组件库以**同仓双版本**的形式维护：原生微信小程序版（npm 包 `coolui-scroller`）与 uni-app 版（npm 包 `coolui-scroller-uni`）。两者**组件能力与配置项保持一致**，文档一一对应，用站点顶部的切换器可以随时对照另一端的写法。
+
+uni-app 版不是原生版的简单搬运，写法上按 Vue 的习惯重新实现：
+
+| 项 | 原生微信小程序版 | uni-app 版 |
+| --- | --- | --- |
+| 组件通信 | 小程序 `relations` 关联父子组件 | Vue `provide/inject` |
+| 事件 | `bind:xxx` | `@xxx`；受控属性 `@update:propName`（可写 `v-model:xxx`） |
+| 引入方式 | `usingComponents` | easycom 免 import，也支持全局注册 / 页面内局部引入 |
+| 长列表 | `scroll-page` 窗口化渲染 | 新增 `coolui-scroller-longlist`（窗口化容器，推荐） |
+| 类型 | — | 组件用 `<script setup lang="ts">`，公共类型集中在 `types.d.ts` |
+| 样式定制 | `externalClasses` | `virtualHost + apply-shared`，页面里用 `:deep()` 覆盖 |
+
+- 一套代码编译到微信 / 支付宝 / 百度 / 字节 / QQ 小程序以及 H5、App 端；
+- 保留字属性改名：search 的 `key` → `keyword`、handtip 的 `key` → `storageKey`；
+- 各端差异（H5 导航栏占高、插槽与样式作用域等）见 [uni-app 版安装与引入](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install) 与 [与原生微信小程序版的差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff)。
+
+### 接下来
+
+- **安装与引入**：[安装与引入](https://wzs28150.github.io/coolui-scroller/v4/native/install) —— npm 安装、构建 npm、`usingComponents` 全量引入清单
+- **挑组件**：[组件文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/scroller) —— 根据自己的业务场景选用，也可以在对应插槽里自定义
+- **看示例**：[示例 demo](https://wzs28150.github.io/coolui-scroller/v4/case/) —— 扫码预览与示例工程源码
+- **换平台**：如果项目是 uni-app，请看 [uni-app 版文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install)，或用页面顶部的平台切换器
+
+---
+
+## 原生微信小程序版：安装与引入
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/install ｜ 来源：`doc/native/install.md`
+
+本页是**原生微信小程序版**（npm 包 `coolui-scroller`）的接入方式：直接在微信小程序原生项目里使用，不走 uni-app 编译。
+
+> 用的是 uni-app？
+
+请看 [uni-app 版安装与引入](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install)，或点顶部导航切换平台。两个版本组件能力与配置项基本一致，差别在引入方式与个别平台差异。
+
+### 环境要求
+
+| 项 | 说明 |
+| --- | --- |
+| 运行环境 | 微信小程序，基础库建议 2.x 及以上 |
+| 开发者工具 | 需支持 **构建 npm**（工具 → 构建 npm） |
+| 项目依赖 | 页面需要 `scroll-view` 的下拉、触底能力，基础库不要过低 |
+
+### 安装
+
+```bash
+npm i coolui-scroller --production
+```
+
+如果项目还没有 `package.json`，先在项目根目录执行 `npm init -y` 生成。
+
+#### 构建 npm
+
+安装完成后，在微信开发者工具里点击「工具 → 构建 npm」：
+
+![构建 npm](https://wzs28150.github.io/coolui-scroller/v4/images/set1.png)
+
+当项目里出现 `miniprogram_npm` 目录，就说明构建完成了：
+
+![构建结果](https://wzs28150.github.io/coolui-scroller/v4/images/set2.png)
+
+### 引入
+
+在 `app.json` 全局引入，或在需要的页面 `index.json` 里按需引入：
+
+```json
+"usingComponents": {
+  "scroller": "coolui-scroller/scroller/index",
+  "refresh": "coolui-scroller/refresh/index"
+}
+```
+
+左侧的 key（`scroller`、`refresh`）是**标签名，可以自己改**，例如改成 `my-scroller` 后模板里就用 `<my-scroller>`。
+
+#### 全量引入清单
+
+按需取用即可（`sort-item` 是 `sort` 的子组件，需要一起引入）：
+
+```json
+"usingComponents": {
+  "scroller": "coolui-scroller/scroller/index",
+  "item": "coolui-scroller/item/index",
+  "scroll-page": "coolui-scroller/scroll-page/index",
+  "empty": "coolui-scroller/empty/index",
+  "handtip": "coolui-scroller/handtip/index",
+  "loadmore": "coolui-scroller/loadmore/index",
+  "refresh": "coolui-scroller/refresh/index",
+  "parallax": "coolui-scroller/parallax/index",
+  "nav": "coolui-scroller/nav/index",
+  "nav-bar": "coolui-scroller/nav-bar/index",
+  "nav-pannel": "coolui-scroller/nav-pannel/index",
+  "search": "coolui-scroller/search/index",
+  "sort": "coolui-scroller/sort/index",
+  "sort-item": "coolui-scroller/sort/item",
+  "second-floor": "coolui-scroller/second-floor/index",
+  "second-floor-refresh": "coolui-scroller/second-floor-refresh/index",
+  "backtotop": "coolui-scroller/backToTop/index"
+}
+```
+
+#### 页面结构
+
+```html
+<scroller class="my-scroller">
+  ...
+</scroller>
+```
+
+#### 参数配置
+
+配置写在页面 `data` 里（或在组件上以属性传入），v3 起功能细化到各个组件，具体见 [Scroller 滚动组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/scroller) 等各组件文档。
+
+> 写 WXML 时有补全和中文提示
+
+安装[编辑器插件](https://wzs28150.github.io/coolui-scroller/v4/plugin)后，组件标签、属性、事件、插槽都会自动补全，悬停可看中文说明；用到组件但漏了 `usingComponents` 时会告警，并支持一键引入。
+
+### 组件清单
+
+| 组件 | 目录 | 说明 | 文档 |
+| --- | --- | --- | --- |
+| Scroller | `scroller` | 滚动容器：下拉刷新 / 上拉加载 / 空态 / 回到顶部插槽 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/scroller) |
+| Item | `item` | 列表项，自带点击水波纹 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/item) |
+| ScrollPage | `scroll-page` | 长列表分页（按页占位，减少节点数） | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/page) |
+| Empty | `empty` | 空列表占位 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/empty) |
+| Handtip | `handtip` | 首次进入的手势提示 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/handtip) |
+| Loadmore | `loadmore` | 上拉加载更多 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/loadmore) |
+| Refresh | `refresh` | 下拉刷新动画（含小程序原生样式） | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh) |
+| Parallax | `parallax` | 下拉视差位移 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/parallax) |
+| Nav | `nav` | 分类导航 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/nav) |
+| NavBar | `nav-bar` | 顶部导航栏 | — |
+| NavPannel | `nav-pannel` | 切换容器（导航 + 内容联动） | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/navPannel) |
+| Search | `search` | 搜索框 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/search) |
+| Sort / SortItem | `sort` / `sort/item` | 排序与分类筛选 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/sort) |
+| SecondFloor | `second-floor` / `second-floor-refresh` | 下拉二楼 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/floor) |
+| BackToTop | `backToTop` | 回到顶部 | [文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/backToTop) |
+
+### 示例 demo
+
+扫码预览、以及用微信开发者工具打开示例工程（`demo/native`）的方式，见 [示例 demo](https://wzs28150.github.io/coolui-scroller/v4/case/)。
+
+### 下一步
+
+- [组件库介绍](https://wzs28150.github.io/coolui-scroller/v4/native/guide)：设计初衷、版本演进与长列表方案
+- [编辑器插件](https://wzs28150.github.io/coolui-scroller/v4/plugin)：WXML 里的组件补全、悬停文档与引入诊断
+- [常见问题](https://wzs28150.github.io/coolui-scroller/v4/advanced/faq)：下拉没弹性、H5 滚动条、列表间距等高频问题
+
+---
+
+# 二、原生微信小程序版（coolui-scroller）组件
+
+## Scroller 滚动组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/scroller ｜ 来源：`doc/native/components/scroller.md`
+
+### 介绍
+
+Scroller 为 coolui-scroller 的地基。所以要使用 coolui-scroller 必须引入该组件。该组件将列表页面查分成如下各个区域:
+
+![示例图一](https://wzs28150.github.io/coolui-scroller/v4/images/scroller2.jpg)
+![示例图二](https://wzs28150.github.io/coolui-scroller/v4/images/scroller1.jpg)
+![示例图三](https://wzs28150.github.io/coolui-scroller/v4/images/scroller3.jpg)
+
+每个区域都提供了相应的组件或支持自定义。
+如开启回到顶部按钮。该按钮默认执行 refresh 下拉的方法。
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "scroller": "coolui-scroller/scroller/index"
+}
+```
+
+### 代码演示
+
+**index.wxml**
+
+```html
+<scroller
+  background="{{background}}"
+  isBackBtn="{{isBackBtn}}"
+  isEmpty="{{isEmpty}}"
+  bind:loadmore="loadmore"
+  bind:refresh="refresh"
+>
+  <view slot="header">
+    <!-- 头部区域，可增加搜索，分类切换等功能 -->
+  </view>
+  <!-- 下拉刷新组件，如果调用则开启下拉，不调用则不开启下拉，下拉配置详见下拉组件 -->
+  <refresh slot="refresh" type="base" config="" />
+
+  <!-- 中间列表内容区域，可使用长列表分页组件、列表项组件或自定义 -->
+  <item wx:for="{{list}}">
+    <!-- 我是列表项 -->
+  </item>
+  <view slot="loadmore">
+    <!-- 加载更多区域，可使用加载更多组件或自定义 -->
+  </view>
+  <view slot="empty">
+    <!-- 空列表区域，数据为空，将isEmpty设置为true时显示，可使用空组件或自定义 -->
+  </view>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    background: '#f2f2f2',
+    isBackBtn: true, // 设置是否显示回到顶部按钮
+    isEmpty: false, // 设置是否为空数据
+    list: [], // 列表数据
+  },
+  loadmore() {
+    // 上拉到底部，加载更多时执行，请实现分页+1，新数据加载的操作
+  },
+  refresh() {
+    // 下拉到顶部，下拉刷新时执行，请实现清除列表数据，还原分页为初始值的操作
+  },
+})
+```
+
+> 如果不想使用里面子组件，像自定义里面内容可使用`contentHeight`来获取高度
+
+**index.wxml**
+
+```html
+<scroller
+  background="{{background}}"
+  isBackBtn="{{isBackBtn}}"
+  isEmpty="{{isEmpty}}"
+  bind:contentHeight="getHeight"
+>
+  <view slot="header">
+    <!-- 头部区域，可增加搜索，分类切换等功能 -->
+  </view>
+  <!-- 下拉刷新组件，如果调用则开启下拉，不调用则不开启下拉，下拉配置详见下拉组件 -->
+  <refresh slot="refresh" type="base" config="" />
+  <view style="height: {{height}}px">
+    <!-- 自定义的内容, 设置高度是方便里面flex布局等高度撑开计算等 -->
+  </view
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    height: 0,
+    background: '#f2f2f2',
+    isBackBtn: true, // 设置是否显示回到顶部按钮
+  },
+  getHeight: function (res) {
+    this.setData({
+      height: res.detail,
+    })
+  },
+})
+```
+
+### 配置
+
+| 参数           | 说明                                                                                                                                                                                  | 类型      | 默认值    | 版本        |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | --------- | ----------- |
+| type           | 下拉样式类型,默认样式或插槽自定义，可设置 `default` 、`base`、 `diy`。`default`为小程序原版下拉样式。`base`为组件提供的基础样式。`diy`为开启完全自定义                                | _String_  | `default` | 3.0.0       |
+| ~~background~~ | 自定义下拉背景颜色(如：`#f2f2f2`)，该设置本应该在下拉刷新组件中设置，但是小程序 scroll-view 动态设置 refresher-background 会出现下拉区域下沉 bug 所以在这里设置背景颜色。(3.1.0 废弃) | _String_  | `#f2f2f2` | 3.0.0~3.0.9 |
+| ~~isBackBtn~~  | 设置是否显示返回到顶部按钮，可设置`true`或`false`， `true`为开启                                                                                                                      | _Boolean_ | `false`   | 3.0.0~3.3.3 |
+| isEmpty        | 设置是否显示空数据内容，可设置`true`或`false`， `true`为开启。如在空列表插槽中设置了内容则会显示出来                                                                                  | _Boolean_ | `false`   | 3.0.0       |
+| enableFlex     | 设置是否开启 scroll-view 的 flex 模式，可设置`true`或`false`， `true`为开启。                                                                                                         | _Boolean_ | `false`   | 3.0.9       |
+| top            | 设置滚动到指定位置                                                                                                                                                                    | _Number_  | `0`       | 3.2.8       |
+| animation      | 在设置滚动条位置时使用动画过渡 （同 scroll-with-animation）                                                                                                                           | _Boolean_ | `true`    | 3.3.0       |
+
+### 插槽
+
+| 名称      | 说明                                      | 可用组件                | 版本  |
+| --------- | ----------------------------------------- | ----------------------- | ----- |
+| header    | 头部插槽区域                              | `nav`、`search`、`sort` | 3.x   |
+| refresh   | 下拉刷新插槽位置，使用 refresh 组件时开启 | `refresh`               | 3.x   |
+| loadmore  | 加载更多插槽位置                          | `loadmore`              |
+| empty     | 空列表插槽位置，isEmpty 为 true 时显示    | `empty`                 | 3.x   |
+| backToTop | 回到顶部插槽                              | `backToTop`             | 3.3.4 |
+
+### 事件
+
+| 名称          | 用法                                      | 说明                                                                                                  | 返回参数                                   | 版本  |
+| ------------- | ----------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------ | ----- |
+| loadmore      | `bindloadmore`或`bind:loadmore`           | 执行加载更多后触发，可执行更新列表                                                                    | 无                                         | 3.x   |
+| refresh       | `bindrefresh`或`bind:refresh`             | 执行下拉刷新后触发，可执行更新列表                                                                    | 无                                         | 3.x   |
+| contentHeight | `bindcontentHeight`或`bind:contentHeight` | 获取 scroller 中间内容区高度，不包括 header 部分,方便不使用 page、item 等组件需要自定义内容的时候使用 | 返回 res,可用 res.detail 获取高度，单位 px | 3.2.7 |
+
+### 方法
+
+| 名称         | 用法                                                                                                                              | 说明                                                                                                                                       | 返回参数 | 版本  |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ----- |
+| settriggered | 先获取组件实例：`const scroller = this.selectComponent('.elm-scroller');`, 然后调用方法：`scroller.settriggered(false)` | 在 refresh 方法中执行，当刷新组件设置不自动回弹时，设置手动回弹，可增加 setTimeout 设置回弹时机。详见[非自动回弹](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh#非自动回弹) | promise  | 3.0.4 |
+
+### 注意
+
+> 下拉刷新(除下拉二楼组件)与页面级的滚动下拉刷新效果会有冲突，建议关闭页面级的滚动，页面设置中需增加"disableScroll": true。
+
+```json
+{
+  "usingComponents": {
+    "scroller": "coolui-scroller/scroller/index",
+    "refresh": "coolui-scroller/refresh/index"
+  },
+  "disableScroll": true
+}
+```
+
+---
+
+## Item 列表项组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/item ｜ 来源：`doc/native/components/item.md`
+
+### 介绍
+
+包裹列表循环项的结构组件
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "item": "coolui-scroller/item/index"
+}
+```
+
+### 代码演示
+
+```html
+<scroller>
+  <item
+    ripple
+    wx:for="{{ list }}"
+    wx:for-index="index"
+    wx:for-item="listItem"
+    wx:key="index"
+  >
+    <view class="item">
+      <view class="title">{{index}}.{{listItem.title}}</view>
+    </view>
+  </item>
+</scroller>
+```
+
+### 配置
+
+| 参数   | 说明                                                                | 类型      | 默认值  | 版本  |
+| ------ | ------------------------------------------------------------------- | --------- | ------- | ----- |
+| ripple | 设置点击是否显示波纹效果，可设置`true`或`false`。设置为`true`时开启 | _Boolean_ | `false` | 3.0.4 |
+
+---
+
+## ScrollPage 长列表分页组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/page ｜ 来源：`doc/native/components/page.md`
+
+### 介绍
+
+长列表解决方案：将数据分为多个 page 页面(如下图)。每个 page 页面包含列表项 item。计算每个 page 的高度。当 page1 已加载完并且已经划过到可视区上面时，将该 page1 设为当前的 page 高度，并删除里面的列表项 item。完成用一个空的 page 进行占位。这样就减少了过多的列表项 dom。当页面向下滚动时。page1 又进入可视区时，将列表项 item 再还原回来。
+
+为了保证滚动时的连贯性。我们保存了当前可视区及可视区上下两个 page 页面中的列表项。其余 page 中的列表项全部删除，只有滚动到时才显示。这样就保证页面中有且只有三个 page 中有列表项。其余均是空白占位区域。
+
+![示例图一](https://wzs28150.github.io/coolui-scroller/v4/images/page1.jpg)
+
+![示例图二](https://wzs28150.github.io/coolui-scroller/v4/images/page2.png)
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "scroll-page": "coolui-scroller/scroll-page/index"
+}
+```
+
+### 代码演示
+
+注意：需要引入组件提供的方法来计算每个 page 页面的高度
+
+**index.wxml**
+
+```html
+<scroller
+  class="{{(loadMoreSetting.status == 'loading' && list.length == 0) ? 'isloading' : ''}}"
+  id="scroller"
+  bind:loadmore="getList"
+  bind:refresh="refresh"
+  isEmpty="{{isEmpty}}"
+  background="#f2f2f2"
+>
+  <refresh slot="refresh" type="default" config="{{defaultSetting}}" />
+  <!-- 列表 -->
+  <!-- page组件循环页 -->
+  <scroll-page
+    wx:for="{{ list }}"
+    id="wrp_{{pageIndex}}"
+    wx:for-index="pageIndex"
+    wx:for-item="listSingleItem"
+    wx:key="index"
+    pageList="{{ listSingleItem }}"
+  >
+    <!-- item组件循环项 -->
+    <item
+      wx:for="{{ listSingleItem }}"
+      wx:for-index="index"
+      wx:for-item="listItem"
+      wx:key="index"
+    >
+      <view class="item">
+        <image class="item-image" src="{{listItem.img}}"></image>
+        <view class="item-title"
+          >{{(pageIndex * 3) + listItem.id}}.{{listItem.title}}</view
+        >
+      </view>
+    </item>
+    <!-- item组件循环项 -->
+  </scroll-page>
+  <!-- page组件循环页 -->
+  <!-- 列表 -->
+  <!-- 加载更多组件 -->
+  <loadmore
+    slot="loadmore"
+    status="{{loadMoreSetting.status}}"
+    loadingText="{{loadMoreSetting.loadingText}}"
+    noMoreText="{{loadMoreSetting.noMoreText}}"
+    moreText="{{loadMoreSetting.moreText}}"
+    color="{{loadMoreSetting.color}}"
+  />
+  <!-- 加载更多组件 -->
+</scroller>
+```
+
+**index.js**
+
+```js
+// 调用组件提供的方法文件
+const utils = require('coolui-scroller/index.js')
+
+Page({
+  data: {
+    isEmpty: false,
+    list: [],
+    defaultSetting: {
+      shake: true,
+      style: 'black', // 设置圆点深色还是浅色
+    },
+    loadMoreSetting: {
+      status: 'more',
+      moreText: '上拉加载更多',
+      loadingText: '加载中...',
+      noMoreText: '-- 到底啦 --',
+      color: '#999',
+    },
+    emptySetting: {
+      img: '../../img/empty.png',
+      // img: 'http://www.365editor.com/images/nodata.png',
+      text: '暂无文章',
+    },
+  },
+
+  onLoad() {
+    // 设置缓存全部数据
+    this.wholeList = []
+    // 设置当前渲染第几页
+    this.currentRenderIndex = 0
+    // 设置缓存每一页页面高度
+    this.pageHeightArr = []
+    // 设置总页数
+    this.totalPageNum = 0
+    // 设置分页
+    this.param = {
+      limit: 4,
+      page: 0,
+    }
+
+    this.getList()
+  },
+  getList() {
+    const than = this
+    const loadMoreSetting = than.data.loadMoreSetting
+    // 判断当前是否为加载状态 防止页面重复添加数据
+    if (loadMoreSetting.status !== 'loading') {
+      loadMoreSetting.status = 'loading'
+      than.setData({
+        loadMoreSetting,
+      })
+      const page = this.param.page
+      this.currentRenderIndex = page
+      if (than.totalPageNum > 0 && page == than.totalPageNum) {
+        const loadMoreSetting = than.data.loadMoreSetting
+        loadMoreSetting.status = 'noMore'
+        than.setData({
+          loadMoreSetting,
+        })
+      } else {
+        //  获取远程数据可换成自己封装的请求方法
+        wx.request({
+          url: 'https://coolui.coolwl.cn',
+          data: {
+            page: page + 1,
+            isempty: 0, // 设置为1可测试空数据
+            limit: 10,
+            pagenum: 10,
+            islong: 1,
+          },
+          method: 'get',
+          success(res) {
+            if (res.data.code === 200) {
+              than.totalPageNum = res.data.data.last
+              if (res.data.data.list.length === 0 && page === 0) {
+                const loadMoreSetting = than.data.loadMoreSetting
+                loadMoreSetting.status = 'noMore'
+                than.setData({
+                  isEmpty: true,
+                  loadMoreSetting,
+                })
+              } else {
+                than.wholeList[page] = res.data.data.list
+                const datas = {}
+                datas['list[' + page + ']'] = res.data.data.list
+                than.setData(datas, () => {
+                  // 调用方法设置page页面高度
+                  utils.setHeight(than)
+                  const loadMoreSetting = than.data.loadMoreSetting
+                  loadMoreSetting.status = 'more'
+                  than.setData({
+                    loadMoreSetting,
+                  })
+                  than.param.page += 1
+                })
+              }
+            }
+          },
+        })
+      }
+    }
+  },
+  refresh() {
+    // 初始化缓存数据
+    const that = this
+    this.wholeList = []
+    this.currentRenderIndex = 0
+    this.pageHeightArr = []
+    this.param = {
+      limit: 4,
+      page: 0,
+    }
+    that.setData({
+      list: [],
+    })
+    // 重新拉取数据
+    that.getList()
+  },
+})
+```
+
+### 配置
+
+| 参数     | 说明                           | 类型    | 默认值 | 版本  |
+| -------- | ------------------------------ | ------- | ------ | ----- |
+| pageList | 传入当前 page 分页面的列表数组 | _Array_ | 无     | 3.0.0 |
+
+---
+
+## v4.0.0 更新
+
+> v4.0.0 起长列表改为**窗口化渲染**：只渲染窗口内的页，窗口外折叠为上下两个占位块。
+
+### 介绍
+
+上面 v3 的写法为「每一页都保留一个 page 组件实例，滚出视口后把列表项 item 换成占位」。当加载的页数足够多时，**page 结构本身**也会成为卡顿来源：页组件实例与 IntersectionObserver 的数量都会随总页数线性增长（各 N 个）。
+
+v4.0.0 把「窗口」从 item 层扩展到 page 层：
+
+- 只真实渲染**窗口内**的页（当前可见页 ± 相邻页），窗口外统一折叠为**上下两个占位块**；
+- 页高定位不再使用 IntersectionObserver，改为「滚动距离 + 页高前缀和二分」，O(log N)；
+- 未测量的页用「已测量页的平均值」估算，滚过后测量回填并自动收敛。
+
+### 优化了什么
+
+| 项目       | v3.x                                        | v4.0.0                                   |
+| ---------- | ------------------------------------------- | ---------------------------------------- |
+| 页组件实例 | 每一页一个，随总页数增长（O(N)）            | 只渲染窗口内的页，约 3~5 个（O(窗口)）   |
+| 页高定位   | 每页一个 IntersectionObserver（N 个观察者） | 滚动距离 + 页高前缀和二分，**0 个观察者** |
+| 窗口外节点 | 每页一个占位节点（N 个）                    | 折叠为**上下两个**占位块                  |
+| 窗口重算   | 由观察者回调触发                            | 滚动时按需重算，O(log N)                 |
+
+页数越多收益越明显：加载 50 页时，节点数由「50 个页组件 + 50 个观察者」降为「约 5 个页组件 + 2 个占位块」；滚动的卡顿主要来自这两项，因此页数多时提升最明显。
+
+### 使用上的变化
+
+1. **不再调用 `utils.setHeight`**：页高测量、占位折叠、窗口计算都由新接口自动完成；
+2. **不再维护 `wholeList` / `pageHeightArr` / `currentRenderIndex`**：页面只保留 `list`（分页数据）即可；
+3. **需要多的三个渲染字段**：`visiblePages`（要真实渲染的页码）、`topHeight` / `bottomHeight`（上下占位块高度）；
+4. **需要把滚动距离透出**：`<scroller bind:scroll="onScroll">`，在 `onScroll` 中记录 `scrollTop` 并重算窗口；
+5. **追加一页数据后调用 `updateWindow()`**（原来是 `utils.setHeight(this)`）。
+
+### 参数变化
+
+新增 `utils.computeLonglistWindow(options)`：纯函数，负责由「滚动距离 + 页高缓存」算出渲染窗口，旧版 `setHeight` 承担的这部分工作由它接手。
+
+| 参数           | 说明                                         | 类型     | 默认值 |
+| -------------- | -------------------------------------------- | -------- | ------ |
+| heights        | 已测量的每页高度（未测量项用 estimate 代替） | _Array_  | `[]`   |
+| count          | 总页数                                       | _Number_ | `0`    |
+| scrollTop      | 当前滚动距离                                 | _Number_ | `0`    |
+| viewportHeight | 可视区高度                                   | _Number_ | `0`    |
+| overscan       | 前后各多渲染几页                             | _Number_ | `1`    |
+| estimate       | 未测量页的估算高度                           | _Number_ | `0`    |
+| **返回值**     | `{ start, end, topHeight, bottomHeight }`    | _Object_ | -      |
+
+- `heights` 不需要手工维护：按下面的示例把它挂在 `this.pageHeights` 上，测量完成后自动回填；
+- `estimate` 一般不用传：不传时用「已测量页的平均值」估算，一页都没测量过时按 300px 兜底。
+
+### 代码演示
+
+**index.wxml**
+
+```html
+<scroller
+  class="{{(loadMoreSetting.status == 'loading' && list.length == 0) ? 'isloading' : ''}}"
+  id="scroller"
+  bind:loadmore="getList"
+  bind:refresh="refresh"
+  bind:scroll="onScroll"
+  isEmpty="{{isEmpty}}"
+  background="#f2f2f2"
+>
+  <refresh slot="refresh" type="default" config="{{defaultSetting}}" />
+
+  <!-- 列表：窗口上方占位 -->
+  <view wx:if="{{topHeight > 0}}" style="height: {{topHeight}}px"></view>
+
+  <!-- 只渲染窗口内的页 -->
+  <scroll-page
+    wx:for="{{ visiblePages }}"
+    wx:for-item="pageIndex"
+    wx:key="*this"
+    id="wrp_{{pageIndex}}"
+    pageList="{{ list[pageIndex] }}"
+  >
+    <!-- item组件循环项 -->
+    <item
+      wx:for="{{ list[pageIndex] }}"
+      wx:for-index="index"
+      wx:for-item="listItem"
+      wx:key="index"
+    >
+      <view class="item">
+        <image class="item-image" src="{{listItem.img}}"></image>
+        <view class="item-title"
+          >{{(pageIndex * 3) + listItem.id}}.{{listItem.title}}</view
+        >
+      </view>
+    </item>
+    <!-- item组件循环项 -->
+  </scroll-page>
+
+  <!-- 列表：窗口下方占位 -->
+  <view wx:if="{{bottomHeight > 0}}" style="height: {{bottomHeight}}px"></view>
+
+  <!-- 加载更多组件 -->
+  <loadmore
+    slot="loadmore"
+    status="{{loadMoreSetting.status}}"
+    loadingText="{{loadMoreSetting.loadingText}}"
+    noMoreText="{{loadMoreSetting.noMoreText}}"
+    moreText="{{loadMoreSetting.moreText}}"
+    color="{{loadMoreSetting.color}}"
+  />
+</scroller>
+```
+
+**index.js**
+
+```js
+// 调用组件提供的方法文件
+const utils = require('coolui-scroller/index.js')
+
+Page({
+  data: {
+    isEmpty: false,
+    list: [],
+    // 窗口化渲染：只渲染这些页，其余高度由上下两个占位块撑起
+    visiblePages: [],
+    topHeight: 0,
+    bottomHeight: 0,
+    defaultSetting: {
+      shake: true,
+      style: 'black', // 设置圆点深色还是浅色
+    },
+    loadMoreSetting: {
+      status: 'more',
+      moreText: '上拉加载更多',
+      loadingText: '加载中...',
+      noMoreText: '-- 到底啦 --',
+      color: '#999',
+    },
+    emptySetting: {
+      img: '../../img/empty.png',
+      // img: 'http://www.365editor.com/images/nodata.png',
+      text: '暂无文章',
+    },
+  },
+
+  onLoad() {
+    // 设置总页数
+    this.totalPageNum = 0
+    // 设置分页
+    this.param = {
+      limit: 4,
+      page: 0,
+    }
+    // 每页真实高度缓存（下标 = 页码），由 measureVisible 自动回填
+    this.pageHeights = []
+    // 当前滚动距离与可视区高度
+    this.scrollTop = 0
+    this.windowHeight = (wx.getWindowInfo && wx.getWindowInfo().windowHeight) || 0
+
+    this.getList()
+  },
+
+  // 滚动时重算渲染窗口
+  onScroll(e) {
+    this.scrollTop = (e.detail && e.detail.scrollTop) || 0
+    this.updateWindow()
+  },
+
+  // 计算窗口：只渲染窗口内的页，窗口外折叠成上下两个占位块
+  updateWindow() {
+    const count = this.data.list.length
+    const heights = this.pageHeights || []
+
+    // 未测量页的估算高度：用已测量页的平均值（都没有时按 300px 兜底）
+    let sum = 0
+    let num = 0
+    for (let i = 0; i < heights.length; i++) {
+      if (heights[i] > 0) {
+        sum += heights[i]
+        num += 1
+      }
+    }
+    const estimate = num > 0 ? sum / num : 300
+
+    const state = utils.computeLonglistWindow({
+      heights: heights,
+      count: count,
+      scrollTop: this.scrollTop || 0,
+      viewportHeight: this.windowHeight || 0,
+      overscan: 1,
+      estimate: estimate,
+    })
+
+    const visiblePages = []
+    for (let i = state.start; i <= state.end; i++) {
+      visiblePages.push(i)
+    }
+
+    this.setData(
+      {
+        visiblePages: visiblePages,
+        topHeight: state.topHeight,
+        bottomHeight: state.bottomHeight,
+      },
+      () => {
+        this.measureVisible(visiblePages)
+      }
+    )
+  },
+
+  // 测量窗口内各页真实高度并回填缓存
+  measureVisible(indexes) {
+    if (!indexes || !indexes.length) {
+      return
+    }
+    const query = wx.createSelectorQuery().in(this)
+    indexes.forEach((pageIndex) => {
+      query.select('#wrp_' + pageIndex).boundingClientRect()
+    })
+    query.exec((res) => {
+      let changed = false
+      indexes.forEach((pageIndex, idx) => {
+        const rect = res && res[idx]
+        const h = rect && rect.height
+        if (h && Math.abs((this.pageHeights[pageIndex] || 0) - h) > 0.5) {
+          this.pageHeights[pageIndex] = h
+          changed = true
+        }
+      })
+      // 高度变化会移动窗口位置，重算一次（测量稳定后自然收敛）
+      if (changed) {
+        this.updateWindow()
+      }
+    })
+  },
+
+  getList() {
+    const than = this
+    const loadMoreSetting = than.data.loadMoreSetting
+    // 判断当前是否为加载状态 防止页面重复添加数据
+    if (loadMoreSetting.status !== 'loading') {
+      loadMoreSetting.status = 'loading'
+      than.setData({
+        loadMoreSetting,
+      })
+      const page = this.param.page
+      if (than.totalPageNum > 0 && page == than.totalPageNum) {
+        const loadMoreSetting = than.data.loadMoreSetting
+        loadMoreSetting.status = 'noMore'
+        than.setData({
+          loadMoreSetting,
+        })
+      } else {
+        //  获取远程数据可换成自己封装的请求方法
+        wx.request({
+          url: 'https://api.wzs.pub/mock/21/list',
+          data: {
+            page: page + 1,
+            isempty: 0, // 设置为1可测试空数据
+            limit: 10,
+            pagenum: 10,
+            islong: 1,
+          },
+          method: 'get',
+          success(res) {
+            if (res.data.code === 200) {
+              than.totalPageNum = res.data.data.last
+              if (res.data.data.list.length === 0 && page === 0) {
+                const loadMoreSetting = than.data.loadMoreSetting
+                loadMoreSetting.status = 'noMore'
+                than.setData({
+                  isEmpty: true,
+                  loadMoreSetting,
+                })
+              } else {
+                // 追加一页数据即可：页高测量与渲染窗口由 updateWindow 内部处理
+                const datas = {}
+                datas['list[' + page + ']'] = res.data.data.list
+                than.setData(datas, () => {
+                  than.updateWindow()
+                  const loadMoreSetting = than.data.loadMoreSetting
+                  loadMoreSetting.status = 'more'
+                  than.setData({
+                    loadMoreSetting,
+                  })
+                  than.param.page += 1
+                })
+              }
+            }
+          },
+        })
+      }
+    }
+  },
+
+  refresh() {
+    // 初始化缓存数据
+    const that = this
+    this.pageHeights = []
+    this.scrollTop = 0
+    this.param = {
+      limit: 4,
+      page: 0,
+    }
+    that.setData({
+      list: [],
+      visiblePages: [],
+      topHeight: 0,
+      bottomHeight: 0,
+    })
+    // 重新拉取数据
+    that.getList()
+  },
+})
+```
+
+### 升级说明（v3.x → v4.0.0）
+
+| v3.x 的写法                                    | v4.0.0 的写法                                                                    |
+| ---------------------------------------------- | -------------------------------------------------------------------------------- |
+| `utils.setHeight(this)`                        | `this.updateWindow()`                                                            |
+| 维护 `this.pageHeightArr` / `this.wholeList`   | 只维护 `this.pageHeights`（由组件回填，页面不读它）                              |
+| `list` 中已滚出的页被替换成 `[{ height }]` 占位 | `list` 始终保存原始分页数据，占位由 `topHeight` / `bottomHeight` 负责            |
+| `<scroll-page>` 的 `wx:for` 遍历 `list`         | `wx:for` 改为遍历 `visiblePages`，`pageList` 绑定 `list[pageIndex]`              |
+
+> 旧接口 `utils.setHeight` 仍然保留可用（不再推荐），新项目请按上面的写法接入。
+
+---
+
+## Empty 空列表组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/empty ｜ 来源：`doc/native/components/empty.md`
+
+### 介绍
+
+当列表请求后台返回数据为空时，列表没有内容就会空白，使用该组件。可提示用户列表内容为空，增加用户体验。
+
+组件可设置一张图标图片与提示文字：
+
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/empty.jpg)
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "empty": "coolui-scroller/empty/index"
+}
+```
+
+### 代码演示
+
+```html
+<scroller class="my-scroller">
+  <empty
+    slot="empty"
+    img-class="empty-img"
+    text-class="empty-text"
+    emptyText="暂无文章"
+    emptyImg="https://test.wzs.pub/pic/empty.png"
+  />
+</scroller>
+```
+
+### 配置
+
+| 参数      | 说明     | 类型     | 默认值     | 版本  |
+| --------- | -------- | -------- | ---------- | ----- |
+| emptyText | 提示文字 | _String_ | `暂无内容` | 3.0.0 |
+| emptyImg  | 提示图片 | _String_ | 无         | 3.0.0 |
+
+### 外部样式
+
+在组件外部修改组件里的元素样式，可做局部调整。
+
+| 名称       | 说明             | 类型     | 版本  |
+| ---------- | ---------------- | -------- | ----- |
+| img-class  | 设置图片的 class | _String_ | 3.0.0 |
+| text-class | 设置文字的 class | _String_ | 3.0.0 |
+
+---
+
+## Handtip 手势提示组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/handtip ｜ 来源：`doc/native/components/handtip.md`
+
+### 介绍
+
+很多时候列表有些操作为了更好的用户体验，提供了一些手势上的操作。比如上滑、下拉、左右侧滑等。然而如果没有提醒用的状态下。用户并不知道有这些便捷操作。所以该组件就应运而生了。在整个列表的场景中。该组件只提供了上下左右的方向提示。
+
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/handtip.jpg)
+
+### 提示
+
+该组件只在第一次访问时展示。关闭后后续不再展示。组件关闭后会缓存一个状态值。如小程序清除缓存后组件会重新显示。
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "handtip": "coolui-scroller/handtip/index"
+}
+```
+
+### 代码演示
+
+```html
+<handtip
+  top="下拉刷新"
+  bottom="上拉加载"
+  left="侧滑切换导航"
+  right="侧滑切换导航"
+  opacity="0.7"
+  key="hand1"
+/>
+```
+
+### 配置
+
+| 参数    | 说明                                                                      | 类型     | 默认值      | 版本  |
+| ------- | ------------------------------------------------------------------------- | -------- | ----------- | ----- |
+| top     | 顶部向下的手势提示文字,为空则不显示                                       | _String_ | 无          | 3.0.0 |
+| bottom  | 低部向上的手势提示文字,为空则不显示                                       | _String_ | 无          | 3.0.0 |
+| left    | 左侧向右的手势提示文字,为空则不显示                                       | _String_ | 无          | 3.0.0 |
+| right   | 右侧向左的手势提示文字,为空则不显示                                       | _String_ | 无          | 3.0.0 |
+| opacity | 遮罩层的透明度，可设置`0`到`1`之间的小数                                  | _Number_ | `0.5`       | 3.0.0 |
+| key     | 缓存显示状态的字段名称,如果多个页面都有该组件需设置不同的字段名以防止冲突 | _String_ | `isTipShow` | 3.0.0 |
+
+---
+
+## Loadmore 加载更多组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/loadmore ｜ 来源：`doc/native/components/loadmore.md`
+
+### 介绍
+
+该组件为上拉加载时的效果组件。组件分为 3 种状态效果：
+
+1. 等待执行加载时 more 状态
+2. 加载中的 loading 状态
+3. 加载到最后无数据时的 noMore 状态
+
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/loadmore.jpg)
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "loadmore": "coolui-scroller/loadmore/index"
+}
+```
+
+### 代码演示
+
+**index.wxml**
+
+```html
+<scroller class="my-scroller">
+  <loadmore
+    slot="loadmore"
+    status="{{loadMoreSetting.status}}"
+    loading="{{loadMoreSetting.loading}}"
+    noMore="{{loadMoreSetting.noMore}}"
+    more="{{loadMoreSetting.more}}"
+  />
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    loadMoreSetting: {
+      status: 'more',
+      more: {
+        text: '上拉加载更多',
+        color: '#999',
+      },
+      loading: {
+        text: '加载中...',
+        color: '#999',
+      },
+      noMore: {
+        text: '-- 到底啦 --',
+        color: '#999',
+      },
+    },
+  },
+})
+```
+
+### 配置
+
+| 参数            | 说明                                                                           | 类型     | 默认值                                      | 版本        |
+| --------------- | ------------------------------------------------------------------------------ | -------- | ------------------------------------------- | ----------- |
+| status          | 显示状态设置，可设置`more`、`loading`、`noMore`,需根据列表数据加载情况切换状态 | _String_ | `more`                                      | 3.0.0       |
+| ~~moreText~~    | 显示状态为`more`时显示的文字                                                   | _String_ | `上拉加载更多`                              | 3.0.0~3.0.9 |
+| ~~loadingText~~ | 显示状态为`loading`时显示的文字                                                | _String_ | `加载中...`                                 | 3.0.0~3.0.9 |
+| ~~noMoreText~~  | 显示状态为`noMore`时显示的文字                                                 | _String_ | `-- 到底啦 --`                              | 3.0.0~3.0.9 |
+| ~~color~~       | 设置文字颜色                                                                   | _String_ | `#999999`                                   | 3.0.0~3.0.9 |
+| more            | 显示状态为`more`时显示的文字                                                   | _Object_ | `{ text: '上拉加载更多', color: '#333333'}` | 3.1.0       |
+| loading         | 显示状态为`loading`时显示的文字                                                | _Object_ | `{ text: '加载中...', color: '#999999'}`    | 3.1.0       |
+| noMore          | 显示状态为`noMore`时显示的文字                                                 | _Object_ | `{ text: '-- 到底啦 --', color: '#999999'}` | 3.1.0       |
+
+---
+
+## Refresh 下拉刷新组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh ｜ 来源：`doc/native/components/refresh.md`
+
+### 简介
+
+置于下拉刷新插槽中配合滚动组件实现更多的下拉效果。未使用该组件则不开启下拉
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "refresh": "coolui-scroller/refresh/index"
+}
+```
+
+### 代码演示
+
+#### 原生效果
+
+将 type 设置为 default，可设置背景颜色及圆点的深浅。
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh1.gif)
+
+**index.wxml**
+
+```html
+<scroller background="#f5f5f5">
+  <refresh slot="refresh" type="default" config="{{defaultSetting}}" />
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    val: 0,
+    defaultSetting: {
+      shake: true, // 设置是否开启震动
+      style: 'black', // 设置圆点申诉还是浅色
+    },
+  },
+})
+```
+
+#### 基础效果
+
+将 type 设置为 base，可设置背景颜色、背景图片、文字等。
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh2.gif)
+
+**index.wxml**
+
+```html
+<scroller background="#f5f5f5">
+  <refresh slot="refresh" type="base" config="{{baseConfig}}" />
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    baseConfig: {
+      shake: true, // 是否开启下拉震动
+      height: 70, // 下拉高度
+      text: {
+        color: '#fff', // 文字颜色
+        shadow: 5, // 是否开启shadow阴影,0为不开启,数值越大阴影范围越大
+      },
+      background: {
+        color: '#000000',
+        height: 120, // 设置背景大于下拉高度
+        img: 'https://test.wzs.pub/pic/bg.jpg',
+      },
+    },
+  },
+})
+```
+
+#### LOGO 文字效果
+
+将 type 设置为 logoText，可设置 LOGO 文字，文字背景图片、文字字体等。
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh9.gif)
+
+**index.wxml**
+
+```html
+<scroller isBackBtn="{{true}}">
+  <refresh slot="refresh" type="logoText" config="{{logoConfig}}" />
+  <view class="scroller-pannel ">下拉查看效果</view>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    logoConfig: {
+      shake: true, // 是否开启下拉震动
+      height: 70,
+      text: {
+        content: 'coolui-scroller',
+        font: 'Lobster variant0',
+        size: '50',
+        color: '#ccc', // 文字颜色
+        shadow: 0, // 如果设置了文字背景图片，请设置0或者不设置，否则文字背景图片不明显
+        img: 'https://test.wzs.pub/pic/bg2.jpg',
+      },
+      background: {
+        color: '#f2f2f2',
+        height: 120,
+        // img: 'https://test.wzs.pub/pic/bg.jpg',
+      },
+    },
+  },
+})
+```
+
+#### gif 背景效果
+
+不设置 text 文字的时候就会只显示背景图，如果将背景图设置成动图 gif，也可以实现一些有趣的效果。
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh3.gif)
+
+**index.wxml**
+
+```html
+<scroller background="#f5f5f5">
+  <refresh slot="refresh" type="base" config="{{gifSetting}}" />
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    gifSetting: {
+      shake: true, // 是否开启下拉震动
+      height: 70,
+      background: {
+        color: '#eeeeee',
+        img: 'https://test.wzs.pub/pic/tm_mui_bike.gif',
+      },
+    },
+  },
+})
+```
+
+#### 视差效果
+
+将 types 设置为 diy 开启自定义模式，搭配视差组件可实现简单的位移实现一些效果
+
+可设置视差组件的移动方向 direction
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh4.gif)
+
+**index.wxml**
+
+```html
+<scroller background="#f5f5f5">
+  <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
+    <parallax
+      parallax-class="parallax-item parallax-item1"
+      slot="parallax"
+      direction="to top"
+      parallax="{{35}}"
+    >
+      从下往上
+    </parallax>
+    <parallax
+      parallax-class="parallax-item parallax-item2"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{35}}"
+    >
+      从上往下
+    </parallax>
+    <parallax
+      parallax-class="parallax-item parallax-item4"
+      slot="parallax"
+      direction="to right"
+      parallax="{{50}}"
+    >
+      从左往右
+    </parallax>
+    <parallax
+      parallax-class="parallax-item parallax-item3"
+      slot="parallax"
+      direction="to left"
+      parallax="{{50}}"
+    >
+      从右往左
+    </parallax>
+  </refresh>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    parallaxSetting: {
+      shake: true, // 是否开启下拉震动
+      height: 70,
+      background: {
+        color: '#eeeeee',
+      },
+    },
+  },
+})
+```
+
+可设置视差组件的移动距离 parallax，距离值为移动距离占下拉高度的百分比。如：parallax=10 则 移动距离 = 下拉高度 height \* 10%。
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh5.gif)
+
+**index.wxml**
+
+```html
+<scroller background="#f5f5f5">
+  <refresh slot="refresh" type="diy" config="{{parallaxSetting}}">
+    <parallax
+      parallax-class="parallax-sitem parallax-item1"
+      slot="parallax"
+      direction="to top"
+      parallax="{{0}}"
+    >
+      视差2
+    </parallax>
+    <parallax
+      parallax-class="parallax-sitem parallax-item2"
+      slot="parallax"
+      direction="to top"
+      parallax="{{8}}"
+    >
+      视差3
+    </parallax>
+    <parallax
+      parallax-class="parallax-sitem parallax-item3"
+      slot="parallax"
+      direction="to top"
+      parallax="{{-8}}"
+    >
+      视差1
+    </parallax>
+    <parallax
+      parallax-class="parallax-sitem parallax-item4"
+      slot="parallax"
+      direction="to top"
+      parallax="{{16}}"
+    >
+      视差4
+    </parallax>
+  </refresh>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    parallaxSetting: {
+      shake: true, // 是否开启下拉震动
+      height: 70,
+      background: {
+        color: '#eeeeee',
+      },
+    },
+  },
+})
+```
+
+将视差组件运用到场景中，多元素视差。 注意元素如果用的太多会出现卡顿。
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh6.gif)
+
+**index.wxml**
+
+```html
+<scroller background="#ffaf1b">
+  <refresh slot="refresh" type="diy" config="{{parallaxDemoSetting}}">
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem1"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{0}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax0.png"
+      />
+    </parallax>
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem1"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{7}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax1.png"
+      />
+    </parallax>
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem2"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{14}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax2.png"
+      />
+    </parallax>
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem3"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{21}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax3.png"
+      />
+    </parallax>
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem4"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{28}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax4.png"
+      />
+    </parallax>
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem5"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{35}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax5.png"
+      />
+    </parallax>
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem6"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{42}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax6.png"
+      />
+    </parallax>
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem7"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{49}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax7.png"
+      />
+    </parallax>
+    <parallax
+      parallax-class="parallax-demoitem parallax-demoitem8"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{56}}"
+    >
+      <image
+        class="img"
+        mode="scaleToFill"
+        src="https://test.wzs.pub/pic/parallax8.png"
+      />
+    </parallax>
+  </refresh>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    parallaxDemoSetting: {
+      shake: true, // 是否开启下拉震动
+      height: 70,
+      background: {
+        color: '#ffaf1b',
+      },
+    },
+  },
+})
+```
+
+#### 京东效果
+
+type 设置为 diy 开启自定义后。通过 threshold 实时变化自己实现动画效果。
+
+开始看到这个效果时候想要复刻下来，就开始思考如何接箱子？如何接到又开始跑起来的？
+
+小人跑之前，箱子移动小人缩放都是变化的，可根据 threshold 变化来实现动画。
+
+当 threshold 变为 1 时。下拉到最大，小人跑步，可通过背景 step 实现帧动画。
+
+该效果主要展示如何根据 threshold 实时变化实现效果。
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh7.gif)
+
+**index.wxml**
+
+```html
+<scroller isBackBtn="{{true}}" background="#eeeeee">
+  <refresh
+    slot="refresh"
+    type="diy"
+    refresh-class="jd-refresh"
+    model:threshold="{{val}}"
+    config="{{jdSetting}}"
+  >
+    <view class="jd-wapper">
+      <view class="img" wx:if="{{val == 1}}" />
+      <block wx:else>
+        <view
+          class="moveimg"
+          style="transform: scale({{val}}) translateX({{-100 + val * 100}}px);"
+        />
+        <view
+          class="moveimg2"
+          style="transform: translateY({{-100 + val * 100}}px);"
+        />
+      </block>
+    </view>
+    <view class="text">让购物更便捷</view>
+  </refresh>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    val: 0,
+    jdSetting: {
+      shake: true, // 是否开启下拉震动
+      height: 80,
+      background: {
+        color: '#eeeeee',
+      },
+    },
+  },
+})
+```
+
+**index.wxss**
+
+```css
+.jd-refresh {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  position: relative;
+}
+
+.jd-wapper {
+  width: 26px;
+  height: 40px;
+  margin-right: 20rpx;
+  position: relative;
+}
+
+.jd-wapper .moveimg {
+  width: 26px;
+  height: 40px;
+  background-size: cover;
+  background-image: url('https://test.wzs.pub/pic/a2a.png');
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.jd-wapper .moveimg2 {
+  width: 26px;
+  height: 40px;
+  background-size: cover;
+  background-image: url('https://test.wzs.pub/pic/a29.png');
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.jd-wapper .img {
+  width: 26px;
+  height: 40px;
+  background-size: cover;
+  background-image: url('https://test.wzs.pub/pic/a.png');
+  animation: play 0.5s steps(3) infinite;
+}
+
+@keyframes play {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -81px 0px;
+  }
+}
+```
+
+#### 饿了么效果
+
+很多做小程序、app 的公司都有自己的企业文化、企业 logo、吉祥物等。在下拉时往往会做一些彩蛋动画。该效果主要展示如何判断文字变化。
+
+type 设置为 diy 开启自定义后。通过 refreshstate 实时变化自己实现动画效果。
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/refresh8.gif)
+
+**index.wxml**
+
+```html
+<scroller isBackBtn="{{true}}" background="#eeeeee">
+  <refresh
+    slot="refresh"
+    refresh-class="elm-refresh"
+    type="diy"
+    model:refreshstate="{{refreshstate}}"
+    config="{{elmSetting}}"
+  >
+    <view class="elm-wapper">
+      <view>
+        <view class="text">
+          <block wx:if="{{refreshstate == 'pulldown'}}">下拉刷新</block>
+          <block wx:elif="{{refreshstate == 'loosen'}}">松手刷新</block>
+          <block wx:elif="{{refreshstate == 'loading'}}">刷新中</block>
+        </view>
+        <view class="exb"></view>
+      </view>
+    </view>
+  </refresh>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    refreshstate: 'pulldown',
+    elmSetting: {
+      shake: true, // 是否开启下拉震动
+      height: 80,
+      background: {
+        color: '#eeeeee',
+      },
+    },
+  },
+})
+```
+
+**index.wxss**
+
+```css
+.elm-refresh .elm-wapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.elm-refresh .elm-wapper .text {
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.elm-refresh .exb {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-image: url('https://test.wzs.pub/pic/refresh_icon2.png');
+  animation: play2 0.8s steps(4) infinite;
+  margin: 0 auto;
+}
+
+@keyframes play2 {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: -120px 0px;
+  }
+}
+```
+
+#### 非自动回弹
+
+当组件 isAutoTriggered 设置为 false 时，下拉刷新不自动回弹到顶部。需调用方法来设置回弹。
+
+当你得下拉刷新有复杂的动画希望回弹的时间由自己掌握时采用此方法及设置。
+
+```js
+  onRefresh(){
+    // 获取父级scroller实例
+    const scroll = this.selectComponent('.scroller');
+    setTimeout(() => {
+      // 设置回弹 返回promise
+      scroll.settriggered(false).then(()=>{
+        wx.showToast({
+          title: "执行回弹成功",
+          icon: "success",
+        });
+      })
+    }, 2000); // 自定义回弹时间
+  },
+```
+
+### 配置
+
+| 参数         | 说明                                                                                                                                                                                                                                                                                      | 类型     | 默认值     | 版本  |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- | ----- |
+| type         | 设置下拉类型，可设置`default`或`base`或`diy`或`logoText`，如设置`default`则下拉为小程序原生的样式(三个圆点动画)。如设置`base`则下拉为组件提供的基础样式。如设置`logoText`则开启 LOGO 文字效果，如设置`diy`则下拉完全开放自定义，可根据下拉变化值或搭配[视差组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/parallax)进行自定义 | _String_ | `default`  | 3.0.0 |
+| config       | 一些下拉设置，详见[下拉设置](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh#下拉设置)                                                                                                                                                                                                                                       | _Obj_    |            | 3.0.0 |
+| threshold    | 下拉变化值，数值范围为`0`~`1`，双向绑定 model:threshold。无需主动设置值，自动返回下拉变化值。作用是实时返回下拉变化，可根据变化值做自定义动画效果(如移动、旋转等)                                                                                                                         | _Number_ | `0`        | 3.0.0 |
+| refreshstate | 下拉变化状态，有三种状态：`pulldown`(下拉刷新)、`loosen`(松手刷新)、`loading`(刷新中)，双向绑定 model:refreshstate。无需主动设置值，自动返回下拉变化状态。作用是实时返回下拉变化，可根据变化状态做自定义动画效果                                                                          | _String_ | `pulldown` | 3.0.4 |
+
+### 下拉设置
+
+| 参数            | 说明                                                                                                                                                                                                                                                                                                                          | 类型      | 默认值  | 版本  |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- | ----- |
+| shake           | 设置下拉时是否开启手机震动，可设置`true`或`false`。设置为`true`时开启                                                                                                                                                                                                                                                         | _Boolean_ | `false` | 3.0.0 |
+| height          | 设置下拉高度                                                                                                                                                                                                                                                                                                                  | _Number_  | `50`    | 3.0.0 |
+| background      | 设置下拉背景，详见[背景设置](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh#背景设置)                                                                                                                                                                                                                                                                           | _Obj_     |         | 3.0.0 |
+| text            | 当 type 为`base`时，可设置下拉文字，详见[文字设置](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh#文字设置)                                                                                                                                                                                                                                                     | _Obj_     |         | 3.0.0 |
+| isAutoTriggered | 下拉刷新是否自动回弹,默认为`true`下拉之后自动回弹，可设置`false`下拉到最大松手之后只执行刷新操作，不自动回弹，获取 scroller 实例之后执行`scroller.settriggered(false)`方法。此设置为复杂动画提供可能，自定义回弹时机( `注意：default模式不支持此方法。如需要实现原生效果且支持此方法，请自行使用该组件写三个圆点闪烁来实现` ) | _Boolean_ | `true`  | 3.0.4 |
+
+### 背景设置
+
+| 参数   | 说明                                                                                                                                                                                                               | 类型     | 默认值    | 版本  |
+| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | --------- | ----- |
+| color  | 设置下拉时的背景颜色                                                                                                                                                                                               | _String_ | `#f2f2f2` | 3.0.0 |
+| img    | 设置下拉时的背景图片(如：`https://test.wzs.pub/pic/tm_mui_bike.gif`)                                                                                                                                               | _String_ |           | 3.0.0 |
+| height | 设置下拉时的背景的高度。因为一般虽然设置了下拉高度，但实际下拉拖拽时，拉动的距离会比设置的高很多，如果设置了背景图片，图片之上还会空很大一块。所以设置一下背景高度，高度高于下拉高度。这样背景就会铺满整个下拉区域 | _Number_ |           | 3.0.0 |
+
+### 文字设置
+
+| 参数    | 说明                                                                                                                                                                                          | 类型     | 默认值    | 版本  |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------- | ----- |
+| color   | 设置下拉文字颜色                                                                                                                                                                              | _String_ | `#000000` | 3.0.0 |
+| shadow  | 设置下拉文字阴影。往往如果背景颜色过于花里胡哨，下拉文字就会容易看不清。加入阴影可以凸显文字。设置为`0`则不开启。数值越大阴影范围越大, type 为`logoText`时请设置为`0`, 否则设置底纹背景不明显 | _Number_ | `0`       | 3.0.0 |
+| content | 文字内容(type 为`logoText`时使用)                                                                                                                                                             | _String_ | ``        | 3.2.6 |
+| font    | 设置文字字体(type 为`logoText`时使用)                                                                                                                                                         | _String_ | ``        | 3.2.6 |
+| size    | 设置文字大小，单位 rpx(type 为`logoText`时使用)                                                                                                                                               | _String_ | ``        | 3.2.6 |
+| img     | 设置文字底纹背景(type 为`logoText`时使用)                                                                                                                                                     | _String_ | ``        | 3.2.6 |
+
+### 插槽
+
+| 名称     | 说明         | 可用组件                    |
+| -------- | ------------ | --------------------------- |
+| parallax | 视差插槽区域 | [`parallax`](https://wzs28150.github.io/coolui-scroller/v4/native/components/parallax) |
+
+---
+
+## Parallax 下拉视差组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/parallax ｜ 来源：`doc/native/components/parallax.md`
+
+### 简介
+
+置于下拉刷新组件的插槽中，配合下拉刷新组件使用。实现上下左右的位移视差效果。
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "parallax": "coolui-scroller/parallax/index"
+}
+```
+
+### 代码演示
+
+具体实现请查看[下拉组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh#视差效果)
+
+```html
+<scroller class="my-scroller">
+  <refresh slot="refresh" type="default" config="">
+    <parallax
+      parallax-class="parallax-item parallax-item1"
+      slot="parallax"
+      direction="to top"
+      parallax="{{35}}"
+    >
+      从下往上
+    </parallax>
+    <parallax
+      parallax-class="parallax-item parallax-item2"
+      slot="parallax"
+      direction="to bottom"
+      parallax="{{35}}"
+    >
+      从上往下
+    </parallax>
+    <parallax
+      parallax-class="parallax-item parallax-item4"
+      slot="parallax"
+      direction="to right"
+      parallax="{{50}}"
+    >
+      从左往右
+    </parallax>
+    <parallax
+      parallax-class="parallax-item parallax-item3"
+      slot="parallax"
+      direction="to left"
+      parallax="{{50}}"
+    >
+      从右往左
+    </parallax>
+  </refresh>
+</scroller>
+```
+
+### 配置
+
+| 参数      | 说明                                                                                                                                                                                                 | 类型     | 默认值 | 版本  |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------ | ----- |
+| direction | 设置移动方向，可设置`to top`、`to bottom`、`to right`、`to left`。如设置`to top`则该组件由下往上移动、`to bottom`则该组件由上往下移动、`to right`则该组件由左往右移动、`to left`则该组件由右往左移动 | _String_ | 无     | 3.0.0 |
+| parallax  | 设置移动偏移量百分比。如设置了值为`10`则该组件实际移动距离为：下拉高度`height`的`10%`                                                                                                                | _Number_ | 无     | 3.0.0 |
+
+### 外部样式
+
+在组件外部修改组件里的元素样式，可做局部调整。
+
+| 名称           | 说明         | 类型     | 版本  |
+| -------------- | ------------ | -------- | ----- |
+| parallax-class | 设置组件样式 | _String_ | 3.0.0 |
+
+---
+
+## Nav 分类导航组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/nav ｜ 来源：`doc/native/components/nav.md`
+
+### 介绍
+
+该组件为列表头部插槽中的可选组件。组件提供了简单的分类导航效果用于切换分类。active 为选中的 index 值,支持双向绑定,可设置间距、显示类型、显示个数等，可在页面添加 touch 事件左右侧滑切换改变 active。来切换分类导航
+
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav.jpg)
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "nav": "coolui-scroller/nav/index"
+}
+```
+
+### 代码演示
+
+#### 1. 设置不同的展示类型 type (v3.2.9 新增)
+
+line(默认类型)
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav5.jpg)
+
+**index.wxml**
+
+```html
+<view>
+  <scroller class="my-scroller">
+    <view slot="header">
+      <nav
+        type="line"
+        list="{{nav}}"
+        bind:change="onChange"
+        model:active="{{active}}"
+        text="{{text}}"
+        background="{{background}}"
+      />
+    </view>
+  </scroller>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    // 设置导航数组
+    nav: [
+      {
+        id: 1,
+        title: '分类1',
+      },
+      {
+        id: 2,
+        title: '分类2',
+      },
+      {
+        id: 3,
+        title: '分类3',
+      },
+      {
+        id: 4,
+        title: '分类4',
+      },
+      {
+        id: 5,
+        title: '分类5',
+      },
+      {
+        id: 6,
+        title: '分类6',
+      },
+      {
+        id: 7,
+        title: '分类7',
+      },
+    ],
+    text: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#333', activeColor: '#d13435' },
+    active: 3, // 当前选中的Index值
+  },
+  onChange: function (e) {
+    // 导航切换变化后执行
+    wx.showToast({
+      title: 'change方法返回id:' + e.detail.id,
+      icon: 'none',
+      duration: 2000,
+    })
+  },
+})
+```
+
+round
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav4.jpg)
+
+**index.wxml**
+
+```html
+<view>
+  <scroller class="my-scroller">
+    <view slot="header">
+      <nav
+        type="round"
+        list="{{nav}}"
+        bind:change="onChange"
+        model:active="{{active}}"
+        text="{{text}}"
+        background="{{background}}"
+      />
+    </view>
+  </scroller>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    // 设置导航数组
+    nav: [
+      {
+        id: 1,
+        title: '分类1',
+      },
+      {
+        id: 2,
+        title: '分类2',
+      },
+      {
+        id: 3,
+        title: '分类3',
+      },
+      {
+        id: 4,
+        title: '分类4',
+      },
+      {
+        id: 5,
+        title: '分类5',
+      },
+      {
+        id: 6,
+        title: '分类6',
+      },
+      {
+        id: 7,
+        title: '分类7',
+      },
+    ],
+    text: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#333', activeColor: '#d13435' },
+    active: 3, // 当前选中的Index值
+  },
+  onChange: function (e) {
+    // 导航切换变化后执行
+    wx.showToast({
+      title: 'change方法返回id:' + e.detail.id,
+      icon: 'none',
+      duration: 2000,
+    })
+  },
+})
+```
+
+plain
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav3.jpg)
+
+**index.wxml**
+
+```html
+<view>
+  <scroller class="my-scroller">
+    <view slot="header">
+      <nav
+        type="plain"
+        list="{{nav}}"
+        bind:change="onChange"
+        model:active="{{active}}"
+        text="{{text}}"
+        background="{{background}}"
+      />
+    </view>
+  </scroller>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    // 设置导航数组
+    nav: [
+      {
+        id: 1,
+        title: '分类1',
+      },
+      {
+        id: 2,
+        title: '分类2',
+      },
+      {
+        id: 3,
+        title: '分类3',
+      },
+      {
+        id: 4,
+        title: '分类4',
+      },
+      {
+        id: 5,
+        title: '分类5',
+      },
+      {
+        id: 6,
+        title: '分类6',
+      },
+      {
+        id: 7,
+        title: '分类7',
+      },
+    ],
+    text: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#333', activeColor: '#d13435' },
+    active: 3, // 当前选中的Index值
+  },
+  onChange: function (e) {
+    // 导航切换变化后执行
+    wx.showToast({
+      title: 'change方法返回id:' + e.detail.id,
+      icon: 'none',
+      duration: 2000,
+    })
+  },
+})
+```
+
+#### 2. 设置可视区显示个数 navPerView (v3.2.9 新增)
+
+可设置指定的显示个数(如：3、3.5)计算宽度平均分配,里面的文字过多会溢出隐藏； 也可设置 auto 则不限制宽度，宽度由文字内容的多少决定。
+
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav1.jpg)
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav5.jpg)
+
+**index.wxml**
+
+```html
+<view>
+  <scroller class="my-scroller">
+    <view slot="header">
+      <nav
+        navPerView="auto"
+        list="{{nav}}"
+        bind:change="onChange"
+        model:active="{{active}}"
+        text="{{text}}"
+        background="{{background}}"
+      />
+    </view>
+  </scroller>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    // 设置导航数组
+    nav: [
+      {
+        id: 1,
+        title: '分类1',
+      },
+      {
+        id: 2,
+        title: '分类2',
+      },
+      {
+        id: 3,
+        title: '分类3',
+      },
+      {
+        id: 4,
+        title: '分类4',
+      },
+      {
+        id: 5,
+        title: '分类5',
+      },
+      {
+        id: 6,
+        title: '分类6',
+      },
+      {
+        id: 7,
+        title: '分类7',
+      },
+    ],
+    text: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#333', activeColor: '#d13435' },
+    active: 3, // 当前选中的Index值
+  },
+  onChange: function (e) {
+    // 导航切换变化后执行
+    wx.showToast({
+      title: 'change方法返回id:' + e.detail.id,
+      icon: 'none',
+      duration: 2000,
+    })
+  },
+})
+```
+
+#### 3. 设置间距 spaceBetween (v3.2.9 新增)
+
+可设置分类之间的间距(如：20)。
+
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav1.jpg)
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav2.jpg)
+
+**index.wxml**
+
+```html
+<view>
+  <scroller class="my-scroller">
+    <view slot="header">
+      <nav
+        spaceBetween="{{20}}"
+        list="{{nav}}"
+        bind:change="onChange"
+        model:active="{{active}}"
+        text="{{text}}"
+        background="{{background}}"
+      />
+    </view>
+  </scroller>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    // 设置导航数组
+    nav: [
+      {
+        id: 1,
+        title: '分类1',
+      },
+      {
+        id: 2,
+        title: '分类2',
+      },
+      {
+        id: 3,
+        title: '分类3',
+      },
+      {
+        id: 4,
+        title: '分类4',
+      },
+      {
+        id: 5,
+        title: '分类5',
+      },
+      {
+        id: 6,
+        title: '分类6',
+      },
+      {
+        id: 7,
+        title: '分类7',
+      },
+    ],
+    text: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#333', activeColor: '#d13435' },
+    active: 3, // 当前选中的Index值
+  },
+  onChange: function (e) {
+    // 导航切换变化后执行
+    wx.showToast({
+      title: 'change方法返回id:' + e.detail.id,
+      icon: 'none',
+      duration: 2000,
+    })
+  },
+})
+```
+
+#### 4. 设置底边分割线是否显示 border (v3.2.9 新增)
+
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav6.jpg)
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/nav2.jpg)
+
+**index.wxml**
+
+```html
+<view>
+  <scroller class="my-scroller">
+    <view slot="header">
+      <nav
+        border="{{false}}"
+        spaceBetween="{{20}}"
+        list="{{nav}}"
+        bind:change="onChange"
+        model:active="{{active}}"
+        text="{{text}}"
+        background="{{background}}"
+      />
+    </view>
+  </scroller>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    // 设置导航数组
+    nav: [
+      {
+        id: 1,
+        title: '分类1',
+      },
+      {
+        id: 2,
+        title: '分类2',
+      },
+      {
+        id: 3,
+        title: '分类3',
+      },
+      {
+        id: 4,
+        title: '分类4',
+      },
+      {
+        id: 5,
+        title: '分类5',
+      },
+      {
+        id: 6,
+        title: '分类6',
+      },
+      {
+        id: 7,
+        title: '分类7',
+      },
+    ],
+    text: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#333', activeColor: '#d13435' },
+    active: 3, // 当前选中的Index值
+  },
+  onChange: function (e) {
+    // 导航切换变化后执行
+    wx.showToast({
+      title: 'change方法返回id:' + e.detail.id,
+      icon: 'none',
+      duration: 2000,
+    })
+  },
+})
+```
+
+#### 4. 设置文字颜色及背景颜色 text background (active-color v3.2.9 之后废弃)
+
+在 v3.2.9 之前由于展示类型之一 line 这一种所以选择变化颜色比较单一，所以只有一个 active-color 设置选中颜色
+
+```html
+<nav
+  list="{{nav}}"
+  bind:change="onChange"
+  model:active="{{active}}"
+  active-color="#d13435"
+/>
+```
+
+        activeColor: '#d13435',
+
+在 v3.2.9 之后可设置
+
+1. 文字颜色 text.color
+2. 文字选中颜色 text.activeColor
+3. 背景颜色 background.color( 如果是 line 则设置无效默认不选中的没颜色, plain 则是边框颜色 )
+4. 背景选中颜色 background.activeColor( 如果是 line 则是底部线的颜色, plain 则是边框颜色 )
+
+**index.wxml**
+
+```html
+<view>
+  <scroller class="my-scroller">
+    <view slot="header">
+      <nav
+        border="{{false}}"
+        spaceBetween="{{20}}"
+        list="{{nav}}"
+        bind:change="onChange"
+        model:active="{{active}}"
+        text="{{text}}"
+        background="{{background}}"
+      />
+    </view>
+  </scroller>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    // 设置导航数组
+    nav: [
+      {
+        id: 1,
+        title: '分类1',
+      },
+      {
+        id: 2,
+        title: '分类2',
+      },
+      {
+        id: 3,
+        title: '分类3',
+      },
+      {
+        id: 4,
+        title: '分类4',
+      },
+      {
+        id: 5,
+        title: '分类5',
+      },
+      {
+        id: 6,
+        title: '分类6',
+      },
+      {
+        id: 7,
+        title: '分类7',
+      },
+    ],
+    text: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#333', activeColor: '#d13435' },
+    active: 3, // 当前选中的Index值
+  },
+  onChange: function (e) {
+    // 导航切换变化后执行
+    wx.showToast({
+      title: 'change方法返回id:' + e.detail.id,
+      icon: 'none',
+      duration: 2000,
+    })
+  },
+})
+```
+
+#### 5. 可在页面添加 touch 事件左右侧滑切换改变 active。来切换分类导航
+
+**index.wxml**
+
+```html
+<view bind:touchstart="TouchStart" bind:touchend="TouchEnd">
+  <scroller class="my-scroller">
+    <view slot="header">
+      <nav
+        type="line"
+        list="{{nav}}"
+        bind:change="onChange"
+        model:active="{{active}}"
+        text="{{text}}"
+        background="{{background}}"
+      />
+    </view>
+  </scroller>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    // 设置导航数组
+    nav: [
+      {
+        id: 1,
+        title: '分类1',
+      },
+      {
+        id: 2,
+        title: '分类2',
+      },
+      {
+        id: 3,
+        title: '分类3',
+      },
+      {
+        id: 4,
+        title: '分类4',
+      },
+      {
+        id: 5,
+        title: '分类5',
+      },
+      {
+        id: 6,
+        title: '分类6',
+      },
+      {
+        id: 7,
+        title: '分类7',
+      },
+    ],
+    text: { color: '#333', activeColor: '#d13435' },
+    background: { color: '#333', activeColor: '#d13435' },
+    active: 3, // 当前选中的Index值
+  },
+  onChange: function (e) {
+    // 导航切换变化后执行
+    wx.showToast({
+      title: 'change方法返回id:' + e.detail.id,
+      icon: 'none',
+      duration: 2000,
+    })
+  },
+  TouchStart(e) {
+    let that = this
+    that.setData({
+      touchx: e.changedTouches[0].clientX,
+      touchy: e.changedTouches[0].clientY,
+    })
+  },
+  TouchEnd(e) {
+    let that = this
+    let x = e.changedTouches[0].clientX
+    let y = e.changedTouches[0].clientY
+    let turn = ''
+    if (x - that.data.touchx > 50 && Math.abs(y - that.data.touchy) < 50) {
+      //右滑
+      turn = 'right'
+    } else if (
+      x - that.data.touchx < -50 &&
+      Math.abs(y - that.data.touchy) < 50
+    ) {
+      //左滑
+      turn = 'left'
+    }
+    //根据方向进行操作
+    if (turn == 'right') {
+      //从左往右
+      if (that.data.active != 0) {
+        that.setData({
+          active: that.data.active - 1,
+        })
+      }
+    }
+    if (turn == 'left') {
+      //从右往左
+      if (that.data.active < that.data.nav.length - 1) {
+        that.setData({
+          active: that.data.active + 1,
+        })
+      }
+    }
+  },
+})
+```
+
+### 配置
+
+| 参数         | 说明                                                             | 类型                      | 默认值                                      | 版本          |
+| ------------ | ---------------------------------------------------------------- | ------------------------- | ------------------------------------------- | ------------- |
+| list         | 导航列表数组项需设置标题`title`和`id`如`[{id:1,title:'分类 1'}]` | _Obj[]_                   | 无                                          | 3.0.0         |
+| active       | 当前选中的导航 index,注意不是 id 值,支持双向绑定(model:active)   | _Number_                  | `0`                                         | 3.0.0         |
+| active-color | 选中导航的颜色                                                   | _String_                  | `#d13435`                                   | 3.0.0 ~ 3.2.8 |
+| type         | 设置类型                                                         | _line_、_round_ 、_plain_ | `line`                                      | 3.2.9         |
+| border       | 设置底边线是否显示                                               | _Boolean_                 | `true`                                      | 3.2.9         |
+| navPerView   | 设置可视区显示个数                                               | _Number_                  | `4.5`                                       | 3.2.9         |
+| spaceBetween | 设置分类间距                                                     | _Number_                  | `0`                                         | 3.2.9         |
+| text         | 设置文字颜色 `color` 为默认颜色 `activeColor` 为选中颜色         | _Object_                  | `{color: '#333333',activeColor: '#d13435'}` | 3.2.9         |
+| background   | 设置背景颜色 `color` 为默认颜色 `activeColor` 为选中颜色         | _Object_                  | `{color: '#333333',activeColor: '#d13435'}` | 3.2.9         |
+
+### 事件
+
+| 名称   | 用法                        | 说明               | 返回参数 |
+| ------ | --------------------------- | ------------------ | -------- |
+| change | `bindchange`或`bind:change` | 导航切换时触发执行 | 无       |
+
+---
+
+## NavPannel 切换组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/navPannel ｜ 来源：`doc/native/components/navPannel.md`
+
+### 介绍
+
+该组件为解决多列表之间相互切换的组件。组件可设置第几个列表显示及是否开启动画。页面多个列表时想要判断只显示一个,如果用 wx:if 判断则切换后会丢失列表滚动的状态,比如我已经将列表滚动到了中间部分,切换后再回来就会重新加载,使用改组件可解决问题。
+
+### 注意
+
+1. nav-pannel 下只能有 scroller
+2. nav-pannel 自身或父级元素需设置高度,组件本身 height: 100%
+
+![示例图一](https://wzs28150.github.io/coolui-scroller/v4/images/navpannel1.gif)
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "nav-pannel": "coolui-scroller/nav-pannel/index",
+}
+```
+
+### 代码演示
+
+1. 排序
+
+可设置 animation 增加切换动画
+
+**index.wxml**
+
+```html
+<view class="pannel-inner" style="height:100vh">
+  <nav-pannel active="{{active}}" animation="{{animation}}">
+    <scroller class="scroller0" background="#f2f2f2">
+      <!-- 滚动内容 -->
+    </scroller>
+    <scroller class="scroller1" background="#f2f2f2">
+      <!-- 滚动内容 -->
+    </scroller>
+  </nav-pannel>
+</view>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    active: 0,
+    animation: false,
+  },
+})
+```
+
+### 配置
+
+| 参数      | 说明                       | 类型      | 默认值  | 版本  |
+| --------- | -------------------------- | --------- | ------- | ----- |
+| active    | 设置第几个 scroller 显示   | _Number_  | `0`     | 3.2.7 |
+| animation | 设置切换时是否使用过渡动画 | _Boolean_ | `false` | 3.2.7 |
+
+### 插槽
+
+| 名称    | 说明           | 配合组件 |
+| ------- | -------------- | -------- |
+| default | 自定义下拉插槽 | scroller |
+
+---
+
+## Search 搜索组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/search ｜ 来源：`doc/native/components/search.md`
+
+### 介绍
+
+用于搜索场景的输入框组件。可置于头部插槽中。
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "search": "coolui-scroller/search/index"
+}
+```
+
+### 代码演示
+
+基础使用
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/search_base.gif)
+
+**index.wxml**
+
+```html
+<scroller>
+  <view slot="header">
+    <search
+      search-btn="search-btn"
+      model:key="{{key}}"
+      bind:confirm="confirm"
+      bind:btnClick="onBtnClick"
+    />
+  </view>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    key: '',
+  },
+  onBtnClick({ detail }) {
+    wx.showToast({
+      title: '来自右侧按钮点击:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+  confirm({ detail }) {
+    wx.showToast({
+      title: '来自完成按钮触发:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+})
+```
+
+圆角
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/search_yj.jpg)
+
+**index.wxml**
+
+```html
+<scroller>
+  <view slot="header">
+    <search
+      round
+      search-btn="search-btn"
+      model:key="{{key}}"
+      bind:confirm="confirm"
+      bind:btnClick="onBtnClick"
+    />
+  </view>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    key: '',
+  },
+  onBtnClick({ detail }) {
+    wx.showToast({
+      title: '来自右侧按钮点击:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+  confirm({ detail }) {
+    wx.showToast({
+      title: '来自完成按钮触发:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+})
+```
+
+可清除
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/search_clearable.gif)
+
+**index.wxml**
+
+```html
+<scroller>
+  <view slot="header">
+    <search
+      clearable
+      search-btn="search-btn"
+      model:key="{{key}}"
+      bind:confirm="confirm"
+      bind:btnClick="onBtnClick"
+    />
+  </view>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    key: '',
+  },
+  onBtnClick({ detail }) {
+    wx.showToast({
+      title: '来自右侧按钮点击:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+  confirm({ detail }) {
+    wx.showToast({
+      title: '来自完成按钮触发:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+})
+```
+
+可清除
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/search_clearable.gif)
+
+**index.wxml**
+
+```html
+<scroller>
+  <view slot="header">
+    <search
+      clearable
+      search-btn="search-btn"
+      model:key="{{key}}"
+      bind:confirm="confirm"
+      bind:btnClick="onBtnClick"
+    />
+  </view>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    key: '',
+  },
+  onBtnClick({ detail }) {
+    wx.showToast({
+      title: '来自右侧按钮点击:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+  confirm({ detail }) {
+    wx.showToast({
+      title: '来自完成按钮触发:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+})
+```
+
+可设置按钮
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/search.jpg)
+
+可利用暴露出来的 css 变量修改样式
+
+![](https://wzs28150.github.io/coolui-scroller/v4/images/search2.jpg)
+
+**index.wxml**
+
+```html
+<scroller>
+  <view slot="header">
+    <search
+      style="--color: #fff;--placeholder-color: rgba(255,255,255, 0.7);--input-bg-color:#7d6f93;"
+      model:key="{{key}}"
+      bind:confirm="confirm"
+      bind:btnClick="onBtnClick"
+    />
+  </view>
+</scroller>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    key: '',
+  },
+  onBtnClick({ detail }) {
+    wx.showToast({
+      title: '来自右侧按钮点击:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+  confirm({ detail }) {
+    wx.showToast({
+      title: '来自完成按钮触发:' + detail.key,
+      icon: 'none',
+      duration: 4000,
+    })
+  },
+})
+```
+
+### 配置
+
+| 参数      | 说明                                                                              | 类型      | 默认值  | 版本  |
+| --------- | --------------------------------------------------------------------------------- | --------- | ------- | ----- |
+| round     | 圆角设置，可设置`true`或`false`，设置为 true 时搜索框为胶囊样式                   | _Boolean_ | `false` | 3.0.0 |
+| clearable | 清除按钮设置，可设置`true`或`false`，设置为 true 时开启清除按钮，可清除输入框内容 | _Boolean_ | `false` | 3.0.0 |
+| button    | 可对右侧按钮进行设置,详见按钮配置                         | _Obj_     |         | 3.0.0 |
+| key       | 搜索的关键字，输入框里输入的内容。支持双向绑定 model:key                          | _String_  |         | 3.0.0 |
+
+### 按钮配置
+
+| 参数 | 说明                                                                                                               | 类型      | 默认值  | 版本  |
+| ---- | ------------------------------------------------------------------------------------------------------------------ | --------- | ------- | ----- |
+| show | 设置按钮是否一直显示，可设置`true`或`false`。设为`true`时按钮一直显示，设为`false`时按钮只有在输入框获取焦点时显示 | _Boolean_ | `false` | 3.0.0 |
+| hide | 设置按钮是否一直隐藏，可设置`true`或`false`。设为`true`时按钮一直隐藏，设为`false`时按钮只有在输入框获取焦点时显示 | _Boolean_ | `false` | 3.0.0 |
+| text | 设置按钮显示文字                                                                                                   | _String_  | `搜索`  | 3.0.0 |
+
+### 外部样式
+
+在组件外部修改组件里的元素样式，可做局部调整。
+
+| 名称       | 说明                     | 类型     | 版本  |
+| ---------- | ------------------------ | -------- | ----- |
+| search-btn | 设置右侧搜索按钮的 class | _String_ | 3.0.0 |
+
+### css 变量
+
+在组件外部修改组件里的元素样式，可做局部调整。
+
+| 名称                | 说明                        | 类型     | 版本  |
+| ------------------- | --------------------------- | -------- | ----- |
+| --color             | 设置 input 输入文字的颜色   | _String_ | 3.3.2 |
+| --placeholder-color | 设置 placeholder 文字的颜色 | _String_ | 3.3.2 |
+| --input-bg-color    | 设置 input 背景颜色         | _String_ | 3.3.2 |
+
+---
+
+## Sort 排序及分类筛选组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/sort ｜ 来源：`doc/native/components/sort.md`
+
+### 介绍
+
+该组件为列表头部插槽中的可选组件。组件提供了简单的下拉排序及下拉分类筛选的功能。组件分为 sort 和 sort-item 两部分。
+
+![示例图一](https://wzs28150.github.io/coolui-scroller/v4/images/sort.jpg)
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "sort": "coolui-scroller/sort/index",
+  "sort-item": "coolui-scroller/sort/item"
+}
+```
+
+### 代码演示
+
+1. 排序
+
+设置 type 为 sort 模式,切换时头部文字会随着选中的内容的变化而变化
+
+![排序](https://wzs28150.github.io/coolui-scroller/v4/images/sort1.gif)
+
+**index.wxml**
+
+```html
+<sort>
+  <sort-item
+    title="排序"
+    name="sort"
+    type="sort"
+    model:value="{{value1}}"
+    options="{{options}}"
+    activeColor="#d13435"
+  >
+  </sort-item>
+</sort>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    options: [
+      {
+        id: 1,
+        title: '综合排序',
+      },
+      {
+        id: 2,
+        title: '距离最近',
+      },
+      {
+        id: 3,
+        title: '好评优先',
+      },
+      {
+        id: 4,
+        title: '价格由低到高',
+      },
+      {
+        id: 5,
+        title: '价格由高到低',
+      },
+      {
+        id: 6,
+        title: '其他',
+      },
+    ],
+    value1: null,
+  },
+})
+```
+
+2. 单选
+
+设置 type 为 classify 模式, 开启分类筛选模式, 默认为单选模式。默认为点击选项就切换。
+
+**index.wxml**
+
+```html
+<sort>
+  <sort-item
+    title="分类"
+    name="sort2"
+    type="classify"
+    model:value="{{value2}}"
+    options="{{options2}}"
+    activeColor="#d13435"
+  >
+  </sort-item>
+</sort>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    options2: [
+      {
+        id: 1,
+        title: '手机',
+      },
+      {
+        id: 2,
+        title: '电视',
+      },
+      {
+        id: 3,
+        title: '冰箱',
+      },
+    ],
+    value2: null,
+  },
+})
+```
+
+3. 操作按钮
+
+设置 action-bar，开启操作按钮。则只有点击确认按钮之后才切换。未点击确认按钮，关闭弹层，一切选择将作废。选择后 value 返回选中的 index
+
+![操作按钮](https://wzs28150.github.io/coolui-scroller/v4/images/sort2.gif)
+
+**index.wxml**
+
+```html
+<sort>
+  <sort-item
+    title="分类"
+    name="sort2"
+    type="classify"
+    model:value="{{value2}}"
+    options="{{options2}}"
+    activeColor="#d13435"
+    action-bar
+  >
+  </sort-item>
+</sort>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    options2: [
+      {
+        id: 1,
+        title: '手机',
+      },
+      {
+        id: 2,
+        title: '电视',
+      },
+      {
+        id: 3,
+        title: '冰箱',
+      },
+    ],
+    value2: null,
+  },
+})
+```
+
+4. 多选
+
+设置 multiple 为 true 模式, 开启多选模式。同时开启操作按钮，否则点击选项就直接关闭弹层了。
+
+![多选](https://wzs28150.github.io/coolui-scroller/v4/images/sort3.gif)
+
+**index.wxml**
+
+```html
+<sort-item
+  title="品牌"
+  name="sort3"
+  type="classify"
+  model:value="{{value3}}"
+  options="{{options3}}"
+  activeColor="#d13435"
+  multiple
+  action-bar
+>
+</sort-item>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    options3: [
+      {
+        id: 1,
+        title: '华为',
+      },
+      {
+        id: 2,
+        title: '小米',
+      },
+      {
+        id: 3,
+        title: '一加',
+      },
+      {
+        id: 4,
+        title: '苹果',
+      },
+      {
+        id: 5,
+        title: 'OPPO',
+      },
+    ],
+    value3: null,
+  },
+})
+```
+
+5. 自定义
+   不设置 options，type 设置为 diy。 利用中间插槽自定义下拉内容，组件只提供下拉和关闭的功能，其他功能自由发挥喽~
+
+**index.wxml**
+
+```html
+<sort-item title="设置" name="sort4" type="diy" activeColor="#d13435">
+  <view class="diy" bind:tap="close"> 自定义区域 </view>
+</sort-item>
+```
+
+**index.js**
+
+```js
+Page({
+  close() {
+    this.sort4 = this.selectComponent('#sort4')
+    this.sort4.confirm()
+  },
+})
+```
+
+### sort 配置
+
+| 参数            | 说明                                                                                                                                      | 类型      | 默认值  | 版本  |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- | ----- |
+| overlay         | 设置是否显示遮罩背景                                                                                                                      | _Boolean_ | `true`  | 3.0.8 |
+| overlayDuration | 设置遮罩背景动画的时间                                                                                                                    | _Number_  | `500`   | 3.0.8 |
+| scroll          | 设置开启横向滚动，默认为`false`布局为 flex 布局, 随着 item 的个数增多, item 宽度越来越小。设置为`true`时开启横向滚动 item 默认显示 4 个半 | _Boolean_ | `false` | 3.0.8 |
+
+### Item 配置
+
+| 参数        | 说明                                                                                                                                           | 类型      | 默认值  | 版本  |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- | ----- |
+| type        | 设置类型是排序还是筛选，可设置 `sort` 、`classify` 、`diy`,`sort`为排序模式。`classify`为分类模式。`diy`为自定义模式                           | _String_  |         | 3.0.8 |
+| title       | 设置头部标题                                                                                                                                   | _String_  |         | 3.0.8 |
+| name        | 设置设置下拉的唯一标识，防止切换下拉冲突                                                                                                       | _String_  |         | 3.0.8 |
+| value       | 设置选中的值，支持双向绑定 model:value，单选时值为选中的 option 的 index 值，多选时为选中的 option 的 index 值的集合逗号分隔的字符串(如:0,1,2) | _String_  |         | 3.0.8 |
+| options     | 设置选项列表, 选项中 title 为选项的文字, id 为选项的 id                                                                                        | _Array_   |         | 3.0.8 |
+| activeColor | 设置选中得文字颜色, 同时也设置操作按钮中确认按钮的颜色                                                                                         | _String_  |         | 3.0.8 |
+| multiple    | 设置开启多选模式                                                                                                                               | _Boolean_ | `false` | 3.0.8 |
+| action-bar  | 设置开启操作按钮                                                                                                                               | _Boolean_ | `false` | 3.0.8 |
+
+### 插槽
+
+| 名称    | 说明           | 可用组件 |
+| ------- | -------------- | -------- |
+| default | 自定义下拉插槽 |          |
+
+### 方法
+
+| 名称    | 用法                                                                                                            | 说明                   | 返回参数 | 版本  |
+| ------- | --------------------------------------------------------------------------------------------------------------- | ---------------------- | -------- | ----- |
+| confirm | 先获取组件实例：`const sort4 = this.selectComponent('#sort4');`, 然后调用方法：`sort4.confirm()` | 自定义时关闭下拉的方法 | 无       | 3.0.8 |
+
+---
+
+## SecondFloor 下拉二楼组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/floor ｜ 来源：`doc/native/components/floor.md`
+
+### 注意
+
+该组件为 v3.2.3 之后添加的！！！
+
+### 介绍
+
+很多 app 首页都带有下拉二楼的功能，拖拽屏幕向下松手刷新页面，但是继续向下拉动就会完整的拉下来一屏的内容,如下图：
+
+![示例图](https://test.wzs.pub/pic/tb_sf.gif)
+
+second-floor 组件可搭配 second-floor-refresh 来实现下拉二楼的效果
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "second-floor": "coolui-scroller/second-floor/index",
+  "second-floor-refresh": "coolui-scroller/second-floor-refresh/index",
+}
+```
+
+### 代码演示
+
+#### 1. 基础使用
+
+搭配 second-floor-refresh 组件实现文字提示，同时也提供了插槽位置支持您自定义，自定义 refresh 组件请参考 second-floor-refresh 内部的写法
+`setText` 是关键方法
+
+**index.wxml**
+
+```html
+<second-floor
+  bind:refresh="onRefresh"
+  bind:secondShow="onSecondShow"
+  bind:secondBack="onSecondBack"
+  model:threshold="{{val}}"
+  class="my-second-floor"
+>
+  <view slot="second-floor"> 二楼区域 </view>
+  <!-- 刷新组件 -->
+  <second-floor-refresh slot="second-floor-refresh"></second-floor-refresh>
+  <!-- 刷新组件 -->
+  <view>页面主内容</view>
+</second-floor>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    val: 0, // 拖拽的进度值
+  },
+  onRefresh() {
+    // 下拉刷新时执行
+  },
+  onSecondShow() {
+    // 下拉二楼展开之后执行
+  },
+  onSecondBack() {
+    // 下拉二楼关闭之后执行
+  },
+})
+```
+
+#### 2. 可搭配 page-container
+
+很多 app 的下拉二楼效果是下拉之后打开一个新页，搭配 page-container, 在 onSecondShow 方法中控制 page-container 的 show 可以实现，然后利用组件的 back 事件进行关闭
+
+![示例图](https://test.wzs.pub/pic/new_page.gif)
+
+**index.wxml**
+
+```html
+<second-floor
+  bind:refresh="onRefresh"
+  bind:secondShow="onSecondShow"
+  bind:secondBack="onSecondBack"
+  model:threshold="{{val}}"
+  class="my-second-floor"
+>
+  <view slot="second-floor"> 二楼区域 </view>
+  <!-- 刷新组件 -->
+  <second-floor-refresh slot="second-floor-refresh"></second-floor-refresh>
+  <!-- 刷新组件 -->
+  <!-- 顶部标签组件 -->
+  <nav-bar slot="nav-bar" config="{{navBarConfig}}">下拉二楼</nav-bar>
+  <!-- 顶部标签组件 -->
+  <view>页面主内容</view>
+</second-floor>
+
+<page-container
+  show="{{show}}"
+  round="{{round}}"
+  overlay="{{overlay}}"
+  duration="{{duration}}"
+  position="{{position}}"
+  close-on-slide-down="{{false}}"
+  bindbeforeenter="onBeforeEnter"
+  bindenter="onEnter"
+  bindafterenter="onAfterEnter"
+  bindbeforeleave="onBeforeLeave"
+  bindleave="onLeave"
+  bindafterleave="onAfterLeave"
+  bindclickoverlay="onClickOverlay"
+  custom-style="{{customStyle}}"
+  overlay-style="{{overlayStyle}}"
+>
+  <view class="detail-page">
+    <button type="primary" bindtap="exit">退出</button>
+  </view>
+</page-container>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    val: 0, // 拖拽的进度值
+    show: false,
+    duration: 300,
+    position: 'right',
+    round: false,
+    overlay: true,
+    customStyle: '',
+    overlayStyle: '',
+  },
+  onRefresh() {
+    // 下拉刷新时执行
+  },
+  onSecondShow() {
+    // 下拉二楼展开之后执行
+    setTimeout(() => {
+      this.setData({
+        show: true,
+      })
+    }, 500)
+  },
+  onSecondBack() {
+    // 下拉二楼关闭之后执行
+  },
+  exit() {
+    const secondFloor = this.selectComponent('.my-second-floor')
+    secondFloor.back().then(() => {
+      this.setData({ show: false })
+    })
+  },
+})
+```
+
+#### 3. 可设置下拉二楼的位置
+
+可设置下拉二楼的位置 top、center、bottom。即展开的时候先展示的是二楼的哪个部位
+
+![示例图](https://test.wzs.pub/pic/top.gif)
+![示例图](https://test.wzs.pub/pic/center.gif)
+![示例图](https://test.wzs.pub/pic/bottom.gif)
+
+```html
+<!-- top -->
+<second-floor top></second-floor>
+<!-- center -->
+<second-floor center></second-floor>
+<!-- bottom -->
+<second-floor bottom></second-floor>
+```
+
+#### 4. 可设置下拉二楼是否开启缩放动画
+
+就如同微信首页下拉出来小程序列表一样，二楼展开会有一个缩放的效果
+
+![示例图](https://test.wzs.pub/pic/top_scale.gif)
+![示例图](https://test.wzs.pub/pic/center_scale.gif)
+![示例图](https://test.wzs.pub/pic/bottom_scale.gif)
+
+```html
+<!-- top scale -->
+<second-floor top scale></second-floor>
+<!-- center scale-->
+<second-floor center scale></second-floor>
+<!-- bottom scale-->
+<second-floor bottom scale></second-floor>
+```
+
+#### 5. 可搭配 nav-bar 设置顶部标题栏
+
+![示例图](https://wzs28150.github.io/coolui-scroller/v4/images/a.gif)
+
+**index.wxml**
+
+```html
+<second-floor>
+  <!-- 顶部标签组件 -->
+  <nav-bar slot="nav-bar" config="{{navBarConfig}}">下拉二楼</nav-bar>
+  <!-- 顶部标签组件 -->
+</second-floor>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    navBarConfig: {
+      back: {
+        show: true, // 是否显示返回按钮
+        click: () => {
+          // 返回按钮点击方法
+          wx.navigateBack({
+            delta: 1,
+          })
+        },
+      },
+      background: {
+        color: '#d13435', //设置背景颜色
+      },
+      text: {
+        color: '#fff', // 设置文字颜色
+      },
+    },
+  },
+})
+```
+
+#### 6. 可设置 tip 参数 控制进入页面初始化时,自动下拉回弹，提示用户有下拉二楼
+
+**index.wxml**
+
+```html
+<second-floor tip="{{tip}}"> </second-floor>
+```
+
+**index.js**
+
+```js
+Page({
+  data: {
+    tip: {
+      show: true, // 开启tip 自动下拉提示
+      height: 100, // 自动下拉的高度
+      times: 1, // 自动下拉的次数
+      duration: 2000, // 自动下拉的速度
+    },
+  },
+})
+```
+
+### second-floor 配置
+
+| 参数   | 说明                 | 类型      | 默认值                              | 版本  |
+| ------ | -------------------- | --------- | ----------------------------------- | ----- |
+| top    | 二楼初始位置         | _Boolean_ | false                               | 3.2.3 |
+| center | 二楼初始位置         | _Boolean_ | false                               | 3.2.3 |
+| bottom | 二楼初始位置         | _Boolean_ | true                                | 3.2.3 |
+| scale  | 二楼是否开启缩放动画 | _Boolean_ | false                               | 3.2.3 |
+| tip    | 二楼提示动画         | _Object_  | 详见[tip 设置](https://wzs28150.github.io/coolui-scroller/v4/native/components/floor#tip-设置) | 3.3.1 |
+
+### tip 设置
+
+| 参数     | 说明                          | 类型      | 默认值 | 版本  |
+| -------- | ----------------------------- | --------- | ------ | ----- |
+| show     | 二楼 tip 动画是否开启         | _Boolean_ | false  | 3.3.1 |
+| height   | 二楼 tip 动画自动下拉高度     | _Number_  | 100    | 3.3.1 |
+| times    | 二楼 tip 动画自动下拉次数     | _Number_  | 1      | 3.3.1 |
+| duration | 二楼 tip 动画自动下拉速度控制 | _Number_  | 2000   | 3.3.1 |
+
+### 插槽
+
+| 名称                 | 说明             | 可用组件               |
+| -------------------- | ---------------- | ---------------------- |
+| second-floor         | 二楼插槽区域     | -                      |
+| second-floor-refresh | 下拉刷新插槽位置 | `second-floor-refresh` |
+| nav-bar              | 顶部标题栏       | `nav-bar`              |
+
+### methods 方法
+
+| 名称         | 用法                                                                                                                                  | 说明                                                         | 版本  |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ----- |
+| settriggered | 先获取组件实例：`const secondFloor = this.selectComponent('.my-second-floor');`, 然后调用方法：`secondFloor.settriggered()` | 关闭刷新的方法,在 onRefresh 中,数据刷新之后执行,返回 Promise | 3.2.3 |
+| back         | 先获取组件实例：`const secondFloor = this.selectComponent('.my-second-floor');`, 然后调用方法：`secondFloor.back()`         | 关闭二楼的方法,会触发 onSecondBack, 返回 Promise             | 3.2.3 |
+
+### events 事件
+
+| 名称       | 用法              | 说明                                                        | 版本  |
+| ---------- | ----------------- | ----------------------------------------------------------- | ----- |
+| refresh    | `bind:refresh`    | 刷新时执行，可执行请求数据,然后执行 `settriggered` 关闭刷新 | 3.2.3 |
+| secondShow | `bind:secondShow` | 二楼打开之后执行                                            | 3.2.3 |
+| secondBack | `bind:secondBack` | 二楼关闭之后执行                                            | 3.2.3 |
+
+### second-floor-refresh 配置
+
+| 参数          | 说明                                                                          | 类型     | 默认值                                                                                                                                        | 版本  |
+| ------------- | ----------------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| refreshConfig | second-floor-refresh 组件的设置,详见[refreshConfig](https://wzs28150.github.io/coolui-scroller/v4/native/components/floor#refreshConfig) | _Object_ | `{ downText: "下拉刷新", loadingText: "正在加载", backText: "返回首页", tipText: "松开刷新", moreText: "继续下拉有惊喜~", color: "#ffffff" }` | 3.2.3 |
+
+### refreshConfig
+
+| 参数        | 说明                           | 类型      | 默认值 | 版本  |
+| ----------- | ------------------------------ | --------- | ------ | ----- |
+| downText    | 开始下拉时的文字               | _Boolean_ | false  | 3.2.3 |
+| loadingText | 正在加载时的文字               | _Boolean_ | false  | 3.2.3 |
+| backText    | 二楼加载成功之后返回按钮的文字 | _Boolean_ | false  | 3.2.3 |
+| tipText     | 松开刷新时的提示文字           | _Boolean_ | false  | 3.2.3 |
+| moreText    | 继续下拉的提示文字             | _Boolean_ | false  | 3.2.3 |
+| color       | 文字颜色                       | _Boolean_ | false  | 3.2.3 |
+
+---
+
+## BackToTop 回到顶部组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/native/components/backToTop ｜ 来源：`doc/native/components/backToTop.md`
+
+### 介绍
+
+当列表滚动到设置的阈值位置时，显示该组件，点击该组件列表回到顶部,
+配合 scroller 组件写在 backToTop 插槽中
+
+### 引入
+
+在`app.json`或`index.json`中引入组件
+
+```json
+"usingComponents": {
+  "backtotop": "coolui-scroller/backToTop/index"
+}
+```
+
+### 代码演示
+
+```html
+<scroller class="my-scroller">
+  <backtotop
+    slot="backToTop"
+    my-class="backToTop"
+    delay="{{3000}}"
+    threshold="{{100}}"
+  />
+</scroller>
+```
+
+### 配置
+
+| 参数      | 说明                                               | 类型     | 默认值 | 版本  |
+| --------- | -------------------------------------------------- | -------- | ------ | ----- |
+| delay     | 设置滚动停止后多久隐藏，设置为 0 时不隐藏          | _String_ | `3000` | 3.3.4 |
+| threshold | 阈值，当滚动距离超出这个值时显示，低于这个值时隐藏 | _String_ | `100`  | 3.3.4 |
+
+### 外部样式
+
+在组件外部修改组件里的元素样式，可做局部调整。
+
+| 名称     | 说明                                        | 类型     | 版本  |
+| -------- | ------------------------------------------- | -------- | ----- |
+| my-class | 设置按钮的 class，样式需要 important 冲突掉 | _String_ | 3.3.4 |
+
+---
+
+# 三、uni-app 版（coolui-scroller-uni）：安装与快速开始
+
+## uni-app 版：安装与引入
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/install ｜ 来源：`doc/uniapp/install.md`
+
+本页是 **uni-app 版**（包名 `coolui-scroller-uni`）的接入方式。组件源码为 `.vue`（`<script setup lang="ts">`），兼容 **Vue 2 / Vue 3**，可编译到微信 / 支付宝 / 百度 / 字节 / QQ 小程序以及 **H5、App** 端。
+
+> 用的是原生微信小程序项目？
+
+请看 [原生微信小程序版安装与引入](https://wzs28150.github.io/coolui-scroller/v4/native/install)，或点顶部导航切换平台。
+
+### 安装
+
+> 当前发布状态
+
+uni-app 版已发布到 npm，推荐直接 `npm i coolui-scroller-uni`（当前 `1.0.2`）；需要改动组件源码时再用下面的「源码安装」。
+
+#### 源码安装（需要改组件源码时）
+
+把 `packages/uniapp` 里的 `components/`、`utils/`、`types.d.ts`、`index.js` 拷进项目目录 —— 提供的就是源码，可以直接参与编译；把 easycom 规则指向你实际放置的目录即可（见下方「引入组件」）。
+
+#### npm 安装（推荐）
+
+```bash
+npm i coolui-scroller-uni
+```
+
+### 引入组件
+
+#### 方式一：easycom（推荐）
+
+在 `pages.json` 里加自定义规则（本仓库 demo 即用此方式）：
+
+```json
+{
+  "easycom": {
+    "autoscan": false,
+    "custom": {
+      "^coolui-scroller(-.*)?$": "coolui-scroller-uni/components/coolui-scroller$1/coolui-scroller$1.vue"
+    }
+  }
+}
+```
+
+配置后模板里直接用标签，**无需 `import`，也无需在 `components` 里注册**：
+
+```vue
+<coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+  <template #refresh>
+    <coolui-scroller-refresh :config="{ height: 60 }" />
+  </template>
+</coolui-scroller>
+```
+
+> 注意：`autoscan: false` 时规则必须自己写全，标签名要能匹配上面的正则（`coolui-scroller-*`）。若 easycom 不生效，先确认 `pages.json` 的修改已编译生效、组件目录名与规则一致。
+
+#### 方式二：全局注册
+
+`main.js`（Vue3）：
+
+```js
+import { createSSRApp } from 'vue'
+import App from './App.vue'
+import CooluiScrollerUni from 'coolui-scroller-uni'
+
+export function createApp() {
+  const app = createSSRApp(App)
+  app.use(CooluiScrollerUni)
+  return { app }
+}
+```
+
+Vue2 项目用 `Vue.use(CooluiScrollerUni)`。
+
+#### 方式三：页面内局部引入
+
+```vue
+<script>
+import { CooluiScroller } from 'coolui-scroller-uni'
+export default {
+  components: { CooluiScroller },
+}
+</script>
+```
+
+### TypeScript 支持
+
+组件用 `PropType<T>` 精确标注了 props，并给 `defineEmits`、`provide/inject` 的通信 API 补了类型，编辑器（Volar / vue-tsc）可获得完整提示。公共类型集中在 `types.d.ts`，可直接引入：
+
+```ts
+import type {
+  CooluiScrollerProps,
+  CooluiScrollerRefreshProps,
+  CooluiRefreshConfig,
+  CooluiSortOption,
+} from 'coolui-scroller-uni/types'
+```
+
+> 写模板时有补全和中文提示
+
+安装[编辑器插件](https://wzs28150.github.io/coolui-scroller/v4/plugin)后，`.vue` 的 `<template>` 里组件标签、属性（`:prop`）、事件（`@event`）、具名插槽（`#slot`）都会自动补全，悬停可看中文说明。
+
+### 组件清单
+
+见 [组件总览 / 命名对照](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/)，里面有原生微信小程序版与 uni-app 版的标签对照表。
+
+### 示例工程
+
+仓库里的 `demo/uniapp` 是 Vue3 + Vite 的示例工程（已配置 easycom 与自动导入，可直接作为接入参考）：
+
+```bash
+pnpm install
+pnpm --filter demo-uniapp build:mp-weixin   # 编译到微信小程序
+pnpm --filter demo-uniapp dev:mp-weixin     # 开发模式（watch）
+```
+
+编译后用微信开发者工具打开 `demo/uniapp/dist/build/mp-weixin` 预览；App 端用 `npm run build:app` 生成资源包，再用 HBuilderX 打包。
+
+### 下一步
+
+- [快速开始](https://wzs28150.github.io/coolui-scroller/v4/uniapp/quickstart)：最小可运行的下拉刷新 + 上拉加载
+- [与原生微信小程序版的差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff)：事件命名、通信方式，以及 H5 / 小程序 / App 各端的坑
+- [编辑器插件](https://wzs28150.github.io/coolui-scroller/v4/plugin)：Vue 模板里的组件补全、悬停文档
+
+---
+
+## uni-app 版：快速开始
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/quickstart ｜ 来源：`doc/uniapp/quickstart.md`
+
+这里是最小可运行的「下拉刷新 + 上拉加载」示例，直接拷进页面即可跑起来（配合 [安装与引入](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install) 的 easycom 配置）。
+
+### 页面代码
+
+```vue
+<template>
+  <view class="page">
+    <coolui-scroller
+      :isEmpty="isEmpty"
+      background="#f2f2f2"
+      @refresh="refresh"
+      @loadmore="loadmore"
+    >
+      <!-- 下拉刷新动画 -->
+      <template #refresh>
+        <coolui-scroller-refresh :config="{ height: 60 }" />
+      </template>
+
+      <!-- 列表内容 -->
+      <view v-for="(item, index) in list" :key="index" class="item">
+        {{ item }}
+      </view>
+
+      <!-- 上拉加载 -->
+      <template #loadmore>
+        <coolui-scroller-loadmore :status="loadStatus" />
+      </template>
+    </coolui-scroller>
+  </view>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+      page: 1,
+      loadStatus: 'loading',
+    }
+  },
+  onLoad() {
+    this.getList(1)
+  },
+  methods: {
+    getList(page) {
+      // 请求数据，返回 promise
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          const start = (page - 1) * 10
+          const arr = []
+          for (let i = start; i < start + 10; i++) arr.push('数据' + (i + 1))
+          this.list = this.list.concat(arr)
+          resolve()
+        }, 600)
+      })
+    },
+    refresh() {
+      this.page = 1
+      this.list = []
+      this.getList(1).then(() => {
+        this.loadStatus = 'loading'
+      })
+    },
+    loadmore() {
+      this.page++
+      this.getList(this.page).then(() => {
+        this.loadStatus = 'loading'
+      })
+    },
+  },
+}
+</script>
+```
+
+### 关键点
+
+| 点 | 说明 |
+| --- | --- |
+| `@refresh` / `@loadmore` | 原生微信小程序版的 `bind:refresh` 在这里写成 `@refresh`（Vue 事件绑定） |
+| `#refresh` / `#loadmore` | 插槽名与原生微信小程序版一致，保持组件嵌套层级即可，无需额外配置 |
+| `getList` 返回 promise | 组件按 promise 结束刷新/加载流程，返回前不要提前 resolve，否则动画会提前收起 |
+| `:isEmpty` | 数据为空时显示空态，配合 `coolui-scroller-empty` 自定义空列表 |
+
+### 长列表
+
+数据量大时不要直接渲染全部节点，用长列表组件：
+
+- `coolui-scroller-longlist`：**推荐**，窗口化方案 —— 窗口外的内容折叠为上下占位块，渲染的节点数与总页数无关。
+- `coolui-scroller-page`：旧方案，按页整页占位。
+
+完整用法见示例工程 `demo/uniapp/src/pages/longlist/index.vue`，组件说明见 [组件总览](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/#coolui-scroller-longlist)。
+
+### 两个高频坑
+
+1. **下拉手感发硬、没有弹性**：把刷新配置的 `background.height` 设得比 `height` 大（例如 `height: 50`、`background.height: 120`），松手才会先回落到刷新高度显示动画、完成后再整体回弹。详见 [常见问题](https://wzs28150.github.io/coolui-scroller/v4/advanced/faq#下拉刷新没有弹性回弹感)。
+2. **H5 上出现页面级滚动条**：全屏页写 `height: 100vh` 没扣掉 H5 内置导航栏，改成 `calc(100vh - var(--window-top))`。详见 [跨端差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff#h5-内置导航栏会额外占高)。
+
+---
+
+## uni-app 版：与原生版的差异
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff ｜ 来源：`doc/uniapp/platform-diff.md`
+
+uni-app 版（`coolui-scroller-uni`）的组件能力、交互效果与原生微信小程序版保持一致，**props 与配置项可直接对照原生微信小程序版文档**。差异集中在下面两类：与原生微信小程序版的写法差异、各端（小程序 / H5 / App）的运行差异。
+
+### 一、与原生微信小程序版的写法差异
+
+| 项 | 原生微信小程序版 | uni-app 版 |
+| --- | --- | --- |
+| 组件标签 | `scroller`、`refresh`、`item`…（可自定义 tag 名） | 统一 `coolui-scroller-*` 前缀，如 `coolui-scroller-refresh` |
+| 事件 | `bind:refresh` / `bind:loadmore` | `@refresh` / `@loadmore` |
+| 受控属性 | 直接改 data | 通过 `@update:propName` 同步，如 sort-item 的 `@update:value` |
+| 保留字属性 | search 组件用 `key` | 改名为 `keyword`，用 `@update:keyword` 同步 |
+| 组件通信 | 小程序 `relations` 关联父子组件 | Vue `provide/inject` |
+| 长列表 | `scroll-page`（整页占位） | `coolui-scroller-page`（旧方案）+ `coolui-scroller-longlist`（窗口化，推荐） |
+| 类型 | — | `.vue` + `types.d.ts`，可 `import type { CooluiScrollerProps } from 'coolui-scroller-uni/types'` |
+
+需要在组件之间通信的嵌套关系（保持层级即可，无需手动配置）：
+
+- `coolui-scroller` → `coolui-scroller-refresh` / `coolui-scroller-back-to-top`
+- `coolui-scroller-refresh` → `coolui-scroller-parallax`
+- `coolui-scroller-nav-pannel` → `coolui-scroller`
+- `coolui-scroller-sort` → `coolui-scroller-sort-item`
+- `coolui-scroller-second-floor` → `coolui-scroller-second-floor-refresh` / `coolui-scroller-nav-bar`
+
+### 二、各端运行差异
+
+#### H5 内置导航栏会额外占高
+
+uni-app 在 H5 端会额外渲染内置导航栏（高度就是 CSS 变量 `--window-top`，默认 44px），而 `pages.json` 里的 `disableScroll` **只在小程序端生效**。于是全屏页写 `height: 100vh` 时会比可视区高出一截，出现页面级滚动条（小程序端一直正常，所以就容易漏）。
+
+```scss
+/* #ifdef H5 */
+.page {
+  height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
+```
+
+- 用 `--window-top` / `--window-bottom`（tabbar）而不是写死 44px；默认值 `0px` 兜底，变量缺失时不会反向变矮。
+- `#ifdef H5` 包裹后，这段样式在小程序 / App 端构建时会被剥离，行为不变。
+- 自定义导航栏（`navigationStyle: custom`）的页面 `--window-top` 为 0，无需处理。
+
+#### 插槽与样式作用域
+
+小程序端组件插槽**不是作用域插槽**，且页面里 `scoped` 样式穿不进组件插槽。所以：
+
+- 页面里给插槽内容写样式时，选择器要落在插槽内容本身（例如给内容加自己的 class），不要指望 `.coolui-scroller .item` 这类跨组件选择器；
+- 若要统一列表项间距、内边距，写在组件/列表项自身的样式上，或给插槽内容加 class 后再写。
+
+#### 下拉刷新动画与「原生效果」
+
+`type: 'default'` 会走小程序原生的下拉样式（三个圆点动画）。**同一个组件、同一个 type，两个页面观感不同，多半是刷新配置不一致**：`background.height`（下拉行程）大于 `height`（刷新自身高度）时，松手先回落到 `height` 显示加载动画、刷新完成后再整体回弹，也就是「两段回弹」的弹性感；不设置时行程很快就饱和，只剩单段回弹，手感偏硬。
+
+#### App 端
+
+组件按源码参与编译，App 端与小程序端表现一致；H5 的高度处理同样适用于 App 端内嵌 WebView 的场景。App 资源包用 `npm run build:app` 产出，安装包需要在 HBuilderX 里云打包生成。
+
+### 相关阅读
+
+- [常见问题](https://wzs28150.github.io/coolui-scroller/v4/advanced/faq)：下拉没弹性、页面滚动条、列表间距等
+- [安装与引入](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install) / [快速开始](https://wzs28150.github.io/coolui-scroller/v4/uniapp/quickstart)
+
+---
+
+# 四、uni-app 版组件
+
+## uni-app 组件总览与命名对照
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/ ｜ 来源：`doc/uniapp/components/index.md`
+
+uni-app 版组件与原生微信小程序版一一对应，能力与配置项一致；**标签统一加 `coolui-scroller-` 前缀**，个别组件的保留字属性做了改名（详见[与原生微信小程序版的差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff)）。
+
+### 命名对照表
+
+| 功能 | uni-app 标签 | 原生微信小程序（目录） | 文档 |
+| --- | --- | --- | --- |
+| 滚动容器 | `coolui-scroller` | `coolui-scroller/scroller/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller) |
+| 列表项（水波纹） | `coolui-scroller-item` | `coolui-scroller/item/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/item) |
+| 长列表窗口化（推荐） | `coolui-scroller-longlist` | 原生无同名组件（对应 `scroll-page` 的思路） | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/longlist) |
+| 长列表分页（旧方案） | `coolui-scroller-page` | `coolui-scroller/scroll-page/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/page) |
+| 空列表占位 | `coolui-scroller-empty` | `coolui-scroller/empty/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/empty) |
+| 手势提示 | `coolui-scroller-handtip` | `coolui-scroller/handtip/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/handtip) |
+| 加载更多 | `coolui-scroller-loadmore` | `coolui-scroller/loadmore/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/loadmore) |
+| 下拉刷新 | `coolui-scroller-refresh` | `coolui-scroller/refresh/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/refresh) |
+| 下拉视差 | `coolui-scroller-parallax` | `coolui-scroller/parallax/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/parallax) |
+| 分类导航 | `coolui-scroller-nav` | `coolui-scroller/nav/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/nav) |
+| 顶部导航栏 | `coolui-scroller-nav-bar` | `coolui-scroller/nav-bar/index`（原生无独立文档页） | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navBar) |
+| 切换容器 | `coolui-scroller-nav-pannel` | `coolui-scroller/nav-pannel/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navPannel) |
+| 搜索框 | `coolui-scroller-search`（属性是 `keyword`） | `coolui-scroller/search/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/search) |
+| 排序筛选 | `coolui-scroller-sort` / `coolui-scroller-sort-item` | `coolui-scroller/sort/index` + `coolui-scroller/sort/item` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/sort) |
+| 下拉二楼 | `coolui-scroller-second-floor` / `coolui-scroller-second-floor-refresh` | `coolui-scroller/second-floor/index`（+ `second-floor-refresh`） | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/floor) |
+| 回到顶部 | `coolui-scroller-back-to-top` | `coolui-scroller/backToTop/index` | [文档](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/backToTop) |
+
+### 公共约定
+
+- **引入**：配好 [easycom](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install#方式一easycom推荐) 后直接写标签，无需 `import`；也可全局注册或页面内局部引入。
+- **事件**：原生 `bind:xxx` 在这里写成 `@xxx`；受控属性通过 `@update:propName` 同步，可简写为 `v-model:propName`。
+- **插槽**：插槽名与原生一致（`#header`、`#refresh`、`#empty`、`#loadmore`、`#backToTop` 等），保持组件的**嵌套层级**即可，无需额外配置。
+- **组件通信**：原生用 `relations` 自动关联父子组件，uni-app 版改为 Vue `provide/inject`，所以层级关系不要打乱。
+- **样式**：原生 `externalClasses` 在这里换成 `virtualHost + apply-shared`，页面里覆盖组件内部样式请用 `:deep(...)`。
+- **类型**：公共类型集中在 `types.d.ts`，可 `import type { CooluiScrollerProps, CooluiRefreshConfig } from 'coolui-scroller-uni/types'`。
+
+各组件详细属性与示例见左侧「组件」下的独立页面。
+
+---
+
+## Scroller 滚动容器
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller ｜ 来源：`doc/uniapp/components/scroller.md`
+
+`<coolui-scroller>` 是列表能力的底座：下拉刷新 / 上拉加载 / 空列表 / 回到顶部都通过它的插槽接入。
+
+> 对应原生微信小程序版：[Scroller 滚动组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/scroller)；写法差异见[与原生微信小程序版的差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff)。
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller
+    :isEmpty="isEmpty"
+    background="#f2f2f2"
+    @refresh="refresh"
+    @loadmore="loadmore"
+  >
+    <!-- 下拉刷新 -->
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <!-- 列表内容 -->
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <!-- 空列表 -->
+    <template #empty>
+      <coolui-scroller-empty emptyImg="/static/empty.png" emptyText="暂无内容" />
+    </template>
+
+    <!-- 加载更多 -->
+    <template #loadmore>
+      <coolui-scroller-loadmore :status="status" />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+const status = ref('more')
+const refreshSetting = ref({
+  height: 50,
+  background: { color: '#f2f2f2', height: 120 },
+})
+
+let page = 1
+
+// @refresh / @loadmore 需要返回 promise，返回前不要 resolve，否则动画会提前收起
+function getList(p: number) {
+  page = p
+  return new Promise<void>((resolve) => {
+    // 请求数据，更新 list / isEmpty / status 之后再 resolve()
+    resolve()
+  })
+}
+
+function refresh() {
+  return getList(1)
+}
+
+function loadmore() {
+  return getList(page + 1)
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller
+    :isEmpty="isEmpty"
+    background="#f2f2f2"
+    @refresh="refresh"
+    @loadmore="loadmore"
+  >
+    <!-- 下拉刷新 -->
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <!-- 列表内容 -->
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <!-- 空列表 -->
+    <template #empty>
+      <coolui-scroller-empty emptyImg="/static/empty.png" emptyText="暂无内容" />
+    </template>
+
+    <!-- 加载更多 -->
+    <template #loadmore>
+      <coolui-scroller-loadmore :status="status" />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+      status: 'more',
+      page: 1,
+      refreshSetting: { height: 50, background: { color: '#f2f2f2', height: 120 } },
+    }
+  },
+  methods: {
+    // @refresh / @loadmore 需要返回 promise，返回前不要 resolve，否则动画会提前收起
+    getList(page) {
+      this.page = page
+      return new Promise((resolve) => {
+        // 请求数据，更新 list / isEmpty / status 之后再 resolve()
+        resolve()
+      })
+    },
+    refresh() {
+      return this.getList(1)
+    },
+    loadmore() {
+      return this.getList(this.page + 1)
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| isEmpty | 数据为空态，渲染 `empty` 插槽 | _Boolean_ | `false` |
+| background | 背景色（保留字段，组件内部未使用，与原生一致） | _String_ | `#f2f2f2` |
+| isBackBtn | 兼容字段，回到顶部按钮的显隐实际由 back-to-top 组件注册决定 | _Boolean_ | `false` |
+| enableFlex | 透传给 `scroll-view` 的 `enable-flex` | _Boolean_ | `false` |
+| toView | 滚动到指定元素 id（`scroll-into-view`） | _String_ | `''` |
+| top | 滚动位置，支持 `v-model:top` | _Number_ | `0` |
+| animation | 滚动是否带过渡动画 | _Boolean_ | `true` |
+
+### 事件
+
+| 事件 | 说明 | 参数 |
+| --- | --- | --- |
+| refresh | 下拉刷新触发 | — |
+| loadmore | 上拉触底触发 | — |
+| restore | 刷新流程结束（回弹完成） | — |
+| contentHeight | 内容高度变化 | `height: number` |
+| update:top | 滚动位置变化（配 `v-model:top`） | `top: number` |
+| scroll | 滚动中，常用于长列表 | `event`（原始滚动事件对象） |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| header | 列表顶部（不参与滚动区域） |
+| refresh | 下拉刷新组件位置 |
+| 默认 | 列表内容 |
+| empty | 空列表内容，`isEmpty` 为 true 时显示 |
+| loadmore | 加载更多位置 |
+| backToTop | 回到顶部按钮位置 |
+
+### 与原生版的差异
+
+- 组件通信由原生 `relations` 改为 `provide/inject`，**父子层级不要打乱**；
+- 新增 `v-model:top`（`update:top` 事件），原生没有；
+- `scroll` 事件透传原始滚动事件对象，原生只透出 `{ scrollTop }`。
+
+### 相关
+
+- [Refresh 下拉刷新组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/refresh) · [Loadmore 加载更多组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/loadmore) · [Empty 空列表组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/empty)
+- [快速开始](https://wzs28150.github.io/coolui-scroller/v4/uniapp/quickstart)：最小可运行示例
+
+---
+
+## Item 列表项组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/item ｜ 来源：`doc/uniapp/components/item.md`
+
+`<coolui-scroller-item>` 是列表项容器，自带点击水波纹。
+
+> 对应原生微信小程序版：[Item 列表项组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/item)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :id="'item' + index" :key="index" ripple>
+      <view class="item">
+        <image class="item-image" lazy-load :src="item.img" />
+        <view class="item-title">{{ index }}.{{ item.title }}</view>
+      </view>
+    </coolui-scroller-item>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string; img: string }[]>([])
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+
+<style lang="scss" scoped>
+.item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+
+  .item-image {
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+  }
+
+  .item-title {
+    flex: 1;
+    font-size: 30rpx;
+  }
+}
+</style>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :id="'item' + index" :key="index" ripple>
+      <view class="item">
+        <image class="item-image" lazy-load :src="item.img" />
+        <view class="item-title">{{ index }}.{{ item.title }}</view>
+      </view>
+    </coolui-scroller-item>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+    }
+  },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+
+  .item-image {
+    width: 120rpx;
+    height: 120rpx;
+    margin-right: 20rpx;
+  }
+
+  .item-title {
+    flex: 1;
+    font-size: 30rpx;
+  }
+}
+</style>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| ripple | 点击是否开启水波纹 | _Boolean_ | `false` |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| 默认 | 列表项内容 |
+
+### 与原生版的差异
+
+- 属性一致（只有 `ripple`）；
+- 水波纹动画名由 `ripple` 改为 `coolui-ripple`，如果页面里自定义过动画名需要注意。
+
+### 相关
+
+- [Scroller 滚动容器](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller) · [Longlist 长列表窗口化](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/longlist)
+
+---
+
+## Longlist 长列表窗口化容器（推荐）
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/longlist ｜ 来源：`doc/uniapp/components/longlist.md`
+
+`<coolui-scroller-longlist>` 是 uni-app 版**新增**的长列表容器（原生侧没有同名组件）：窗口外的内容折叠为上下占位块，**渲染的节点数与总页数无关**，数据量大时比整页占位更稳。
+
+> 新项目建议用它；旧方案见 [Page 长列表分页](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/page)。
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller
+    :isEmpty="isEmpty"
+    background="#f2f2f2"
+    @refresh="refresh"
+    @loadmore="loadmore"
+    @scroll="onScroll"
+  >
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <coolui-scroller-longlist :pages="list" :scroll-top="scrollTop">
+      <template #page="{ items, pageIndex }">
+        <coolui-scroller-item v-for="(item, index) in items" :key="index">
+          <view class="item">{{ pageIndex }} - {{ item.title }}</view>
+        </coolui-scroller-item>
+      </template>
+    </coolui-scroller-longlist>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+// 二维数组：list[pageIndex] 是该页的 item 数组
+const list = ref<{ title: string }[][]>([])
+const scrollTop = ref(0)
+const refreshSetting = ref({
+  height: 50,
+  background: { color: '#f2f2f2', height: 120 },
+})
+
+// 把 scroller 的滚动距离透传进来，组件据此判断窗口位置
+function onScroll(e: { detail: { scrollTop: number } }) {
+  scrollTop.value = e.detail.scrollTop
+}
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller
+    :isEmpty="isEmpty"
+    background="#f2f2f2"
+    @refresh="refresh"
+    @loadmore="loadmore"
+    @scroll="onScroll"
+  >
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <coolui-scroller-longlist :pages="list" :scroll-top="scrollTop">
+      <template #page="{ items, pageIndex }">
+        <coolui-scroller-item v-for="(item, index) in items" :key="index">
+          <view class="item">{{ pageIndex }} - {{ item.title }}</view>
+        </coolui-scroller-item>
+      </template>
+    </coolui-scroller-longlist>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],      // 二维数组：pages[pageIndex] 是该页的 item 数组
+      scrollTop: 0,
+      refreshSetting: { height: 50, background: { color: '#f2f2f2', height: 120 } },
+    }
+  },
+  methods: {
+    // 把 scroller 的滚动距离透传进来，组件据此判断窗口位置
+    onScroll(e) {
+      this.scrollTop = e.detail.scrollTop
+    },
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| pages | 分页数据，`pages[pageIndex]` 为该页的 item 数组 | _Array_ | `[]` |
+| heights | 初始页高缓存（已测量过的页高，避免首次渲染跳动） | _Array_ | `[]` |
+| scrollTop | 当前滚动距离，由 `scroller` 的 `@scroll` 透传 | _Number_ | `0` |
+| overscan | 窗口前后各多渲染几页 | _Number_ | `1` |
+| estimateHeight | 未测量页的估算高度（`0` 时取已测量页的均值，兜底 300） | _Number_ | `0` |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| page | **作用域插槽**，参数 `{ items, pageIndex }`，渲染单页内容 |
+
+### 使用要点
+
+1. `pages` 是**二维数组**（页 → items），不是扁平列表；
+2. 必须把 `coolui-scroller` 的 `@scroll` 传给 `scroll-top`，否则无法判断窗口；
+3. 每页内容高度尽量一致，`estimateHeight` 与实际差得越多，滚动条长度就越不准；
+4. 与滚动容器嵌套层级保持不变即可，组件之间通过 `provide/inject` 通信。
+
+### 相关
+
+- [Page 长列表分页（旧方案）](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/page)
+- [原生微信小程序版的长列表](https://wzs28150.github.io/coolui-scroller/v4/native/components/page)：`scroll-page` 按页整页占位
+
+---
+
+## Page 长列表分页（旧方案）
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/page ｜ 来源：`doc/uniapp/components/page.md`
+
+`<coolui-scroller-page>` 是长列表分页的旧方案：**按页整页占位**，未渲染的页用等高占位块撑起高度，减少同时存在的节点数。
+
+> 新项目建议使用 [Longlist 长列表窗口化](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/longlist)（窗口外折叠为上下占位块，节点数与总页数无关）。
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-page
+      v-for="(pageItems, pageIndex) in list"
+      :key="pageIndex"
+      :pageList="pageItems"
+    >
+      <coolui-scroller-item v-for="(item, index) in pageItems" :key="index" ripple>
+        <view class="item">{{ item.title }}</view>
+      </coolui-scroller-item>
+    </coolui-scroller-page>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+// 二维数组：list[pageIndex] 是该页的 item 数组
+const list = ref<{ title: string }[][]>([])
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-page
+      v-for="(pageItems, pageIndex) in list"
+      :key="pageIndex"
+      :pageList="pageItems"
+    >
+      <coolui-scroller-item v-for="(item, index) in pageItems" :key="index" ripple>
+        <view class="item">{{ item.title }}</view>
+      </coolui-scroller-item>
+    </coolui-scroller-page>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [], // 二维数组：list[pageIndex] 是该页的 item 数组
+    }
+  },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| pageList | 当前页的数据；只给了 `height` 时渲染为占位块 | _Array_ | `[]` |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| 默认 | 单页内容（一般放若干 `coolui-scroller-item`） |
+
+### 与原生版的差异
+
+- 属性与原生 `scroll-page` 的 `pageList` 一致；
+- 原生侧需要额外引入组件提供的方法来计算每页高度（见[原生长列表文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/page#代码演示)），uni-app 版由 [Longlist](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/longlist) 承担窗口计算，**优先用 Longlist**。
+
+### 相关
+
+- [Longlist 长列表窗口化（推荐）](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/longlist)
+
+---
+
+## Empty 空列表组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/empty ｜ 来源：`doc/uniapp/components/empty.md`
+
+`<coolui-scroller-empty>` 提供空数据时的占位内容，放在 `coolui-scroller` 的 `empty` 插槽里，`isEmpty` 为 `true` 时显示。
+
+> 对应原生微信小程序版：[Empty 空列表组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/empty)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #empty>
+      <coolui-scroller-empty
+        class="empty"
+        :emptyText="emptySetting.text"
+        :emptyImg="emptySetting.img"
+      />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const emptySetting = ref({
+  img: '/static/empty.png',
+  text: '暂无内容',
+})
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #empty>
+      <coolui-scroller-empty
+        class="empty"
+        :emptyText="emptySetting.text"
+        :emptyImg="emptySetting.img"
+      />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      emptySetting: {
+        img: '/static/empty.png',
+        text: '暂无内容',
+      },
+    }
+  },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| emptyImg | 空列表图片地址 | _String_ | `''` |
+| emptyText | 空列表文字 | _String_ | `'暂无内容'` |
+
+### 与原生版的差异
+
+原生侧用外部样式类 `img-class` / `text-class` 定制图片与文字样式；uni-app 版没有外部样式类，页面里用 `:deep()` 覆盖组件内部类名即可：
+
+```scss
+.empty {
+  :deep(.empty-img) {
+    width: 240rpx;
+  }
+  :deep(.empty-text) {
+    color: #999;
+  }
+}
+```
+
+### 相关
+
+- [Scroller 滚动容器](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller) · [Loadmore 加载更多组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/loadmore)
+
+---
+
+## Handtip 手势提示组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/handtip ｜ 来源：`doc/uniapp/components/handtip.md`
+
+`<coolui-scroller-handtip>` 用于第一次进入时提示用户「下拉刷新 / 上拉加载」等手势，看过一次后不再出现（用 `storageKey` 记录）。
+
+> 对应原生微信小程序版：[Handtip 手势提示组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/handtip)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-handtip
+      top="下拉刷新"
+      bottom="上拉加载"
+      left="侧滑切换"
+      right="侧滑切换"
+      :opacity="0.7"
+      storageKey="hand2"
+      @close="onClose"
+    />
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+
+function onClose() {
+  // 提示关闭
+}
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-handtip
+      top="下拉刷新"
+      bottom="上拉加载"
+      left="侧滑切换"
+      right="侧滑切换"
+      :opacity="0.7"
+      storageKey="hand2"
+      @close="onClose"
+    />
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+    }
+  },
+  methods: {
+    onClose() {
+      // 提示关闭
+    },
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| top | 顶部提示文字 | _String_ | `''` |
+| bottom | 底部提示文字 | _String_ | `''` |
+| left | 左侧提示文字 | _String_ | `''` |
+| right | 右侧提示文字 | _String_ | `''` |
+| storageKey | 记录"已提示过"的 storage key，换 key 可让提示重新出现 | _String_ | `'isTipShow'` |
+| opacity | 遮罩透明度 | _Number_ | `0.5` |
+
+### 事件
+
+| 事件 | 说明 | 参数 |
+| --- | --- | --- |
+| close | 提示关闭时触发 | — |
+
+### 与原生版的差异
+
+- **属性改名**：原生用 `key`（Vue 中的保留字），uni-app 版改为 **`storageKey`**，默认值同为 `'isTipShow'`；
+- 新增 `close` 事件（原生没有）；
+- `top` / `bottom` / `left` / `right` 原生默认 `0`，uni-app 版默认 `''`（不显示对应方向的文字）。
+
+---
+
+## Loadmore 加载更多组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/loadmore ｜ 来源：`doc/uniapp/components/loadmore.md`
+
+`<coolui-scroller-loadmore>` 展示上拉加载的状态与文案，放在 `coolui-scroller` 的 `loadmore` 插槽里。
+
+> 对应原生微信小程序版：[Loadmore 加载更多组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/loadmore)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <template #loadmore>
+      <coolui-scroller-loadmore
+        :status="loadMoreSetting.status"
+        :loading="loadMoreSetting.loading"
+        :more="loadMoreSetting.more"
+        :noMore="loadMoreSetting.noMore"
+      />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+
+const loadMoreSetting = ref({
+  status: 'more', // more | loading | noMore
+  loading: { text: '加载中', color: '#999999' },
+  more: { text: '查看更多', color: '#333333' },
+  noMore: { text: '没有更多', color: '#999999' },
+})
+
+function refresh() {
+  loadMoreSetting.value.status = 'loading'
+  // 刷新完成后改为 'more'（还有数据）或 'noMore'（没有更多）
+  return Promise.resolve()
+}
+
+function loadmore() {
+  loadMoreSetting.value.status = 'loading'
+  // 加载完成后改为 'more'（还有数据）或 'noMore'（没有更多）
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <template #loadmore>
+      <coolui-scroller-loadmore
+        :status="loadMoreSetting.status"
+        :loading="loadMoreSetting.loading"
+        :more="loadMoreSetting.more"
+        :noMore="loadMoreSetting.noMore"
+      />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+      loadMoreSetting: {
+        status: 'more', // more | loading | noMore
+        loading: { text: '加载中', color: '#999999' },
+        more: { text: '查看更多', color: '#333333' },
+        noMore: { text: '没有更多', color: '#999999' },
+      },
+    }
+  },
+  methods: {
+    refresh() {
+      this.loadMoreSetting.status = 'loading'
+      // 刷新完成后改为 'more'（还有数据）或 'noMore'（没有更多）
+      return Promise.resolve()
+    },
+    loadmore() {
+      this.loadMoreSetting.status = 'loading'
+      // 加载完成后改为 'more'（还有数据）或 'noMore'（没有更多）
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| status | 当前状态：`more` / `loading` / `noMore` | _String_ | `'more'` |
+| loading | 加载中状态的文字与颜色 | _Object_ | `{ text: '加载中', color: '#999999' }` |
+| more | 可上拉状态的文字与颜色 | _Object_ | `{ text: '查看更多', color: '#333333' }` |
+| noMore | 没有更多状态的文字与颜色 | _Object_ | `{ text: '没有更多', color: '#999999' }` |
+| color | 兼容字段 | _String_ | `'#999999'` |
+| shake | 兼容字段 | _Boolean_ | `false` |
+
+### 与原生版的差异
+
+- 原生还有一个 `noMoreTextStyle` 属性，**uni-app 版已移除**，直接用 `noMore.text` / `noMore.color` 即可；
+- 其余属性完全一致。
+
+### 相关
+
+- [Scroller 滚动容器](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller) · [Empty 空列表组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/empty)
+
+---
+
+## Refresh 下拉刷新组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/refresh ｜ 来源：`doc/uniapp/components/refresh.md`
+
+`<coolui-scroller-refresh>` 提供下拉刷新动画，放在 `coolui-scroller` 的 `refresh` 插槽里。`type` 支持 `default`（小程序原生三个圆点）、`base`、`logoText`、`diy` 四种效果。
+
+> 对应原生微信小程序版：[Refresh 下拉刷新组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+import type { CooluiRefreshConfig } from 'coolui-scroller-uni/types'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+
+// 下拉行程(background.height) 大于 refresh 自身高度(height) 时，
+// 松手先回落到 height 显示加载动画、刷新完成再整体回弹，也就是「两段回弹」的弹性感
+const refreshSetting = ref<CooluiRefreshConfig>({
+  style: 'black',       // 圆点深色 / 浅色
+  height: 50,           // refresh 自身高度
+  background: {
+    color: '#f2f2f2',
+    height: 120,        // 下拉行程
+  },
+})
+
+function refresh() {
+  // 刷新完成后 resolve()
+  return Promise.resolve()
+}
+
+function loadmore() {
+  // 加载完成后 resolve()
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #refresh>
+      <coolui-scroller-refresh type="default" :config="refreshSetting" />
+    </template>
+
+    <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+      // 下拉行程(background.height) 大于 refresh 自身高度(height) 时，
+      // 松手先回落到 height 显示加载动画、刷新完成再整体回弹，也就是「两段回弹」的弹性感
+      refreshSetting: {
+        style: 'black',       // 圆点深色 / 浅色
+        height: 50,           // refresh 自身高度
+        background: {
+          color: '#f2f2f2',
+          height: 120,        // 下拉行程
+        },
+      },
+    }
+  },
+  methods: {
+    refresh() {
+      // 刷新完成后 resolve()
+      return Promise.resolve()
+    },
+    loadmore() {
+      // 加载完成后 resolve()
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| type | 下拉效果：`default`（小程序原生）/ `base` / `logoText` / `diy` | _String_ | `'default'` |
+| threshold | 下拉进度 0~1，支持 `v-model:threshold` | _Number_ | `0` |
+| isloading | 是否加载中 | _Boolean_ | `false` |
+| refreshstate | 刷新状态：`pulldown` / `loosen` / `loading`，支持 `v-model:refreshstate` | _String_ | `'pulldown'` |
+| config | 下拉配置（与默认配置深合并） | _Object_ | `{}` |
+
+#### config 常用项
+
+| 字段 | 说明 | 默认值 |
+| --- | --- | --- |
+| height | refresh 自身高度（松手后回落到这里显示加载动画） | `50` |
+| background.height | 下拉行程，设得比 `height` 大才有两段回弹的弹性感 | — |
+| background.color / img | 下拉背景颜色 / 图片 | — |
+| style | 圆点深色 `black` 或浅色 | `'black'` |
+| shake | 下拉时是否抖动 | `false` |
+| isAutoTriggered | 松手后是否自动回弹（`false` 时需手动调用 `scroller.settriggered(false)` 配合） | `true` |
+| text.color / shadow | `base` / `logoText` 类型的文字颜色与阴影 | `{ color: '#000', shadow: 0 }` |
+
+### 事件
+
+| 事件 | 说明 | 参数 |
+| --- | --- | --- |
+| update:threshold / thresholdChange | 下拉进度变化 | `threshold: number` |
+| update:refreshstate / refreshstateChange | 刷新状态变化 | `state: 'pulldown' \| 'loosen' \| 'loading'` |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| parallax | 视差区域，配合 [`coolui-scroller-parallax`](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/parallax) 使用（`type="diy"`） |
+| 默认 | `diy` 类型的自定义内容 |
+
+### 与原生版的差异
+
+- props 完全一致；动画实现上原生用 `wx.createAnimation`，uni-app 版用 CSS transition；
+- 原生 `externalClasses: ['refresh-class']` 换成 `virtualHost + apply-shared`，页面里用 `:deep()` 覆盖样式；
+- 新增 `update:threshold` / `update:refreshstate`（可写 `v-model:threshold`），原生的 `thresholdChange` / `refreshstateChange` 依然保留。
+
+### 相关
+
+- [快速开始](https://wzs28150.github.io/coolui-scroller/v4/uniapp/quickstart) · [常见问题：下拉没有弹性](https://wzs28150.github.io/coolui-scroller/v4/advanced/faq#下拉刷新没有弹性回弹感)
+
+---
+
+## Parallax 下拉视差组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/parallax ｜ 来源：`doc/uniapp/components/parallax.md`
+
+`<coolui-scroller-parallax>` 让元素随下拉产生位移，**必须放在 `coolui-scroller-refresh` 的 `parallax` 插槽里**（配合 `type="diy"`），它自己会从 refresh 拿到下拉进度。
+
+> 对应原生微信小程序版：[Parallax 下拉视差组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/parallax)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #refresh>
+      <coolui-scroller-refresh type="diy" :config="parallaxSetting">
+        <template #parallax>
+          <coolui-scroller-parallax class="parallax-item parallax-item1" direction="to top" :parallax="35">
+            从下往上
+          </coolui-scroller-parallax>
+          <coolui-scroller-parallax class="parallax-item parallax-item2" direction="to bottom" :parallax="35">
+            从上往下
+          </coolui-scroller-parallax>
+        </template>
+      </coolui-scroller-refresh>
+    </template>
+
+    <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+const parallaxSetting = ref({
+  height: 100,
+  background: { color: '#f2f2f2', height: 150 },
+})
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #refresh>
+      <coolui-scroller-refresh type="diy" :config="parallaxSetting">
+        <template #parallax>
+          <coolui-scroller-parallax class="parallax-item parallax-item1" direction="to top" :parallax="35">
+            从下往上
+          </coolui-scroller-parallax>
+          <coolui-scroller-parallax class="parallax-item parallax-item2" direction="to bottom" :parallax="35">
+            从上往下
+          </coolui-scroller-parallax>
+        </template>
+      </coolui-scroller-refresh>
+    </template>
+
+    <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+      parallaxSetting: {
+        height: 100,
+        background: { color: '#f2f2f2', height: 150 },
+      },
+    }
+  },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| parallax | 视差系数，值越大位移越明显 | _Number_ | `0` |
+| direction | 位移方向：`to top` / `to bottom` / `to left` / `to right` | _String_ | `'to bottom'` |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| 默认 | 需要产生视差的内容 |
+
+### 与原生版的差异
+
+- props 完全一致；
+- 原生通过 `relations` 从 refresh 组件读取 `threshold` 与 `config`，uni-app 版改为 `inject('cooluiRefresh')`，因此**必须放在 refresh 的 `parallax` 插槽内**，层级不要打乱；
+- 原生 `externalClasses: ['parallax-class']` 已移除，页面里用 `:deep()` 覆盖样式。
+
+### 相关
+
+- [Refresh 下拉刷新组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/refresh) · [示例：有趣的下拉](https://wzs28150.github.io/coolui-scroller/v4/case/case)
+
+---
+
+## Nav 分类导航组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/nav ｜ 来源：`doc/uniapp/components/nav.md`
+
+`<coolui-scroller-nav>` 是分类导航（横向滚动 + 选中态），常放在 `coolui-scroller` 的 `header` 插槽里，与 [`nav-pannel`](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navPannel) 联动切换内容。
+
+> 对应原生微信小程序版：[Nav 分类导航组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/nav)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #header>
+      <coolui-scroller-nav
+        :list="navList"
+        :type="type"
+        :navPerView="navPerView"
+        :spaceBetween="spaceBetween"
+        :border="border"
+        :text="textStyle"
+        :background="backgroundStyle"
+        v-model:active="active"
+        @change="onChange"
+      />
+    </template>
+
+    <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+
+const navList = ref([
+  { id: 1, title: '分类一' },
+  { id: 2, title: '分类二' },
+])
+const type = ref('line')          // line | round | plain
+const navPerView = ref(4.5)       // 也可传 'auto'
+const spaceBetween = ref(0)
+const border = ref(true)
+const active = ref(0)
+const textStyle = ref({ color: '#333333', activeColor: '#d13435' })
+const backgroundStyle = ref({ color: '#333333', activeColor: '#d13435' })
+
+function onChange({ id, index }: { id: number; index: number }) {
+  // 切换分类后同步内容
+}
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <template #header>
+      <coolui-scroller-nav
+        :list="navList"
+        :type="type"
+        :navPerView="navPerView"
+        :spaceBetween="spaceBetween"
+        :border="border"
+        :text="textStyle"
+        :background="backgroundStyle"
+        v-model:active="active"
+        @change="onChange"
+      />
+    </template>
+
+    <view class="item" v-for="(item, index) in list" :key="index">{{ item.title }}</view>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+      navList: [
+        { id: 1, title: '分类一' },
+        { id: 2, title: '分类二' },
+      ],
+      type: 'line',          // line | round | plain
+      navPerView: 4.5,       // 也可传 'auto'
+      spaceBetween: 0,
+      border: true,
+      active: 0,
+      textStyle: { color: '#333333', activeColor: '#d13435' },
+      backgroundStyle: { color: '#333333', activeColor: '#d13435' },
+    }
+  },
+  methods: {
+    onChange({ id, index }) {
+      // 切换分类后同步内容
+    },
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| list | 导航数据，每项 `{ id, title }` | _Array_ | `[]` |
+| border | 是否显示下边框 | _Boolean_ | `true` |
+| text | 文字颜色配置 `{ color, activeColor }` | _Object_ | `{ color: '#333333', activeColor: '#d13435' }` |
+| background | 背景配置 `{ color, activeColor }` | _Object_ | `{ color: '#333333', activeColor: '#d13435' }` |
+| navPerView | 一屏显示几个（可传 `'auto'` 由内容撑开） | _Number_ / _String_ | `4.5` |
+| spaceBetween | 相邻项间距 | _Number_ | `0` |
+| type | 展示类型：`line` / `round` / `plain` | _String_ | `'line'` |
+| active | 当前选中索引，支持 `v-model:active` | _Number_ | `0` |
+
+### 事件
+
+| 事件 | 说明 | 参数 |
+| --- | --- | --- |
+| change | 选中项变化 | `{ id, index }` |
+| update:active | 选中索引变化（配 `v-model:active`） | `index: number` |
+
+### 与原生版的差异
+
+- 属性一致；
+- `change` 事件原生只返回 `{ id }`，uni-app 版返回 `{ id, index }`；
+- 新增 `update:active`，可直接 `v-model:active` 受控。
+
+### 相关
+
+- [NavPannel 切换组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navPannel) · [示例：下拉组合](https://wzs28150.github.io/coolui-scroller/v4/case/case2)
+
+---
+
+## NavBar 顶部导航栏
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navBar ｜ 来源：`doc/uniapp/components/navBar.md`
+
+`<coolui-scroller-nav-bar>` 是自定义顶部导航栏，配合[下拉二楼](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/floor)使用（放在 `second-floor` 的 `nav-bar` 插槽里），也可单独用于自定义导航栏页面。
+
+> 原生侧同样有 `coolui-scroller/nav-bar/index` 组件，但暂时没有独立文档页。
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller-second-floor ref="mySecondFloor" :threshold="val" @refresh="onRefresh">
+    <template #nav-bar>
+      <coolui-scroller-nav-bar :config="navBarConfig">下拉二楼</coolui-scroller-nav-bar>
+    </template>
+
+    <view class="demopage">页面内容</view>
+  </coolui-scroller-second-floor>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const val = ref(0) // 下拉进度 0~1
+const navBarConfig = ref({
+  back: { show: true },                  // 是否显示返回按钮
+  background: { color: '#ffffff' },      // 背景色
+  text: { color: '#000000', shadow: 0 }, // 文字颜色与阴影
+})
+
+function onRefresh() {
+  // 二楼下拉刷新
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller-second-floor ref="mySecondFloor" :threshold="val" @refresh="onRefresh">
+    <template #nav-bar>
+      <coolui-scroller-nav-bar :config="navBarConfig">下拉二楼</coolui-scroller-nav-bar>
+    </template>
+
+    <view class="demopage">页面内容</view>
+  </coolui-scroller-second-floor>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      val: 0, // 下拉进度 0~1
+      navBarConfig: {
+        back: { show: true },                  // 是否显示返回按钮
+        background: { color: '#ffffff' },      // 背景色
+        text: { color: '#000000', shadow: 0 }, // 文字颜色与阴影
+      },
+    }
+  },
+  methods: {
+    onRefresh() {
+      // 二楼下拉刷新
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| type | 导航栏类型 | _String_ | `'default'` |
+| config | 导航栏配置（`back` / `background` / `text`） | _Object_ | `{}`（内部默认见下） |
+
+`config` 默认值：`{ back: { show: true }, background: { color: '#fff' }, text: { color: '#000', shadow: 0 } }`
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| 默认 | 导航栏标题内容 |
+
+### 与原生版的差异
+
+- 属性一致；
+- 原生 `externalClasses: ['nav-bar-class']` 已移除，页面里用 `:deep()` 覆盖样式。
+
+### 相关
+
+- [SecondFloor 下拉二楼组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/floor)
+
+---
+
+## NavPannel 切换组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navPannel ｜ 来源：`doc/uniapp/components/navPannel.md`
+
+`<coolui-scroller-nav-pannel>` 是内容切换容器：默认插槽里放多个 `coolui-scroller`，通过 `active` 切换显示哪一个，常与[分类导航](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/nav)配合。
+
+> 对应原生微信小程序版：[NavPannel 切换组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/navPannel)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller-nav-pannel :active="active" :animation="animation">
+    <coolui-scroller class="scroller0" background="#f2f2f2" @contentHeight="getHeight">
+      <template #refresh>
+        <coolui-scroller-refresh type="logoText" :config="logoConfig" />
+      </template>
+      <view class="pannel">第一屏内容</view>
+    </coolui-scroller>
+
+    <coolui-scroller class="scroller1" background="#f2f2f2" @contentHeight="getHeight">
+      <view class="pannel">第二屏内容</view>
+    </coolui-scroller>
+  </coolui-scroller-nav-pannel>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const active = ref(0)        // 当前显示第几屏，由 nav 的 change 事件同步
+const animation = ref(true)  // 是否开启切换动画
+const logoConfig = ref({
+  height: 50,
+  text: { content: 'coolui-scroller', size: 40 },
+})
+
+function getHeight(height: number) {
+  // 各屏内容高度，用于撑开容器
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller-nav-pannel :active="active" :animation="animation">
+    <coolui-scroller class="scroller0" background="#f2f2f2" @contentHeight="getHeight">
+      <template #refresh>
+        <coolui-scroller-refresh type="logoText" :config="logoConfig" />
+      </template>
+      <view class="pannel">第一屏内容</view>
+    </coolui-scroller>
+
+    <coolui-scroller class="scroller1" background="#f2f2f2" @contentHeight="getHeight">
+      <view class="pannel">第二屏内容</view>
+    </coolui-scroller>
+  </coolui-scroller-nav-pannel>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      active: 0,        // 当前显示第几屏，由 nav 的 change 事件同步
+      animation: true,  // 是否开启切换动画
+      logoConfig: {
+        height: 50,
+        text: { content: 'coolui-scroller', size: 40 },
+      },
+    }
+  },
+  methods: {
+    getHeight(height) {
+      // 各屏内容高度，用于撑开容器
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| active | 当前显示第几屏 | _Number_ | `0` |
+| animation | 切换是否带过渡动画 | _Boolean_ | `false` |
+| type | 切换方式：`side`（左右滑动）/ `fade`（淡入淡出） | _String_ | `'side'` |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| 默认 | 多个 `coolui-scroller`，顺序与 `active` 对应 |
+
+### 与原生版的差异
+
+- 属性一致；
+- 实现方式不同：原生通过 `relations` 统计子 `scroller` 的数量与宽高来定位，uni-app 版改为纯 CSS（`transform: translateX(-100% * active)`），因此**子 scroller 必须是直接子节点**，中间不要再包一层。
+
+### 相关
+
+- [Nav 分类导航组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/nav) · [Scroller 滚动容器](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller)
+
+---
+
+## Search 搜索组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/search ｜ 来源：`doc/uniapp/components/search.md`
+
+`<coolui-scroller-search>` 是搜索框，支持输入、清空、右侧按钮与自定义左侧插槽，常放在 `coolui-scroller` 的 `header` 插槽里。
+
+> 对应原生微信小程序版：[Search 搜索组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/search)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller-search
+    v-model:keyword="keyword"
+    placeholder="请输入要搜索的内容"
+    :button="{ show: true, text: '搜索' }"
+    round
+    clearable
+    @confirm="onConfirm"
+    @btnClick="onBtnClick"
+  />
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const keyword = ref('')
+
+function onConfirm({ key }: { key: string }) {
+  // 回车/确认搜索
+}
+
+function onBtnClick({ key }: { key: string }) {
+  // 点击右侧按钮
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller-search
+    v-model:keyword="keyword"
+    placeholder="请输入要搜索的内容"
+    :button="{ show: true, text: '搜索' }"
+    round
+    clearable
+    @confirm="onConfirm"
+    @btnClick="onBtnClick"
+  />
+</template>
+
+<script>
+export default {
+  data() {
+    return { keyword: '' }
+  },
+  methods: {
+    onConfirm({ key }) {
+      // 回车/确认搜索
+    },
+    onBtnClick({ key }) {
+      // 点击右侧按钮
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| placeholder | 占位文字 | _String_ | `'请输入要搜索的内容'` |
+| button | 右侧按钮配置 `{ show, text }` | _Object_ | `{ show: false, text: '搜索' }` |
+| round | 是否圆角 | _Boolean_ | `false` |
+| clearable | 是否显示清空按钮 | _Boolean_ | `false` |
+| keyword | 搜索内容，支持 `v-model:keyword` | _String_ | `''` |
+
+### 事件
+
+| 事件 | 说明 | 参数 |
+| --- | --- | --- |
+| update:keyword | 输入内容变化（配 `v-model:keyword`） | `keyword: string` |
+| input | 输入中 | `keyword: string` |
+| focus / blur | 聚焦 / 失焦 | — |
+| btnClick | 点击右侧按钮 | `{ key }` |
+| confirm | 键盘确认 | `{ key }` |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| leftout | 搜索框左侧自定义内容 |
+
+### 与原生版的差异
+
+- **属性改名**：原生是 `key`，而 `key` 在 Vue 中是保留字，uni-app 版改为 **`keyword`**，配合 `@update:keyword`（可写 `v-model:keyword`）；
+- 原生 `externalClasses`（`search-btn-class` / `search-inner-class` / `search-placeholder-class`）已移除，改用 CSS 变量定制主题：
+
+| CSS 变量 | 作用 |
+| --- | --- |
+| `--color` | 文字颜色 |
+| `--placeholder-color` | 占位文字颜色 |
+| `--input-bg-color` | 输入框背景色 |
+
+- 新增 `update:keyword` / `input` / `focus` / `blur` 事件；`btnClick`、`confirm` 参数与原生一致（`{ key }`）。
+
+### 相关
+
+- [Nav 分类导航组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/nav) · [Sort 排序及分类筛选组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/sort)
+
+---
+
+## Sort 排序及分类筛选组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/sort ｜ 来源：`doc/uniapp/components/sort.md`
+
+`<coolui-scroller-sort>` 是排序 / 筛选的容器，具体筛选项由 `<coolui-scroller-sort-item>` 提供，支持排序、多选分类、自定义面板三种类型。
+
+> 对应原生微信小程序版：[Sort 排序及分类筛选组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/sort)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller-sort>
+    <coolui-scroller-sort-item
+      title="排序"
+      name="sort"
+      type="sort"
+      v-model:value="value1"
+      :options="options"
+      active-color="#d13435"
+    />
+
+    <coolui-scroller-sort-item
+      title="品牌"
+      name="sort3"
+      type="classify"
+      v-model:value="value3"
+      :options="options3"
+      active-color="#d13435"
+      multiple
+      action-bar
+    />
+
+    <coolui-scroller-sort-item
+      title="设置"
+      name="sort4"
+      type="diy"
+      v-model:value="value2"
+      active-color="#d13435"
+    >
+      <view class="diy">自定义区域</view>
+    </coolui-scroller-sort-item>
+  </coolui-scroller-sort>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const value1 = ref('')
+const value3 = ref('')
+const value2 = ref('')
+
+// options 每项 { id, title }
+const options = ref([
+  { id: 1, title: '综合' },
+  { id: 2, title: '销量' },
+])
+const options3 = ref([
+  { id: 1, title: '品牌一' },
+  { id: 2, title: '品牌二' },
+])
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller-sort>
+    <coolui-scroller-sort-item
+      title="排序"
+      name="sort"
+      type="sort"
+      v-model:value="value1"
+      :options="options"
+      active-color="#d13435"
+    />
+
+    <coolui-scroller-sort-item
+      title="品牌"
+      name="sort3"
+      type="classify"
+      v-model:value="value3"
+      :options="options3"
+      active-color="#d13435"
+      multiple
+      action-bar
+    />
+
+    <coolui-scroller-sort-item
+      title="设置"
+      name="sort4"
+      type="diy"
+      v-model:value="value2"
+      active-color="#d13435"
+    >
+      <view class="diy">自定义区域</view>
+    </coolui-scroller-sort-item>
+  </coolui-scroller-sort>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      value1: '',
+      value3: '',
+      value2: '',
+      // options 每项 { id, title }
+      options: [
+        { id: 1, title: '综合' },
+        { id: 2, title: '销量' },
+      ],
+      options3: [
+        { id: 1, title: '品牌一' },
+        { id: 2, title: '品牌二' },
+      ],
+    }
+  },
+}
+</script>
+```
+
+### Sort 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| overlay | 是否显示遮罩 | _Boolean_ | `true` |
+| overlayDuration | 遮罩动画时长（ms） | _Number_ | `500` |
+| scroll | 面板内容是否可滚动 | _Boolean_ | `false` |
+
+### SortItem 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| title | 标题文字 | _String_ | `''` |
+| name | 标识，`change` 事件里回传 | _String_ | `''` |
+| type | 类型：`sort` / `classify` / `diy` | _String_ | `''` |
+| value | 选中值，支持 `v-model:value`（多选时为数组） | _String_ / _Number_ / _Array_ | `''` |
+| options | 选项列表，每项 `{ id, title }` | _Array_ | `[]` |
+| color | 未选中文字颜色 | _String_ | `'#333'` |
+| activeColor | 选中文字颜色 | _String_ | `'#d13435'` |
+| multiple | 是否多选 | _Boolean_ | `false` |
+| actionBar | 是否显示底部操作条（重置 / 确定） | _Boolean_ | `false` |
+
+### 事件（SortItem）
+
+| 事件 | 说明 | 参数 |
+| --- | --- | --- |
+| update:value | 选中值变化（配 `v-model:value`） | `value` |
+| change | 选项变化 | `{ name, value }` |
+
+### 插槽（SortItem）
+
+| 插槽 | 说明 |
+| --- | --- |
+| 默认 | `type="diy"` 时的自定义面板内容 |
+
+### 与原生版的差异
+
+- `sort` 三个属性与原生一致；
+- `sort-item` 的 `value` 原生只支持 String，uni-app 版放宽为 **String / Number（多选 Array）**；
+- 新增 `update:value` 与 `change` 事件（原生没有），可以直接 `v-model:value` 受控；
+- 动画实现上原生用 `wx.createAnimation`，uni-app 版用 CSS transition。
+
+### 相关
+
+- [Nav 分类导航组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/nav) · [示例：下拉组合](https://wzs28150.github.io/coolui-scroller/v4/case/case2)
+
+---
+
+## SecondFloor 下拉二楼组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/floor ｜ 来源：`doc/uniapp/components/floor.md`
+
+`<coolui-scroller-second-floor>` 实现「下拉二楼」：下拉到阈值后进入第二个页面（二楼），支持居中、上下方向、缩放等效果。二楼内容的刷新动画用 `<coolui-scroller-second-floor-refresh>`，顶部导航栏用 [`coolui-scroller-nav-bar`](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navBar)。
+
+> 对应原生微信小程序版：[SecondFloor 下拉二楼组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/floor)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller-second-floor
+    ref="mySecondFloor"
+    :threshold="threshold"
+    :offset="offset ? 100 : 0"
+    :center="type === 'center'"
+    :bottom="type === 'bottom'"
+    :top="type === 'top'"
+    :scale="scale"
+    :tip="tip"
+    @refresh="onRefresh"
+    @secondShow="onSecondShow"
+    @secondBack="onSecondBack"
+  >
+    <!-- 二楼内容 -->
+    <template #second-floor>
+      <view class="second-floor">二楼</view>
+    </template>
+
+    <!-- 二楼下拉刷新 -->
+    <template #second-floor-refresh>
+      <coolui-scroller-second-floor-refresh :refreshConfig="refreshConfig" />
+    </template>
+
+    <!-- 二楼顶部导航栏 -->
+    <template #nav-bar>
+      <coolui-scroller-nav-bar :config="navBarConfig">下拉二楼</coolui-scroller-nav-bar>
+    </template>
+
+    <!-- 一楼内容（默认插槽） -->
+    <view class="demopage">一楼内容</view>
+  </coolui-scroller-second-floor>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const threshold = ref(0)     // 下拉进度 0~1
+const offset = ref(false)    // 是否开启触发偏移
+const type = ref('center')   // center | bottom | top
+const scale = ref(false)     // 是否开启缩放
+const tip = ref({ show: false, height: 100, times: 1, duration: 2000 })
+
+const refreshConfig = ref({
+  downText: '下拉刷新',
+  loadingText: '加载中...',
+  backText: '松开返回',
+  color: '#ffffff',
+})
+const navBarConfig = ref({
+  back: { show: true },
+  background: { color: '#ffffff' },
+  text: { color: '#000000', shadow: 0 },
+})
+
+function onRefresh() {
+  // 二楼下拉刷新
+}
+
+function onSecondShow() {
+  // 进入二楼
+}
+
+function onSecondBack() {
+  // 返回一楼
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller-second-floor
+    ref="mySecondFloor"
+    :threshold="threshold"
+    :offset="offset ? 100 : 0"
+    :center="type === 'center'"
+    :bottom="type === 'bottom'"
+    :top="type === 'top'"
+    :scale="scale"
+    :tip="tip"
+    @refresh="onRefresh"
+    @secondShow="onSecondShow"
+    @secondBack="onSecondBack"
+  >
+    <!-- 二楼内容 -->
+    <template #second-floor>
+      <view class="second-floor">二楼</view>
+    </template>
+
+    <!-- 二楼下拉刷新 -->
+    <template #second-floor-refresh>
+      <coolui-scroller-second-floor-refresh :refreshConfig="refreshConfig" />
+    </template>
+
+    <!-- 二楼顶部导航栏 -->
+    <template #nav-bar>
+      <coolui-scroller-nav-bar :config="navBarConfig">下拉二楼</coolui-scroller-nav-bar>
+    </template>
+
+    <!-- 一楼内容（默认插槽） -->
+    <view class="demopage">一楼内容</view>
+  </coolui-scroller-second-floor>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      threshold: 0,     // 下拉进度 0~1
+      offset: false,    // 是否开启触发偏移
+      type: 'center',   // center | bottom | top
+      scale: false,     // 是否开启缩放
+      tip: { show: false, height: 100, times: 1, duration: 2000 },
+      refreshConfig: {
+        downText: '下拉刷新',
+        loadingText: '加载中...',
+        backText: '松开返回',
+        color: '#ffffff',
+      },
+      navBarConfig: {
+        back: { show: true },
+        background: { color: '#ffffff' },
+        text: { color: '#000000', shadow: 0 },
+      },
+    }
+  },
+  methods: {
+    onRefresh() {
+      // 二楼下拉刷新
+    },
+    onSecondShow() {
+      // 进入二楼
+    },
+    onSecondBack() {
+      // 返回一楼
+    },
+  },
+}
+</script>
+```
+
+### SecondFloor 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| threshold | 下拉进度 0~1，支持 `v-model:threshold` | _Number_ | `0` |
+| offset | 触发偏移量 | _Number_ | `0` |
+| center | 二楼内容是否居中 | _Boolean_ | `false` |
+| bottom | 从底部下拉 | _Boolean_ | `true` |
+| top | 从顶部下拉 | _Boolean_ | `false` |
+| scale | 是否开启缩放效果 | _Boolean_ | `false` |
+| tip | 自动下拉提示 `{ show, height, times, duration }` | _Object_ | `{ show: false, height: 100, times: 1, duration: 2000 }` |
+
+### SecondFloor 事件
+
+| 事件 | 说明 | 参数 |
+| --- | --- | --- |
+| refresh | 二楼下拉刷新触发 | — |
+| secondShow | 进入二楼 | — |
+| secondBack | 返回一楼 | — |
+
+### 插槽
+
+| 插槽 | 说明 |
+| --- | --- |
+| second-floor | 二楼内容 |
+| second-floor-refresh | 二楼的下拉刷新动画 |
+| nav-bar | 二楼顶部导航栏 |
+| 默认 | 一楼内容 |
+
+### SecondFloor 实例方法
+
+通过 `ref` 获取组件实例后调用：
+
+| 方法 | 说明 |
+| --- | --- |
+| back(callback?) | 返回一楼 |
+| settriggered() | 手动回弹（配合刷新组件不自动回弹的场景） |
+| init(callback?) | 初始化 |
+
+### SecondFloorRefresh 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| refreshConfig | 文案与颜色配置 `{ downText, loadingText, backText, tipText, moreText, color }` | _Object_ | `{}` |
+| backBgColor | 返回按钮背景色（**uni-app 版新增**） | _String_ | `''` |
+
+### 与原生版的差异
+
+- `second-floor` 的属性与事件和原生一致，组件通信由原生 `relations` 改为 `provide/inject`；
+- `second-floor-refresh` 新增 `backBgColor`；原生 `externalClasses`（`second-floor-refresh-class` / `second-floor-refresh-back`）已移除，页面里用 `:deep()` 覆盖样式。
+
+### 相关
+
+- [NavBar 顶部导航栏](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navBar) · [示例：下拉二楼](https://wzs28150.github.io/coolui-scroller/v4/case/case3)
+
+---
+
+## BackToTop 回到顶部组件
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/backToTop ｜ 来源：`doc/uniapp/components/backToTop.md`
+
+`<coolui-scroller-back-to-top>` 是回到顶部按钮，放在 `coolui-scroller` 的 `backToTop` 插槽里；滚动超过阈值后显示，一段时间无操作自动隐藏。
+
+> 对应原生微信小程序版：[BackToTop 回到顶部组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/backToTop)
+
+### 代码演示
+
+**组合式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <template #backToTop>
+      <coolui-scroller-back-to-top :delay="3000" :threshold="100" />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isEmpty = ref(false)
+const list = ref<{ title: string }[]>([])
+
+function refresh() {
+  return Promise.resolve()
+}
+
+function loadmore() {
+  return Promise.resolve()
+}
+</script>
+```
+
+**选项式 API**
+
+```vue
+<template>
+  <coolui-scroller :isEmpty="isEmpty" @refresh="refresh" @loadmore="loadmore">
+    <coolui-scroller-item v-for="(item, index) in list" :key="index">
+      <view class="item">{{ item.title }}</view>
+    </coolui-scroller-item>
+
+    <template #backToTop>
+      <coolui-scroller-back-to-top :delay="3000" :threshold="100" />
+    </template>
+  </coolui-scroller>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      isEmpty: false,
+      list: [],
+    }
+  },
+  methods: {
+    refresh() {
+      return Promise.resolve()
+    },
+    loadmore() {
+      return Promise.resolve()
+    },
+  },
+}
+</script>
+```
+
+### 属性
+
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| delay | 显示后自动隐藏的延时（ms），`0` 表示不自动隐藏 | _Number_ | `3000` |
+| threshold | 滚动超过该距离后显示按钮 | _Number_ | `100` |
+
+### 实例方法
+
+通过 `ref` 获取组件实例后调用：
+
+| 方法 | 说明 |
+| --- | --- |
+| backToTop() | 手动回到顶部 |
+
+### 与原生版的差异
+
+- 属性一致；
+- 原生 `externalClasses: ['my-class']` 已移除，页面里用 `:deep()` 覆盖样式。
+
+### 相关
+
+- [Scroller 滚动容器](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller)
+
+---
+
+# 五、进阶：常见问题
+
+## 常见问题 FAQ
+
+> 在线文档：https://wzs28150.github.io/coolui-scroller/v4/advanced/faq ｜ 来源：`doc/advanced/faq.md`
+
+这里收集的是实际项目里最常遇到的几类问题。两个版本表现基本一致，涉及写法差异的地方会分别说明。
+
+### 下拉刷新没有弹性回弹感
+
+**现象**：下拉时很快到底、松手只回弹一次，手感发硬；而示例里「下拉刷新 - 原生效果」那种"松手先回落、刷新完再整体回弹"的两段回弹没有出现。
+
+**原因**：组件下拉时的位移是 `moveY = -moveHeight + distance * 0.5`，`moveHeight` 取自 `background.height || height`。没有设置 `background.height` 时它等于 `height`（比如 50），手指拉约 100px 就饱和，只剩单段回弹。
+
+**解决**：让下拉行程大于刷新自身高度：
+
+```js
+{
+  height: 50,                                  // 刷新自身高度：松手后回落到这里显示加载动画
+  background: { color: '#f2f2f2', height: 120 } // 下拉行程：整体回弹的距离
+}
+```
+
+两个版本都适用（uni-app 版写在 `<coolui-scroller-refresh :config="...">` 或对应组件配置里）。
+
+### H5 上出现页面级滚动条（小程序正常）
+
+**原因**：H5 端 uni-app 会额外渲染内置导航栏（高度 = `--window-top`），而页面写的 `height: 100vh` 是整个视口高度，没扣掉这一截；同时 `pages.json` 的 `disableScroll` 只在小程序端生效。所以小程序正常、H5 多出一条滚动条。
+
+**解决**：全屏页按可视区高度兜底，并用条件编译只影响 H5：
+
+```scss
+/* #ifdef H5 */
+.page {
+  height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
+```
+
+内容高于一屏的页面（`min-height: 100vh`）只改 `min-height` 即可，仍保留正常滚动。详见[跨端差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff#h5-内置导航栏会额外占高)。
+
+### 列表项之间没有间距、内容贴着卡片边缘
+
+**原因**：一是页面里把卡片容器的内边距重置成了 0（`.pannel .pannel-inner { padding: 0 }`）；二是列表项的间距写成了 `.coolui-scroller .item` 这类**跨组件选择器**，在页面 scoped 样式里穿不进组件，小程序端尤其明显。
+
+**解决**：
+
+- 卡片留白交给容器样式（不要重复声明或重置全局卡片样式）；
+- 列表项间距写在**页面可命中的选择器**上，或给插槽内容自带 class 后再写样式。
+
+### 长列表高度不对 / 滚动位置跳动
+
+长列表靠"页"来占位，页高需要算准：
+
+- 原生微信小程序版 `scroll-page`：需要引入组件提供的方法计算每个 page 页面的高度（见 [ScrollPage 文档](https://wzs28150.github.io/coolui-scroller/v4/native/components/page)）。
+- uni-app 版优先用 `coolui-scroller-longlist`：窗口化方案，窗口外折叠为上下占位块，不依赖总页数。
+
+页高与实际内容高度差别越大，滚动条长度和滚动位置就越不准，尽量让每页内容高度一致。
+
+### easycom 配置后组件不生效（uni-app）
+
+按顺序排查：
+
+1. `pages.json` 改完是否重新编译；
+2. `autoscan: false` 时规则必须自己写全，标签名要能匹配你写的正则；
+3. 组件目录名与规则里的路径是否一致（拷贝源码接入时尤其容易漏，路径要指向你实际放置的目录）。
+
+见[安装与引入](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install#方式一easycom推荐)。
+
+### 事件 / 属性名对不上（uni-app）
+
+原生微信小程序版的 `bind:refresh` 在 uni-app 版是 `@refresh`；`sort-item` 的选中值通过 `@update:value` 同步；search 组件的 `key` 因是 Vue 保留字改名为 `keyword`（`@update:keyword`）。完整对照见[与原生微信小程序版的差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff)。
+
+### 该选原生微信小程序版还是 uni-app 版？
+
+| 你的项目 | 选它 |
+| --- | --- |
+| 微信小程序原生项目（不走 uni-app 编译） | [原生微信小程序版](https://wzs28150.github.io/coolui-scroller/v4/native/install)，包名 `coolui-scroller` |
+| uni-app 项目，需要同时编译到小程序 / H5 / App | [uni-app 版](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install)，包名 `coolui-scroller-uni` |
+
+两个版本组件能力与配置项一致，用顶部平台切换器即可在对应文档间跳转。
+
+---

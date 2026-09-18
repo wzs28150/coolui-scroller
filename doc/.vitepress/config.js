@@ -52,6 +52,8 @@ export default defineConfig({
     'coolui-scroller：小程序下拉刷新 / 上拉加载 / 长列表组件库，提供原生微信小程序版（coolui-scroller）与 uni-app 版（coolui-scroller-uni）',
   base: '/coolui-scroller/v4/',
   outDir: '../v4/',
+  // doc/AGENTS.md 是给 AI 编码助手的说明（同时是各 npm 包内 AGENTS.md 的来源），不作为文档页发布
+  srcExclude: ['**/AGENTS.md'],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -61,7 +63,15 @@ export default defineConfig({
       { text: '开始', link: '/start' },
       // 平台入口放在导航栏右侧的切换器里（显示两个平台名、点击即切换），
       // 这里不再重复放「原生微信小程序 / uni-app」两个链接，避免又多一处平台入口。
-      { text: '进阶', link: '/advanced/faq', activeMatch: '/advanced/' },
+      {
+        text: '进阶',
+        activeMatch: '/advanced/',
+        items: [
+          { text: '常见问题 FAQ', link: '/advanced/faq' },
+          { text: '编辑器插件', link: '/advanced/plugin' },
+          { text: 'AI 助手支持', link: '/advanced/ai' },
+        ],
+      },
       {
         text: '示例',
         items: [
@@ -109,7 +119,16 @@ export default defineConfig({
         { text: '组件', items: uniappComponents },
         { text: '其他', items: footerGroup },
       ],
-      '/advanced/': [{ text: '进阶', items: [{ text: '常见问题 FAQ', link: '/advanced/faq' }] }],
+      '/advanced/': [
+        {
+          text: '进阶',
+          items: [
+            { text: '常见问题 FAQ', link: '/advanced/faq' },
+            { text: '编辑器插件', link: '/advanced/plugin' },
+            { text: 'AI 助手支持', link: '/advanced/ai' },
+          ],
+        },
+      ],
     },
 
     search: {

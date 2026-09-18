@@ -168,6 +168,43 @@ npm i coolui-scroller --production
 
 根据自己的业务场景选用组件，也可以在对应的插槽中自定义
 
+## AI 助手支持
+
+组件库为 AI 编码助手（Cursor / Claude Code / GitHub Copilot 等）准备了分层文档，**装到项目里也能读到**。
+
+### 1. 随 npm 包发布（`npm i` 之后直接可读）
+
+```text
+node_modules/coolui-scroller/AGENTS.md   # 组件心智模型、最小可用示例、高频坑
+node_modules/coolui-scroller/llms.txt    # 该包的文档索引与关键事实
+```
+
+### 2. 线上全量文档（内容最全，推荐）
+
+- 索引：<https://wzs28150.github.io/coolui-scroller/v4/llms.txt>
+- 单文件全文（全部组件 API + 示例）：<https://wzs28150.github.io/coolui-scroller/v4/llms-full.txt>
+
+### 3. 让 AI 自动找到它
+
+把下面这段放进你自己项目的 `AGENTS.md`（或 Cursor 的 Rules、`.cursor/rules/*.mdc`）：
+
+```md
+## coolui-scroller
+
+使用 coolui-scroller 组件前，先读 node_modules/coolui-scroller/AGENTS.md；
+需要完整组件 API 与示例时，读 https://wzs28150.github.io/coolui-scroller/v4/llms-full.txt
+```
+
+### 4. 本仓库内的源文件（开发组件库时可见）
+
+| 文件                                                     | 说明                                                                 |
+| -------------------------------------------------------- | -------------------------------------------------------------------- |
+| [`doc/AGENTS.md`](./doc/AGENTS.md)                       | AI 协作说明：心智模型、最小可用示例、高频坑、本仓库改动约定（手写）  |
+| [`doc/public/llms.txt`](./doc/public/llms.txt)           | 仓库级文档索引（[llms.txt 约定](https://llmstxt.org/)，生成物）      |
+| [`doc/public/llms-full.txt`](./doc/public/llms-full.txt) | 全部组件 API 与示例合并成的单文件全文（生成物）                      |
+
+> `doc/public/` 下的两份文件与各 npm 包内的 `AGENTS.md` / `llms.txt` 均由 `pnpm docs:llms` 生成，其中 `doc/AGENTS.md` 是包内 `AGENTS.md` 的唯一手写来源；`pnpm build` 时会自动执行。
+
 ## 赞助
 
 做一个组件库是一个繁琐且长期的事情，接下来我将花费业余时间进行多版本的完善。

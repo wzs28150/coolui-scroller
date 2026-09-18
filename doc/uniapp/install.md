@@ -9,7 +9,7 @@
 ## 安装
 
 ::: tip 当前发布状态
-uni-app 版已发布到 npm，推荐直接 `npm i coolui-scroller-uni`（当前 `1.0.1`）；需要改动组件源码时再用下面的「源码安装」。
+uni-app 版已发布到 npm，推荐直接 `npm i coolui-scroller-uni`（当前 `1.0.2`）；需要改动组件源码时再用下面的「源码安装」。
 :::
 
 ### 源码安装（需要改组件源码时）
@@ -93,6 +93,10 @@ import type {
 } from 'coolui-scroller-uni/types'
 ```
 
+:::: tip 写模板时有补全和中文提示
+安装[编辑器插件](/advanced/plugin)后，`.vue` 的 `<template>` 里组件标签、属性（`:prop`）、事件（`@event`）、具名插槽（`#slot`）都会自动补全，悬停可看中文说明。
+::::
+
 ## 组件清单
 
 见 [组件总览 / 命名对照](/uniapp/components/)，里面有原生微信小程序版与 uni-app 版的标签对照表。
@@ -113,3 +117,4 @@ pnpm --filter demo-uniapp dev:mp-weixin     # 开发模式（watch）
 
 - [快速开始](/uniapp/quickstart)：最小可运行的下拉刷新 + 上拉加载
 - [与原生微信小程序版的差异](/uniapp/platform-diff)：事件命名、通信方式，以及 H5 / 小程序 / App 各端的坑
+- [编辑器插件](/advanced/plugin)：Vue 模板里的组件补全、悬停文档

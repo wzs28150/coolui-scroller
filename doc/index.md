@@ -36,10 +36,12 @@ features:
 
 ### 常用入口
 
+- [编辑器插件](/advanced/plugin)：在 VS Code / Trae 里补全组件标签、属性、事件与插槽，悬停看中文文档
 - [示例 demo](/case/)：扫码预览与示例工程源码（原生 / uni-app 两个 demo）
 - [常见问题](/advanced/faq)：下拉没弹性、H5 页面滚动条、列表间距等高频问题
 - [更新日志](/version)：各版本变更记录
 - [社群](/community)：提问与交流
+- [AI 助手支持](/advanced/ai)：随包发布的 `AGENTS.md` / `llms.txt` 与线上单文件全文 `llms-full.txt`，让 AI 一次性读懂组件用法
 
 ::: tip 找不到想看的？
 试试右上角搜索（两个平台的文档都在同一站内），或到 [社群](/community) 提问。

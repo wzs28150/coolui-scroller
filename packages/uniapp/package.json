@@ -1,6 +1,6 @@
 {
   "name": "coolui-scroller-uni",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "coolui-scroller 的 uni-app 版本：上拉加载下拉刷新组件，支持微信/支付宝/百度/字节/QQ 小程序及 H5、App",
   "main": "index.js",
   "types": "types.d.ts",
@@ -8,7 +8,9 @@
     "components",
     "utils",
     "types.d.ts",
-    "index.js"
+    "index.js",
+    "llms.txt",
+    "AGENTS.md"
   ],
   "scripts": {
     "push": "npm publish",

@@ -1,0 +1,53 @@
+# coolui-scroller-uni
+
+> `coolui-scroller-uni@1.0.2`：coolui-scroller 的**uni-app 版**，一个小程序「下拉刷新 / 上拉加载 / 长列表」组件库。
+>
+> 全部组件 API 与示例的单文件全文（推荐一次读入）：[llms-full.txt](https://wzs28150.github.io/coolui-scroller/v4/llms-full.txt)
+> 官方文档站：https://wzs28150.github.io/coolui-scroller/v4/uniapp/install
+
+## 关键事实（先读这段）
+
+- 核心是滚动容器 `<scroller>`（uni-app 版为 `<coolui-scroller>`），其余能力通过**具名插槽**装配子组件：`header`（导航 / 搜索 / 筛选）、`refresh`（放下拉刷新组件才开启下拉）、默认插槽（列表内容）、`loadmore`、`empty`、`backToTop`。
+- 页面需在 `index.json` / `pages.json` 中设置 `"disableScroll": true`，避免页面级下拉与组件下拉冲突。
+- 事件：原生用 `bind:refresh` / `bind:loadmore` / `bind:contentHeight`，uni-app 版用 `@refresh` / `@loadmore` / `@contentHeight`。
+- 加载更多状态：`loadmore` 的 `status` 取 `more` / `loading` / `noMore`。
+- 长列表：原生用 `scroll-page`（长列表分页）；uni-app 版推荐 `coolui-scroller-longlist`（窗口化容器，渲染节点数与总页数无关）。
+- 组件通信依赖父子嵌套层级（原生 `relations`、uni-app `provide/inject`），不要拆散 `scroller`→`refresh`→`parallax`、`sort`→`sort-item`、`nav-pannel`→`scroller`、`second-floor`→`second-floor-refresh` 等关系。
+- uni-app 版保留字改名：search 的 `key` → `keyword`（`@update:keyword`），handtip 的 `key` → `storageKey`。
+
+## 快速开始（uni-app 版）
+
+- [uni-app 版：安装与引入](https://wzs28150.github.io/coolui-scroller/v4/uniapp/install): easycom / 全局注册 / 局部引入、TypeScript 支持
+- [uni-app 版：快速开始](https://wzs28150.github.io/coolui-scroller/v4/uniapp/quickstart): 最小可运行的下拉刷新 + 上拉加载示例
+- [uni-app 版：与原生版的差异](https://wzs28150.github.io/coolui-scroller/v4/uniapp/platform-diff): 事件命名、保留字属性、小程序 / H5 / App 各端差异
+
+## 组件
+
+- [uni-app 组件总览与命名对照](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/): 与原生标签的对照表与公共约定
+- [Scroller 滚动容器](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/scroller): 标签 `coolui-scroller`
+- [Item 列表项组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/item): 标签 `coolui-scroller-item`
+- [Longlist 长列表窗口化容器（推荐）](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/longlist): 标签 `coolui-scroller-longlist`；节点数与总页数无关
+- [Page 长列表分页（旧方案）](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/page): 标签 `coolui-scroller-page`
+- [Empty 空列表组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/empty): 标签 `coolui-scroller-empty`
+- [Handtip 手势提示组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/handtip): 标签 `coolui-scroller-handtip`
+- [Loadmore 加载更多组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/loadmore): 标签 `coolui-scroller-loadmore`
+- [Refresh 下拉刷新组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/refresh): 标签 `coolui-scroller-refresh`
+- [Parallax 下拉视差组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/parallax): 标签 `coolui-scroller-parallax`
+- [Nav 分类导航组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/nav): 标签 `coolui-scroller-nav`
+- [NavBar 顶部导航栏](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navBar): 标签 `coolui-scroller-nav-bar`
+- [NavPannel 切换组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/navPannel): 标签 `coolui-scroller-nav-pannel`
+- [Search 搜索组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/search): 标签 `coolui-scroller-search`；属性为 keyword（Vue 保留字改名）
+- [Sort 排序及分类筛选组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/sort): 标签 `coolui-scroller-sort / coolui-scroller-sort-item`
+- [SecondFloor 下拉二楼组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/floor): 标签 `coolui-scroller-second-floor`
+- [BackToTop 回到顶部组件](https://wzs28150.github.io/coolui-scroller/v4/uniapp/components/backToTop): 标签 `coolui-scroller-back-to-top`
+
+## 进阶
+
+- [常见问题 FAQ](https://wzs28150.github.io/coolui-scroller/v4/advanced/faq): 下拉没弹性、H5 页面滚动条、列表间距、长列表高度、easycom 不生效等
+
+## Optional
+
+- [llms-full.txt](https://wzs28150.github.io/coolui-scroller/v4/llms-full.txt): 全部文档的合并全文，AI 推荐一次读入
+- [AGENTS.md](./AGENTS.md): 组件心智模型、最小可用示例、高频坑
+- [GitHub 仓库](https://github.com/wzs28150/coolui-scroller)
+- [npm: coolui-scroller-uni](https://www.npmjs.com/package/coolui-scroller-uni)

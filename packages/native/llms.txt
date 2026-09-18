@@ -1,0 +1,49 @@
+# coolui-scroller
+
+> `coolui-scroller@4.0.1`：coolui-scroller 的**原生微信小程序版**，一个小程序「下拉刷新 / 上拉加载 / 长列表」组件库。
+>
+> 全部组件 API 与示例的单文件全文（推荐一次读入）：[llms-full.txt](https://wzs28150.github.io/coolui-scroller/v4/llms-full.txt)
+> 官方文档站：https://wzs28150.github.io/coolui-scroller/v4/native/install
+
+## 关键事实（先读这段）
+
+- 核心是滚动容器 `<scroller>`（uni-app 版为 `<coolui-scroller>`），其余能力通过**具名插槽**装配子组件：`header`（导航 / 搜索 / 筛选）、`refresh`（放下拉刷新组件才开启下拉）、默认插槽（列表内容）、`loadmore`、`empty`、`backToTop`。
+- 页面需在 `index.json` / `pages.json` 中设置 `"disableScroll": true`，避免页面级下拉与组件下拉冲突。
+- 事件：原生用 `bind:refresh` / `bind:loadmore` / `bind:contentHeight`，uni-app 版用 `@refresh` / `@loadmore` / `@contentHeight`。
+- 加载更多状态：`loadmore` 的 `status` 取 `more` / `loading` / `noMore`。
+- 长列表：原生用 `scroll-page`（长列表分页）；uni-app 版推荐 `coolui-scroller-longlist`（窗口化容器，渲染节点数与总页数无关）。
+- 组件通信依赖父子嵌套层级（原生 `relations`、uni-app `provide/inject`），不要拆散 `scroller`→`refresh`→`parallax`、`sort`→`sort-item`、`nav-pannel`→`scroller`、`second-floor`→`second-floor-refresh` 等关系。
+- uni-app 版保留字改名：search 的 `key` → `keyword`（`@update:keyword`），handtip 的 `key` → `storageKey`。
+
+## 快速开始（原生微信小程序版）
+
+- [安装与引入](https://wzs28150.github.io/coolui-scroller/v4/native/install): npm 安装、构建 npm、usingComponents 全量清单
+- [组件库介绍](https://wzs28150.github.io/coolui-scroller/v4/native/guide): 组件库定位与 v4 长列表窗口化方案
+
+## 组件
+
+- [Scroller 滚动组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/scroller): 标签 `scroller`；地基组件，必引；具名插槽 header / refresh / loadmore / empty / backToTop
+- [Item 列表项组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/item): 标签 `item`；自带点击水波纹的列表项
+- [ScrollPage 长列表分页组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/page): 标签 `scroll-page`；按页占位，适合长列表
+- [Empty 空列表组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/empty): 标签 `empty`；空数据占位图与文案
+- [Handtip 手势提示组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/handtip): 标签 `handtip`；首次进入的手势引导蒙层
+- [Loadmore 加载更多组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/loadmore): 标签 `loadmore`；status：more / loading / noMore
+- [Refresh 下拉刷新组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/refresh): 标签 `refresh`；type：default / base / logoText / diy
+- [Parallax 下拉视差组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/parallax): 标签 `parallax`；下拉时内容的视差位移
+- [Nav 分类导航组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/nav): 标签 `nav`；横向分类导航（下划线 / 圆角 / 朴素样式）
+- [NavPannel 切换组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/navPannel): 标签 `nav-pannel`；导航与内容联动切换
+- [Search 搜索组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/search): 标签 `search`；搜索框（属性为 key）
+- [Sort 排序及分类筛选组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/sort): 标签 `sort / sort-item`；下拉排序与分类筛选
+- [SecondFloor 下拉二楼组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/floor): 标签 `second-floor`；下拉进入二楼，可配 second-floor-refresh
+- [BackToTop 回到顶部组件](https://wzs28150.github.io/coolui-scroller/v4/native/components/backToTop): 标签 `backtotop`；滚动超过阈值显示，点击回到顶部
+
+## 进阶
+
+- [常见问题 FAQ](https://wzs28150.github.io/coolui-scroller/v4/advanced/faq): 下拉没弹性、H5 页面滚动条、列表间距、长列表高度、easycom 不生效等
+
+## Optional
+
+- [llms-full.txt](https://wzs28150.github.io/coolui-scroller/v4/llms-full.txt): 全部文档的合并全文，AI 推荐一次读入
+- [AGENTS.md](./AGENTS.md): 组件心智模型、最小可用示例、高频坑
+- [GitHub 仓库](https://github.com/wzs28150/coolui-scroller)
+- [npm: coolui-scroller](https://www.npmjs.com/package/coolui-scroller)
