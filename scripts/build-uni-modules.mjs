@@ -82,33 +82,55 @@ function readVersion() {
 }
 
 function buildPackageJson(version) {
-  return (
-    JSON.stringify(
-      {
-        id: PLUGIN_ID,
-        displayName: 'coolui-scroller 下拉刷新上拉加载',
-        version,
-        description:
-          '小程序下拉刷新、上拉加载、长列表组件库（uni-app 版）：滚动容器 + 下拉动画 + 加载更多 + 空态 + 导航搜索筛选 + 下拉二楼，一套代码编译到各端小程序 / H5 / App。',
-        keywords: ['下拉刷新', '上拉加载', '长列表', 'scroller', '组件库'],
-        repository: 'github:wzs28150/coolui-scroller',
-        engines: { HBuilderX: '^3.1.0' },
-        dcloudext: {
-          category: ['前端组件', '通用组件'],
-          type: 'component-vue',
-          declaration: {
-            ads: '本插件不含任何广告',
-            data: '不采集、不上传任何数据，不请求任何服务器',
-            permissions: '不申请任何系统权限',
-          },
-          npmurl: NPM_URL,
-          contact: { qq: '' },
-        },
+  const jsonPath = path.join(PLUGIN_DIR, 'package.json')
+  // 上一次生成后，插件市场 / HBuilderX 会往这里写入兼容性、售价等字段，读出来以便合并保留
+  const existing = fs.existsSync(jsonPath) ? JSON.parse(fs.readFileSync(jsonPath, 'utf8')) : null
+
+  /** 脚本自己负责的字段：每次同步都会按当前状态重写 */
+  const owned = {
+    id: PLUGIN_ID,
+    displayName: 'coolui-scroller 下拉刷新上拉加载',
+    version,
+    description:
+      '小程序下拉刷新、上拉加载、长列表组件库（uni-app 版）：滚动容器 + 下拉动画 + 加载更多 + 空态 + 导航搜索筛选 + 下拉二楼，一套代码编译到各端小程序 / H5 / App。',
+    keywords: ['下拉刷新', '上拉加载', '长列表', 'scroller', '组件库'],
+    repository: 'github:wzs28150/coolui-scroller',
+    engines: { HBuilderX: '^3.1.0' },
+    dcloudext: {
+      // 分类只在首次生成时写入；发布后由插件市场接管，脚本不再插手
+      ...(existing ? {} : { category: ['前端组件', '通用组件'] }),
+      type: 'component-vue',
+      declaration: {
+        ads: '本插件不含任何广告',
+        data: '不采集、不上传任何数据，不请求任何服务器',
+        permissions: '不申请任何系统权限',
       },
-      null,
-      2
-    ) + '\n'
-  )
+      npmurl: NPM_URL,
+      contact: { qq: '' },
+    },
+  }
+
+  return JSON.stringify(mergeOwned(owned, existing || {}), null, 2) + '\n'
+}
+
+/**
+ * 以脚本负责的字段为准，保留 existing 里已有的其他字段（含嵌套）。
+ *
+ * 插件发布后，HBuilderX 会把「uni-app 最低兼容版本」「各端兼容性矩阵」（uni_modules.platforms）、
+ * 是否适配暗黑 / 多语言 / 宽屏（dcloudext.darkmode / i18n / widescreen）、售价（dcloudext.sale）
+ * 等写进 package.json —— 这些不是脚本生成的，必须原样保留，否则每次 `build:uni-modules` 都会把它们冲掉。
+ */
+function mergeOwned(owned, existing) {
+  const out = { ...existing }
+  for (const [key, value] of Object.entries(owned)) {
+    const current = out[key]
+    out[key] = isPlainObject(value) && isPlainObject(current) ? mergeOwned(value, current) : value
+  }
+  return out
+}
+
+function isPlainObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value)
 }
 
 function buildReadme(version) {

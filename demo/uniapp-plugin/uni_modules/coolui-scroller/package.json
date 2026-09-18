@@ -9,7 +9,7 @@
     "长列表",
     "scroller",
     "组件库"
-],
+  ],
   "repository": "github:wzs28150/coolui-scroller",
   "engines": {
     "HBuilderX": "^3.1.0",
@@ -31,12 +31,12 @@
     "i18n": "x",
     "widescreen": "x",
     "sale": {
-        "regular": {
-            "price": "0.00"
-        },
-        "sourcecode": {
-            "price": "0.00"
-        }
+      "regular": {
+        "price": "0.00"
+      },
+      "sourcecode": {
+        "price": "0.00"
+      }
     }
   },
   "uni_modules": {

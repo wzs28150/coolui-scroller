@@ -40,6 +40,10 @@ uni-app 在 H5 端会额外渲染内置导航栏（高度就是 CSS 变量 `--wi
 - `#ifdef H5` 包裹后，这段样式在小程序 / App 端构建时会被剥离，行为不变。
 - 自定义导航栏（`navigationStyle: custom`）的页面 `--window-top` 为 0，无需处理。
 
+组件内部同样遵循这条规则：`coolui-scroller-handtip` 的全屏遮罩是 `position: fixed`，
+已经按 `--window-top` / `--window-bottom` 做了偏移（只在 H5 生效），所以它的顶部关闭按钮
+与「下拉刷新」提示不会被导航栏挡住 —— 用遮罩类组件时不必自己在页面里补救。
+
 ### 插槽与样式作用域
 
 小程序端组件插槽**不是作用域插槽**，且页面里 `scoped` 样式穿不进组件插槽。所以：

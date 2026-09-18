@@ -102,4 +102,5 @@ export default {
 
 - **属性改名**：原生用 `key`（Vue 中的保留字），uni-app 版改为 **`storageKey`**，默认值同为 `'isTipShow'`；
 - 新增 `close` 事件（原生没有）；
-- `top` / `bottom` / `left` / `right` 原生默认 `0`，uni-app 版默认 `''`（不显示对应方向的文字）。
+- `top` / `bottom` / `left` / `right` 原生默认 `0`，uni-app 版默认 `''`（不显示对应方向的文字）；
+- **H5 端自动避开内置导航栏**：遮罩是 `position: fixed`，而 H5 的内置导航栏（`--window-top`，默认 44px）算在页面视口里，组件内部已按它做了上下偏移，顶部的关闭按钮与「下拉刷新」提示不会被导航栏压住。小程序 / App 端导航栏在页面外，样式不变；`navigationStyle: custom` 的页面 `--window-top` 为 0，等价于不偏移。

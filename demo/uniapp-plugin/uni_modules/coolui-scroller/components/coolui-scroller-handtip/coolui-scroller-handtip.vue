@@ -128,6 +128,18 @@ const close = () => {
   font-size: 28rpx;
 }
 
+/* #ifdef H5 */
+/* H5 端 uni 的内置导航栏算在页面视口里（高度就是 --window-top，默认 44px），
+   而 fixed 的原点是整个视口 —— 不偏移的话，顶部 15px 处的关闭按钮和「下拉刷新」提示
+   会被导航栏压住，底部也会多出 44px 溢出屏幕。
+   小程序 / App 端导航栏在页面外，加了这条反而会错位，所以只在 H5 生效；
+   `navigationStyle: custom` 的页面 --window-top 为 0，等价于不偏移。 */
+.hand {
+  top: var(--window-top, 0px);
+  height: calc(100vh - var(--window-top, 0px) - var(--window-bottom, 0px));
+}
+/* #endif */
+
 .hand .close {
   position: absolute;
   right: 15px;
