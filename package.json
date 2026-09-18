@@ -10,6 +10,8 @@
     "dev": "pnpm run --filter ./doc docs:dev",
     "build": "pnpm run --filter ./doc docs:build",
     "docs:llms": "node scripts/build-llms.mjs",
+    "build:uni-modules": "node scripts/build-uni-modules.mjs",
+    "sync:plugin-demo": "node scripts/sync-plugin-demo.mjs",
     "push": "pnpm run --filter ./packages/native push",
     "push:uniapp": "pnpm run --filter ./packages/uniapp push",
     "dev:uniapp": "pnpm run --filter ./demo/uniapp dev:mp-weixin",

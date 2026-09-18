@@ -162,8 +162,10 @@ Page({
 | `doc/` | VitePress 文档站，**唯一事实来源**；`doc/.vitepress/config.js` 里维护 sidebar 组件清单 |
 | `doc/AGENTS.md` | 本文件：AI 协作说明，同时是两个包内 `AGENTS.md` 的来源 |
 | `demo/native/`、`demo/uniapp/` | 示例工程 |
+| `demo/uniapp-plugin/` | 发布 DCloud 插件市场用的 uni_modules 示例工程。**生成物**：`uni_modules/<插件ID>/` 来自 `packages/uniapp`，`pages/`、`static/`、`App.vue`、`pages.json` 等来自 `demo/uniapp/src`，统一由 `pnpm build:uni-modules` 生成，勿手改 |
 | `v2/`、`v3/`、`v4/` | 历史版本与文档构建产物，不要手改 |
 | `scripts/build-llms.mjs` | 生成 AI 文档：`doc/public/` 下的 `llms.txt` / `llms-full.txt`，以及 `packages/*/llms.txt` / `packages/*/AGENTS.md` |
+| `scripts/build-uni-modules.mjs`、`scripts/sync-plugin-demo.mjs` | 生成插件市场工程：前者把 `packages/uniapp` 同步成 `uni_modules` 插件，后者把 `demo/uniapp/src` 的示例页面转换（补 auto-import、改模块路径）后同步过来；`pnpm build:uni-modules` 会依次执行两者并自查 |
 
 ### 改一个组件要同步的地方
 
@@ -182,6 +184,8 @@ Page({
 | `pnpm dev` | 启动文档站开发服务 |
 | `pnpm build` | 构建文档站到 `v4/` |
 | `pnpm docs:llms` | 重新生成 AI 文档（`doc/public/` 下 + 两个 npm 包内） |
+| `pnpm build:uni-modules` | 生成 DCloud 插件市场工程：同步 `uni_modules/` 插件 + 从 `demo/uniapp/src` 同步示例页面（发布前跑这个） |
+| `pnpm sync:plugin-demo` | 只同步示例页面（`demo/uniapp/src` → `demo/uniapp-plugin`） |
 | `pnpm dev:uniapp` / `pnpm build:uniapp` | 编译 uni-app demo 到微信小程序 |
 | `cd packages/uniapp && pnpm type-check` | uni-app 版类型检查（vue-tsc） |
 

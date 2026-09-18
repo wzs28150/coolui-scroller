@@ -22,3 +22,6 @@ doc/.vitepress/cache/
 doc/.vitepress/.temp/
 
 demo/uniapp/dist/
+
+# HBuilderX / uni-app 构建产物
+unpackage/
