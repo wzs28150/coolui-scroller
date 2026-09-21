@@ -8,3 +8,4 @@ scripts/**
 **/*.ts
 .gitignore
 tsconfig.json
+DEVELOPMENT.md

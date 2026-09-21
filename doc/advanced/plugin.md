@@ -18,15 +18,21 @@ coolui-scroller 提供了编辑器扩展：写 `.wxml` 和 uni-app 的 Vue 模�
 
 ### 手动安装 VSIX（兜底方案）
 
-在组件库仓库的 `plugin` 目录执行：
+在扩展页面点「Download Extension」下载 `.vsix`（[Open VSX 页面](https://open-vsx.org/extension/coolui/coolui-scroller-vscode)同样可以下载），然后：
 
-```bash
-cd plugin
-npm install
-npm run package     # 生成 coolui-scroller-vscode-<version>.vsix
-```
+- 图形界面：扩展面板右上角 `⋯` → **Install from VSIX...** → 选择下载的 `.vsix`；
+- 命令行：`code --install-extension coolui-scroller-vscode-<version>.vsix`。
 
-然后：扩展面板右上角 `⋯` → **Install from VSIX...** → 选择生成的 `.vsix`。
+### 在微信开发者工具里使用
+
+微信开发者工具的编辑器兼容大部分 VS Code 扩展，但**不支持直接安装 `.vsix`**，需要解包成文件夹：
+
+1. 把下载的 `.vsix` 改后缀为 `.zip` 并解压，取出里面的 `extension` 文件夹；
+2. 拷进扩展目录：**设置 → 拓展设置 → 编辑器自定义扩展 → 打开扩展文件夹**
+   （文件夹建议命名为 `coolui.coolui-scroller-vscode-<版本>`）；
+3. 回到设置界面**启用**该扩展，然后**关闭并重新打开项目**。
+
+> 自定义扩展默认不启用，且启用 / 禁用是全局生效的。
 
 ## 功能
 
@@ -78,5 +84,5 @@ npm run package     # 生成 coolui-scroller-vscode-<version>.vsix
 
 ## 相关
 
-- 插件源码与开发说明：仓库 [`plugin/`](https://github.com/wzs28150/coolui-scroller/tree/dev/plugin) 目录（含元数据提取、打包、发布流程）
+- 插件源码：[仓库 `plugin/`](https://github.com/wzs28150/coolui-scroller/tree/dev/plugin)；元数据提取、打包与发布流程见 [`plugin/DEVELOPMENT.md`](https://github.com/wzs28150/coolui-scroller/blob/dev/plugin/DEVELOPMENT.md)
 - 版本记录见 [更新日志](/version)
